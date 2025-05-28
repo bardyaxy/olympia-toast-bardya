@@ -46,13 +46,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
     <style>
         :root {
+            /* Reverted Color Scheme */
             --toast-primary-orange: #FA5A0A; 
             --toast-secondary-orange-dark: #E04F0A;
             
             --toast-neutral-darkest: #0A2540; 
             --toast-neutral-dark: #333D4F;   
             --toast-neutral-medium: #6B778D; 
-            --toast-neutral-light: #F0F3F5;  
+            --toast-neutral-light: #F0F3F5;  /* Main page background */
             --toast-neutral-lightest: #FFFFFF;
 
             --text-primary: var(--toast-neutral-darkest);
@@ -60,7 +61,7 @@
             --text-on-dark-bg: var(--toast-neutral-lightest);
             --text-accent: var(--toast-primary-orange);
 
-            --bg-main: var(--toast-neutral-light);
+            --bg-main: var(--toast-neutral-light); /* Using the lighter gray for main background */
             --bg-hero-overlay-start: rgba(10, 37, 64, 0.6); 
             --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);   
             --bg-cta-solid: var(--toast-neutral-darkest);
@@ -70,6 +71,7 @@
             
             --hero-bg-image: 'olympia-hero.jpg'; 
             
+            /* Original Glass Morphism Style */
             --glass-bg: rgba(255, 255, 255, 0.65); 
             --glass-blur: 12px; 
             --glass-border-color: rgba(255, 255, 255, 0.75);
@@ -81,7 +83,6 @@
 
             --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
             --transition-fast: all 0.2s ease-out;
-            --transition-springy: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
         }
 
         body {
@@ -122,7 +123,7 @@
         .page-section.active { display: block; }
 
         .site-header {
-            padding: 12px 0; 
+            padding: 15px 0; 
             background-color: rgba(255,255,255,0.8); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -133,84 +134,42 @@
             box-shadow: 0 3px 12px rgba(0,0,0,0.04);
         }
 
-        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
+        .header-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; /* Allow wrapping on mobile */
+        }
         
         .header-brand { 
             display: flex; 
             align-items: center; 
-            gap: 12px; 
+            gap: 10px; 
         }
         .header-brand .site-main-logo { 
             max-height: 34px; 
             width: auto; 
             flex-shrink: 0;
         }
-        /* Logo Animation Container */
-        .logo-animation-container {
-            position: relative;
-            width: 100px; /* Adjust based on your logo/text width */
-            height: 36px; /* Match other header elements */
-            display: inline-flex; 
-            align-items: center;
-            justify-content: center; /* Center content if smaller than container */
-            vertical-align: middle; 
-            margin: 0 5px; /* Space around the animation */
+        .header-brand .bardya-personal-logo {
+            max-height: 34px; 
+            width: auto;
+            border-radius: 3px; 
             flex-shrink: 0;
+            margin-left: 5px; /* Space after Toast logo */
         }
-
-        .logo-animation-container .bardya-personal-logo-animated,
-        .logo-animation-container .animated-logo-text {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            backface-visibility: hidden;
-            transition: opacity 0.4s var(--transition-springy), transform 0.4s var(--transition-springy);
-        }
-
-        .logo-animation-container .bardya-personal-logo-animated {
-            max-height: 100%; /* Ensure logo fits */
-            max-width: 100%;
-            object-fit: contain;
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-        }
-
-        .logo-animation-container .animated-logo-text {
-            font-size: 0.75em; /* Adjust to fit well */
-            font-weight: 700;
-            color: var(--accent-color);
-            white-space: nowrap;
-            opacity: 0;
-            transform: scale(0.5) rotate(-10deg);
-        }
-
-        .logo-animation-container.show-text .bardya-personal-logo-animated {
-            opacity: 0;
-            transform: scale(0.5) rotate(10deg);
-        }
-        .logo-animation-container.show-text .animated-logo-text {
-            opacity: 1;
-            transform: scale(1) rotate(0deg);
-        }
-        /* End Logo Animation */
-
         .header-brand .your-name { 
-            font-size: 1.4em; 
+            font-size: 1.5em; 
             font-weight: 700; 
             color: var(--text-primary); 
-            margin: 0; 
+            margin-left: 8px; /* Space after personal logo */
             white-space: nowrap; 
         }
         
         .header-actions { 
             display: flex;
             align-items: center;
-            gap: 10px; 
+            gap: 15px; /* Increased gap */
             flex-shrink: 0; 
         }
         .header-nav {
@@ -227,22 +186,21 @@
         .header-nav a:hover, .header-nav a.active-nav { color: var(--accent-color); }
 
         .btn-header-cta {
-            padding: 9px 18px; 
-            font-size: 0.9em;
+            padding: 9px 20px; /* Slightly more padding */
+            font-size: 0.95em; /* Slightly larger */
             background-color: var(--accent-color);
-            color: var(--toast-white);
+            color: var(--toast-neutral-lightest);
             border: none;
             border-radius: var(--border-radius-button);
             font-weight: 600;
             cursor: pointer;
-            transition: var(--transition-main);
+            transition: var(--transition-fast);
             animation: pulseHeaderBtn 2.5s infinite ease-in-out; 
             white-space: nowrap;
         }
         .btn-header-cta:hover {
             background-color: var(--accent-color-darker);
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 12px rgba(250, 90, 10, 0.2);
+            transform: translateY(-1px);
             animation-play-state: paused; 
         }
 
@@ -252,109 +210,126 @@
             100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 90, 10, 0); }
         }
 
-        .hero {
-            text-align: center; padding: 80px 20px 70px; 
-            background-color: var(--toast-blue-dark);
-            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), url(var(--hero-bg-image)); 
-            background-size: cover; background-position: center center;
-            color: var(--text-on-dark-bg); margin-bottom: 50px; 
-            border-radius: 0 0 var(--border-radius-main) var(--border-radius-main); 
-        }
-        .hero h1 { font-size: 2.6em; font-weight: 800; color: var(--text-on-dark-bg); margin-bottom: 15px; text-shadow: 0 2px 5px rgba(0,0,0,0.3); line-height: 1.2; }
-        .hero .subtitle { font-size: 1.25em; margin-bottom: 30px; color: rgba(255,255,255,0.95); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; line-height: 1.6; }
-        .hero .btn { margin-top: 15px; }
-
-        .video-section { text-align: center; margin-bottom: 60px; }
-        .video-container { background-color: #111; width: 100%; max-width: 720px; aspect-ratio: 16 / 9; margin: 25px auto 0; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 12px 30px rgba(0,0,0,0.2); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
-        .video-container iframe { width: 100%; height: 100%; border: none; }
-
-        .content-section { padding: 50px 0; } 
-        
-        .pain-benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px; }
-        .benefit-card { 
-            background: var(--card-bg); 
-            border-radius: var(--border-radius-main); 
+        /* ... (rest of the CSS remains largely the same as the "Pulsing Header CTA" version) ... */
+        /* Ensure card styles use the reverted glass effect */
+        .benefit-card { /* Reverted to glass card style for benefits */
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: var(--border-radius-main);
+            border: 1px solid var(--glass-border-color);
             padding: 25px; 
             box-shadow: var(--card-shadow); 
             transition: var(--transition-main); 
-            opacity: 0; transform: translateY(20px); 
-            border: 1px solid var(--card-border-color); 
+            opacity: 0; transform: translateY(30px); 
         }
-        .benefit-card.is-visible { opacity: 1; transform: translateY(0); } 
-        .benefit-card:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(10, 37, 64, 0.12); }
-        .benefit-card h3 { font-size: 1.25em; font-weight: 700; margin-top: 0; margin-bottom: 12px; color: var(--text-primary); }
-        .benefit-card p { font-size: 0.95em; color: var(--text-secondary); line-height: 1.65; margin-bottom: 0;}
-
-        .local-proof { text-align: center; margin-bottom: 60px; }
-        .testimonial-carousel-wrapper { background: var(--card-bg); border-radius: var(--border-radius-main); padding: 35px 25px 25px; box-shadow: var(--card-shadow); position: relative; overflow: hidden; border: 1px solid var(--card-border-color); }
-        .testimonial-carousel-container { display: flex; transition: transform 0.5s ease-in-out; min-height: 200px; cursor: grab; user-select: none; -webkit-user-select: none; }
-        .testimonial-carousel-container:active { cursor: grabbing; }
-        .testimonial-carousel-item { min-width: 100%; box-sizing: border-box; padding: 0 10px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .testimonial-carousel-item.active-slide { opacity: 1; transform: scale(1); transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
-        .testimonial-carousel-item:not(.active-slide) { opacity: 0.6; transform: scale(0.98); transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out; }
-        .testimonial-image-placeholder { width: 60px; height: 60px; border-radius: 50%; background-color: #e9ecef; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; color: var(--toast-neutral-medium); border: 2px solid var(--toast-neutral-light); overflow: hidden; }
-        .testimonial-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .testimonial-carousel-item p { font-style: normal; font-size: 1.05em; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.7; max-width: 580px; margin-left: auto; margin-right: auto; }
-        .testimonial-carousel-item p::before { content: "“"; font-size: 2.2em; color: var(--accent-color); font-weight: 800; display: inline-block; margin-right: 4px; line-height: 0.8; }
-        .testimonial-carousel-item span { display: block; font-weight: 600; color: var(--text-primary); font-size: 0.9em; margin-top: 8px; }
-        .testimonial-carousel-dots { text-align: center; margin-top: 18px; }
-        .carousel-dot { display: inline-block; width: 9px; height: 9px; background-color: var(--toast-neutral-medium); border-radius: 50%; margin: 0 4px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
-        .carousel-dot.active { background-color: var(--accent-color); transform: scale(1.1); }
-        .carousel-nav { text-align: center; margin-top: 18px; }
-        .carousel-arrow { background-color: var(--toast-gray-subtle); color: var(--toast-white); border: none; border-radius: 50%; width: 32px; height: 32px; font-size: 1.1em; line-height: 32px; text-align: center; cursor: pointer; margin: 0 8px; transition: background-color 0.3s ease, transform 0.2s ease; }
-        .carousel-arrow:hover { background-color: var(--accent-color); transform: scale(1.05); }
-        .carousel-arrow:focus { outline: 2px solid var(--accent-color); outline-offset: 1px; }
-
-        .urgency-bar { background-color: var(--accent-color); color: var(--text-on-dark-bg); text-align: center; padding: 10px 18px; font-weight: 500; font-size: 0.9em; margin: 35px auto; border-radius: var(--border-radius-button); max-width: 650px; box-shadow: 0 4px 10px rgba(250,90,10,0.2); }
-
-        .glass-card.about-section { 
-            background: var(--card-bg);
-            border: 1px solid var(--card-border-color);
-            box-shadow: var(--card-shadow);
-            padding: 35px; 
-            margin-bottom: 50px; 
-            opacity: 0; transform: translateY(20px); 
+        .glass-card.about-section { /* Ensure about card uses glass */
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: var(--border-radius-main);
+            border: 1px solid var(--glass-border-color);
+            padding: 30px; 
+            margin-bottom: 40px; 
+            box-shadow: var(--card-shadow); 
+            opacity: 0; transform: translateY(30px); 
             transition: var(--transition-main);
-            backdrop-filter: none; 
-            -webkit-backdrop-filter: none;
         }
-        .glass-card.about-section.is-visible { opacity: 1; transform: translateY(0); }
-        .glass-card.about-section:hover { transform: translateY(-6px); box-shadow: 0 12px 30px rgba(10, 37, 64, 0.12); }
+        .testimonial-carousel-wrapper { /* Testimonials also use glass */
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: var(--border-radius-main); 
+            padding: 30px 20px 20px; 
+            box-shadow: var(--card-shadow); 
+            position: relative; 
+            overflow: hidden; 
+            border: 1px solid var(--glass-border-color);
+        }
+        /* Make sure text inside glass cards has good contrast */
+        .benefit-card h3, .benefit-card p,
+        .testimonial-carousel-item p, .testimonial-carousel-item span,
+        .glass-card.about-section p, .glass-card.about-section h3, .glass-card.about-section li {
+            color: var(--text-primary); /* Ensure dark text on light glass */
+        }
+        .testimonial-carousel-item p::before { color: var(--accent-color); } /* Quote mark color */
+        .why-toast-list li::before { color: var(--accent-color); } /* Checkmark color */
 
-        .section-title { font-size: 2em; font-weight: 700; color: var(--text-primary); margin-bottom: 35px; text-align: center; }
+
+        .hero {
+            text-align: center; padding: 70px 20px 60px; 
+            background-color: var(--toast-neutral-darkest);
+            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), url(var(--hero-bg-image)); 
+            background-size: cover; background-position: center center;
+            color: var(--text-on-dark-bg); margin-bottom: 40px;
+        }
+        .hero h1 { font-size: 2.8em; color: var(--text-on-dark-bg); margin-bottom: 20px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.35); line-height: 1.25; }
+        .hero .subtitle { font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
+        .hero .btn { margin-top: 10px; }
+
+        .video-section { text-align: center; margin-bottom: 50px; }
+        .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
+        .video-container iframe { width: 100%; height: 100%; border: none; }
+
+        .content-section { padding: 40px 0; }
         
-        .cta-solid-bg { background-color: var(--bg-cta-solid); color: var(--text-on-dark-bg); padding: 50px 30px; border-radius: var(--border-radius-main); text-align: center; margin-bottom: 50px; opacity: 0; transform: translateY(20px); transition: var(--transition-main); }
+        .pain-benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
+        /* .benefit-card styles updated above to use glass */
+        .benefit-card.is-visible { opacity: 1; transform: translateY(0); } 
+        .benefit-card:hover { transform: translateY(-8px) scale(var(--hover-scale)); box-shadow: 0 18px 45px rgba(0,0,0,0.12); border-left-color: var(--toast-secondary-orange-dark); }
+        .benefit-card h3 { font-size: 1.3em; margin-top: 0; margin-bottom: 10px; }
+        .benefit-card p { font-size: 1em; line-height: 1.6; margin-bottom: 0;}
+
+        .local-proof { text-align: center; margin-bottom: 50px; }
+        /* .testimonial-carousel-wrapper styles updated above to use glass */
+        .testimonial-carousel-container { display: flex; transition: transform 0.5s ease-in-out; min-height: 220px; cursor: grab; user-select: none; -webkit-user-select: none; }
+        .testimonial-carousel-container:active { cursor: grabbing; }
+        .testimonial-carousel-item { min-width: 100%; box-sizing: border-box; padding: 0 15px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+        .testimonial-carousel-item.active-slide { opacity: 1; transform: scale(1); transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        .testimonial-carousel-item:not(.active-slide) { opacity: 0.5; transform: scale(0.95); transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
+        .testimonial-image-placeholder { width: 70px; height: 70px; border-radius: 50%; background-color: #e9ecef; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; color: var(--toast-neutral-medium); border: 2px solid var(--toast-neutral-light); overflow: hidden; }
+        .testimonial-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        .testimonial-carousel-item p { font-style: italic; font-size: 1.1em; margin-bottom: 15px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto; }
+        .testimonial-carousel-item p::before { content: "“"; font-size: 2.5em; font-weight: 700; display: inline-block; margin-right: 5px; line-height: 0.8; }
+        .testimonial-carousel-item span { display: block; font-weight: 600; font-size: 0.95em; margin-top: 10px; }
+        .testimonial-carousel-dots { text-align: center; margin-top: 15px; }
+        .carousel-dot { display: inline-block; width: 10px; height: 10px; background-color: var(--toast-neutral-medium); border-radius: 50%; margin: 0 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
+        .carousel-dot.active { background-color: var(--accent-color); transform: scale(1.2); }
+        .carousel-nav { text-align: center; margin-top: 15px; }
+        .carousel-arrow { background-color: var(--toast-neutral-medium); color: var(--toast-neutral-lightest); border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 1.2em; line-height: 35px; text-align: center; cursor: pointer; margin: 0 10px; transition: background-color 0.3s ease, transform 0.2s ease; }
+        .carousel-arrow:hover { background-color: var(--accent-color); transform: scale(1.1); }
+        .carousel-arrow:focus { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+
+        .urgency-bar { background-color: var(--accent-color); color: var(--text-on-dark-bg); text-align: center; padding: 12px 20px; font-weight: 500; font-size: 0.95em; margin: 30px auto; border-radius: 8px; max-width: 700px; }
+
+        /* .glass-card styles updated above */
+        .glass-card.is-visible { opacity: 1; transform: translateY(0); }
+        .glass-card:hover { transform: translateY(-8px) scale(var(--hover-scale)); box-shadow: 0 18px 45px rgba(0,0,0,0.12); }
+
+        .section-title { font-size: 2.1em; color: var(--text-primary); margin-bottom: 35px; text-align: center; font-weight: 700; }
+        
+        .cta-solid-bg { background-color: var(--bg-cta-solid); color: var(--text-on-dark-bg); padding: 45px 30px; border-radius: var(--border-radius-main); text-align: center; margin-bottom: 40px; opacity: 0; transform: translateY(30px); transition: var(--transition-main); }
         .cta-solid-bg.is-visible { opacity: 1; transform: translateY(0); }
-        .cta-solid-bg .section-title { color: var(--text-on-dark-bg); font-weight: 700; }
-        .cta-solid-bg p { color: rgba(255,255,255,0.9); font-size: 1.2em; max-width: 620px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .cta-solid-bg .section-title { color: var(--text-on-dark-bg); }
+        .cta-solid-bg p { color: rgba(255,255,255,0.85); font-size: 1.15em; max-width: 600px; margin-left: auto; margin-right: auto; }
 
-        .btn, a.btn { 
-            background-color: var(--accent-color); color: var(--text-on-dark-bg); padding: 14px 30px; 
-            text-decoration: none; border-radius: var(--border-radius-button); font-size: 1.05em; 
-            font-weight: 600; transition: var(--transition-main); display: inline-block;
-            border: none; cursor: pointer; box-shadow: 0 4px 15px rgba(250, 90, 10, 0.15); 
-        }
-        .btn:hover, a.btn:hover { 
-            background-color: var(--accent-color-darker); 
-            transform: translateY(-2px); 
-            box-shadow: 0 6px 18px rgba(250, 90, 10, 0.25); 
-            color: var(--text-on-dark-bg);
-        }
-        .cta-solid-bg .btn, .cta-solid-bg a.btn { background-color: var(--toast-white); color: var(--toast-blue-dark); box-shadow: 0 4px 15px rgba(255,255,255,0.1); }
-        .cta-solid-bg .btn:hover, .cta-solid-bg a.btn:hover { background-color: #f3f3f3; color: var(--toast-blue-dark); box-shadow: 0 6px 18px rgba(255,255,255,0.2); }
+        .btn { background-color: var(--accent-color); color: var(--text-on-dark-bg); padding: 15px 32px; text-decoration: none; border-radius: var(--border-radius-button); font-size: 1.15em; /* Increased font size */ font-weight: 600; transition: var(--transition-main); display: inline-block; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); }
+        .btn:hover { background-color: var(--accent-color-darker); transform: translateY(-3px) scale(1.03); box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3); }
+        .cta-solid-bg .btn { background-color: var(--toast-neutral-lightest); color: var(--text-primary); box-shadow: 0 5px 15px rgba(255,255,255,0.15); }
+        .cta-solid-bg .btn:hover { background-color: #f0f0f0; color: var(--text-primary); box-shadow: 0 7px 18px rgba(255,255,255,0.25); }
 
-        .about-section { padding: 30px; }
+        .about-section { padding: 30px; } /* About section will use glass-card styles */
         .about-section h2 { margin-top: 0; }
         .about-bardya-content { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 25px; }
-        .bardya-actual-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); border: 3px solid var(--toast-white); }
+        .bardya-actual-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .bardya-photo-placeholder-text { width: 150px; height: 150px; border-radius: 50%; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 0.9em; color: var(--toast-neutral-medium); text-align: center; }
-        .about-section .bio p { margin-bottom: 15px; font-size: 1em; text-align: left; color: var(--text-secondary); }
+        .about-section .bio p { margin-bottom: 15px; font-size: 1.05em; text-align: left;}
         .why-toast-list { list-style: none; padding-left: 0; }
-        .why-toast-list li { padding-left: 25px; position: relative; margin-bottom: 10px; font-size: 1em; color: var(--text-secondary); }
-        .why-toast-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: var(--accent-color); position: absolute; left: 0; top: 3px; font-size: 0.9em; }
-        .backup-links a { display: inline-block; margin: 5px 10px 5px 0; color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.2s ease; font-size: 0.95em; }
+        .why-toast-list li { padding-left: 25px; position: relative; margin-bottom: 10px; font-size: 1.05em; }
+        .why-toast-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; }
+        .backup-links a { display: inline-block; margin: 5px 10px 5px 0; color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
         .backup-links a:hover { text-decoration: underline; color:var(--accent-color-darker); }
-        .backup-links a i { margin-right: 6px; }
+        .backup-links a i { margin-right: 5px; }
 
         .popup-overlay { 
             position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
@@ -452,7 +427,7 @@
             } 
             .header-brand .your-name { font-size: 1.2em; white-space: normal; } 
             .header-brand .site-main-logo { max-height: 30px; }
-            .header-brand .bardya-personal-logo { max-height: 30px; } 
+            .header-brand .bardya-personal-logo { max-height: 32px; } /* Increased mobile size */
             .header-actions { 
                 margin-top: 5px; 
                 width: auto; 
@@ -461,8 +436,7 @@
             }
             .header-nav { justify-content: flex-end; flex-grow: 1; gap: 10px; } 
             .header-nav a { margin-left: 0; margin-right: 8px; font-size: 0.85em; }
-            .btn-header-cta { font-size: 0.85em; padding: 7px 10px;}
-
+            .btn-header-cta { font-size: 0.9em; padding: 8px 12px;}
             .hero { padding: 60px 15px 50px; }
             .hero h1 { font-size: 2.2em; }
             .hero .subtitle { font-size: 1.1em; }
@@ -559,11 +533,10 @@
                 <div class="header-brand">
                     <img src="toast-logo.png" alt="Toast POS Official Logo" class="site-main-logo"
                          onerror="this.style.display='none'; ">
-                    <div class="logo-animation-container">
-                        <img src="bardya-logo.png" alt="Bardya Banihashemi Logo" class="bardya-personal-logo-animated">
-                        <span class="animated-logo-text">Better Call B</span>
+                    <div class="personal-brand-group">
+                         <img src="bardya-logo.png" alt="Bardya Banihashemi Logo" class="bardya-personal-logo">
+                         <span class="your-name">Bardya Banihashemi</span>
                     </div>
-                    <span class="your-name">Bardya Banihashemi</span>
                 </div>
                 <div class="header-actions">
                     <nav class="header-nav">
@@ -773,15 +746,13 @@
             }
         });
         
-        // const connectBtn = document.getElementById('connectWithBardyaBtn'); // This button was removed from openPopupButtons as it's part of the carousel now.
-        // If you still have a button with this ID that should open the popup, you can re-add its listener:
-        // if (connectBtn) { 
-        //     connectBtn.addEventListener('click', (e) => {
-        //         e.preventDefault();
-        //         openSchedulePopup(connectBtn.id); 
-        //     });
-        // }
-
+        const connectBtn = document.getElementById('connectWithBardyaBtn'); 
+        if (connectBtn) { 
+            connectBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openSchedulePopup(connectBtn.id); 
+            });
+        }
 
         if(closeSchedulePopupBtn) closeSchedulePopupBtn.addEventListener('click', closeSchedulePopup);
 
@@ -858,7 +829,6 @@
         });
         if(pageSections.length > 0 && document.getElementById('page1')) document.getElementById('page1').classList.add('active');
 
-        // Enhanced Testimonial Carousel Logic
         const carousel = document.querySelector('.testimonial-carousel-container');
         const carouselItems = document.querySelectorAll('.testimonial-carousel-item');
         const dotsContainer = document.querySelector('.testimonial-carousel-dots');
