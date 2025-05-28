@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bardya Banihashemi - Toast POS | Your Olympia Restaurant Partner</title>
+    
+    <meta name="description" content="Bardya Banihashemi, your local Toast rep for Olympia. Helping Olympia restaurants streamline operations, reduce headaches, and boost margins. Let's connect for a 15-minute profit check.">
+    <meta property="og:title" content="Bardya Banihashemi - Toast POS | Olympia Restaurant Profit Check">
+    <meta property="og:description" content="Run your Olympia restaurant—don’t let tech run you. Bardya Banihashemi, your local Toast expert, offers a 15-min profit check.">
+    <meta property="og:image" content="YOUR_SOCIAL_SHARE_IMAGE_URL_HERE"> 
+    <meta property="og:url" content="YOUR_LANDING_PAGE_URL_HERE"> 
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <style>
+        :root {
+            /* This color palette is from before the strict "Toast Theme" was applied, as per rollback request */
+            --toast-primary-orange: #FA5A0A; 
+            --toast-secondary-orange-dark: #E04F0A;
+            
+            --toast-neutral-darkest: #0A2540; 
+            --toast-neutral-dark: #333D4F;   
+            --toast-neutral-medium: #6B778D; 
+            --toast-neutral-light: #F0F3F5;  
+            --toast-neutral-lightest: #FFFFFF;
+
+            --text-primary: var(--toast-neutral-darkest);
+            --text-secondary: var(--toast-neutral-dark);
+            --text-on-dark-bg: var(--toast-neutral-lightest);
+            --text-accent: var(--toast-primary-orange);
+
+            --bg-main: var(--toast-neutral-light);
+            --bg-hero-overlay-start: rgba(10, 37, 64, 0.7); 
+            --bg-hero-overlay-end: rgba(10, 37, 64, 0.9);   
+            --bg-cta-solid: var(--toast-neutral-darkest);
+            
+            --accent-color: var(--toast-primary-orange);
+            --accent-color-darker: var(--toast-secondary-orange-dark);
+            
+            /* IMPORTANT HERO IMAGE: Replace placeholder with a high-quality, authentic photo of Olympia (e.g., waterfront, Capitol dome at dusk). This is crucial for local connection. */
+            --hero-bg-image: 'https://placehold.co/1600x900/4A5568/FFFFFF?text=Olympia+Waterfront+Dusk&font=Inter'; 
+            
+            --glass-bg: rgba(255, 255, 255, 0.65); 
+            --glass-blur: 12px; 
+            --glass-border-color: rgba(255, 255, 255, 0.75);
+            --card-shadow: 0 16px 40px rgba(0, 0, 0, 0.08); 
+            
+            --hover-scale: 1.03; 
+            --border-radius-main: 18px; 
+            --border-radius-button: 30px; 
+
+            --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --transition-fast: all 0.2s ease-out;
+        }
+
+        body {
+            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-main); 
+            color: var(--text-primary);
+            line-height: 1.75; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0 20px; /* Original padding */
+            box-sizing: border-box;
+        }
+
+        .page-section { display: none; }
+        .page-section.active { display: block; }
+
+        .site-header {
+            padding: 15px 0; /* Adjusted padding for potentially taller mobile header */
+            background-color: rgba(255,255,255,0.8); 
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000; 
+            box-shadow: 0 3px 12px rgba(0,0,0,0.04);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* Allow wrapping for mobile */
+        }
+
+        .header-brand { display: flex; align-items: center; }
+        .header-brand .your-name { font-size: 1.6em; font-weight: 700; color: var(--text-primary); margin-right: 18px; }
+        .header-brand .toast-logo { max-height: 36px; width: auto; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.05)); }
+        .toast-logo-placeholder-text { font-size: 0.7em; color: var(--text-secondary); background-color: #e0e0e0; padding: 6px 12px; border-radius: 6px; display: inline-block; }
+        
+        .header-actions { /* New wrapper for nav and CTA button */
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Gap between nav and button */
+        }
+        .header-nav a {
+            margin-left: 15px; 
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+        .header-nav a:first-child { margin-left: 0; }
+        .header-nav a:hover, .header-nav a.active-nav { color: var(--accent-color); }
+
+        .btn-header-cta {
+            padding: 8px 16px;
+            font-size: 0.9em;
+            background-color: var(--accent-color);
+            color: var(--toast-neutral-lightest);
+            border: none;
+            border-radius: var(--border-radius-button);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            animation: pulseHeaderBtn 2.5s infinite ease-in-out; /* Added pulse animation */
+        }
+        .btn-header-cta:hover {
+            background-color: var(--accent-color-darker);
+            transform: translateY(-1px);
+            animation-play-state: paused; /* Pause animation on hover */
+        }
+
+        @keyframes pulseHeaderBtn {
+            0% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(250, 90, 10, 0.4);
+            }
+            70% { 
+                transform: scale(1.03); 
+                box-shadow: 0 0 0 8px rgba(250, 90, 10, 0); 
+            }
+            100% { 
+                transform: scale(1); 
+                box-shadow: 0 0 0 0 rgba(250, 90, 10, 0);
+            }
+        }
+
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px 60px; 
+            background-color: var(--toast-neutral-darkest);
+            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), url(var(--hero-bg-image)); 
+            background-size: cover;
+            background-position: center center;
+            color: var(--text-on-dark-bg);
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.8em; 
+            color: var(--text-on-dark-bg); 
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.35);
+            line-height: 1.25;
+        }
+
+        .hero .subtitle {
+            font-size: 1.3em; 
+            margin-bottom: 30px;
+            color: rgba(255,255,255,0.9); 
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+        }
+        .hero .btn { margin-top: 10px; }
+
+        .video-section { text-align: center; margin-bottom: 50px; }
+        .video-container { 
+            background-color: #000; 
+            width: 100%;
+            max-width: 680px; 
+            aspect-ratio: 16 / 9; 
+            margin: 20px auto 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-main);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25); 
+            font-size: 1.2em;
+            color: var(--text-on-dark-bg);
+            overflow: hidden; 
+        }
+        .video-container iframe { width: 100%; height: 100%; border: none; }
+
+        .content-section { padding: 40px 0; }
+        
+        .pain-benefit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        .benefit-card {
+            background: var(--toast-neutral-lightest); 
+            border-radius: var(--border-radius-main);
+            padding: 25px;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-main);
+            opacity: 0; transform: translateY(30px); 
+            border-left: 5px solid var(--accent-color);
+        }
+        .benefit-card.is-visible { opacity: 1; transform: translateY(0); } 
+        .benefit-card:hover { 
+            transform: translateY(-8px) scale(var(--hover-scale)); 
+            box-shadow: 0 18px 45px rgba(0,0,0,0.12); 
+            border-left-color: var(--toast-secondary-orange-dark); 
+        }
+        .benefit-card h3 { font-size: 1.3em; margin-top: 0; margin-bottom: 10px; color: var(--text-primary); }
+        .benefit-card p { font-size: 1em; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;}
+
+        /* Enhanced Testimonial Carousel Styles */
+        .local-proof { text-align: center; margin-bottom: 50px; }
+        .testimonial-carousel-wrapper {
+            background: var(--toast-neutral-lightest); 
+            border-radius: var(--border-radius-main);
+            padding: 30px 20px 20px; 
+            box-shadow: var(--card-shadow);
+            position: relative;
+            overflow: hidden; 
+        }
+        .testimonial-carousel-container {
+            display: flex; 
+            transition: transform 0.5s ease-in-out; 
+            min-height: 200px; 
+            cursor: grab;
+            user-select: none; 
+            -webkit-user-select: none;
+        }
+        .testimonial-carousel-container:active { cursor: grabbing; }
+
+        .testimonial-carousel-item {
+            min-width: 100%; 
+            box-sizing: border-box;
+            padding: 0 15px; 
+            text-align: center;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center;
+        }
+        .testimonial-carousel-item.active-slide { 
+            opacity: 1;
+            transform: scale(1);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+        }
+        .testimonial-carousel-item:not(.active-slide) {
+             opacity: 0.5; 
+             transform: scale(0.95);
+             transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; 
+        }
+        .testimonial-image-placeholder { 
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #e0e0e0; 
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8em;
+            color: var(--toast-neutral-medium);
+        }
+
+        .testimonial-carousel-item p {
+            font-style: italic;
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            line-height: 1.7;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .testimonial-carousel-item p::before {
+            content: "“";
+            font-size: 2.5em;
+            color: var(--accent-color);
+            font-weight: 700;
+            display: inline-block; 
+            margin-right: 5px;
+            line-height: 0.8;
+        }
+        .testimonial-carousel-item span {
+            display: block;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.95em;
+            margin-top: 10px;
+        }
+        .testimonial-carousel-dots {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .carousel-dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background-color: var(--toast-neutral-medium);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .carousel-dot.active {
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        .urgency-bar {
+            background-color: var(--accent-color);
+            color: var(--text-on-dark-bg);
+            text-align: center;
+            padding: 12px 20px;
+            font-weight: 500;
+            font-size: 0.95em;
+            margin: 30px auto;
+            border-radius: 8px;
+            max-width: 700px;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-radius: var(--border-radius-main);
+            border: 1px solid var(--glass-border-color);
+            padding: 30px; 
+            margin-bottom: 40px; 
+            box-shadow: var(--card-shadow);
+            opacity: 0; transform: translateY(30px); 
+            transition: var(--transition-main);
+        }
+        .glass-card.is-visible { opacity: 1; transform: translateY(0); }
+        .glass-card:hover { transform: translateY(-8px) scale(var(--hover-scale)); box-shadow: 0 18px 45px rgba(0,0,0,0.12); }
+
+        .section-title { font-size: 2.1em; color: var(--text-primary); margin-bottom: 35px; text-align: center; font-weight: 700; }
+        
+        .cta-solid-bg {
+            background-color: var(--bg-cta-solid); color: var(--text-on-dark-bg); padding: 45px 30px;
+            border-radius: var(--border-radius-main); text-align: center; margin-bottom: 40px;
+            opacity: 0; transform: translateY(30px); 
+            transition: var(--transition-main);
+        }
+        .cta-solid-bg.is-visible { opacity: 1; transform: translateY(0); }
+        .cta-solid-bg .section-title { color: var(--text-on-dark-bg); }
+        .cta-solid-bg p { color: rgba(255,255,255,0.85); font-size: 1.15em; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+        .btn {
+            background-color: var(--accent-color); color: var(--text-on-dark-bg); padding: 15px 32px; 
+            text-decoration: none; border-radius: var(--border-radius-button); font-size: 1.1em; 
+            font-weight: 600; transition: var(--transition-main); display: inline-block;
+            border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); 
+        }
+        .btn:hover { background-color: var(--accent-color-darker); transform: translateY(-3px) scale(1.03); box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3); }
+        
+        .cta-solid-bg .btn { background-color: var(--toast-neutral-lightest); color: var(--text-primary); box-shadow: 0 5px 15px rgba(255,255,255,0.15); }
+        .cta-solid-bg .btn:hover { background-color: #f0f0f0; color: var(--text-primary); box-shadow: 0 7px 18px rgba(255,255,255,0.25); }
+
+        .about-section { padding: 30px; }
+        .about-section h2 { margin-top: 0; }
+        .about-bardya-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+        .bardya-photo-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #e0e0e0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9em;
+            color: var(--toast-neutral-medium);
+            text-align: center;
+        }
+        .about-section .bio p { margin-bottom: 15px; font-size: 1.05em; text-align: left;}
+
+
+        .why-toast-list { list-style: none; padding-left: 0; }
+        .why-toast-list li { padding-left: 25px; position: relative; margin-bottom: 10px; font-size: 1.05em; }
+        .why-toast-list li::before { 
+            content: "\f00c"; 
+            font-family: "Font Awesome 6 Free"; font-weight: 900;
+            color: var(--accent-color); position: absolute; left: 0; top: 2px;
+        }
+        .backup-links a { display: inline-block; margin: 5px 10px 5px 0; color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
+        .backup-links a:hover { text-decoration: underline; color:var(--accent-color-darker); }
+        .backup-links a i { margin-right: 5px; }
+
+        .popup-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(10, 37, 64, 0.88); display: flex; 
+            align-items: center; justify-content: center; z-index: 1001; 
+            opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .popup-content {
+            background-color: var(--toast-neutral-lightest); padding: 35px; border-radius: var(--border-radius-main);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.15); width: 90%; max-width: 500px; 
+            text-align: center; transform: translateY(25px) scale(0.95); 
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s ease; 
+            opacity: 0;
+        }
+        .popup-overlay.active { opacity: 1; visibility: visible; }
+        .popup-overlay.active .popup-content { transform: translateY(0) scale(1); opacity: 1; }
+        .popup-content h3 { margin-top: 0; margin-bottom: 18px; color: var(--text-primary); font-size: 1.7em; font-weight: 700; }
+        .popup-content p { margin-bottom: 25px; font-size: 1.05em; color: var(--text-secondary); line-height: 1.7; }
+        .popup-content input[type="text"], .popup-content input[type="email"], .popup-content input[type="tel"] {
+            width: calc(100% - 28px); padding: 13px; margin-bottom: 18px; 
+            border: 1px solid #CFD8DC; border-radius: 10px; font-size: 1em;
+            font-family: 'Inter', sans-serif; transition: var(--transition-main);
+        }
+        .popup-content input[type="text"]:focus, .popup-content input[type="email"]:focus, .popup-content input[type="tel"]:focus {
+            border-color: var(--accent-color); box-shadow: 0 0 0 3px rgba(250, 90, 10, 0.15); outline: none;
+        }
+        .popup-close {
+            position: absolute; top: 18px; right: 18px; font-size: 1.8em; 
+            color: var(--toast-neutral-medium); cursor: pointer; background: none; border: none;
+            padding: 5px; line-height: 1; transition: var(--transition-main);
+        }
+        .popup-close:hover { color: var(--text-primary); transform: rotate(90deg); }
+
+        .site-footer {
+            text-align: center; padding: 45px 20px; margin-top: 25px; 
+            background-color: var(--toast-neutral-darkest); color: rgba(255,255,255,0.75);
+        }
+        .site-footer p { margin: 8px 0; font-size: 0.95em; }
+        .site-footer p:first-child { font-weight: 600; color: var(--text-on-dark-bg); }
+
+        .sticky-cta-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .sticky-cta-button.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sticky-cta-button .btn {
+             animation: pulseAnimation 2.5s infinite ease-in-out 1s; 
+        }
+
+        @keyframes pulseAnimation { 
+            0% { transform: scale(1); box-shadow: 0 3px 10px rgba(250, 90, 10, 0.2); }
+            50% { transform: scale(1.05); box-shadow: 0 5px 18px rgba(250, 90, 10, 0.35); }
+            100% { transform: scale(1); box-shadow: 0 3px 10px rgba(250, 90, 10, 0.2); }
+        }
+
+
+        /* Responsive Adjustments - Mobile First Approach */
+        @media (max-width: 768px) {
+            .container { padding: 0 15px; }
+            .header-content { flex-direction: column; align-items: stretch; gap: 10px; } 
+            .header-brand { justify-content: space-between; width: 100%;} 
+            .header-brand .your-name { font-size: 1.3em; }
+            .header-brand .toast-logo { max-height: 28px; }
+            .header-actions { width: 100%; justify-content: space-between; margin-top: 5px; }
+            .header-nav { justify-content: flex-start; } 
+            .header-nav a { margin-left: 0; margin-right: 10px; font-size: 0.9em; }
+            .btn-header-cta { font-size: 0.9em; padding: 8px 12px;}
+
+
+            .hero { padding: 50px 15px 40px; }
+            .hero h1 { font-size: 2em; }
+            .hero .subtitle { font-size: 1.05em; }
+            .hero .btn { font-size: 1em; padding: 12px 28px; }
+
+            .video-container { font-size: 1em; }
+            .content-section { padding: 30px 0; }
+            .pain-benefit-grid { gap: 20px; }
+            .benefit-card { padding: 20px; }
+            .benefit-card:hover { transform: translateY(-5px); }
+            .benefit-card h3 { font-size: 1.2em; }
+            .benefit-card p { font-size: 0.95em; }
+            
+            .section-title { font-size: 1.7em; margin-bottom: 25px; }
+            .glass-card, .cta-solid-bg { padding: 25px; margin-bottom: 30px; }
+            .glass-card:hover { transform: translateY(-5px); } 
+            
+            .local-proof-logos { display: none; }
+            .local-proof-quote { font-size: 0.9em; }
+            .testimonial-carousel-container { min-height: auto; padding-bottom: 15px;} 
+            .testimonial-carousel-item p { font-size: 1em; }
+            .testimonial-image-placeholder { width: 60px; height: 60px; margin-bottom: 10px; }
+
+
+            .urgency-bar { font-size: 0.9em; padding: 10px 15px; }
+
+            .popup-content { padding: 25px; }
+            .popup-content h3 { font-size: 1.5em; }
+            .popup-content p { font-size: 1em; }
+
+            .sticky-cta-button .btn { font-size: 0.9em; padding: 10px 20px; }
+            .site-footer p { font-size: 0.9em; }
+        }
+
+        @media (max-width: 480px) {
+            .header-brand .your-name { font-size: 1.2em; }
+            .header-actions { flex-direction: column; align-items: stretch; gap: 10px;}
+            .header-nav { justify-content: center; } 
+            .btn-header-cta { width: 100%; text-align: center; } 
+
+
+            .hero h1 { font-size: 1.7em; }
+            .hero .subtitle { font-size: 0.95em; }
+            .btn { padding: 12px 22px; font-size: 0.95em; }
+            .section-title { font-size: 1.5em; }
+            .benefit-card h3 {font-size: 1.1em;}
+            .benefit-card p {font-size: 0.85em;}
+            .testimonial-carousel-item p {font-size: 0.9em;}
+            .testimonial-carousel-item span {font-size: 0.8em;}
+            .popup-content h3 { font-size: 1.3em; }
+            .popup-content p { font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-brand">
+                    <span class="your-name">Bardya Banihashemi</span>
+                    <img src="https://placehold.co/120x38/FF6600/FFFFFF?text=Toast+Logo&font=Inter" alt="Toast POS Official Logo" class="toast-logo"
+                         onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'toast-logo-placeholder-text\'>Toast Logo</span>';">
+                </div>
+                <div class="header-actions">
+                    <nav class="header-nav">
+                        <a href="#page1" class="nav-link active-nav">Home</a>
+                        <a href="#page2" class="nav-link">About Bardya</a>
+                    </nav>
+                    <button class="btn-header-cta" id="headerBookCallBtn">Book a Call</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="page1" class="page-section active">
+        <main>
+            <section class="hero">
+                <div class="container">
+                    <h1>Run your Olympia restaurant—don’t let tech run you.</h1>
+                    <p class="subtitle">I’m Bardya Banihashemi, your local Toast rep for Olympia. One platform, fewer headaches, bigger margins. My goal is to build a real partnership to help your Olympia establishment flourish.</p>
+                    <button class="btn" id="heroProfitCheckBtn">15-Minute Profit Check &rarr;</button>
+                </div>
+            </section>
+
+            <div class="container content-section">
+                <section class="video-section animated-section">
+                    <h2 class="section-title" style="margin-bottom: 15px;">A Quick Message for Olympia Restaurateurs</h2>
+                    <div class="video-container">
+                        <!-- 
+                            VIDEO EMBED: Replace the text below with your iframe.
+                            VIDEO CONTENT GUIDELINES:
+                            - Film face-to-camera, ideally in a recognizable Olympia spot.
+                            - Script Outline: Your Name -> "Your Local Toast Rep for Olympia" -> Common Olympia restaurant pain point (e.g., "margins getting crushed by food costs and no-shows...") -> One clear success metric (e.g., "Toast users in WA save an avg 5 hrs/week in payroll tasks") -> Friendly invite to click the CTA.
+                            - Keep it raw, authentic, and under 30 seconds.
+                            - Technical: Compress video to <6MB H.264, autoplay muted with captions for accessibility.
+                            ACCESSIBILITY: Ensure your iframe has a 'title' attribute. Ex: title="A personal message for Olympia Restaurants from Bardya Banihashemi"
+                        -->
+                        Your 30s Video for Olympia (Authentic & Local)
+                    </div>
+                </section>
+
+                <section class="pain-benefit-snapshot animated-section">
+                    <h2 class="section-title">I Get It. Running an Olympia Restaurant is Tough. Toast Helps.</h2>
+                    <div class="pain-benefit-grid">
+                        <div class="benefit-card init-hidden">
+                            <h3>Pain: Rising Costs Squeezing Margins?</h3>
+                            <p>Benefit: See real-time food & labor percentages right on your phone. Make smarter decisions instantly to protect your profit and keep more dollars in Thurston County.</p>
+                        </div>
+                        <div class="benefit-card init-hidden">
+                            <h3>Pain: Staffing Woes & Labor Shortages?</h3>
+                            <p>Benefit: Self-ordering kiosks & handhelds free up your team, potentially saving the equivalent of two full shifts per week. Improve labor efficiency and guest experience.</p>
+                        </div>
+                        <div class="benefit-card init-hidden">
+                            <h3>Pain: Losing Guest Data & Fees to Delivery Apps?</h3>
+                            <p>Benefit: Keep 100% of your guest data with Toast Online Ordering. Stop paying hefty commissions and build direct relationships with your Olympia community.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="urgency-bar animated-section">
+                    <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
+                </div>
+
+                <section class="local-proof animated-section">
+                    <h2 class="section-title">Trusted by Independents Like Yours in Washington</h2>
+                    <p style="text-align:center; max-width: 700px; margin: -20px auto 30px auto;">Join 120+ Washington independents already using Toast to shave an average of 5 hrs/week off admin tasks!</p>
+                    
+                    <div class="testimonial-carousel-wrapper">
+                        <div class="testimonial-carousel-container">
+                            <div class="testimonial-carousel-item active-slide">
+                                <div class="testimonial-image-placeholder">
+                                    Pic
+                                </div>
+                                <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
+                                <span>– Owner, Nineveh Food Truck, Olympia</span>
+                            </div>
+                            <div class="testimonial-carousel-item">
+                                <div class="testimonial-image-placeholder">Pic</div>
+                                <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother. Plus, keeping our customer data is huge!"</p>
+                                <span>– Manager, The Westside Perk, Olympia</span>
+                            </div>
+                            <div class="testimonial-carousel-item">
+                                <div class="testimonial-image-placeholder">Pic</div>
+                                <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours on inventory and payroll. More time for our guests!"</p>
+                                <span>– The Miller Family, Lakeside Bites, Olympia</span>
+                            </div>
+                             <div class="testimonial-carousel-item">
+                                <div class="testimonial-image-placeholder">Pic</div>
+                                <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
+                                <span>– Chef, The Capital Grill, Olympia</span>
+                            </div>
+                        </div>
+                        <div class="testimonial-carousel-dots">
+                            </div>
+                    </div>
+                    <!-- 
+                        LOCAL CUSTOMER LOGOS (Optional - uncomment and replace if you have them)
+                        If you have permission to use local customer logos, uncomment and replace src attributes.
+                        Otherwise, it's better to remove this section to avoid a generic look.
+                        <div class="local-proof-logos" style="margin-top: 30px;">
+                            <img src="https://placehold.co/150x60/E2E8F0/A0AEC0?text=Real+Local+Logo+1" alt="Real Local Customer 1 Logo">
+                            <img src="https://placehold.co/150x60/E2E8F0/A0AEC0?text=Real+Local+Logo+2" alt="Real Local Customer 2 Logo">
+                        </div>
+                    -->
+                </section>
+                
+                <section class="cta-solid-bg animated-section init-hidden" id="ctaBar">
+                    <h2 class="section-title">Ready for a No-Pitch Walk-Through?</h2>
+                    <p>I'll bring the coffee (from a local Olympia spot, of course!) and a live Toast demo tailored to your restaurant. No pressure, just a friendly chat about your needs.</p>
+                    <button class="btn" id="walkThroughBtn" style="margin-top: 20px;">Book My Walk-Through with Bardya</button>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <div id="page2" class="page-section">
+        <div class="container content-section">
+            <section class="about-section glass-card animated-section init-hidden">
+                <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
+                <div class="about-bardya-content">
+                    <div class="bardya-photo-placeholder">
+                        <!-- IMPORTANT: Replace this div with your actual photo: 
+                             <img src="your-photo-url.jpg" alt="Bardya Banihashemi" style="width:100%; height:100%; border-radius:50%; object-fit:cover;"> 
+                             Ensure the image is optimized for web.
+                        -->
+                        Your Photo Here
+                    </div>
+                    <div class="bio">
+                        <p>Hi again! I'm Bardya Banihashemi. While my roots might be in the broader Seattle area, my focus and passion are right here, supporting the incredible independent restaurant scene in Olympia and Thurston County. I believe in building genuine relationships and understanding the unique pulse of our local community.</p>
+                        <p>My goal isn't just to sell you software; it's to be a resource and a partner who helps you leverage technology like Toast to achieve your specific business goals, whether that's increasing efficiency, connecting more with your guests, or boosting your bottom line while championing local sourcing and sustainability. Let's work together to strengthen our vibrant Olympia food scene!</p>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Why Olympia Restaurants Choose Toast (and Me!)</h3>
+                <ul class="why-toast-list">
+                    <li><strong>Purpose-Built for Independents:</strong> Toast is designed with restaurants like yours in mind, not giant chains.</li>
+                    <li><strong>Local, In-Person Support:</strong> I'm your Olympia-based partner. I show up, I listen, and I'm here for you.</li>
+                    <li><strong>Transparent Pricing:</strong> No hidden fees. We'll find a plan that makes sense for your budget.</li>
+                    <li><strong>24/7/365 Support:</strong> Peace of mind knowing help is always available.</li>
+                    <li><strong>Community Focused:</strong> We care about keeping dollars in Thurston County and supporting local suppliers.</li>
+                    <li><strong>Efficiency Gains:</strong> Save time on admin, payroll, and operations so you can focus on your craft.</li>
+                </ul>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button class="btn" id="aboutPageContactBtn">Let's Chat About Your Restaurant</button>
+                </div>
+                
+                <div class="backup-links" style="text-align: center; margin-top: 30px;">
+                    <h4 style="margin-bottom: 10px;">More Resources:</h4>
+                    <a href="YOUR_BROCHURE_PDF_LINK_HERE" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
+                    <a href="sms:+1YOURPHONENUMBER?body=Hi%20Bardya,%20I'd%20like%20to%20chat%20about%20Toast%20for%20my%20Olympia%20restaurant."><i class="fas fa-mobile-alt"></i> Text Me</a>
+                    <a href="YOUR_LINKEDIN_PROFILE_URL_HERE" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                </div>
+            </section>
+        </div>
+    </div>
+
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>Bardya Banihashemi - Your Local Toast Account Executive in Olympia.</p>
+            <p>Building relationships and strengthening Olympia's restaurant community, one partnership at a time.</p>
+            <p style="font-size: 0.85em; margin-top: 15px; opacity: 0.7;">&copy; <span id="currentYear"></span> Toast, Inc. Toast, the Toast logo and Toast POS are registered trademarks or trademarks of Toast, Inc. This site is operated by an authorized representative.</p>
+        </div>
+    </footer>
+
+    <div class="sticky-cta-button">
+        <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt"></i> Book a Call with Bardya</button>
+    </div>
+
+    <div class="popup-overlay" id="schedule-call-popup">
+        <div class="popup-content">
+            <button class="popup-close" id="closeSchedulePopupBtn" aria-label="Close popup">&times;</button>
+            <h3 id="popupTitle">Let's Find a Time to Chat!</h3>
+            <p id="popupSubtitle">I'm Bardya Banihashemi. Provide your details, and I'll personally reach out to schedule a quick call about your Olympia restaurant and how Toast can help you succeed.</p>
+            <!-- CHILI PIPER INTEGRATION: 
+                 1. Update the input field 'name' attributes below to match what your Chili Piper setup expects (e.g., FirstName, LastName, Email, Phone, Company).
+                 2. You might need to add a specific ID or class to this form tag if your Chili Piper script requires it.
+            -->
+            <form id="scheduleLeadForm">
+                <input type="text" name="FirstName" placeholder="First Name" required> <input type="text" name="LastName" placeholder="Last Name" required>   <input type="email" name="Email" placeholder="Best Email Address" required> <input type="tel" name="Phone" placeholder="Phone Number (for call back)" required pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"> <input type="text" name="Company" placeholder="Your Olympia Restaurant Name" required> <button type="submit" class="btn" id="popupSubmitBtn">Show Me The Numbers</button> 
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        const schedulePopupOverlay = document.getElementById('schedule-call-popup');
+        const openPopupButtons = [
+            document.getElementById('heroProfitCheckBtn'),    
+            document.getElementById('walkThroughBtn'),       
+            document.getElementById('aboutPageContactBtn'),  
+            document.getElementById('stickyBookCallBtn'),
+            document.getElementById('headerBookCallBtn') 
+        ];
+        
+        const closeSchedulePopupBtn = document.getElementById('closeSchedulePopupBtn');
+        
+        const schedulePopupTitle = schedulePopupOverlay.querySelector('h3'); 
+        const schedulePopupSubtitle = schedulePopupOverlay.querySelector('p');
+        const popupSubmitBtn = document.getElementById('popupSubmitBtn');
+
+        function openSchedulePopup(contextSourceElementId) {
+            let title = "Let's Find a Time to Chat!";
+            let subtitle = "I'm Bardya Banihashemi. Provide your details, and I'll personally reach out to schedule a quick call about your Olympia restaurant and how Toast can help you succeed.";
+            let submitBtnText = "Show Me The Numbers";
+
+
+            if (contextSourceElementId === 'heroProfitCheckBtn') {
+                title = "Your 15-Min Olympia Profit Check";
+                subtitle = "Let's quickly see how Toast can impact your margins. Share your details, and I'll be in touch to schedule this no-obligation check-in.";
+                submitBtnText = "Request Profit Check";
+            } else if (contextSourceElementId === 'walkThroughBtn') {
+                title = "Book Your No-Pitch Walk-Through";
+                subtitle = "Excited to show you Toast in action! Pop in your details, and I'll contact you to arrange a convenient time. I'll bring the local coffee!";
+                submitBtnText = "Schedule My Walk-Through";
+            } else if (contextSourceElementId === 'headerBookCallBtn') {
+                title = "Schedule a Call with Bardya";
+                subtitle = "Let's discuss how Toast can help your Olympia restaurant thrive. Please provide your details below.";
+                submitBtnText = "Request My Call";
+            }
+            
+            schedulePopupTitle.textContent = title;
+            schedulePopupSubtitle.textContent = subtitle;
+            popupSubmitBtn.textContent = submitBtnText;
+            
+            schedulePopupOverlay.classList.add('active');
+            const firstInput = schedulePopupOverlay.querySelector('input[name="FirstName"]'); 
+            if(firstInput) firstInput.focus();
+        }
+
+        function closeSchedulePopup() {
+            schedulePopupOverlay.classList.remove('active');
+        }
+
+        openPopupButtons.forEach(button => {
+            if (button) {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); 
+                    openSchedulePopup(button.id);
+                });
+            }
+        });
+        
+        const connectBtn = document.getElementById('connectWithBardyaBtn'); 
+        if (connectBtn) { 
+            connectBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                openSchedulePopup(connectBtn.id); 
+            });
+        }
+
+
+        if(closeSchedulePopupBtn) closeSchedulePopupBtn.addEventListener('click', closeSchedulePopup);
+
+        schedulePopupOverlay.addEventListener('click', function(event) {
+            if (event.target === schedulePopupOverlay) {
+                closeSchedulePopup();
+            }
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && schedulePopupOverlay.classList.contains('active')) {
+                closeSchedulePopup();
+            }
+        });
+
+        const scheduleLeadForm = document.getElementById('scheduleLeadForm');
+        if(scheduleLeadForm){
+            scheduleLeadForm.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+                console.log('Form submitted. Chili Piper should take over.');
+            });
+        }
+
+        // Intersection Observer for animations on scroll
+        document.querySelectorAll('.benefit-card, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar').forEach(el => {
+            if (el.closest('.animated-section')) {
+                if (!el.classList.contains('animated-section')) { 
+                    el.classList.add('init-hidden');
+                }
+            }
+        });
+
+        const observerOptions = {
+            root: null, 
+            rootMargin: '0px',
+            threshold: 0.1 
+        };
+
+        const observer = new IntersectionObserver((entries, obs) => { 
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('animated-section')) {
+                         entry.target.classList.add('is-visible'); 
+                    }
+                    const childAnimatedElements = entry.target.querySelectorAll('.init-hidden');
+                    childAnimatedElements.forEach(el => el.classList.add('is-visible'));
+                    
+                    if (entry.target.classList.contains('init-hidden')) { 
+                         entry.target.classList.add('is-visible');
+                    }
+                    obs.unobserve(entry.target); 
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animated-section').forEach(section => {
+            observer.observe(section);
+        });
+        
+
+        // Sticky CTA Button Visibility
+        const stickyCTA = document.querySelector('.sticky-cta-button');
+        const heroSectionForSticky = document.querySelector('.hero'); 
+        
+        function checkStickyVisibility() {
+            let heroHeight = heroSectionForSticky ? heroSectionForSticky.offsetHeight : 300; 
+            if (stickyCTA && heroSectionForSticky) { 
+                if (window.scrollY > heroHeight * 0.6) { 
+                    stickyCTA.classList.add('visible');
+                } else {
+                    stickyCTA.classList.remove('visible');
+                }
+            }
+        }
+        window.addEventListener('scroll', checkStickyVisibility);
+        checkStickyVisibility(); 
+        
+        // Page Navigation for SPA-like behavior
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pageSections = document.querySelectorAll('.page-section');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+
+                pageSections.forEach(section => {
+                    section.classList.remove('active');
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    }
+                });
+
+                navLinks.forEach(nav => nav.classList.remove('active-nav'));
+                link.classList.add('active-nav');
+                
+                window.scrollTo(0,0); 
+            });
+        });
+        
+        if(pageSections.length > 0 && document.getElementById('page1')) {
+             document.getElementById('page1').classList.add('active');
+        }
+
+        // Enhanced Testimonial Carousel Logic
+        const carousel = document.querySelector('.testimonial-carousel-container');
+        const carouselItems = document.querySelectorAll('.testimonial-carousel-item');
+        const dotsContainer = document.querySelector('.testimonial-carousel-dots');
+        let currentCarouselItem = 0;
+        const carouselIntervalTime = 7000; 
+        let carouselInterval;
+        let touchStartX = 0;
+        let touchEndX = 0; 
+        let isDragging = false; 
+        const swipeThreshold = 50; 
+
+        function updateDots(activeIndex) {
+            if (!dotsContainer) return;
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+        
+        function showCarouselItem(index) { 
+            if (!carouselItems.length || !carouselItems[index] || !carousel) return; 
+            
+            carousel.style.transform = `translateX(-${index * 100}%)`;
+            
+            carouselItems.forEach((item, i) => {
+                item.classList.toggle('active-slide', i === index);
+            });
+            updateDots(index);
+        }
+
+
+        function nextCarouselItem(manual = false) {
+            currentCarouselItem = (currentCarouselItem + 1) % carouselItems.length;
+            showCarouselItem(currentCarouselItem);
+            if (manual && carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = setInterval(() => nextCarouselItem(false), carouselIntervalTime);
+            }
+        }
+        function prevCarouselItem(manual = false) {
+            currentCarouselItem = (currentCarouselItem - 1 + carouselItems.length) % carouselItems.length;
+            showCarouselItem(currentCarouselItem);
+            if (manual && carouselInterval) {
+                clearInterval(carouselInterval);
+                carouselInterval = setInterval(() => nextCarouselItem(false), carouselIntervalTime);
+            }
+        }
+
+        function createDots() {
+            if (!dotsContainer || !carouselItems.length) return;
+            dotsContainer.innerHTML = ''; 
+            carouselItems.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.classList.add('carousel-dot');
+                dot.addEventListener('click', () => {
+                    currentCarouselItem = index;
+                    showCarouselItem(currentCarouselItem);
+                    if (carouselInterval) clearInterval(carouselInterval); 
+                    carouselInterval = setInterval(() => nextCarouselItem(false), carouselIntervalTime); 
+                });
+                dotsContainer.appendChild(dot);
+            });
+        }
+        
+        if (carousel) { 
+            carousel.addEventListener('click', (e) => {
+                if (e.target.closest('.testimonial-carousel-item.active-slide')) { 
+                    nextCarouselItem(true);
+                }
+            });
+
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                isDragging = true; 
+                if (carouselInterval) clearInterval(carouselInterval); 
+            }, {passive: true});
+
+            carousel.addEventListener('touchend', (e) => {
+                if (!isDragging) return; 
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchStartX - touchEndX > swipeThreshold) { 
+                    nextCarouselItem(true);
+                } else if (touchEndX - touchStartX > swipeThreshold) { 
+                    prevCarouselItem(true);
+                }
+                isDragging = false; 
+                carouselInterval = setInterval(() => nextCarouselItem(false), carouselIntervalTime);
+            });
+        }
+
+
+        if (carouselItems.length > 0) {
+            createDots();
+            showCarouselItem(currentCarouselItem); 
+            carouselInterval = setInterval(() => nextCarouselItem(false), carouselIntervalTime); 
+        }
+
+    </script>
+
+    <!-- CHILI PIPER INTEGRATION: 
+        STEP 1: Obtain your unique Chili Piper JavaScript snippet from your Chili Piper account/admin.
+        STEP 2: Paste that entire snippet here, right before the closing </body> tag.
+                 It will look something like <script type="text/javascript" src="...chili piper url..."></script> 
+                 or a block of <script> code provided by Chili Piper.
+        STEP 3: Ensure the 'name' attributes of the input fields in the #scheduleLeadForm above
+                 match what Chili Piper expects (e.g., FirstName, LastName, Email, Phone, Company).
+                 I have updated them to common values, but VERIFY with your Chili Piper setup.
+        STEP 4: The JavaScript above for 'scheduleLeadForm' submission has been modified to comment out
+                 the custom confirmation. Chili Piper's script should handle the post-submission experience.
+                 Test thoroughly. You may need to adjust or remove the event.preventDefault() in that
+                 JavaScript block if Chili Piper handles it. Consult Chili Piper documentation.
+    -->
+    </body>
+</html>
