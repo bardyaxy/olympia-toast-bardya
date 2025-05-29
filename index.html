@@ -43,9 +43,21 @@
       "image": "bardya-photo.jpg" 
     }
     </script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-CKVGB8EK0X"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-CKVGB8EK0X');
+    </script>
 </head>
 <body>
     <a href="#page1-main-content" class="skip-link">Skip to main content</a>
@@ -54,26 +66,28 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-logo"> 
-                    <img src="toast-logo.png" alt="Toast POS Logo" class="toast-header-logo-img" onerror="this.alt='Toast Logo Placeholder';this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast';">
+                    <img loading="lazy" src="toast-logo.png" alt="Toast POS Logo" class="toast-header-logo-img" onerror="this.alt='Toast Logo Placeholder';this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast';">
                 </div>
 
                 <div class="header-actions">
                     <nav class="main-nav">
                         <a href="#page1" class="nav-link active-nav">Home</a>
                         <a href="#page2" class="nav-link nav-link-about">About Bardya</a>
+                        <a href="resources.html" class="nav-link">Resources</a>
                     </nav>
                     <a href="tel:+13602153596" class="btn-call-bardya"> 
-                        <i class="fas fa-phone-alt"></i>
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
                         <div>
                             <span class="call-text">Call Bardya</span>
                             <span class="phone-number">(360) 215-3596</span>
                         </div>
                     </a>
                     <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
-                        <i class="fas fa-bars"></i>
+                        <i class="fas fa-bars" aria-hidden="true"></i>
                     </button>
                     <div class="mobile-nav-menu" id="mobileNavMenu">
                         <a href="#page2" class="nav-link">About Bardya</a>
+                        <a href="resources.html" class="nav-link">Resources</a>
                     </div>
                 </div>
             </div>
@@ -88,7 +102,7 @@
                         <div style="padding:20px; text-align:center;">
                             <p style="font-size: 1.1em; margin-bottom:10px;"><strong>Introductory Video Coming Soon!</strong></p>
                             <p>A short, authentic message from Bardya for Olympia restaurateurs will be featured here.</p>
-                            <i class="fas fa-play-circle" style="font-size: 3em; margin-top: 15px; color: var(--accent-color);"></i>
+                            <i class="fas fa-play-circle" aria-hidden="true" style="font-size: 3em; margin-top: 15px; color: var(--accent-color);"></i>
                         </div>
                     </div>
                 </div>
@@ -106,28 +120,28 @@
                         <h2 class="section-title">Built for Olympia Restaurants. Built for Growth. Built for You.</h2>
                         <div class="features-grid">
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-revenue-growth.svg" alt="Revenue growth icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-arrow-trend-up\'></i>';"></div>
+                                <div class="feature-icon"><img loading="lazy" src="icon-revenue-growth.svg" alt="Revenue growth icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-arrow-trend-up\'></i>';"></div>
                                 <div class="feature-text-content">
                                     <h3>Accelerate Your Growth</h3>
                                     <p>Toast restaurants average over 30% higher revenue compared to the typical restaurant—imagine what that could mean for your Olympia business.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-efficient.svg" alt="Efficiency icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-gear\'></i>';"></div> 
+                                <div class="feature-icon"><img loading="lazy" src="icon-efficient.svg" alt="Efficiency icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-gear\'></i>';"></div> 
                                 <div class="feature-text-content">
                                     <h3>Boost Your Efficiency</h3>
                                     <p>Olympia restaurants leveraging Toast’s platform outperform their peers by up to 50% in operational efficiency. Spend less time managing tech, more time delighting customers.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-customer-care.svg" alt="Customer delight icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-heart\'></i>';"></div> 
+                                <div class="feature-icon"><img loading="lazy" src="icon-customer-care.svg" alt="Customer delight icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-heart\'></i>';"></div> 
                                 <div class="feature-text-content">
                                     <h3>Become Olympia’s Favorite</h3>
                                     <p>Turn your guests into loyal regulars who rave about your restaurant. Toast helps you enhance every dining experience.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden"> 
-                                <div class="feature-icon"><img src="icon-intuitive.svg" alt="Sales and profit icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-chart-column\'></i>';"></div> 
+                                <div class="feature-icon"><img loading="lazy" src="icon-intuitive.svg" alt="Sales and profit icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-chart-column\'></i>';"></div> 
                                 <div class="feature-text-content">
                                      <h3>Drive Sales and Profit</h3>
                                     <p>Olympia restaurants on Toast simply make more money. Join them in maximizing your revenue potential.</p>
@@ -140,7 +154,7 @@
 
             <div class="content-section no-top-padding"> <div class="container">
                     <div class="urgency-bar animated-section init-hidden">
-                        <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
+                        <i class="fas fa-bolt" aria-hidden="true"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
                     </div>
                 </div>
             </div>
@@ -154,28 +168,28 @@
                             <div class="testimonial-carousel-container">
                                 <div class="testimonial-carousel-item active-slide">
                                     <div class="testimonial-image-placeholder">
-                                        <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from Nineveh Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                        <img loading="lazy" src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from Nineveh Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
                                     </div>
                                     <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
                                     <span>– Owner, XX XX XX, Olympia</span>
                                 </div>
                                 <div class="testimonial-carousel-item">
                                     <div class="testimonial-image-placeholder">
-                                        <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from The Westside Perk" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                        <img loading="lazy" src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from The Westside Perk" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
                                     </div>
                                     <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother..."</p>
                                     <span>– Manager, XX XX XX, Olympia</span>
                                 </div>
                                 <div class="testimonial-carousel-item">
                                     <div class="testimonial-image-placeholder">
-                                         <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from Lakeside Bites" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                         <img loading="lazy" src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from Lakeside Bites" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
                                     </div>
                                     <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours..."</p>
                                     <span>– XX XX XX, XX XX XX, Olympia</span>
                                 </div>
                                  <div class="testimonial-carousel-item">
                                     <div class="testimonial-image-placeholder">
-                                         <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                         <img loading="lazy" src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
                                     </div>
                                     <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
                                     <span>– Chef, XX XX XX, Olympia</span>
@@ -196,7 +210,24 @@
                     <section class="cta-solid-bg animated-section init-hidden" id="ctaBar">
                         <h2 class="section-title">Ready for a No-Pitch Walk-Through?</h2>
                         <p>I'll bring the coffee (from a local Olympia spot, of course!) and a live Toast demo tailored to your restaurant. No pressure, just a friendly chat about your needs.</p>
-                        <button class="btn" id="walkThroughBtn" style="margin-top: 20px;">Book My Walk-Through with Bardya</button>
+                    <button class="btn" id="walkThroughBtn" style="margin-top: 20px;">Book My Walk-Through with Bardya</button>
+                    </section>
+                </div>
+            </div>
+
+            <div class="content-section section-alt-bg">
+                <div class="container">
+                    <section class="contact-form-section animated-section init-hidden" id="contactFormSection">
+                        <h2 class="section-title">Quick Contact</h2>
+                        <form action="mailto:bettercallbardya@example.com" method="post" enctype="text/plain" class="contact-form">
+                            <label for="contactName">Name</label>
+                            <input type="text" id="contactName" name="name" required>
+                            <label for="contactEmail">Email</label>
+                            <input type="email" id="contactEmail" name="email" required>
+                            <label for="contactMessage">Message</label>
+                            <textarea id="contactMessage" name="message" rows="4" required></textarea>
+                            <button type="submit" class="btn">Send</button>
+                        </form>
                     </section>
                 </div>
             </div>
@@ -205,12 +236,12 @@
 
     <div id="page2" class="page-section">
         <div class="content-section section-alt-bg"> <div class="container">
-                <button class="btn-back-to-home" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> Back to Home</button>
+                <button class="btn-back-to-home" id="backToHomeBtn"><i class="fas fa-arrow-left" aria-hidden="true"></i> Back to Home</button>
                 <a href="#page2-main-content" class="skip-link">Skip to main content</a>
                 <section id="page2-main-content" tabindex="-1" class="about-section glass-card animated-section init-hidden">
                     <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
                     <div class="about-bardya-content">
-                        <img src="bardya-photo.jpg" alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
+                        <img loading="lazy" src="bardya-photo.jpg" alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
                              onerror="this.style.display='none'; document.querySelector('.bardya-photo-placeholder-text').style.display='flex'; this.onerror=null; this.src='https://placehold.co/150x150/0A2540/FFFFFF?text=Bardya+B.';" >
                         <div class="bardya-photo-placeholder-text" style="display:none;"> Bardya's Photo </div>
                     </div>
@@ -232,8 +263,8 @@
                     </div>
                     <div class="backup-links" style="text-align: center; margin-top: 30px;">
                         <h4 style="margin-bottom: 10px;">More Resources:</h4>
-                        <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
-                        <a href="sms:+13602153596?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a> <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                        <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download Toast Brochure</a>
+                        <a href="sms:+13602153596?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt" aria-hidden="true"></i> Text Me</a> <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin" aria-hidden="true"></i> Connect on LinkedIn</a>
                     </div>
                 </section>
             </div>
@@ -250,7 +281,7 @@
     </footer>
 
     <div class="sticky-cta-bar" id="stickyCta">
-        <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt"></i> Book a call with Bardya</button>
+        <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Book a call with Bardya</button>
     </div>
 
     <div class="popup-overlay" id="schedule-call-popup" role="dialog" aria-modal="true" aria-labelledby="popupTitleElement">
@@ -266,5 +297,10 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js');
+      }
+    </script>
     </body>
 </html>

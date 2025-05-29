@@ -177,7 +177,7 @@
         .mobile-nav-menu {
             display: none;
             position: absolute;
-            top: 100%; 
+            top: 100%;
             right: 0;
             background-color: var(--toast-neutral-lightest);
             border: 1px solid var(--toast-border-light);
@@ -187,9 +187,14 @@
             padding: 10px 0;
             z-index: 1000;
             min-width: 180px;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: var(--transition-fast);
         }
         .mobile-nav-menu.active {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
         .mobile-nav-menu a {
             display: block;
@@ -371,6 +376,24 @@
         .carousel-arrow:focus { outline: 2px solid var(--accent-color); outline-offset: 2px; }
 
         .urgency-bar { background-color: var(--accent-color); color: var(--text-on-dark-bg); text-align: center; padding: 12px 20px; font-weight: 500; font-size: 0.95em; margin: 30px auto; border-radius: 8px; max-width: 700px; }
+
+        .contact-form-section form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact-form-section label { font-weight: 600; }
+        .contact-form-section input,
+        .contact-form-section textarea {
+            padding: 10px;
+            border: 1px solid var(--toast-border-light);
+            border-radius: var(--border-radius-main);
+            font-family: inherit;
+            font-size: 1em;
+        }
+        .contact-form-section button.btn { align-self: flex-start; }
 
         .glass-card.about-section { 
             background: var(--glass-bg);

@@ -87,7 +87,7 @@
             }
         });
 
-        document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar').forEach(el => {
+        document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar, .contact-form-section').forEach(el => {
             if (!el.closest('.animated-section')) {
                  el.classList.add('init-hidden');
             } else if (el.classList.contains('animated-section')) { 
