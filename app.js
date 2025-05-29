@@ -494,6 +494,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initializeScrollAnimations();
+  const menuChecklistBtn = document.getElementById("menuChecklistBtn");
+  if (menuChecklistBtn) {
+    menuChecklistBtn.addEventListener("click", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "sms_cta_click", { value: "menu_checklist" });
+      }
+    });
+  }
+
   initializeCarousel();
 
 }); // End DOMContentLoaded
