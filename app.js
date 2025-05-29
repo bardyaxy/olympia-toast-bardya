@@ -1,3 +1,4 @@
+```js
 /**
  * @fileoverview Main JavaScript for website interactions, including popups,
  * animations, navigation, and carousel.
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('aboutPageContactBtn'),
     document.getElementById('resourcesContactBtn'),
     document.getElementById('stickyBookCallBtn'),
-  ].filter(Boolean); // Filter out nulls if some buttons don't exist
+  ].filter(Boolean);
   const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
   const walkThroughBtnEl = document.getElementById('walkThroughBtn');
   const resourcesContactBtn = document.getElementById('resourcesContactBtn');
@@ -59,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const elementsToAnimate = document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar');
   const animatedSectionContainers = document.querySelectorAll('.animated-section');
   const stickyCtaBar = document.getElementById('stickyCta');
-  // Using a more robust selector for the first content section if page structure is consistent
   const firstContentSection = mainPage1 ? mainPage1.querySelector('main > section:first-of-type') : null;
 
   // Carousel Elements
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * State Variables
    * ==========================================================================
    */
-  let lastFocusedElementBeforePopup; // For accessibility: restore focus after popup closes
+  let lastFocusedElementBeforePopup;
   let currentCarouselItem = 0;
   let carouselInterval;
   let touchStartX = 0;
@@ -87,10 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
    * ==========================================================================
    */
 
-  /**
-   * Sets or removes aria-hidden attributes on background elements when a modal is active.
-   * @param {boolean} isHidden - True to hide background elements, false to show.
-   */
   function toggleBackgroundElementsAriaHidden(isHidden) {
     const elementsToToggle = [
       mainPage1,
@@ -98,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainPage3,
       siteHeader,
       siteFooter,
-      stickyCtaBar // Assuming stickyCtaBar is the ID 'stickyCta'
+      stickyCtaBar
     ];
     elementsToToggle.forEach(el => {
       if (el) {
@@ -119,29 +115,21 @@ document.addEventListener('DOMContentLoaded', () => {
   function openSchedulePopup(triggeredByElement) {
     if (!schedulePopupOverlay) return;
 
-    lastFocusedElementBeforePopup = triggeredByElement || document.activeElement; // Store the element that opened the popup
+    lastFocusedElementBeforePopup = triggeredByElement || document.activeElement;
 
     if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML = ''; // Clear previous content
+      chiliPiperCalendarElement.innerHTML = '';
       const iframe = document.createElement('iframe');
       iframe.setAttribute('src', CHILIPIPER_LINK);
       iframe.setAttribute('title', 'Book a meeting with Bardya Banihashemi');
-      // Consider adding sandbox attributes for security if applicable
-      // iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms');
       chiliPiperCalendarElement.appendChild(iframe);
     }
 
     schedulePopupOverlay.classList.add('active');
     toggleBackgroundElementsAriaHidden(true);
 
-    // Focus the close button or the iframe for better accessibility
     if (closeSchedulePopupBtn) {
       closeSchedulePopupBtn.focus();
-    } else if (chiliPiperCalendarElement && chiliPiperCalendarElement.querySelector('iframe')) {
-      // Focusing an iframe directly can be tricky and browser-dependent.
-      // Often, it's better to focus the first focusable element within the iframe's content,
-      // but that requires cross-origin communication if the iframe content is from a different domain.
-      // For now, focusing the close button is a reliable primary approach.
     }
   }
 
@@ -150,22 +138,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     schedulePopupOverlay.classList.remove('active');
     if (chiliPiperCalendarElement) {
-      // Replace iframe with a placeholder to stop any loading/activity
       chiliPiperCalendarElement.innerHTML = '<p style="color: #777; padding: 20px; text-align:center;">Scheduler closed.</p>';
     }
     toggleBackgroundElementsAriaHidden(false);
 
-    // Restore focus to the element that opened the popup
     if (lastFocusedElementBeforePopup && typeof lastFocusedElementBeforePopup.focus === 'function') {
       lastFocusedElementBeforePopup.focus();
     }
   }
 
-  // Event Listeners for Popup
   openPopupButtons.forEach(button => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      openSchedulePopup(button); // Pass the button that triggered the open
+      openSchedulePopup(button);
     });
   });
 
@@ -175,35 +160,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (schedulePopupOverlay) {
     schedulePopupOverlay.addEventListener('click', (event) => {
-      if (event.target === schedulePopupOverlay) { // Close only if overlay itself is clicked
+      if (event.target === schedulePopupOverlay) {
         closeSchedulePopup();
       }
     });
 
-    // Keyboard accessibility for popup (Escape key and Focus Trap)
     schedulePopupOverlay.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
         closeSchedulePopup();
       }
-
       if (event.key === 'Tab' && schedulePopupOverlay.classList.contains('active')) {
         const focusableElements = Array.from(
           schedulePopupOverlay.querySelectorAll(
             'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
           )
-        ).filter(el => el.offsetParent !== null); // Ensure elements are visible
+        ).filter(el => el.offsetParent !== null);
 
-        if (focusableElements.length === 0) return;
+        if (!focusableElements.length) return;
 
         const firstFocusable = focusableElements[0];
         const lastFocusable = focusableElements[focusableElements.length - 1];
 
-        if (event.shiftKey) { // Shift + Tab
+        if (event.shiftKey) {
           if (document.activeElement === firstFocusable) {
             lastFocusable.focus();
             event.preventDefault();
           }
-        } else { // Tab
+        } else {
           if (document.activeElement === lastFocusable) {
             firstFocusable.focus();
             event.preventDefault();
@@ -213,60 +196,45 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-
   /**
    * ==========================================================================
    * Animations on Scroll (Intersection Observer)
    * ==========================================================================
    */
   function initializeScrollAnimations() {
-    // Add 'init-hidden' to elements that should be animated on scroll.
-    // This simplifies the initial CSS state. CSS should define .init-hidden { opacity: 0; transform: translateY(20px); }
-    // and .is-visible { opacity: 1; transform: translateY(0); transition: ...; }
     elementsToAnimate.forEach(el => {
-      // Only add init-hidden if it's not part of an animated-section that handles its children
       if (!el.closest('.animated-section')) {
         el.classList.add('init-hidden');
       }
     });
     animatedSectionContainers.forEach(container => {
-      container.classList.add('init-hidden'); // The container itself also animates in
-      // Children within an animated-section might also need init-hidden if they have their own staggered animation
-      // For simplicity, assuming .animated-section animates as a block, and its direct children
-      // that are also in `elementsToAnimate` will be handled by the observer individually if they also have `init-hidden`.
+      container.classList.add('init-hidden');
     });
-
 
     if ('IntersectionObserver' in window) {
       const observerOptions = {
-        root: null, // relative to document viewport
+        root: null,
         rootMargin: '0px',
-        threshold: 0.1 // 10% of item visible
+        threshold: 0.1
       };
 
       const animationObserver = new IntersectionObserver((entries, observerInstance) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('is-visible');
-            // If an animated-section container becomes visible, make its direct animatable children visible too
-            // This is useful if children shouldn't wait for their own intersection.
             if (entry.target.classList.contains('animated-section')) {
-              const childAnimatedElements = entry.target.querySelectorAll('.init-hidden');
-              childAnimatedElements.forEach(childEl => childEl.classList.add('is-visible'));
+              entry.target.querySelectorAll('.init-hidden').forEach(childEl => childEl.classList.add('is-visible'));
             }
-            observerInstance.unobserve(entry.target); // Animate only once
+            observerInstance.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
-      // Observe all elements marked for animation (individual items and section containers)
       document.querySelectorAll('.init-hidden').forEach(section => animationObserver.observe(section));
     } else {
-      // Fallback for browsers that don't support IntersectionObserver: show all elements
       document.querySelectorAll('.init-hidden').forEach(el => el.classList.add('is-visible'));
     }
   }
-
 
   /**
    * ==========================================================================
@@ -275,16 +243,12 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function checkStickyCtaVisibility() {
     if (stickyCtaBar) {
-      // Simplified logic: show after a certain scroll depth.
-      // The firstContentSection logic can be added back if a more complex condition is needed.
       const shouldBeVisible = window.scrollY > SCROLL_THRESHOLD_STICKY_CTA;
       stickyCtaBar.classList.toggle('visible', shouldBeVisible);
     }
   }
-  // Add a throttle/debounce if scroll events become performance heavy
   window.addEventListener('scroll', checkStickyCtaVisibility);
-  checkStickyCtaVisibility(); // Initial check on page load
-
+  checkStickyCtaVisibility();
 
   /**
    * ==========================================================================
@@ -298,12 +262,10 @@ document.addEventListener('DOMContentLoaded', () => {
       section.classList.toggle('active', section.id === targetId);
     });
 
-    // Update nav link active states
     document.querySelectorAll('.main-nav .nav-link, .mobile-nav-menu .nav-link').forEach(nav => {
       nav.classList.toggle('active-nav', nav.getAttribute('href') === `#${targetId}`);
     });
 
-    // Close mobile menu if open
     if (mobileNavMenu && mobileNavMenu.classList.contains('active') && menuToggleBtn) {
       mobileNavMenu.classList.remove('active');
       menuToggleBtn.setAttribute('aria-expanded', 'false');
@@ -314,49 +276,41 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Focus on the main content of the new page for accessibility
-    // Assumes each page section has a main landmark or a div with id like "page1-main-content"
     const targetPageMainContent = document.getElementById(`${targetId}-main-content`) || document.getElementById(targetId);
     if (targetPageMainContent) {
-      // Setting tabindex -1 allows an element to be focused programmatically
       if (!targetPageMainContent.hasAttribute('tabindex')) {
         targetPageMainContent.setAttribute('tabindex', '-1');
       }
       targetPageMainContent.focus({ preventScroll: true });
     }
-    window.scrollTo(0, 0); // Scroll to top of the page
+    window.scrollTo(0, 0);
   }
 
   navLinks.forEach(link => {
-    link.addEventListener('click', (event) => {
+    link.addEventListener('click', event => {
       event.preventDefault();
       const targetId = link.getAttribute('href')?.substring(1);
-      if (targetId) {
-        setActivePage(targetId);
-        // Optionally, update URL hash: history.pushState(null, '', `#${targetId}`);
-      }
+      if (targetId) setActivePage(targetId);
     });
   });
 
   if (backToHomeBtn) {
-    backToHomeBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      setActivePage('page1'); // Assuming 'page1' is the ID of the home page section
-    });
-  }
-
-  if (resourcesBackBtn) {
-    resourcesBackBtn.addEventListener('click', (event) => {
+    backToHomeBtn.addEventListener('click', event => {
       event.preventDefault();
       setActivePage('page1');
     });
   }
 
-  // Activate the first page by default if it exists
-  if (pageSections.length > 0 && document.getElementById('page1')) {
-    setActivePage('page1'); // Set initial active page
+  if (resourcesBackBtn) {
+    resourcesBackBtn.addEventListener('click', event => {
+      event.preventDefault();
+      setActivePage('page1');
+    });
   }
 
+  if (pageSections.length > 0 && document.getElementById('page1')) {
+    setActivePage('page1');
+  }
 
   /**
    * ==========================================================================
@@ -374,7 +328,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
-
 
   /**
    * ==========================================================================
@@ -398,21 +351,18 @@ document.addEventListener('DOMContentLoaded', () => {
       item.setAttribute('aria-hidden', String(i !== index));
     });
     updateCarouselDots(index);
-    currentCarouselItem = index; // Ensure currentCarouselItem is updated
+    currentCarouselItem = index;
   }
 
   function cycleCarousel(manualInteraction = false, direction = 'next') {
     if (!carouselItems.length) return;
 
-    let newIndex;
-    if (direction === 'next') {
-      newIndex = (currentCarouselItem + 1) % carouselItems.length;
-    } else {
-      newIndex = (currentCarouselItem - 1 + carouselItems.length) % carouselItems.length;
-    }
+    let newIndex = direction === 'next'
+      ? (currentCarouselItem + 1) % carouselItems.length
+      : (currentCarouselItem - 1 + carouselItems.length) % carouselItems.length;
+
     showCarouselItem(newIndex);
 
-    // If manually cycled, reset the autoplay timer
     if (manualInteraction && carouselInterval) {
       clearInterval(carouselInterval);
       carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
@@ -421,22 +371,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function createCarouselDots() {
     if (!dotsContainer || !carouselItems.length) return;
-    dotsContainer.innerHTML = ''; // Clear existing dots
+    dotsContainer.innerHTML = '';
 
     carouselItems.forEach((_, index) => {
-      const dot = document.createElement('button'); // Use button for better accessibility
+      const dot = document.createElement('button');
       dot.classList.add('carousel-dot');
       dot.setAttribute('type', 'button');
-      dot.setAttribute('role', 'tab'); // ARIA role for tablist pattern
+      dot.setAttribute('role', 'tab');
       dot.setAttribute('aria-selected', 'false');
-      dot.setAttribute('aria-controls', `carousel-item-${index + 1}`); // Link to item
+      dot.setAttribute('aria-controls', `carousel-item-${index + 1}`);
       dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
       dot.addEventListener('click', () => {
         showCarouselItem(index);
         if (carouselInterval) clearInterval(carouselInterval);
         carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
       });
-      // Keyboard interaction for dots is inherent with <button>
       dotsContainer.appendChild(dot);
     });
   }
@@ -444,7 +393,6 @@ document.addEventListener('DOMContentLoaded', () => {
   function initializeCarousel() {
     if (!carousel || !carouselItems.length) return;
 
-    // Set ARIA roles for carousel structure
     carousel.setAttribute('role', 'tablist');
     carousel.setAttribute('aria-label', 'Testimonials');
     carouselItems.forEach((item, index) => {
@@ -455,46 +403,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     createCarouselDots();
-    showCarouselItem(currentCarouselItem); // Show initial item
-    if (carouselItems.length > 1) { // Only start interval if there's more than one item
-        carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+    showCarouselItem(currentCarouselItem);
+    if (carouselItems.length > 1) {
+      carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
     }
 
-
-    // Touch swipe listeners
-    carousel.addEventListener('touchstart', (e) => {
+    carousel.addEventListener('touchstart', e => {
       if (carouselItems.length <= 1) return;
       touchStartX = e.changedTouches[0].screenX;
       isCarouselDragging = true;
-      if (carouselInterval) clearInterval(carouselInterval); // Pause on touch
+      if (carouselInterval) clearInterval(carouselInterval);
     }, { passive: true });
 
-    carousel.addEventListener('touchend', (e) => {
+    carousel.addEventListener('touchend', e => {
       if (carouselItems.length <= 1 || !isCarouselDragging) return;
       touchEndX = e.changedTouches[0].screenX;
       const deltaX = touchEndX - touchStartX;
 
-      if (Math.abs(deltaX) > SWIPE_THRESHOLD) { // Ensure significant swipe
-        if (deltaX < 0) { // Swiped left (next)
+      if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
+        if (deltaX < 0) {
           cycleCarousel(true, 'next');
-        } else { // Swiped right (prev)
+        } else {
           cycleCarousel(true, 'prev');
         }
       }
       isCarouselDragging = false;
-      // Restart interval only if not manually stopped by other means
       if (carouselItems.length > 1) {
-         carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+        carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
       }
     });
 
-    // Arrow navigation
     if (prevArrow && nextArrow && carouselItems.length > 1) {
       prevArrow.addEventListener('click', () => cycleCarousel(true, 'prev'));
       nextArrow.addEventListener('click', () => cycleCarousel(true, 'next'));
-    } else if (prevArrow && nextArrow) { // Hide arrows if only one item
-        prevArrow.style.display = 'none';
-        nextArrow.style.display = 'none';
+    } else if (prevArrow && nextArrow) {
+      prevArrow.style.display = 'none';
+      nextArrow.style.display = 'none';
     }
   }
 
@@ -518,6 +462,7 @@ document.addEventListener('DOMContentLoaded', () => {
     promoTextEl.textContent = `${monthName} Promotion: Olympia restaurants receive complimentary menu optimization consultations this month.`;
   }
 
+  // analytics tracking for CTA clicks
   if (heroProfitCheckBtn) {
     heroProfitCheckBtn.addEventListener('click', () => {
       if (typeof gtag === 'function') {
@@ -553,5 +498,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initializeCarousel();
-
 }); // End DOMContentLoaded
+```

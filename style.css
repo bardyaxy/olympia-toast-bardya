@@ -761,6 +761,41 @@ body {
 }
 
 /* ==========================================================================
+   11b. Resources Section
+   ========================================================================== */
+.resources-section {
+  padding: var(--space-xl);
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--card-shadow);
+  max-width: 700px;
+  margin: 0 auto var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.resources-section h2 {
+  margin-top: 0;
+}
+.resources-section .backup-links {
+  margin-top: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .resources-section {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .resources-section {
+    padding: var(--space-lg);
+  }
+}
+
+/* ==========================================================================
    12. CTA Section (Solid Background)
    ========================================================================== */
 .cta-solid-bg {
