@@ -294,22 +294,22 @@
 
         .features-section {
         }
-        .features-section .section-title { /* More specific selector for the title */
-            font-size: 1.8em; /* Adjust as needed */
+        .features-section .section-title { 
+            font-size: 1.8em; 
             font-weight: 600;
             margin-bottom: 30px;
         }
         .features-grid {
             display: grid;
             grid-template-columns: 1fr; 
-            gap: 25px; /* Slightly reduced gap */
+            gap: 25px; 
             margin-top: 20px;
         }
         .feature-item {
             display: flex;
             align-items: flex-start; 
-            gap: 15px; /* Reduced gap */
-            padding: 15px; /* Reduced padding */
+            gap: 15px; 
+            padding: 15px; 
             background-color: var(--toast-neutral-lightest); 
             border-radius: var(--border-radius-main);
             box-shadow: var(--card-shadow);
@@ -322,12 +322,12 @@
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        .feature-icon img { /* Style for SVG images */
-            width: 40px; /* Adjust size as needed */
+        .feature-icon img { 
+            width: 40px; 
             height: 40px;
             object-fit: contain;
         }
-        .feature-icon { /* Container for the icon img */
+        .feature-icon { 
             flex-shrink: 0;
             width: 40px; 
             height: 40px;
@@ -337,16 +337,16 @@
             margin-top: 3px; 
         }
         .feature-text-content h3 {
-            font-size: 1.25em; /* Adjusted font size */
+            font-size: 1.25em; 
             color: var(--text-primary);
             margin-top: 0;
-            margin-bottom: 5px; /* Reduced margin */
+            margin-bottom: 5px; 
             font-weight: 600;
         }
         .feature-text-content p {
-            font-size: 0.95em; /* Adjusted font size */
+            font-size: 0.95em; 
             color: var(--text-secondary);
-            line-height: 1.5; /* Adjusted line height */
+            line-height: 1.5; 
             margin-bottom: 0;
         }
         @media (min-width: 768px) {
@@ -542,40 +542,53 @@
             color: var(--toast-neutral-lightest);
         }
 
+        /* Updated Sticky CTA Bar CSS */
         .sticky-cta-bar {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            background-color: var(--accent-color); 
+            background-color: var(--accent-color);
             color: var(--text-on-dark-bg);
-            padding: 20px; 
-            text-align: center;
-            z-index: 998; 
-            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            padding: 15px 10px; /* Reduced padding for tighter centering */
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            align-items: center; /* Center the button vertically */
+            z-index: 998;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
             opacity: 0;
-            transform: translateY(100%); 
+            transform: translateY(100%);
             transition: opacity 0.3s ease, transform 0.3s ease;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
         }
         .sticky-cta-bar.visible {
             opacity: 1;
             transform: translateY(0);
         }
-        .sticky-cta-bar .btn { 
+        .sticky-cta-bar .btn {
             background-color: var(--toast-neutral-lightest);
             color: var(--accent-color);
-            padding: 12px 30px; 
-            font-size: 1.15em; 
+            padding: 12px 30px;
+            font-size: 1.15em;
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            animation: pulseStickyBtn 2s infinite ease-in-out; 
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            animation: pulseStickyBtn 2s infinite ease-in-out;
+            width: auto; /* Let the button size naturally */
+            max-width: 90%; /* Prevent button from being too wide */
+            margin: 0 auto; /* Center the button */
+            text-align: center; /* Ensure text inside button is centered */
+            border-radius: var(--border-radius-button);
+            display: inline-flex; /* Ensure icon and text align properly */
+            align-items: center;
+            justify-content: center;
         }
         .sticky-cta-bar .btn:hover {
-            background-color: #f8f9fa; 
+            background-color: #f8f9fa;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            animation-play-state: paused; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            animation-play-state: paused;
         }
+
 
         @keyframes pulseStickyBtn { 
             0% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0.3); }
@@ -830,30 +843,30 @@
                         <h2 class="section-title">Built for Olympia Restaurants. Built for Growth. Built for You.</h2>
                         <div class="features-grid">
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-revenue-growth.svg" alt="Growth chart icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-arrow-trend-up\'></i>';"></div>
+                                <div class="feature-icon"><img src="icon-revenue-growth.svg" alt="Revenue growth icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-arrow-trend-up\'></i>';"></div>
                                 <div class="feature-text-content">
-                                    <h3><span role="img" aria-label="Chart increasing"></span> Accelerate Your Growth</h3>
+                                    <h3>Accelerate Your Growth</h3>
                                     <p>Toast restaurants average over 30% higher revenue compared to the typical restaurant—imagine what that could mean for your Olympia business.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-efficient.svg" alt="Efficiency gear icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-gear\'></i>';"></div> 
+                                <div class="feature-icon"><img src="icon-efficient.svg" alt="Efficiency icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-gear\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                    <h3><span role="img" aria-label="Gear"></span> Boost Your Efficiency</h3>
+                                    <h3>Boost Your Efficiency</h3>
                                     <p>Olympia restaurants leveraging Toast’s platform outperform their peers by up to 50% in operational efficiency. Spend less time managing tech, more time delighting customers.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><img src="icon-customer-care.svg" alt="Customer care icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-heart\'></i>';"></div> 
+                                <div class="feature-icon"><img src="icon-customer-care.svg" alt="Customer delight icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-heart\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                    <h3><span role="img" aria-label="Heart"></span> Become Olympia’s Favorite</h3>
+                                    <h3>Become Olympia’s Favorite</h3>
                                     <p>Turn your guests into loyal regulars who rave about your restaurant. Toast helps you enhance every dining experience.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden"> 
-                                <div class="feature-icon"><img src="icon-intuitive.svg" alt="Intuitive insights icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-chart-column\'></i>';"></div> 
+                                <div class="feature-icon"><img src="icon-intuitive.svg" alt="Sales and profit icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-chart-column\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                     <h3><span role="img" aria-label="Bar chart"></span> Drive Sales and Profit</h3>
+                                     <h3>Drive Sales and Profit</h3>
                                     <p>Olympia restaurants on Toast simply make more money. Join them in maximizing your revenue potential.</p>
                                 </div>
                             </div>
