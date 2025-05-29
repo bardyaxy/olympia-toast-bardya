@@ -137,22 +137,22 @@
 
         .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
         
-        .header-brand-area { 
+        .header-brand-animated {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 10px; 
         }
 
         .logo-anim-container {
             position: relative;
-            width: 120px; /* Adjust to fit Toast logo well */
-            height: 36px; 
+            width: 138px;  /* USER SUGGESTION: was 120px */
+            height: 42px;  /* USER SUGGESTION: was 36px */
             display: flex;
             align-items: center;
             justify-content: center; 
             flex-shrink: 0;
         }
-        .logo-anim-container .header-logo-animated { /* Common class for both logos */
+        .logo-anim-container .header-logo-animated { 
             position: absolute;
             max-height: 100%;
             max-width: 100%;
@@ -160,37 +160,37 @@
             transition: opacity 0.4s var(--transition-springy), transform 0.4s var(--transition-springy);
             backface-visibility: hidden; 
         }
-        .logo-anim-container .toast-logo-animated { /* Initial state: Toast logo visible */
+        .logo-anim-container .toast-logo-animated { 
             opacity: 1; transform: scale(1) rotateY(0deg);
         }
-        .logo-anim-container .bardya-logo-animated { /* Initial state: Bardya logo hidden */
+        .logo-anim-container .bardya-logo-animated { 
             opacity: 0; transform: scale(0.7) rotateY(90deg);
         }
-        .logo-anim-container.show-personal-logo .toast-logo-animated { /* Toast logo hides */
+        .logo-anim-container.show-personal-logo .toast-logo-animated { 
             opacity: 0; transform: scale(0.7) rotateY(-90deg);
         }
-        .logo-anim-container.show-personal-logo .bardya-logo-animated { /* Bardya logo shows */
+        .logo-anim-container.show-personal-logo .bardya-logo-animated { 
             opacity: 1; transform: scale(1) rotateY(0deg);
         }
 
 
         .name-anim-container {
             position: relative;
-            min-width: 220px; /* Increased width for longer name */
+            min-width: 220px; 
             height: 36px;
             display: flex;
             align-items: center;
             justify-content: flex-start; 
             overflow: hidden;
             flex-shrink: 0;
-            margin-left: 5px; /* Space after logo group */
+            margin-left: 5px; 
         }
         .name-anim-container .name-text {
             position: absolute;
             left: 0;
             top: 50%;
-            width: 100%; /* Ensure text takes up width for centering if needed */
-            text-align: left; /* Align text to the left */
+            width: 100%; 
+            text-align: left; 
             transform: translateY(-50%) translateX(105%); 
             opacity: 0;
             font-weight: 700;
@@ -226,8 +226,8 @@
         .header-nav a:hover, .header-nav a.active-nav { color: var(--accent-color); }
 
         .btn-header-cta {
-            padding: 9px 20px; 
-            font-size: 0.95em; 
+            padding: 9px 20px; /* USER SUGGESTION */
+            font-size: 1.1em;  /* USER SUGGESTION: was 0.95em */
             background-color: var(--accent-color);
             color: var(--toast-white);
             border: none;
@@ -451,7 +451,7 @@
             } 
             .header-brand-animated {
                 order: 1; 
-                flex-basis: calc(100% - 150px); 
+                flex-basis: calc(100% - 150px); /* Adjust based on actions width */
                 justify-content: flex-start;
             }
             .header-actions { 
@@ -469,7 +469,7 @@
 
             .header-nav { justify-content: flex-end; flex-grow: 1; gap: 8px; } 
             .header-nav a { margin-left: 0; margin-right: 5px; font-size: 0.8em; }
-            .btn-header-cta { font-size: 0.85em; padding: 7px 10px;}
+            .btn-header-cta { font-size: 0.9em; padding: 8px 12px;} /* Increased from 0.85em */
             .hero { padding: 60px 15px 50px; }
             .hero h1 { font-size: 2.2em; }
             .hero .subtitle { font-size: 1.1em; }
@@ -508,21 +508,50 @@
             .site-footer p { font-size: 0.9em; }
         }
 
-        @media (max-width: 520px) { 
-             .header-content { flex-direction: column; align-items: flex-start; gap: 10px;}
-             .header-brand-animated { width: 100%; justify-content: center; } 
-             .name-anim-container { width: 100%; justify-content: center; margin-left:0; margin-top: 5px; }
-             .header-actions { width: 100%; flex-direction: column; align-items: stretch; gap: 8px; margin-top: 10px; }
+        @media (max-width: 520px) { /* User-provided breakpoint */
+             .header-content { flex-direction: column; align-items: center; gap: 10px;} /* Center items when stacked */
+             .header-brand-animated {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 8px;
+                order: 1; /* Ensure brand area is first */
+             }
+             .logo-anim-container {
+                width: 80px;  /* ~70px × 1.15 */
+                height: 28px; /* ~24px × 1.15 */
+             }
+             .name-anim-container {
+                min-width: auto;
+                width: fit-content; /* Allow it to size to content */
+                height: 30px;
+                margin-left: 6px;
+                justify-content: center; /* Center the text block */
+             }
+             .header-actions { 
+                order: 2; /* Ensure actions are below brand */
+                width: 100%; 
+                flex-direction: column; /* Stack nav and button */
+                align-items: stretch; /* Make them full width */
+                justify-content: center; 
+                margin-top: 10px;
+                gap: 8px;
+             }
              .header-nav { justify-content: center; width: 100%; } 
-             .btn-header-cta { width: 100%; text-align: center; padding: 10px 12px;} 
+             .btn-header-cta { 
+                width: 100%; 
+                text-align: center; 
+                padding: 10px 12px;
+                font-size: 1em; /* User suggestion */
+            } 
         }
 
         @media (max-width: 480px) { 
             body { font-size: 15px; }
-            .header-brand .site-main-logo { max-height: 28px; }
-            .header-brand .bardya-personal-logo { max-height: 28px; } 
-            .name-anim-container .bardya-full-name-animated { font-size: 1.2em; }
-            .name-anim-container .bardya-slogan-animated { font-size: 1em; }
+            /* Header adjustments for very small screens already handled by 520px, but can add more specific if needed */
+            .name-anim-container .bardya-full-name-animated { font-size: 1.1em; } /* Adjust if still too large */
+            .name-anim-container .bardya-slogan-animated { font-size: 0.9em; }
 
             .hero h1 { font-size: 1.8em; }
             .hero .subtitle { font-size: 1em; }
@@ -946,9 +975,8 @@
         const logoSloganIntervalTime = 3000; 
 
         if (logoAnimContainer && nameAnimContainer) {
-            // Ensure initial state is set by CSS, then toggle
             const fullNameElInit = nameAnimContainer.querySelector('.bardya-full-name-animated');
-            if (fullNameElInit) fullNameElInit.classList.add('active-name'); // Start with full name
+            if (fullNameElInit) fullNameElInit.classList.add('active-name'); 
 
             function toggleHeaderAnimation() {
                 if (logoAnimContainer) logoAnimContainer.classList.toggle('show-personal-logo'); 
