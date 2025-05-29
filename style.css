@@ -686,6 +686,14 @@ body {
 .about-section h2 {
   margin-top: 0;
 }
+.resources-section {
+  /* Mirror glass card spacing */
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+.resources-section h2 {
+  margin-top: 0;
+}
 .about-bardya-content {
   display: flex;
   flex-direction: column; /* Default, can be row on larger screens */
