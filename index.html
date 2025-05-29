@@ -8,24 +8,21 @@
     <meta name="description" content="Bardya Banihashemi, your local Toast rep for Olympia. Helping Olympia restaurants streamline operations, reduce headaches, and boost margins. Let's connect for a 15-minute profit check.">
     <meta property="og:title" content="Bardya Banihashemi - Toast POS | Olympia Restaurant Profit Check">
     <meta property="og:description" content="Run your Olympia restaurant—don’t let tech run you. Bardya Banihashemi, your local Toast expert, offers a 15-min profit check.">
-    <meta property="og:image" content="olympia-hero.jpg"> 
-    <meta property="og:url" content="YOUR_LANDING_PAGE_URL_HERE"> 
+    <meta property="og:image" content="https://placehold.co/1200x630/FA5A0A/FFFFFF?text=Olympia+Restaurant+Hero+V2"> 
+    <meta property="og:url" content="https://bardya-toast-olympia.example.com"> 
     <meta property="og:type" content="website">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Bardya Banihashemi - Toast POS | Olympia Restaurant Partner">
     <meta name="twitter:description" content="Run your Olympia restaurant—don’t let tech run you. Bardya Banihashemi, your local Toast expert, offers a 15-min profit check.">
-    <meta name="twitter:image" content="YOUR_SOCIAL_SHARE_IMAGE_URL_HERE">
+    <meta name="twitter:image" content="https://placehold.co/1200x600/FA5A0A/FFFFFF?text=Bardya+Toast+Olympia+Social+V2">
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png"> 
-    
-    <script type="application/ld+json">
+    <link rel="icon" href="favicon.ico" type="image/x-icon"> <link rel="apple-touch-icon" href="apple-touch-icon.png"> <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person", 
       "name": "Bardya Banihashemi",
-      "url": "YOUR_LANDING_PAGE_URL_HERE", 
+      "url": "https://bardya-toast-olympia.example.com", 
       "jobTitle": "Account Executive",
       "worksFor": {
         "@type": "Organization",
@@ -38,12 +35,12 @@
         "addressRegion": "WA",
         "addressCountry": "US"
       },
-      "image": "bardya-photo.jpg" 
+      "image": "https://placehold.co/300x300/0A2540/FFFFFF?text=Bardya+B." 
     }
     </script>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
     <style>
         :root {
             /* Reverted Color Scheme to previous preference */
@@ -51,10 +48,10 @@
             --toast-secondary-orange-dark: #E04F0A;
             
             --toast-neutral-darkest: #0A2540; 
-            --toast-neutral-dark: #333D4F;   
+            --toast-neutral-dark: #333D4F;  
             --toast-neutral-medium: #6B778D; 
             --toast-neutral-light: #F0F3F5;  /* Main page background */
-            --toast-neutral-lightest: #FFFFFF;
+            --toast-neutral-lightest: #FFFFFF; /* Used for --toast-white */
 
             --text-primary: var(--toast-neutral-darkest);
             --text-secondary: var(--toast-neutral-dark);
@@ -63,13 +60,14 @@
 
             --bg-main: var(--toast-neutral-light);
             --bg-hero-overlay-start: rgba(10, 37, 64, 0.6); 
-            --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);   
+            --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);  
             --bg-cta-solid: var(--toast-neutral-darkest);
             
             --accent-color: var(--toast-primary-orange);
             --accent-color-darker: var(--toast-secondary-orange-dark);
             
-            --hero-bg-image: 'olympia-hero.jpg'; 
+            /* Updated hero background image to use a placeholder */
+            --hero-bg-image: url('https://placehold.co/1920x1080/333D4F/FFFFFF?text=Olympia+Dining+Scene'); 
             
             /* Original Glass Morphism Style */
             --glass-bg: rgba(255, 255, 255, 0.65); 
@@ -84,6 +82,9 @@
             --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
             --transition-fast: all 0.2s ease-out;
             --transition-springy: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+            /* Added missing variable definition */
+            --toast-border-light: #e2e8f0; 
         }
 
         body {
@@ -128,7 +129,7 @@
             background-color: rgba(255,255,255,0.85); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--toast-border-light, #e2e8f0);
+            border-bottom: 1px solid var(--toast-border-light); /* Uses defined variable */
             position: sticky;
             top: 0;
             z-index: 1000; 
@@ -229,7 +230,7 @@
             padding: 9px 20px; /* USER SUGGESTION */
             font-size: 1.1em;  /* USER SUGGESTION: was 0.95em */
             background-color: var(--accent-color);
-            color: var(--toast-white);
+            color: var(--toast-neutral-lightest); /* Corrected from --toast-white */
             border: none;
             border-radius: var(--border-radius-button);
             font-weight: 600;
@@ -254,7 +255,8 @@
         .hero {
             text-align: center; padding: 70px 20px 60px; 
             background-color: var(--toast-neutral-darkest);
-            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), url(var(--hero-bg-image)); 
+            /* CSS variable for background image is used here */
+            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), var(--hero-bg-image); 
             background-size: cover; background-position: center center;
             color: var(--text-on-dark-bg); margin-bottom: 40px;
         }
@@ -263,7 +265,7 @@
         .hero .btn { margin-top: 10px; font-size: 1.15em; }
 
         .video-section { text-align: center; margin-bottom: 50px; }
-        .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
+        .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
         .content-section { padding: 40px 0; }
@@ -347,7 +349,7 @@
         .cta-solid-bg .btn { background-color: var(--toast-neutral-lightest); color: var(--text-primary); box-shadow: 0 5px 15px rgba(255,255,255,0.15); }
         .cta-solid-bg .btn:hover { background-color: #f0f0f0; color: var(--text-primary); box-shadow: 0 7px 18px rgba(255,255,255,0.25); }
 
-        .about-section { padding: 30px; }
+        .about-section { padding: 30px; } /* This is for the content inside .glass-card.about-section */
         .about-section h2 { margin-top: 0; }
         .about-bardya-content { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 25px; }
         .bardya-actual-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
@@ -355,7 +357,7 @@
         .about-section .bio p { margin-bottom: 15px; font-size: 1.05em; text-align: left;}
         .why-toast-list { list-style: none; padding-left: 0; }
         .why-toast-list li { padding-left: 25px; position: relative; margin-bottom: 10px; font-size: 1.05em; }
-        .why-toast-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; }
+        .why-toast-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; color: var(--accent-color); } /* Added accent color to checkmark */
         .backup-links a { display: inline-block; margin: 5px 10px 5px 0; color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
         .backup-links a:hover { text-decoration: underline; color:var(--accent-color-darker); }
         .backup-links a i { margin-right: 5px; }
@@ -369,7 +371,7 @@
             transition: opacity 0.25s ease, visibility 0.25s ease; 
         }
         .popup-content {
-            background-color: var(--toast-white); 
+            background-color: var(--toast-neutral-lightest); 
             border-radius: var(--border-radius-main);
             box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
             width: 90vw; 
@@ -379,7 +381,7 @@
             opacity: 0;
             height: 90vh; 
             max-height: 720px; 
-            display: flex;     
+            display: flex;   
             flex-direction: column; 
             box-sizing: border-box;
             overflow: hidden; 
@@ -421,14 +423,14 @@
             position: absolute; 
             top: 8px; right: 8px; 
             font-size: 1.5em; 
-            color: var(--toast-gray-subtle); 
+            color: var(--toast-neutral-medium); /* Corrected from --toast-gray-subtle */
             cursor: pointer; background: none; border: none;
             padding: 8px; line-height: 1; transition: var(--transition-fast); 
             z-index: 10; 
         }
         .popup-close:hover { color: var(--text-primary); transform: rotate(90deg) scale(1.1); }
 
-        .site-footer { text-align: center; padding: 50px 20px; margin-top: 30px; background-color: var(--toast-blue-dark); color: rgba(255,255,255,0.8); }
+        .site-footer { text-align: center; padding: 50px 20px; margin-top: 30px; background-color: var(--toast-neutral-darkest); /* Corrected from --toast-blue-dark */ color: rgba(255,255,255,0.8); }
         .site-footer p { margin: 8px 0; font-size: 0.9em; }
         .site-footer p:first-child { font-weight: 600; color: var(--text-on-dark-bg); font-size: 0.95em;}
 
@@ -442,12 +444,24 @@
             100% { transform: scale(1); box-shadow: 0 3px 10px rgba(250, 90, 10, 0.2); }
         }
 
+        /* Added animation styles for these sections if they are intended to animate as a whole */
+        .local-proof, .video-section, .urgency-bar {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-main);
+        }
+        .local-proof.is-visible, .video-section.is-visible, .urgency-bar.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
         @media (max-width: 768px) { 
             .container { padding: 0 15px; }
             .site-header { padding: 10px 0; }
             .header-content { 
-                 flex-wrap: wrap; 
-                 justify-content: space-between; 
+                flex-wrap: wrap; 
+                justify-content: space-between; 
             } 
             .header-brand-animated {
                 order: 1; 
@@ -484,7 +498,7 @@
             .section-title { font-size: 1.8em; margin-bottom: 30px; }
             .glass-card.about-section, .cta-solid-bg { padding: 25px; margin-bottom: 35px; }
             .glass-card.about-section:hover { transform: translateY(-5px); } 
-            .local-proof-quote { font-size: 0.9em; }
+            /* .local-proof-quote { font-size: 0.9em; } Removed as .local-proof-quote class not found in HTML */
             .testimonial-carousel-container { min-height: auto; padding-bottom: 15px;} 
             .testimonial-carousel-item p { font-size: 1em; }
             .testimonial-image-placeholder { width: 50px; height: 50px; margin-bottom: 10px; }
@@ -502,7 +516,7 @@
                 min-height: 0; 
             }
             #chiliPiperCalendarElement iframe {
-                 min-height: calc(95vh - 50px); 
+                min-height: calc(95vh - 50px); /* Adjusted based on typical header height */
             }
             .sticky-cta-button .btn { font-size: 0.9em; padding: 10px 20px; }
             .site-footer p { font-size: 0.9em; }
@@ -544,7 +558,7 @@
                 text-align: center; 
                 padding: 10px 12px;
                 font-size: 1em; /* User suggestion */
-            } 
+             } 
         }
 
         @media (max-width: 480px) { 
@@ -575,7 +589,7 @@
                 min-height: 0; 
             } 
             #chiliPiperCalendarElement iframe {
-                 min-height: calc(100vh - 40px); 
+                min-height: calc(100vh - 40px); /* Adjusted based on typical header height */
             }
             .popup-close { top:5px; right:5px; background: rgba(255,255,255,0.15); border-radius:50%; padding: 3px 7px;}
         }
@@ -589,8 +603,8 @@
             <div class="header-content">
                 <div class="header-brand-animated">
                     <div class="logo-anim-container">
-                        <img src="toast-logo.png" alt="Toast POS Official Logo" class="header-logo-animated toast-logo-animated">
-                        <img src="bardya-logo.png" alt="Bardya Banihashemi Logo" class="header-logo-animated bardya-logo-animated">
+                        <img src="https://placehold.co/138x42/FA5A0A/FFFFFF?text=Toast+Logo" alt="Toast POS Logo" class="header-logo-animated toast-logo-animated" onerror="this.alt='Toast Logo Placeholder';this.src='https://placehold.co/138x42/FA5A0A/FFFFFF?text=Toast+Logo';">
+                        <img src="https://placehold.co/138x42/0A2540/FFFFFF?text=BB+Logo" alt="Bardya Banihashemi Custom Logo" class="header-logo-animated bardya-logo-animated" onerror="this.alt='BB Logo Placeholder';this.src='https://placehold.co/138x42/0A2540/FFFFFF?text=BB+Logo';">
                     </div>
                     <div class="name-anim-container">
                         <span class="name-text bardya-full-name-animated">Bardya Banihashemi</span>
@@ -620,18 +634,20 @@
             </section>
 
             <div class="container content-section">
-                <section class="video-section animated-section">
-                    <h2 class="section-title" style="margin-bottom: 15px;">A Quick Message for Olympia Restaurateurs</h2>
+                <section class="video-section animated-section"> <h2 class="section-title" style="margin-bottom: 15px;">A Quick Message for Olympia Restaurateurs</h2>
                     <div class="video-container">
-                        Your 30s Video for Olympia (Authentic & Local)
+                        <div style="padding:20px; text-align:center;">
+                            <p style="font-size: 1.1em; margin-bottom:10px;"><strong>Introductory Video Coming Soon!</strong></p>
+                            <p>A short, authentic message from Bardya for Olympia restaurateurs will be featured here.</p>
+                            <i class="fas fa-play-circle" style="font-size: 3em; margin-top: 15px; color: var(--accent-color);"></i>
+                        </div>
                     </div>
                 </section>
 
                 <section class="pain-benefit-snapshot animated-section">
                     <h2 class="section-title">I Get It. Running an Olympia Restaurant is Tough. Toast Helps.</h2>
                     <div class="pain-benefit-grid">
-                        <div class="benefit-card init-hidden">
-                            <h3>Pain: Rising Costs Squeezing Margins?</h3>
+                        <div class="benefit-card init-hidden"> <h3>Pain: Rising Costs Squeezing Margins?</h3>
                             <p>Benefit: See real-time food & labor percentages right on your phone. Make smarter decisions instantly to protect your profit and keep more dollars in Thurston County.</p>
                         </div>
                         <div class="benefit-card init-hidden">
@@ -645,33 +661,39 @@
                     </div>
                 </section>
 
-                <div class="urgency-bar animated-section">
-                    <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
+                <div class="urgency-bar animated-section init-hidden"> <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
                 </div>
 
-                <section class="local-proof animated-section">
-                    <h2 class="section-title">Trusted by Independents Like Yours in Washington</h2>
+                <section class="local-proof animated-section"> <h2 class="section-title">Trusted by Independents Like Yours in Washington</h2>
                     <p style="text-align:center; max-width: 700px; margin: -20px auto 30px auto;">Join 120+ Washington independents already using Toast to shave an average of 5 hrs/week off admin tasks!</p>
                     
                     <div class="testimonial-carousel-wrapper">
                         <div class="testimonial-carousel-container">
                             <div class="testimonial-carousel-item active-slide">
-                                <div class="testimonial-image-placeholder">Pic</div>
+                                <div class="testimonial-image-placeholder">
+                                    <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from Nineveh Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                </div>
                                 <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
                                 <span>– Owner, Nineveh Food Truck, Olympia</span>
                             </div>
                             <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">Pic</div>
+                                <div class="testimonial-image-placeholder">
+                                    <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from The Westside Perk" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                </div>
                                 <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother..."</p>
                                 <span>– Manager, The Westside Perk, Olympia</span>
                             </div>
                             <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">Pic</div>
+                                <div class="testimonial-image-placeholder">
+                                     <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from Lakeside Bites" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                </div>
                                 <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours..."</p>
                                 <span>– The Miller Family, Lakeside Bites, Olympia</span>
                             </div>
                              <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">Pic</div>
+                                <div class="testimonial-image-placeholder">
+                                     <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                </div>
                                 <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
                                 <span>– Chef, The Capital Grill, Olympia</span>
                             </div>
@@ -695,12 +717,11 @@
 
     <div id="page2" class="page-section">
         <div class="container content-section">
-             <a href="#page2-main-content" class="skip-link">Skip to main content</a>
-             <div id="page2-main-content" tabindex="-1"></div>
-            <section class="about-section glass-card animated-section init-hidden">
+            <a href="#page2-main-content" class="skip-link">Skip to main content</a>
+            <section id="page2-main-content" tabindex="-1" class="about-section glass-card animated-section init-hidden">
                 <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
                 <div class="about-bardya-content">
-                    <img src="bardya-photo.jpg" alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
+                    <img src="https://placehold.co/150x150/0A2540/FFFFFF?text=Bardya+B." alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
                          onerror="this.style.display='none'; document.querySelector('.bardya-photo-placeholder-text').style.display='flex';" >
                     <div class="bardya-photo-placeholder-text" style="display:none;"> Bardya's Photo </div>
                 </div>
@@ -722,9 +743,9 @@
                 </div>
                 <div class="backup-links" style="text-align: center; margin-top: 30px;">
                     <h4 style="margin-bottom: 10px;">More Resources:</h4>
-                    <a href="YOUR_BROCHURE_PDF_LINK_HERE" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
-                    <a href="sms:+1YOURPHONENUMBER?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a>
-                    <a href="YOUR_LINKEDIN_PROFILE_URL_HERE" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                    <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
+                    <a href="sms:+15551234567?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a>
+                    <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
                 </div>
             </section>
         </div>
@@ -734,7 +755,7 @@
         <div class="container">
             <p>Bardya Banihashemi - Your Local Toast Account Executive in Olympia.</p>
             <p>Building relationships and strengthening Olympia's restaurant community, one partnership at a time.</p>
-            <p style="font-size: 0.85em; margin-top: 15px; opacity: 0.7;">&copy; <span id="currentYear"></span> Toast, Inc. ...</p>
+            <p style="font-size: 0.85em; margin-top: 15px; opacity: 0.7;">&copy; <span id="currentYear"></span> Toast, Inc. All rights reserved. Bardya Banihashemi is an authorized Toast representative.</p>
         </div>
     </footer>
 
@@ -749,7 +770,7 @@
                 <button class="popup-close" id="closeSchedulePopupBtn" aria-label="Close popup">&times;</button>
             </div>
             <div id="chiliPiperCalendarElement">
-                <p style="color: #777; padding-top: 20px;">Loading Scheduler...</p> 
+                <p style="color: #777; padding: 20px; text-align:center;">Loading Scheduler...</p> 
             </div> 
         </div>
     </div>
@@ -759,8 +780,8 @@
 
         const schedulePopupOverlay = document.getElementById('schedule-call-popup');
         const openPopupButtons = [
-            document.getElementById('heroProfitCheckBtn'),    
-            document.getElementById('walkThroughBtn'),       
+            document.getElementById('heroProfitCheckBtn'),   
+            document.getElementById('walkThroughBtn'),      
             document.getElementById('aboutPageContactBtn'),  
             document.getElementById('stickyBookCallBtn'),
             document.getElementById('headerBookCallBtn') 
@@ -768,6 +789,7 @@
         
         const closeSchedulePopupBtn = document.getElementById('closeSchedulePopupBtn');
         const chiliPiperCalendarElement = document.getElementById('chiliPiperCalendarElement');
+        // This is the user's actual Chili Piper link, kept as is.
         const chiliPiperLink = "https://toast.chilipiper.com/personal/bardya-banihashemi"; 
         const mainPage1 = document.getElementById('page1');
         const mainPage2 = document.getElementById('page2');
@@ -785,16 +807,26 @@
             schedulePopupOverlay.classList.add('active');
             if(mainPage1) mainPage1.setAttribute('aria-hidden', 'true');
             if(mainPage2) mainPage2.setAttribute('aria-hidden', 'true');
+            // Ensure header and footer are also hidden for better modal accessibility if they are outside page1/page2 wrappers
+            // For now, this targets the main page content areas.
+            if(document.querySelector('.site-header')) document.querySelector('.site-header').setAttribute('aria-hidden', 'true');
+            if(document.querySelector('.site-footer')) document.querySelector('.site-footer').setAttribute('aria-hidden', 'true');
+
             if(closeSchedulePopupBtn) closeSchedulePopupBtn.focus();
         }
 
         function closeSchedulePopup() {
             schedulePopupOverlay.classList.remove('active');
             if (chiliPiperCalendarElement) {
-                chiliPiperCalendarElement.innerHTML = '<p style="color: #777; padding-top: 20px;">Loading Scheduler...</p>'; 
+                chiliPiperCalendarElement.innerHTML = '<p style="color: #777; padding: 20px; text-align:center;">Loading Scheduler...</p>'; 
             }
             if(mainPage1) mainPage1.removeAttribute('aria-hidden');
             if(mainPage2) mainPage2.removeAttribute('aria-hidden');
+            if(document.querySelector('.site-header')) document.querySelector('.site-header').removeAttribute('aria-hidden');
+            if(document.querySelector('.site-footer')) document.querySelector('.site-footer').removeAttribute('aria-hidden');
+
+            // Return focus to the button that opened the modal, if tracked.
+            // For simplicity, this is not implemented here but is a good UX enhancement.
         }
 
         openPopupButtons.forEach(button => {
@@ -806,13 +838,9 @@
             }
         });
         
-        const connectBtn = document.getElementById('connectWithBardyaBtn'); 
-        if (connectBtn) { 
-            connectBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                openSchedulePopup(connectBtn.id); 
-            });
-        }
+        // Removed reference to non-existent 'connectWithBardyaBtn'
+        // const connectBtn = document.getElementById('connectWithBardyaBtn'); 
+        // if (connectBtn) { ... }
 
         if(closeSchedulePopupBtn) closeSchedulePopupBtn.addEventListener('click', closeSchedulePopup);
 
@@ -827,7 +855,7 @@
                 closeSchedulePopup();
             }
             if (event.key === 'Tab' && schedulePopupOverlay.classList.contains('active')) {
-                const focusableElements = schedulePopupOverlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+                const focusableElements = schedulePopupOverlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe');
                 const firstFocusable = focusableElements[0];
                 const lastFocusable = focusableElements[focusableElements.length - 1];
                 if (event.shiftKey) { 
@@ -844,27 +872,41 @@
             }
         });
 
+        // This script adds 'init-hidden' class to elements that are meant to be animated.
+        // The actual initial styles (opacity: 0, transform: ...) are defined in their respective CSS classes
+        // or in the added CSS for .local-proof, .video-section, .urgency-bar.
+        // 'init-hidden' acts as a marker for the IntersectionObserver.
         document.querySelectorAll('.benefit-card, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar').forEach(el => {
-            if (el.closest('.animated-section')) {
+            if (el.closest('.animated-section')) { 
+                // Elements like .benefit-card are not .animated-section themselves.
                 if (!el.classList.contains('animated-section')) { 
                     el.classList.add('init-hidden');
                 }
+            } else if (el.classList.contains('animated-section')) {
+                 // If the element itself is an .animated-section and should be hidden initially
+                 el.classList.add('init-hidden');
             }
         });
-
+        
         const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
         const observer = new IntersectionObserver((entries, obs) => { 
-            entries.forEach(entry => {
+            entries.forEach(entry => { // entry.target is an .animated-section or an element directly marked with init-hidden if not in a parent animated-section
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('animated-section')) entry.target.classList.add('is-visible'); 
-                    const childAnimatedElements = entry.target.querySelectorAll('.init-hidden');
-                    childAnimatedElements.forEach(el => el.classList.add('is-visible'));
-                    if (entry.target.classList.contains('init-hidden')) entry.target.classList.add('is-visible');
+                    // If the entry itself is an animated section wrapper, make its 'init-hidden' children visible
+                    if (entry.target.classList.contains('animated-section')) {
+                         entry.target.classList.add('is-visible'); // Make the section wrapper visible if it has animation styles
+                        const childAnimatedElements = entry.target.querySelectorAll('.init-hidden');
+                        childAnimatedElements.forEach(el => el.classList.add('is-visible'));
+                    } else if (entry.target.classList.contains('init-hidden')) {
+                        // If the observed element itself was marked init-hidden (e.g. .urgency-bar not in a .animated-section wrapper)
+                        entry.target.classList.add('is-visible');
+                    }
                     obs.unobserve(entry.target); 
                 }
             });
         }, observerOptions);
-        document.querySelectorAll('.animated-section').forEach(section => observer.observe(section));
+        // Observe .animated-section wrappers and also individual elements that might be animated directly
+        document.querySelectorAll('.animated-section, .init-hidden').forEach(section => observer.observe(section));
         
         const stickyCTA = document.querySelector('.sticky-cta-button');
         const heroSectionForSticky = document.querySelector('.hero'); 
@@ -884,6 +926,11 @@
                 pageSections.forEach(section => section.classList.toggle('active', section.id === targetId));
                 navLinks.forEach(nav => nav.classList.remove('active-nav'));
                 link.classList.add('active-nav');
+                // Focus the new page's main content area for accessibility
+                const targetPageMainContent = document.getElementById(targetId + '-main-content');
+                if (targetPageMainContent) {
+                    targetPageMainContent.focus({ preventScroll: true }); // preventScroll might be needed if scrollTo is also used
+                }
                 window.scrollTo(0,0); 
             });
         });
@@ -927,20 +974,33 @@
             carouselItems.forEach((_, index) => {
                 const dot = document.createElement('span');
                 dot.classList.add('carousel-dot');
+                dot.setAttribute('role', 'button');
+                dot.setAttribute('tabindex', '0');
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
                 dot.addEventListener('click', () => {
                     currentCarouselItem = index;
                     showCarouselItem(currentCarouselItem);
                     if (carouselInterval) clearInterval(carouselInterval); 
                     carouselInterval = setInterval(() => cycleCarousel(false), carouselIntervalTime); 
                 });
+                dot.addEventListener('keydown', (e) => { // Allow dot activation with Enter/Space
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        currentCarouselItem = index;
+                        showCarouselItem(currentCarouselItem);
+                        if (carouselInterval) clearInterval(carouselInterval); 
+                        carouselInterval = setInterval(() => cycleCarousel(false), carouselIntervalTime);
+                    }
+                });
                 dotsContainer.appendChild(dot);
             });
         }
         
         if (carousel) { 
-            carousel.addEventListener('click', (e) => {
-                if (e.target.closest('.testimonial-carousel-item.active-slide')) cycleCarousel(true, 'next');
-            });
+            // Click on active slide to advance is perhaps not standard, consider removing if not desired.
+            // carousel.addEventListener('click', (e) => {
+            //     if (e.target.closest('.testimonial-carousel-item.active-slide')) cycleCarousel(true, 'next');
+            // });
             carousel.addEventListener('touchstart', (e) => {
                 touchStartX = e.changedTouches[0].screenX; isDragging = true; 
                 if (carouselInterval) clearInterval(carouselInterval); 
