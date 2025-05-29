@@ -1310,7 +1310,7 @@ body {
     left: 50%;
     /* transform: translate(-50%, -50%) scale(0.98); Initial state */
   }
-   .popup-overlay.active .popup-content { /* Active state for centered popup */
+    .popup-overlay.active .popup-content { /* Active state for centered popup */
     transform: translate(-50%, -50%) scale(1);
   }
   .popup-header {
