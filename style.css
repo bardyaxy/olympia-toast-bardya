@@ -265,7 +265,9 @@ body {
    5. Buttons
    ========================================================================== */
 .btn {
-  display: inline-block; /* Changed from inline-flex for general button */
+  display: inline-flex; /* Flex ensures buttons and links align consistently */
+  justify-content: center;
+  align-items: center;
   padding: 15px 32px;
   font-size: 1.15em;
   font-weight: 600;
@@ -784,6 +786,18 @@ body {
   background-color: var(--bg-main); /* Slightly off-white hover */
   color: var(--text-primary);
   box-shadow: 0 7px 18px rgba(255, 255, 255, 0.25);
+}
+
+/* Wrap for multiple CTA buttons */
+.cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+.cta-buttons .btn {
+  flex: 1 1 260px; /* Equal width for each button */
 }
 
 /* ==========================================================================
