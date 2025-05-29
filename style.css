@@ -280,11 +280,13 @@ body {
   cursor: pointer;
   transition: var(--transition-main);
   box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+  animation: pulseCtaBtn 3s infinite ease-in-out;
 }
 .btn:hover {
   background-color: var(--accent-color-darker);
   transform: translateY(-3px) scale(var(--hover-scale)); /* Consistent hover scale */
   box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3);
+  animation-play-state: paused;
 }
 
 /* Call Button in Header */
@@ -303,6 +305,7 @@ body {
   transition: var(--transition-main);
   text-decoration: none;
   white-space: nowrap;
+  animation: pulseCtaBtn 3s infinite ease-in-out;
 }
 .btn-call-bardya .call-text {
   font-weight: 600;
@@ -315,6 +318,7 @@ body {
   border-color: var(--border-light-hover);
   transform: translateY(-1px); /* Subtle lift */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  animation-play-state: paused;
 }
 .btn-call-bardya i.fa-phone-alt { /* Ensure Font Awesome is loaded */
   font-size: 0.9em;
@@ -938,6 +942,18 @@ body {
   animation-play-state: paused; /* Pause animation on hover */
 }
 
+@keyframes pulseCtaBtn {
+  0% {
+    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(250, 90, 10, 0.45);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+  }
+}
+
 @keyframes pulseStickyBtn {
   0% {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0.3);
@@ -1294,7 +1310,7 @@ body {
     left: 50%;
     /* transform: translate(-50%, -50%) scale(0.98); Initial state */
   }
-   .popup-overlay.active .popup-content { /* Active state for centered popup */
+    .popup-overlay.active .popup-content { /* Active state for centered popup */
     transform: translate(-50%, -50%) scale(1);
   }
   .popup-header {
