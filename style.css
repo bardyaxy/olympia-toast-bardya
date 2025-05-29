@@ -1,735 +1,1324 @@
-        :root {
-            /* Color Scheme */
-            --toast-primary-orange: #FA5A0A; 
-            --toast-secondary-orange-dark: #E04F0A;
-            --toast-neutral-darkest: #0A2540; 
-            --toast-neutral-dark: #333D4F;  
-            --toast-neutral-medium: #6B778D; 
-            --toast-neutral-light: #F0F3F5; /* Main page background */
-            --toast-neutral-lightest: #FFFFFF;
-            --bg-section-alt: #f8f9fa; /* Light gray for alternating sections */
+/* ==========================================================================
+   1. CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+  /* Color Scheme */
+  --toast-primary-orange: #FA5A0A;
+  --toast-secondary-orange-dark: #E04F0A;
+  --toast-neutral-darkest: #0A2540; /* Primary Text, Solid CTA BG */
+  --toast-neutral-dark: #333D4F;    /* Secondary Text */
+  --toast-neutral-medium: #6B778D; /* Tertiary Text, Icons, Borders */
+  --toast-neutral-light: #F0F3F5;  /* Main Page Background */
+  --toast-neutral-lighter: #F8F9FA;/* Alternate Section Background */
+  --toast-neutral-lightest: #FFFFFF;/* Text on Dark BG, Card Backgrounds */
 
+  /* Semantic Text & Background Colors */
+  --text-primary: var(--toast-neutral-darkest);
+  --text-secondary: var(--toast-neutral-dark);
+  --text-tertiary: var(--toast-neutral-medium);
+  --text-on-dark-bg: var(--toast-neutral-lightest);
+  --text-accent: var(--toast-primary-orange);
 
-            /* Text & Background Colors */
-            --text-primary: var(--toast-neutral-darkest);
-            --text-secondary: var(--toast-neutral-dark);
-            --text-on-dark-bg: var(--toast-neutral-lightest);
-            --text-accent: var(--toast-primary-orange);
-            --bg-main: var(--toast-neutral-light); 
-            --bg-hero-overlay-start: rgba(10, 37, 64, 0.6); 
-            --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);  
-            --bg-cta-solid: var(--toast-neutral-darkest);
-            
-            /* Accent Colors */
-            --accent-color: var(--toast-primary-orange);
-            --accent-color-darker: var(--toast-secondary-orange-dark);
-            
-            /* Hero Background Image - Using actual filename */
-            --hero-bg-image: url('olympia-hero.jpg'); 
-            
-            /* Glass Morphism Style */
-            --glass-bg: rgba(255, 255, 255, 0.65); 
-            --glass-blur: 10px; 
-            --glass-border-color: rgba(255, 255, 255, 0.7); 
-            --card-shadow: 0 12px 35px rgba(0, 0, 0, 0.08); 
-            
-            /* UI Sizing & Transitions */
-            --hover-scale: 1.03; 
-            --border-radius-main: 18px; 
-            --border-radius-button: 30px; 
-            --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
-            --transition-fast: all 0.2s ease-out;
-            --transition-springy: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            --toast-border-light: #e2e8f0; 
-        }
+  --bg-main: var(--toast-neutral-light);
+  --bg-section-alt: var(--toast-neutral-lighter);
+  --bg-card: var(--toast-neutral-lightest);
+  --bg-cta-solid: var(--toast-neutral-darkest);
+  --bg-hero-overlay-start: rgba(10, 37, 64, 0.6);
+  --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
 
-        body {
-            font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-main); 
-            color: var(--text-primary);
-            line-height: 1.75; 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            font-size: 16px;
-            padding-bottom: 95px; 
-        }
+  /* Accent Colors */
+  --accent-color: var(--toast-primary-orange);
+  --accent-color-darker: var(--toast-secondary-orange-dark);
 
-        .skip-link { 
-            position: absolute;
-            top: -999px; 
-            left: 0;
-            background: var(--toast-neutral-darkest);
-            color: white;
-            padding: 10px 15px;
-            z-index: 10002; 
-            text-decoration: none;
-            border-radius: 0 0 5px 0;
-        }
-        .skip-link:focus { top: 0; }
+  /* Borders */
+  --border-light: #e2e8f0; /* General light border */
+  --border-light-hover: #ced4da; /* Slightly darker for hover states */
+  --btn-subtle-hover-bg: #e9ecef; /* For light buttons on hover */
 
-        .container {
-            max-width: 1000px; 
-            margin: 0 auto;
-            padding: 0 20px; 
-            box-sizing: border-box;
-        }
+  /* Hero Background Image */
+  --hero-bg-image: url('olympia-hero.jpg'); /* Ensure this path is correct */
 
-        .page-section { display: none; }
-        .page-section.active { display: block; }
+  /* Glass Morphism Style */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-blur: 10px;
+  --glass-border-color: rgba(255, 255, 255, 0.7);
+  --card-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 18px 45px rgba(0,0,0,0.12); /* Enhanced shadow for hover */
 
-        .site-header {
-            padding: 10px 0; 
-            background-color: rgba(255,255,255,0.85); 
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--toast-border-light);
-            position: sticky;
-            top: 0;
-            z-index: 1000; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-        }
+  /* UI Sizing & Transitions */
+  --hover-scale: 1.03;
+  --border-radius-main: 18px;
+  --border-radius-button: 30px;
+  --border-radius-small: 8px; /* Added for smaller elements like urgency bar */
 
-        .header-content { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-        }
-        
-        .header-logo { 
-            display: flex;
-            align-items: center;
-        }
+  --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.2s ease-out;
+  --transition-springy: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
-        .toast-header-logo-img { 
-            height: 36px; 
-            width: auto;
-            object-fit: contain;
-        }
-        
-        .header-actions { 
-            display: flex;
-            align-items: center;
-            gap: 15px; 
-        }
+  /* Spacing (example, can be expanded) */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 20px;
+  --space-xl: 30px;
+  --space-xxl: 40px;
+}
 
-        .main-nav { 
-            display: flex; 
-            gap: 15px;
-        }
-        .main-nav a {
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            transition: var(--transition-fast);
-            white-space: nowrap;
-            padding: 5px 0; 
-        }
-        .main-nav a:hover, .main-nav a.active-nav { color: var(--accent-color); }
+/* ==========================================================================
+   2. Global Styles & Resets
+   ========================================================================== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; /* Optional: for smooth scrolling on anchor links */
+}
 
-        .btn-call-bardya { 
-            display: inline-flex; 
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px; 
-            font-size: 0.95em; 
-            background-color: var(--toast-neutral-light); 
-            color: var(--text-primary);
-            border: 1px solid var(--toast-border-light);
-            border-radius: var(--border-radius-button);
-            font-weight: 500;
-            cursor: pointer;
-            transition: var(--transition-main);
-            text-decoration: none; 
-            white-space: nowrap;
-        }
-        .btn-call-bardya .call-text {
-            font-weight: 600;
-        }
-        .btn-call-bardya .phone-number {
-            color: var(--text-secondary);
-        }
-        .btn-call-bardya:hover {
-            background-color: #e9ecef; 
-            border-color: #ced4da;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .btn-call-bardya i.fa-phone-alt { 
-            font-size: 0.9em;
-            color: var(--accent-color);
-            transform: scaleX(-1); 
-        }
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 
-        .menu-toggle {
-            display: none; 
-            background: none;
-            border: none;
-            font-size: 1.8em; 
-            color: var(--text-primary);
-            cursor: pointer;
-            padding: 5px;
-            z-index: 1005; 
-        }
+body {
+  font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-size: 16px; /* Base font size */
+  line-height: 1.75;
+  overflow-x: hidden; /* Be cautious, ensure no content is actually overflowing */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 95px; /* Space for sticky CTA bar, adjust if bar height changes */
+}
 
-        .mobile-nav-menu {
-            display: none;
-            position: absolute;
-            top: 100%; 
-            right: 0;
-            background-color: var(--toast-neutral-lightest);
-            border: 1px solid var(--toast-border-light);
-            border-top: none;
-            border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
-            padding: 10px 0;
-            z-index: 1000;
-            min-width: 180px;
-        }
-        .mobile-nav-menu.active {
-            display: block;
-        }
-        .mobile-nav-menu a {
-            display: block;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: var(--text-secondary);
-            font-weight: 500;
-            white-space: nowrap;
-        }
-        .mobile-nav-menu a:hover {
-            background-color: var(--toast-neutral-light);
-            color: var(--accent-color);
-        }
-        
-        .btn-back-to-home {
-            display: inline-flex; 
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 20px;
-            padding: 8px 15px;
-            background-color: var(--toast-neutral-light);
-            color: var(--text-primary);
-            border: 1px solid var(--toast-border-light);
-            border-radius: var(--border-radius-button);
-            font-weight: 500;
-            font-size: 0.9em;
-            cursor: pointer;
-            transition: var(--transition-fast);
-            text-decoration: none;
-        }
-        .btn-back-to-home:hover {
-            background-color: #e9ecef;
-            border-color: #ced4da;
-        }
-        .btn-back-to-home i {
-            margin-right: 5px;
-        }
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -999px; /* Visually hide off-screen */
+  left: 0;
+  background: var(--toast-neutral-darkest);
+  color: var(--toast-neutral-lightest);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 10002; /* High z-index to be on top */
+  text-decoration: none;
+  border-radius: 0 0 var(--space-xs) 0;
+  transition: top 0.1s ease-in-out; /* Smooth appearance */
+}
+.skip-link:focus {
+  top: 0; /* Bring into view on focus */
+}
 
+/* ==========================================================================
+   3. Layout & Container
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1000px; /* Consider increasing for wider screens if design allows */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
 
-        /* Alternating section background */
-        .section-alt-bg {
-            background-color: var(--bg-section-alt);
-            padding-top: 40px; 
-            padding-bottom: 40px;
-        }
-        .content-section > .section-alt-bg {
-             margin-left: -20px; 
-             margin-right: -20px;
-             padding-left: 20px;
-             padding-right: 20px;
-        }
+/* Page section visibility (for single-page app-like behavior) */
+.page-section {
+  display: none;
+}
+.page-section.active {
+  display: block;
+}
 
+/* Alternating section background helper */
+.section-alt-bg {
+  background-color: var(--bg-section-alt);
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
+}
+/* Adjust padding for nested alt backgrounds within .content-section */
+.content-section > .section-alt-bg {
+  margin-left: calc(-1 * var(--space-lg)); /* Counteract container padding */
+  margin-right: calc(-1 * var(--space-lg));
+  padding-left: var(--space-lg);
+  padding-right: var(--space-lg);
+}
 
-        .features-section {
-        }
-        .features-section .section-title { 
-            font-size: 1.8em; 
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: 1fr; 
-            gap: 25px; 
-            margin-top: 20px;
-        }
-        .feature-item {
-            display: flex;
-            align-items: flex-start; 
-            gap: 15px; 
-            padding: 15px; 
-            background-color: var(--toast-neutral-lightest); 
-            border-radius: var(--border-radius-main);
-            box-shadow: var(--card-shadow);
-            transition: var(--transition-main);
-            opacity: 0; transform: translateY(30px); 
-        }
-        .feature-item.is-visible { opacity: 1; transform: translateY(0); } 
+/* Generic content section padding */
+.content-section {
+  padding-top: var(--space-xxl);
+  padding-bottom: var(--space-xxl);
+}
+.content-section.no-top-padding {
+  padding-top: 0;
+}
 
-        .feature-item:hover {
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .feature-icon img { 
-            width: 40px; 
-            height: 40px;
-            object-fit: contain;
-        }
-        .feature-icon { 
-            flex-shrink: 0;
-            width: 40px; 
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 3px; 
-        }
-        .feature-text-content h3 {
-            font-size: 1.25em; 
-            color: var(--text-primary);
-            margin-top: 0;
-            margin-bottom: 5px; 
-            font-weight: 600;
-        }
-        .feature-text-content p {
-            font-size: 0.95em; 
-            color: var(--text-secondary);
-            line-height: 1.5; 
-            margin-bottom: 0;
-        }
-        @media (min-width: 768px) {
-            .features-grid {
-                grid-template-columns: repeat(2, 1fr); 
-                gap: 30px;
-            }
-            .feature-item { padding: 20px; gap: 20px; }
-            .feature-icon img { width: 45px; height: 45px; }
-            .feature-icon { width: 45px; height: 45px; }
-            .feature-text-content h3 { font-size: 1.3em; }
-            .feature-text-content p { font-size: 1em; }
-        }
-        @media (min-width: 992px) { 
-             .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
-            }
-        }
+/* Generic section title */
+.section-title {
+  font-size: 2.1em;
+  color: var(--text-primary);
+  margin-bottom: 35px; /* Consistent bottom margin */
+  text-align: center;
+  font-weight: 700;
+}
 
+/* ==========================================================================
+   4. Header & Navigation
+   ========================================================================== */
+.site-header {
+  padding: var(--space-sm) 0;
+  background-color: rgba(255, 255, 255, 0.85); /* Consider a variable if reused */
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
 
-        .hero {
-            text-align: center; padding: 70px 20px 60px; 
-            background-color: var(--toast-neutral-darkest);
-            background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), var(--hero-bg-image); 
-            background-size: cover; background-position: center center;
-            color: var(--text-on-dark-bg); margin-bottom: 0; 
-        }
-        .hero h1 { font-size: 2.8em; color: var(--text-on-dark-bg); margin-bottom: 20px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.35); line-height: 1.25; }
-        .hero .subtitle { font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
-        .hero .btn { margin-top: 10px; font-size: 1.15em; }
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-        .video-section { 
-            text-align: center; 
-            padding-top: 30px; 
-            padding-bottom: 30px; 
-        } 
-        .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
-        .video-container iframe { width: 100%; height: 100%; border: none; }
+.header-logo {
+  display: flex;
+  align-items: center;
+}
 
-        .content-section { padding: 40px 0; }
-        .content-section.no-top-padding { padding-top: 0; } 
-        
-        .local-proof { text-align: center; padding-bottom: 50px;  }
-        .testimonial-carousel-wrapper { 
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border-radius: var(--border-radius-main); 
-            padding: 30px 20px 20px; 
-            box-shadow: var(--card-shadow); 
-            position: relative; 
-            overflow: hidden; 
-            border: 1px solid var(--glass-border-color);
-        }
-        .testimonial-carousel-container { display: flex; transition: transform 0.5s ease-in-out; min-height: 220px; cursor: grab; user-select: none; -webkit-user-select: none; }
-        .testimonial-carousel-container:active { cursor: grabbing; }
-        .testimonial-carousel-item { min-width: 100%; box-sizing: border-box; padding: 0 15px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-        .testimonial-carousel-item.active-slide { opacity: 1; transform: scale(1); transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
-        .testimonial-carousel-item:not(.active-slide) { opacity: 0.5; transform: scale(0.95); transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out; }
-        .testimonial-image-placeholder { width: 70px; height: 70px; border-radius: 50%; background-color: #e9ecef; margin-bottom: 15px; display: flex; align-items: center; justify-content: center; font-size: 0.8em; color: var(--toast-neutral-medium); border: 2px solid var(--toast-neutral-light); overflow: hidden; }
-        .testimonial-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-        .testimonial-carousel-item p { font-style: italic; font-size: 1.1em; color: var(--text-secondary); margin-bottom: 15px; line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto; }
-        .testimonial-carousel-item p::before { content: "“"; font-size: 2.5em; color: var(--accent-color); font-weight: 700; display: inline-block; margin-right: 5px; line-height: 0.8; }
-        .testimonial-carousel-item span { display: block; font-weight: 600; color: var(--text-primary); font-size: 0.95em; margin-top: 10px; }
-        .testimonial-carousel-dots { text-align: center; margin-top: 15px; }
-        .carousel-dot { display: inline-block; width: 10px; height: 10px; background-color: var(--toast-neutral-medium); border-radius: 50%; margin: 0 5px; cursor: pointer; transition: background-color 0.3s ease, transform 0.3s ease; }
-        .carousel-dot.active { background-color: var(--accent-color); transform: scale(1.2); }
-        .carousel-nav { text-align: center; margin-top: 15px; }
-        .carousel-arrow { background-color: var(--toast-neutral-medium); color: var(--toast-neutral-lightest); border: none; border-radius: 50%; width: 35px; height: 35px; font-size: 1.2em; line-height: 35px; text-align: center; cursor: pointer; margin: 0 10px; transition: background-color 0.3s ease, transform 0.2s ease; }
-        .carousel-arrow:hover { background-color: var(--accent-color); transform: scale(1.1); }
-        .carousel-arrow:focus { outline: 2px solid var(--accent-color); outline-offset: 2px; }
+.toast-header-logo-img {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
 
-        .urgency-bar { background-color: var(--accent-color); color: var(--text-on-dark-bg); text-align: center; padding: 12px 20px; font-weight: 500; font-size: 0.95em; margin: 30px auto; border-radius: 8px; max-width: 700px; }
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+}
 
-        .glass-card.about-section { 
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border-radius: var(--border-radius-main);
-            border: 1px solid var(--glass-border-color);
-            padding: 30px; 
-            margin-bottom: 40px; 
-            box-shadow: var(--card-shadow); 
-            opacity: 0; transform: translateY(30px); 
-            transition: var(--transition-main);
-        }
-        .glass-card.is-visible { opacity: 1; transform: translateY(0); }
-        .glass-card:hover { transform: translateY(-8px) scale(var(--hover-scale)); box-shadow: 0 18px 45px rgba(0,0,0,0.12); }
+/* Main Navigation */
+.main-nav {
+  display: flex;
+  gap: var(--space-md);
+}
+.main-nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  transition: var(--transition-fast);
+  white-space: nowrap;
+  padding: var(--space-xs) 0;
+}
+.main-nav a:hover,
+.main-nav a.active-nav {
+  color: var(--accent-color);
+}
 
-        .section-title { font-size: 2.1em; color: var(--text-primary); margin-bottom: 35px; text-align: center; font-weight: 700; }
-        
-        .cta-solid-bg { background-color: var(--bg-cta-solid); color: var(--text-on-dark-bg); padding: 45px 30px; border-radius: var(--border-radius-main); text-align: center; margin-bottom: 40px; opacity: 0; transform: translateY(30px); transition: var(--transition-main); }
-        .cta-solid-bg.is-visible { opacity: 1; transform: translateY(0); }
-        .cta-solid-bg .section-title { color: var(--text-on-dark-bg); }
-        .cta-solid-bg p { color: rgba(255,255,255,0.85); font-size: 1.15em; max-width: 600px; margin-left: auto; margin-right: auto; }
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none; /* Hidden by default, shown in media queries */
+  background: none;
+  border: none;
+  font-size: 1.8em;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: var(--space-xs);
+  z-index: 1005; /* Above header content, below popup */
+}
 
-        .btn { background-color: var(--accent-color); color: var(--text-on-dark-bg); padding: 15px 32px; text-decoration: none; border-radius: var(--border-radius-button); font-size: 1.15em; font-weight: 600; transition: var(--transition-main); display: inline-block; border: none; cursor: pointer; box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); }
-        .btn:hover { background-color: var(--accent-color-darker); transform: translateY(-3px) scale(1.03); box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3); }
-        .cta-solid-bg .btn { background-color: var(--toast-neutral-lightest); color: var(--text-primary); box-shadow: 0 5px 15px rgba(255,255,255,0.15); }
-        .cta-solid-bg .btn:hover { background-color: #f0f0f0; color: var(--text-primary); box-shadow: 0 7px 18px rgba(255,255,255,0.25); }
+/* Mobile Navigation Menu */
+.mobile-nav-menu {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%; /* Position below the header */
+  right: 0;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-top: none;
+  border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  padding: var(--space-sm) 0;
+  z-index: 1000; /* Same as header, but should be fine */
+  min-width: 180px;
+}
+.mobile-nav-menu.active {
+  display: block;
+}
+.mobile-nav-menu a {
+  display: block;
+  padding: var(--space-sm) var(--space-lg);
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  white-space: nowrap;
+  transition: var(--transition-fast);
+}
+.mobile-nav-menu a:hover {
+  background-color: var(--bg-main);
+  color: var(--accent-color);
+}
 
-        .about-section { padding: 30px; }
-        .about-section h2 { margin-top: 0; }
-        .about-bardya-content { display: flex; flex-direction: column; align-items: center; gap: 20px; margin-bottom: 25px; }
-        .bardya-actual-photo { width: 150px; height: 150px; border-radius: 50%; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .bardya-photo-placeholder-text { width: 150px; height: 150px; border-radius: 50%; background-color: #e0e0e0; display: flex; align-items: center; justify-content: center; font-size: 0.9em; color: var(--toast-neutral-medium); text-align: center; }
-        .about-section .bio p { margin-bottom: 15px; font-size: 1.05em; text-align: left;}
-        .why-toast-list { list-style: none; padding-left: 0; }
-        .why-toast-list li { padding-left: 25px; position: relative; margin-bottom: 10px; font-size: 1.05em; }
-        .why-toast-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; top: 2px; color: var(--accent-color); }
-        .backup-links a { display: inline-block; margin: 5px 10px 5px 0; color: var(--accent-color); text-decoration: none; font-weight: 500; transition: color 0.2s ease; }
-        .backup-links a:hover { text-decoration: underline; color:var(--accent-color-darker); }
-        .backup-links a i { margin-right: 5px; }
+/* ==========================================================================
+   5. Buttons
+   ========================================================================== */
+.btn {
+  display: inline-block; /* Changed from inline-flex for general button */
+  padding: 15px 32px;
+  font-size: 1.15em;
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+  color: var(--text-on-dark-bg);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: var(--border-radius-button);
+  cursor: pointer;
+  transition: var(--transition-main);
+  box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+}
+.btn:hover {
+  background-color: var(--accent-color-darker);
+  transform: translateY(-3px) scale(var(--hover-scale)); /* Consistent hover scale */
+  box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3);
+}
 
-        .popup-overlay { 
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-            background-color: rgba(10, 37, 64, 0.92); 
-            display: flex; align-items: center; justify-content: center; 
-            z-index: 1001; 
-            opacity: 0; visibility: hidden; 
-            transition: opacity 0.25s ease, visibility 0.25s ease; 
-        }
-        .popup-content {
-            background-color: var(--toast-neutral-lightest); 
-            border-radius: var(--border-radius-main);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
-            width: 90vw; 
-            max-width: 700px; 
-            transform: translateY(15px) scale(0.98); 
-            transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.1), opacity 0.25s ease; 
-            opacity: 0;
-            height: 90vh; 
-            max-height: 720px; 
-            display: flex;   
-            flex-direction: column; 
-            box-sizing: border-box;
-            overflow: hidden; 
-            padding: 0; 
-        }
-        .popup-header { 
-            padding: 12px 15px 10px; 
-            text-align: center;
-            position: relative; 
-            border-bottom: 1px solid var(--toast-border-light); 
-            flex-shrink: 0; 
-        }
-        .popup-header h3 { 
-            margin: 0; 
-            font-size: 1.25em; 
-            font-weight: 600;
-            color: var(--text-primary); 
-            line-height: 1.3;
-        }
-        .popup-overlay.active { opacity: 1; visibility: visible; }
-        .popup-overlay.active .popup-content { transform: translateY(0) scale(1); opacity: 1; }
-        
-        #chiliPiperCalendarElement {
-            width: 100%;
-            flex-grow: 1; 
-            display: flex; 
-            align-items: stretch; 
-            justify-content: center;
-            overflow: hidden; 
-            border: none; 
-        }
-        #chiliPiperCalendarElement iframe { 
-            width: 100%;
-            height: 100%; 
-            border: none;
-        }
-        
-        .popup-close { 
-            position: absolute; 
-            top: 8px; right: 8px; 
-            font-size: 1.5em; 
-            color: var(--toast-neutral-medium);
-            cursor: pointer; background: none; border: none;
-            padding: 8px; line-height: 1; transition: var(--transition-fast); 
-            z-index: 10; 
-        }
-        .popup-close:hover { color: var(--text-primary); transform: rotate(90deg) scale(1.1); }
+/* Call Button in Header */
+.btn-call-bardya {
+  display: inline-flex; /* Specific to this button with icon */
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.95em;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-button);
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition-main);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.btn-call-bardya .call-text {
+  font-weight: 600;
+}
+.btn-call-bardya .phone-number {
+  color: var(--text-secondary);
+}
+.btn-call-bardya:hover {
+  background-color: var(--btn-subtle-hover-bg);
+  border-color: var(--border-light-hover);
+  transform: translateY(-1px); /* Subtle lift */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.btn-call-bardya i.fa-phone-alt { /* Ensure Font Awesome is loaded */
+  font-size: 0.9em;
+  color: var(--accent-color);
+  transform: scaleX(-1); /* Flips the phone icon if needed */
+}
 
-        .site-footer { text-align: center; padding: 50px 20px; margin-top: 30px; background-color: var(--toast-neutral-darkest); color: rgba(255,255,255,0.8); }
-        .site-footer p { margin: 8px 0; font-size: 0.9em; }
-        .site-footer p:first-child { font-weight: 600; color: var(--text-on-dark-bg); font-size: 0.95em;}
-        .site-footer a.footer-site-link {
-            color: var(--toast-neutral-light);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .site-footer a.footer-site-link:hover {
-            text-decoration: underline;
-            color: var(--toast-neutral-lightest);
-        }
+/* Back to Home Button */
+.btn-back-to-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-lg);
+  padding: 8px 15px;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--border-radius-button);
+  font-weight: 500;
+  font-size: 0.9em;
+  cursor: pointer;
+  transition: var(--transition-fast);
+  text-decoration: none;
+}
+.btn-back-to-home:hover {
+  background-color: var(--btn-subtle-hover-bg);
+  border-color: var(--border-light-hover);
+}
+.btn-back-to-home i { /* Assumes Font Awesome */
+  margin-right: var(--space-xs);
+}
 
-        /* Updated Sticky CTA Bar CSS */
-        .sticky-cta-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: var(--accent-color);
-            color: var(--text-on-dark-bg);
-            padding: 15px 10px; /* Reduced padding for tighter centering */
-            display: flex;
-            justify-content: center; /* Center the button horizontally */
-            align-items: center; /* Center the button vertically */
-            z-index: 998;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transform: translateY(100%);
-            transition: opacity 0.3s ease, transform 0.3s ease;
-            box-sizing: border-box; /* Ensure padding doesn't affect width */
-        }
-        .sticky-cta-bar.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .sticky-cta-bar .btn {
-            background-color: var(--toast-neutral-lightest);
-            color: var(--accent-color);
-            padding: 12px 30px;
-            font-size: 1.15em;
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            animation: pulseStickyBtn 2s infinite ease-in-out;
-            width: auto; /* Let the button size naturally */
-            max-width: 90%; /* Prevent button from being too wide */
-            margin: 0 auto; /* Center the button */
-            text-align: center; /* Ensure text inside button is centered */
-            border-radius: var(--border-radius-button);
-            display: inline-flex; /* Ensure icon and text align properly */
-            align-items: center;
-            justify-content: center;
-        }
-        .sticky-cta-bar .btn:hover {
-            background-color: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            animation-play-state: paused;
-        }
+/* ==========================================================================
+   6. Hero Section
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 70px var(--space-lg) 60px;
+  background-color: var(--toast-neutral-darkest);
+  background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), var(--hero-bg-image);
+  background-size: cover;
+  background-position: center center;
+  color: var(--text-on-dark-bg);
+  margin-bottom: 0; /* Reset margin if it's part of a flow */
+}
+.hero h1 {
+  font-size: 2.8em;
+  color: var(--text-on-dark-bg); /* Explicitly set for clarity */
+  margin-top: 0; /* Good practice for first element in a section */
+  margin-bottom: var(--space-lg);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  line-height: 1.25;
+}
+.hero .subtitle {
+  font-size: 1.3em;
+  margin-bottom: var(--space-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.hero .btn {
+  margin-top: var(--space-sm); /* Spacing from subtitle */
+  font-size: 1.15em; /* Consistent with general .btn */
+}
 
+/* ==========================================================================
+   7. Features Section
+   ========================================================================== */
+.features-section {
+  /* Can add specific padding if different from .content-section */
+}
+.features-section .section-title { /* Specific styling for features title if needed */
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* Mobile first: single column */
+  gap: 25px;
+  margin-top: var(--space-lg);
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main); /* Combined transitions */
+  opacity: 0;
+  transform: translateY(30px); /* Initial state for animation */
+}
+.feature-item.is-visible { /* State for scroll-triggered animation */
+  opacity: 1;
+  transform: translateY(0);
+}
+.feature-item:hover {
+  transform: translateY(-5px) scale(1.02); /* Slightly different hover from generic card */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px; /* Small alignment tweak */
+}
+.feature-icon img {
+  width: 100%; /* Fill the container */
+  height: 100%;
+  object-fit: contain;
+}
+.feature-text-content h3 {
+  font-size: 1.25em;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: var(--space-xs);
+  font-weight: 600;
+}
+.feature-text-content p {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0;
+}
 
-        @keyframes pulseStickyBtn { 
-            0% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0.3); }
-            70% { box-shadow: 0 4px 12px rgba(0,0,0,0.25), 0 0 0 10px rgba(255, 255, 255, 0); }
-            100% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0); }
-        }
+/* ==========================================================================
+   8. Video Section
+   ========================================================================== */
+.video-section {
+  text-align: center;
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-xl);
+  opacity: 0; /* For scroll animation */
+  transform: translateY(30px);
+  transition: var(--transition-main);
+}
+.video-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.video-container {
+  background-color: #000; /* Placeholder/wrapper background */
+  width: 100%;
+  max-width: 680px;
+  aspect-ratio: 16 / 9;
+  margin: var(--space-lg) auto 0;
+  display: flex; /* For potential placeholder text */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  font-size: 1.2em; /* For placeholder text if video fails */
+  color: var(--text-on-dark-bg);
+  overflow: hidden; /* Ensures iframe fits rounded corners */
+}
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
+/* ==========================================================================
+   9. Testimonial / Local Proof Section
+   ========================================================================== */
+.local-proof {
+  text-align: center;
+  padding-bottom: 50px;
+  opacity: 0; /* For scroll animation */
+  transform: translateY(30px);
+  transition: var(--transition-main);
+}
+.local-proof.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.testimonial-carousel-wrapper {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden; /* Important for carousel items */
+  border: 1px solid var(--glass-border-color);
+}
+.testimonial-carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  min-height: 220px; /* Adjust as needed for content */
+  cursor: grab;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.testimonial-carousel-container:active {
+  cursor: grabbing;
+}
+.testimonial-carousel-item {
+  min-width: 100%; /* Each item takes full width of container */
+  box-sizing: border-box;
+  padding: 0 var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  opacity: 0.5; /* Non-active slides are dimmed */
+  transform: scale(0.95); /* Non-active slides are smaller */
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+.testimonial-carousel-item.active-slide {
+  opacity: 1;
+  transform: scale(1);
+}
+.testimonial-image-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--btn-subtle-hover-bg); /* Using a variable */
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  color: var(--text-tertiary);
+  border: 2px solid var(--bg-main); /* Using a variable */
+  overflow: hidden;
+}
+.testimonial-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonial-carousel-item p {
+  font-style: italic;
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  max-width: 600px; /* Constrain text width for readability */
+  margin-left: auto;
+  margin-right: auto;
+}
+.testimonial-carousel-item p::before { /* Quotation mark style */
+  content: "“";
+  font-size: 2.5em;
+  color: var(--accent-color);
+  font-weight: 700;
+  display: inline-block; /* Or block if preferred */
+  margin-right: var(--space-xs);
+  line-height: 0.8; /* Adjust vertical alignment */
+}
+.testimonial-carousel-item span { /* Author/Source */
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95em;
+  margin-top: var(--space-sm);
+}
+.testimonial-carousel-dots {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+.carousel-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-tertiary);
+  border-radius: 50%;
+  margin: 0 var(--space-xs);
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.carousel-dot.active {
+  background-color: var(--accent-color);
+  transform: scale(1.2);
+}
+.carousel-nav { /* Optional: If using arrow navigation */
+  text-align: center;
+  margin-top: var(--space-md);
+}
+.carousel-arrow {
+  background-color: var(--text-tertiary);
+  color: var(--text-on-dark-bg); /* Text on medium gray */
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2em;
+  line-height: 35px; /* Vertically center icon */
+  text-align: center;
+  cursor: pointer;
+  margin: 0 var(--space-sm);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.carousel-arrow:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+.carousel-arrow:focus { /* Accessibility */
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
 
-        .local-proof, .video-section, .urgency-bar {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: var(--transition-main);
-        }
-        .local-proof.is-visible, .video-section.is-visible, .urgency-bar.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
+/* ==========================================================================
+   10. Urgency Bar
+   ========================================================================== */
+.urgency-bar {
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  text-align: center;
+  padding: 12px var(--space-lg);
+  font-weight: 500;
+  font-size: 0.95em;
+  margin: var(--space-xl) auto;
+  border-radius: var(--border-radius-small);
+  max-width: 700px;
+  opacity: 0; /* For scroll animation */
+  transform: translateY(30px);
+  transition: var(--transition-main);
+}
+.urgency-bar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-        @media (max-width: 768px) { 
-            .container { padding: 0 15px; }
-            .site-header { padding: 10px 0; }
-            
-            .main-nav .nav-link-about { 
-                display: none;
-            }
-            .menu-toggle { 
-                display: block; 
-            }
-            .btn-call-bardya {
-                font-size: 0.9em;
-                padding: 7px 14px;
-            }
-            .btn-call-bardya .call-text {
-                 display: none; 
-            }
-            .sticky-cta-bar {
-                padding: 15px; 
-            }
-            .sticky-cta-bar .btn {
-                font-size: 1em;
-                padding: 10px 20px;
-            }
-            .video-section { padding-top: 20px; padding-bottom: 20px; }
+/* ==========================================================================
+   11. Glass Card & About Section
+   ========================================================================== */
+.glass-card { /* Generic glass card style */
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  border: 1px solid var(--glass-border-color);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+  box-shadow: var(--card-shadow);
+  opacity: 0; /* For scroll animation */
+  transform: translateY(30px);
+  transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main);
+}
+.glass-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.glass-card:hover {
+  transform: translateY(-8px) scale(var(--hover-scale)); /* Use variable */
+  box-shadow: var(--card-hover-shadow); /* Use variable */
+}
 
+.about-section { /* Specific to about if it's a glass card */
+  /* Inherits .glass-card styles if class is applied, or define padding here */
+  /* padding: var(--space-xl); */
+}
+.about-section h2 {
+  margin-top: 0;
+}
+.about-bardya-content {
+  display: flex;
+  flex-direction: column; /* Default, can be row on larger screens */
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: 25px;
+}
+.bardya-actual-photo { /* Assumes an <img> tag */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.bardya-photo-placeholder-text { /* For when image is missing */
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--btn-subtle-hover-bg); /* Light gray */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+.about-section .bio p {
+  margin-bottom: var(--space-md);
+  font-size: 1.05em;
+  text-align: left; /* Default, can be centered if needed */
+}
+.why-toast-list {
+  list-style: none;
+  padding-left: 0;
+}
+.why-toast-list li {
+  padding-left: 25px; /* Space for icon */
+  position: relative;
+  margin-bottom: var(--space-sm);
+  font-size: 1.05em;
+}
+.why-toast-list li::before { /* Font Awesome check icon */
+  content: "\f00c"; /* Unicode for fa-check */
+  font-family: "Font Awesome 6 Free"; /* Ensure correct Font Awesome version */
+  font-weight: 900; /* Solid icon */
+  position: absolute;
+  left: 0;
+  top: 2px; /* Adjust vertical alignment */
+  color: var(--accent-color);
+}
+.backup-links a {
+  display: inline-block;
+  margin: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.backup-links a:hover {
+  text-decoration: underline;
+  color: var(--accent-color-darker);
+}
+.backup-links a i { /* Assumes Font Awesome */
+  margin-right: var(--space-xs);
+}
 
-            .hero { padding: 60px 15px 50px; }
-            .hero h1 { font-size: 2.2em; }
-            .hero .subtitle { font-size: 1.1em; }
-            .hero .btn { font-size: 1em; }
-            .video-container { font-size: 1em; }
-            .content-section { padding: 35px 0; }
-            .feature-item { padding: 15px; gap: 15px; }
-            .feature-icon img { width: 35px; height: 35px;}
-            .feature-icon { width: 35px; height: 35px; font-size: 1.8em; }
-            .feature-text-content h3 { font-size: 1.2em; }
-            .feature-text-content p { font-size: 0.9em; }
+/* ==========================================================================
+   12. CTA Section (Solid Background)
+   ========================================================================== */
+.cta-solid-bg {
+  background-color: var(--bg-cta-solid);
+  color: var(--text-on-dark-bg);
+  padding: 45px var(--space-xl);
+  border-radius: var(--border-radius-main);
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+  opacity: 0; /* For scroll animation */
+  transform: translateY(30px);
+  transition: var(--transition-main);
+}
+.cta-solid-bg.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cta-solid-bg .section-title { /* Title inside this CTA */
+  color: var(--text-on-dark-bg);
+}
+.cta-solid-bg p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15em;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--space-xl); /* Space before button */
+}
+.cta-solid-bg .btn { /* Button style specific to this CTA */
+  background-color: var(--toast-neutral-lightest);
+  color: var(--text-primary); /* Text primary on light button */
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+.cta-solid-bg .btn:hover {
+  background-color: var(--bg-main); /* Slightly off-white hover */
+  color: var(--text-primary);
+  box-shadow: 0 7px 18px rgba(255, 255, 255, 0.25);
+}
 
-            .section-title { font-size: 1.8em; margin-bottom: 30px; }
-            .features-section .section-title { font-size: 1.5em; }
-            .glass-card.about-section, .cta-solid-bg { padding: 25px; margin-bottom: 35px; }
-            .glass-card.about-section:hover { transform: translateY(-5px); } 
-            .testimonial-carousel-container { min-height: auto; padding-bottom: 15px;} 
-            .testimonial-carousel-item p { font-size: 1em; }
-            .testimonial-image-placeholder { width: 50px; height: 50px; margin-bottom: 10px; }
-            .urgency-bar { font-size: 0.9em; padding: 10px 15px; }
-            .popup-content { 
-                width: 95vw; 
-                height: 95vh;
-                max-width: 95vw;
-                max-height: 95vh; 
-                padding: 0; 
-                border-radius: var(--border-radius-main); 
-            } 
-            .popup-header { padding: 10px 15px 8px; }
-            .popup-header h3 { font-size: 1.1em; }
-            #chiliPiperCalendarElement { 
-                min-height: 0; 
-            }
-            #chiliPiperCalendarElement iframe {
-                min-height: calc(95vh - 50px);
-            }
-            .site-footer p { font-size: 0.9em; }
-        }
+/* ==========================================================================
+   13. Popup / Modal (ChiliPiper Calendar)
+   ========================================================================== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 37, 64, 0.92); /* Dark overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1001; /* High z-index */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s; /* Delay visibility change */
+}
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.25s ease, visibility 0s linear 0s;
+}
+.popup-content {
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-main);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  width: 90vw;
+  max-width: 700px;
+  height: 90vh;
+  max-height: 720px; /* Max height for content */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Contains iframe */
+  padding: 0; /* Padding handled by inner elements */
+  transform: translateY(15px) scale(0.98);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.1), opacity 0.25s ease;
+}
+.popup-overlay.active .popup-content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.popup-header {
+  padding: 12px var(--space-md) 10px;
+  text-align: center;
+  position: relative; /* For close button positioning */
+  border-bottom: 1px solid var(--border-light);
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+.popup-header h3 {
+  margin: 0;
+  font-size: 1.25em;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+}
+.popup-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 1.5em;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: var(--space-xs); /* Make it easier to click */
+  line-height: 1;
+  transition: var(--transition-fast);
+  z-index: 10; /* Above header content */
+}
+.popup-close:hover {
+  color: var(--text-primary);
+  transform: rotate(90deg) scale(1.1);
+}
+#chiliPiperCalendarElement { /* Container for the iframe */
+  width: 100%;
+  flex-grow: 1; /* Takes remaining space in popup-content */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  overflow: hidden; /* Should not be needed if iframe is 100% */
+  border: none; /* Should be on iframe */
+}
+#chiliPiperCalendarElement iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
 
-        @media (max-width: 520px) {
-            .site-header {
-                padding: 12px 0; 
-            }
-            .header-content { 
-                flex-wrap: nowrap; 
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header-logo {
-                flex-shrink: 0; 
-            }
-            .toast-header-logo-img {
-                height: 30px; 
-            }
-            
-            .header-actions {
-                gap: 10px; 
-            }
+/* ==========================================================================
+   14. Sticky CTA Bar (Bottom of screen)
+   ========================================================================== */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  padding: var(--space-md) var(--space-sm); /* Adjusted padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 998; /* Below header/popup but above content */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.sticky-cta-bar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.sticky-cta-bar .btn {
+  background-color: var(--toast-neutral-lightest);
+  color: var(--accent-color); /* Text color matches bar's original bg */
+  padding: 12px 30px;
+  font-size: 1.15em;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  animation: pulseStickyBtn 2s infinite ease-in-out;
+  /* width: auto; Let button size naturally */
+  /* max-width: 90%; Not needed if bar is centered */
+  /* margin: 0 auto; Not needed if bar uses flex justify-center */
+  text-align: center;
+  border-radius: var(--border-radius-button); /* Already in .btn but confirm */
+  display: inline-flex; /* For icon and text alignment if any */
+  align-items: center;
+  justify-content: center;
+}
+.sticky-cta-bar .btn:hover {
+  background-color: var(--bg-main); /* Slightly off-white */
+  transform: translateY(-2px); /* Override general .btn hover transform if needed */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation-play-state: paused; /* Pause animation on hover */
+}
 
-            .main-nav { 
-                display: none;
-            }
-            .menu-toggle { 
-                display: block;
-                font-size: 1.6em; 
-            }
-            .btn-call-bardya {
-                font-size: 0.85em;
-                padding: 6px 12px;
-            }
-            .btn-call-bardya .call-text {
-                 display: inline; 
-            }
-            .btn-call-bardya .phone-number {
-                font-size: 0.95em; 
-            }
-            .sticky-cta-bar {
-                padding: 12px 15px;
-            }
-            .sticky-cta-bar .btn {
-                font-size: 1em;
-                width: auto; 
-                max-width: 90%; 
-            }
-            .video-section { padding-top: 15px; padding-bottom: 15px; }
-            .video-container { max-width: 90%; aspect-ratio: 16 / 10; } 
-            .features-section .section-title { font-size: 1.4em; }
-        }
+@keyframes pulseStickyBtn {
+  0% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+  70% {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
 
-        @media (max-width: 400px) { 
-            .toast-header-logo-img {
-                height: 28px; 
-            }
-            .btn-call-bardya {
-                font-size: 0.8em;
-                padding: 5px 10px;
-                gap: 5px;
-            }
-            .btn-call-bardya .call-text {
-                 display: none; 
-            }
-            .menu-toggle {
-                font-size: 1.5em;
-            }
-             .sticky-cta-bar .btn {
-                font-size: 0.9em; 
-            }
-        }
+/* ==========================================================================
+   15. Footer
+   ========================================================================== */
+.site-footer {
+  text-align: center;
+  padding: 50px var(--space-lg);
+  margin-top: var(--space-xl);
+  background-color: var(--toast-neutral-darkest);
+  color: rgba(255, 255, 255, 0.8); /* Lighter text on dark bg */
+}
+.site-footer p {
+  margin: 8px 0;
+  font-size: 0.9em;
+}
+.site-footer p:first-child { /* Potentially for copyright or main message */
+  font-weight: 600;
+  color: var(--text-on-dark-bg);
+  font-size: 0.95em;
+}
+.site-footer a.footer-site-link {
+  color: var(--toast-neutral-light); /* Link color on dark bg */
+  text-decoration: none;
+  font-weight: 500;
+  transition: var(--transition-fast);
+}
+.site-footer a.footer-site-link:hover {
+  text-decoration: underline;
+  color: var(--toast-neutral-lightest); /* Brighter hover for link */
+}
 
-        @media (max-width: 480px) { 
-            body { font-size: 15px; padding-bottom: 75px; }
-            .hero { padding-top: 30px; padding-bottom: 30px; } 
-            .hero h1 { font-size: 1.8em; }
-            .hero .subtitle { font-size: 1em; margin-bottom: 20px; }
-            .hero .btn { font-size: 0.95em; padding: 10px 18px; }
+/* ==========================================================================
+   16. Media Queries - Desktop First (min-width) then Mobile Overrides (max-width)
+   Organized by breakpoint, then by component for clarity.
+   ========================================================================== */
 
-            .btn, a.btn { padding: 12px 20px; font-size: 0.95em; } 
-            .section-title { font-size: 1.6em; }
-            .features-section .section-title { font-size: 1.3em; }
-            .feature-item { flex-direction: column; align-items: center; text-align: center; }
-            .feature-icon img { width: 30px; height: 30px; }
-            .feature-icon { width: 30px; height: 30px; margin-bottom: 10px; font-size: 1.6em; }
+/* Larger tablets and small desktops */
+@media (min-width: 768px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  .feature-item {
+    padding: var(--space-lg);
+    gap: var(--space-lg);
+  }
+  .feature-icon {
+    width: 45px;
+    height: 45px;
+  }
+  /* .feature-icon img size is already 100% of parent */
+  .feature-text-content h3 {
+    font-size: 1.3em;
+  }
+  .feature-text-content p {
+    font-size: 1em;
+  }
 
+  .about-bardya-content {
+    flex-direction: row; /* Side-by-side photo and bio */
+    align-items: flex-start;
+  }
+  .about-section .bio {
+    text-align: left;
+  }
+}
 
-            .testimonial-carousel-item p {font-size: 0.9em;}
-            .testimonial-carousel-item span {font-size: 0.8em;}
-            .popup-content { 
-                width: 95vw; 
-                max-width: 95vw;
-                height: auto; 
-                max-height: 90vh; 
-                position: fixed; 
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%) scale(0.98); 
-                border-radius: var(--border-radius-main); 
-            }
-            .popup-overlay.active .popup-content {
-                 transform: translate(-50%, -50%) scale(1); 
-            }
-            .popup-header { padding: 8px 35px 8px 10px; }
-            .popup-header h3 { font-size: 1em; }
-            #chiliPiperCalendarElement iframe {
-                min-height: 300px; 
-                height: calc(90vh - 60px); 
-            }
-            .popup-close { top:5px; right:5px; background: rgba(255,255,255,0.15); border-radius:50%; padding: 3px 7px;}
-        }
+/* Desktops */
+@media (min-width: 992px) {
+  .features-grid {
+    /* Using auto-fit for more flexible columns on wider screens */
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  }
+}
+
+/* Smaller Tablets and Large Mobile (Portrait and Landscape) */
+@media (max-width: 768px) {
+  .container {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+  }
+  .site-header {
+    padding: var(--space-sm) 0; /* Consistent with base */
+  }
+
+  /* Header & Navigation */
+  .main-nav .nav-link-about { /* Example: Hide specific nav link */
+    display: none;
+  }
+  .menu-toggle {
+    display: block; /* Show mobile menu toggle */
+  }
+  .btn-call-bardya {
+    font-size: 0.9em;
+    padding: 7px 14px;
+  }
+  .btn-call-bardya .call-text { /* Hide "Call Us Today" on smaller screens */
+    display: none;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 60px var(--space-md) 50px;
+  }
+  .hero h1 {
+    font-size: 2.2em;
+  }
+  .hero .subtitle {
+    font-size: 1.1em;
+  }
+  .hero .btn {
+    font-size: 1em; /* Slightly smaller button text */
+  }
+
+  /* Video Section */
+  .video-section {
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-lg);
+  }
+  .video-container {
+    font-size: 1em; /* For placeholder text */
+  }
+
+  /* Content & Features */
+  .content-section {
+    padding-top: 35px;
+    padding-bottom: 35px;
+  }
+  .feature-item {
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+  .feature-icon {
+    width: 35px;
+    height: 35px;
+    /* font-size for icon font if used, img handles its own size */
+  }
+  .feature-text-content h3 {
+    font-size: 1.2em;
+  }
+  .feature-text-content p {
+    font-size: 0.9em;
+  }
+  .section-title {
+    font-size: 1.8em;
+    margin-bottom: var(--space-xl);
+  }
+  .features-section .section-title {
+    font-size: 1.5em;
+  }
+
+  /* Cards & CTA */
+  .glass-card, /* Apply to .glass-card.about-section if it uses this class */
+  .cta-solid-bg {
+    padding: 25px;
+    margin-bottom: 35px;
+  }
+  .glass-card:hover { /* Simpler hover for smaller screens */
+    transform: translateY(-5px);
+  }
+
+  /* Testimonials */
+  .testimonial-carousel-container {
+    min-height: auto; /* Allow content to define height */
+    padding-bottom: var(--space-md);
+  }
+  .testimonial-carousel-item p {
+    font-size: 1em;
+  }
+  .testimonial-image-placeholder {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--space-sm);
+  }
+
+  /* Urgency Bar */
+  .urgency-bar {
+    font-size: 0.9em;
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Popup / Modal */
+  .popup-content {
+    width: 95vw;
+    max-width: 95vw; /* Ensure it doesn't exceed viewport */
+    height: 95vh;
+    max-height: 95vh;
+    /* padding: 0; Already set */
+    /* border-radius: var(--border-radius-main); Already set */
+  }
+  .popup-header {
+    padding: var(--space-sm) var(--space-md) 8px;
+  }
+  .popup-header h3 {
+    font-size: 1.1em;
+  }
+  #chiliPiperCalendarElement {
+    min-height: 0; /* Allow flex to manage height */
+  }
+  #chiliPiperCalendarElement iframe {
+    min-height: calc(95vh - 50px); /* Approximate: popup height - header height */
+  }
+
+  /* Sticky CTA Bar */
+  .sticky-cta-bar {
+    padding: var(--space-md);
+  }
+  .sticky-cta-bar .btn {
+    font-size: 1em;
+    padding: var(--space-sm) var(--space-lg);
+  }
+
+  /* Footer */
+  .site-footer p {
+    font-size: 0.9em; /* Base footer text size */
+  }
+}
+
+/* Smaller Mobile Devices */
+@media (max-width: 520px) {
+  .site-header {
+    padding: 12px 0;
+  }
+  .header-content {
+    flex-wrap: nowrap; /* Prevent wrapping if space is tight */
+    /* justify-content: space-between; Already set */
+    /* align-items: center; Already set */
+  }
+  .header-logo {
+    flex-shrink: 0; /* Prevent logo from shrinking too much */
+  }
+  .toast-header-logo-img {
+    height: 30px;
+  }
+  .header-actions {
+    gap: var(--space-sm); /* Reduce gap */
+  }
+
+  .main-nav { /* Main nav is typically hidden for mobile menu at this size */
+    display: none;
+  }
+  /* .menu-toggle display:block is already set at max-width: 768px */
+  .menu-toggle {
+    font-size: 1.6em;
+  }
+
+  .btn-call-bardya {
+    font-size: 0.85em;
+    padding: 6px 12px;
+  }
+  .btn-call-bardya .call-text { /* Show call text again if desired, or keep hidden */
+    display: inline; /* Example: show it */
+  }
+  .btn-call-bardya .phone-number {
+    font-size: 0.95em;
+  }
+
+  .sticky-cta-bar {
+    padding: 12px var(--space-md);
+  }
+  .sticky-cta-bar .btn {
+    font-size: 1em; /* Keep it readable */
+    width: auto; /* Let it size by content */
+    max-width: 90%; /* Prevent it from being too wide */
+  }
+
+  .video-section {
+    padding-top: var(--space-md);
+    padding-bottom: var(--space-md);
+  }
+  .video-container {
+    max-width: 90%; /* More relative width */
+    aspect-ratio: 16 / 10; /* Adjust aspect ratio if needed for small screens */
+  }
+  .features-section .section-title {
+    font-size: 1.4em;
+  }
+}
+
+/* Very Small Mobile Devices (e.g., iPhone SE 1st gen width 320px) */
+/* This @media (max-width: 480px) was last in original, so it overrides previous max-widths */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px; /* Slightly smaller base font */
+    padding-bottom: 75px; /* Adjust for potentially smaller sticky bar */
+  }
+
+  .hero {
+    padding-top: var(--space-xl);
+    padding-bottom: var(--space-xl);
+  }
+  .hero h1 {
+    font-size: 1.8em;
+  }
+  .hero .subtitle {
+    font-size: 1em;
+    margin-bottom: var(--space-lg);
+  }
+  .hero .btn {
+    font-size: 0.95em;
+    padding: var(--space-sm) 18px;
+  }
+
+  .btn, a.btn { /* General button sizing */
+    padding: 12px var(--space-lg);
+    font-size: 0.95em;
+  }
+
+  .section-title {
+    font-size: 1.6em;
+  }
+  .features-section .section-title {
+    font-size: 1.3em;
+  }
+  .feature-item { /* Stack feature items vertically */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .feature-icon {
+    width: 30px;
+    height: 30px;
+    margin-bottom: var(--space-sm); /* Space between icon and text */
+    /* font-size: 1.6em; For icon fonts */
+  }
+  /* .feature-icon img size is 100% */
+
+  .testimonial-carousel-item p {
+    font-size: 0.9em;
+  }
+  .testimonial-carousel-item span { /* Author */
+    font-size: 0.8em;
+  }
+
+  /* Popup adjustments for very small screens */
+  .popup-content {
+    width: 95vw;
+    max-width: 95vw;
+    height: auto; /* Let content define height */
+    max-height: 90vh; /* But not too tall */
+    position: fixed; /* Center it on screen */
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%, -50%) scale(0.98); Initial state */
+  }
+   .popup-overlay.active .popup-content { /* Active state for centered popup */
+    transform: translate(-50%, -50%) scale(1);
+  }
+  .popup-header {
+    padding: 8px 35px 8px var(--space-sm); /* Ensure close button doesn't overlap title */
+  }
+  .popup-header h3 {
+    font-size: 1em;
+  }
+  #chiliPiperCalendarElement iframe {
+    min-height: 300px; /* Minimum reasonable height for calendar */
+    height: calc(90vh - 60px); /* Adjust based on actual header/footer of popup */
+  }
+  .popup-close {
+    top: 5px;
+    right: 5px;
+    background: rgba(255, 255, 255, 0.15); /* Slight background for visibility */
+    border-radius: 50%;
+    padding: 3px 7px; /* Adjust padding */
+  }
+}
+
+/* Even Smaller Mobile Devices - specific overrides from original */
+@media (max-width: 400px) {
+  .toast-header-logo-img {
+    height: 28px;
+  }
+  .btn-call-bardya {
+    font-size: 0.8em;
+    padding: 5px var(--space-sm);
+    gap: var(--space-xs);
+  }
+  .btn-call-bardya .call-text { /* Hide call text on very small screens */
+    display: none;
+  }
+  .menu-toggle {
+    font-size: 1.5em;
+  }
+  .sticky-cta-bar .btn {
+    font-size: 0.9em; /* Ensure button text is readable */
+  }
+}
