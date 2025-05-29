@@ -20,7 +20,9 @@
     <meta name="twitter:image:alt" content="Bardya Banihashemi, Toast POS expert for Olympia restaurants.">
 
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon"> <link rel="apple-touch-icon" href="apple-touch-icon.png"> <script type="application/ld+json">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person", 
@@ -99,6 +101,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-size: 16px;
+            padding-bottom: 95px; /* Increased padding for thicker sticky bar */
         }
 
         .skip-link { 
@@ -125,7 +128,7 @@
         .page-section.active { display: block; }
 
         .site-header {
-            padding: 12px 0; 
+            padding: 10px 0; 
             background-color: rgba(255,255,255,0.85); 
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
@@ -136,120 +139,175 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.04);
         }
 
-        .header-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: nowrap; }
+        .header-content { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
         
-        .header-brand-animated {
+        .header-logo { 
             display: flex;
             align-items: center;
-            gap: 10px; 
         }
 
-        .logo-anim-container {
-            position: relative;
-            width: 138px; 
-            height: 42px; 
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            flex-shrink: 0;
-        }
-        .logo-anim-container .header-logo-animated { 
-            position: absolute;
-            max-height: 100%;
-            max-width: 100%;
+        .toast-header-logo-img { 
+            height: 36px; 
+            width: auto;
             object-fit: contain;
-            transition: opacity 0.4s var(--transition-springy), transform 0.4s var(--transition-springy);
-            backface-visibility: hidden; 
         }
-        .logo-anim-container .toast-logo-animated { 
-            opacity: 1; transform: scale(1) rotateY(0deg);
-        }
-        .logo-anim-container .bardya-logo-animated { 
-            opacity: 0; transform: scale(0.7) rotateY(90deg);
-        }
-        .logo-anim-container.show-personal-logo .toast-logo-animated { 
-            opacity: 0; transform: scale(0.7) rotateY(-90deg);
-        }
-        .logo-anim-container.show-personal-logo .bardya-logo-animated { 
-            opacity: 1; transform: scale(1) rotateY(0deg);
-        }
-
-        .name-anim-container {
-            position: relative;
-            min-width: 220px; 
-            height: 36px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start; 
-            overflow: hidden;
-            flex-shrink: 0;
-            margin-left: 5px; 
-        }
-        .name-anim-container .name-text {
-            position: absolute;
-            left: 0;
-            top: 50%;
-            width: 100%; 
-            text-align: left; 
-            transform: translateY(-50%) translateX(105%); 
-            opacity: 0;
-            font-weight: 700;
-            color: var(--text-primary);
-            white-space: nowrap;
-            transition: opacity 0.4s var(--transition-springy), transform 0.4s var(--transition-springy);
-            backface-visibility: hidden;
-        }
-        .name-anim-container .name-text.active-name {
-            opacity: 1;
-            transform: translateY(-50%) translateX(0%);
-        }
-        .name-anim-container .bardya-full-name-animated { font-size: 1.4em; }
-        .name-anim-container .bardya-slogan-animated { font-size: 1.1em; color: var(--accent-color); font-weight: 600;}
         
         .header-actions { 
             display: flex;
             align-items: center;
-            gap: 10px; 
-            margin-left: auto; 
+            gap: 15px; 
         }
-        .header-nav {
+
+        .main-nav { 
             display: flex; 
             gap: 15px;
         }
-        .header-nav a {
+        .main-nav a {
             text-decoration: none;
             color: var(--text-secondary);
             font-weight: 500;
             transition: var(--transition-fast);
             white-space: nowrap;
+            padding: 5px 0; 
         }
-        .header-nav a:hover, .header-nav a.active-nav { color: var(--accent-color); }
+        .main-nav a:hover, .main-nav a.active-nav { color: var(--accent-color); }
 
-        .btn-header-cta {
-            padding: 9px 20px;
-            font-size: 1.1em; 
-            background-color: var(--accent-color);
-            color: var(--toast-neutral-lightest);
-            border: none;
+        .btn-call-bardya { 
+            display: inline-flex; 
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px; 
+            font-size: 0.95em; 
+            background-color: var(--toast-neutral-light); 
+            color: var(--text-primary);
+            border: 1px solid var(--toast-border-light);
             border-radius: var(--border-radius-button);
-            font-weight: 600;
+            font-weight: 500;
             cursor: pointer;
             transition: var(--transition-main);
-            animation: pulseHeaderBtn 2.5s infinite ease-in-out; 
+            text-decoration: none; 
             white-space: nowrap;
         }
-        .btn-header-cta:hover {
-            background-color: var(--accent-color-darker);
-            transform: translateY(-2px); 
-            box-shadow: 0 4px 12px rgba(250, 90, 10, 0.2);
-            animation-play-state: paused; 
+        .btn-call-bardya .call-text {
+            font-weight: 600;
+        }
+        .btn-call-bardya .phone-number {
+            color: var(--text-secondary);
+        }
+        .btn-call-bardya:hover {
+            background-color: #e9ecef; 
+            border-color: #ced4da;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        .btn-call-bardya i.fa-phone-alt { 
+            font-size: 0.9em;
+            color: var(--accent-color);
+            transform: scaleX(-1); 
         }
 
-        @keyframes pulseHeaderBtn {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 90, 10, 0.4); }
-            70% { transform: scale(1.03); box-shadow: 0 0 0 8px rgba(250, 90, 10, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(250, 90, 10, 0); }
+        .menu-toggle {
+            display: none; 
+            background: none;
+            border: none;
+            font-size: 1.8em; 
+            color: var(--text-primary);
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1005; 
         }
+
+        .mobile-nav-menu {
+            display: none;
+            position: absolute;
+            top: 100%; 
+            right: 0;
+            background-color: var(--toast-neutral-lightest);
+            border: 1px solid var(--toast-border-light);
+            border-top: none;
+            border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+            padding: 10px 0;
+            z-index: 1000;
+            min-width: 180px;
+        }
+        .mobile-nav-menu.active {
+            display: block;
+        }
+        .mobile-nav-menu a {
+            display: block;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+        .mobile-nav-menu a:hover {
+            background-color: var(--toast-neutral-light);
+            color: var(--accent-color);
+        }
+
+        .features-section {
+            padding: 40px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .feature-item {
+            display: flex;
+            align-items: flex-start; 
+            gap: 20px;
+            padding: 20px;
+            background-color: var(--toast-neutral-lightest);
+            border-radius: var(--border-radius-main);
+            box-shadow: var(--card-shadow);
+            transition: var(--transition-main);
+            opacity: 0; transform: translateY(30px); 
+        }
+        .feature-item.is-visible { opacity: 1; transform: translateY(0); } 
+
+        .feature-item:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .feature-icon {
+            font-size: 2.2em; 
+            color: var(--accent-color);
+            flex-shrink: 0;
+            width: 50px; 
+            text-align: center;
+            margin-top: 5px; 
+        }
+        .feature-text-content h3 {
+            font-size: 1.4em;
+            color: var(--text-primary);
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+        .feature-text-content p {
+            font-size: 1em;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
+            }
+        }
+        @media (min-width: 992px) { /* For even larger screens, can go to 4 if design allows */
+             .features-grid {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* More flexible for 4 items */
+            }
+        }
+
 
         .hero {
             text-align: center; padding: 70px 20px 60px; 
@@ -262,32 +320,12 @@
         .hero .subtitle { font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
         .hero .btn { margin-top: 10px; font-size: 1.15em; }
 
-        .video-section { text-align: center; margin-bottom: 50px; }
+        .video-section { text-align: center; margin-bottom: 50px; padding-top: 40px; } 
         .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
         .content-section { padding: 40px 0; }
         
-        .pain-benefit-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 50px; }
-        .benefit-card { 
-            background: var(--glass-bg);
-            backdrop-filter: blur(var(--glass-blur));
-            -webkit-backdrop-filter: blur(var(--glass-blur));
-            border-radius: var(--border-radius-main);
-            border: 1px solid var(--glass-border-color);
-            padding: 25px; 
-            box-shadow: var(--card-shadow); 
-            transition: var(--transition-main); 
-            opacity: 0; transform: translateY(30px); 
-        }
-        .benefit-card.is-visible { opacity: 1; transform: translateY(0); } 
-        .benefit-card:hover { 
-            transform: translateY(-8px) scale(var(--hover-scale)); 
-            box-shadow: 0 18px 45px rgba(0,0,0,0.12); 
-        }
-        .benefit-card h3 { font-size: 1.3em; margin-top: 0; margin-bottom: 10px; color: var(--text-primary); }
-        .benefit-card p { font-size: 1em; color: var(--text-secondary); line-height: 1.6; margin-bottom: 0;}
-
         .local-proof { text-align: center; margin-bottom: 50px; }
         .testimonial-carousel-wrapper { 
             background: var(--glass-bg);
@@ -432,15 +470,47 @@
         .site-footer p { margin: 8px 0; font-size: 0.9em; }
         .site-footer p:first-child { font-weight: 600; color: var(--text-on-dark-bg); font-size: 0.95em;}
 
-        .sticky-cta-button { position: fixed; bottom: 20px; right: 20px; z-index: 999; opacity: 0; transform: translateY(100px); transition: opacity 0.5s ease, transform 0.5s ease; }
-        .sticky-cta-button.visible { opacity: 1; transform: translateY(0); }
-        .sticky-cta-button .btn { animation: pulseAnimation 2.5s infinite ease-in-out 1s; }
-
-        @keyframes pulseAnimation { 
-            0% { transform: scale(1); box-shadow: 0 3px 10px rgba(250, 90, 10, 0.2); }
-            50% { transform: scale(1.05); box-shadow: 0 5px 18px rgba(250, 90, 10, 0.35); }
-            100% { transform: scale(1); box-shadow: 0 3px 10px rgba(250, 90, 10, 0.2); }
+        .sticky-cta-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--accent-color); 
+            color: var(--text-on-dark-bg);
+            padding: 20px; /* Made thicker */
+            text-align: center;
+            z-index: 998; 
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(100%); 
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
+        .sticky-cta-bar.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .sticky-cta-bar .btn { 
+            background-color: var(--toast-neutral-lightest);
+            color: var(--accent-color);
+            padding: 12px 30px; /* Adjusted padding for a good size */
+            font-size: 1.15em; /* Slightly larger font */
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            animation: pulseStickyBtn 2s infinite ease-in-out; /* Added animation */
+        }
+        .sticky-cta-bar .btn:hover {
+            background-color: #f8f9fa; 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            animation-play-state: paused; /* Pause animation on hover */
+        }
+
+        @keyframes pulseStickyBtn { /* Animation for sticky button */
+            0% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0.3); }
+            70% { box-shadow: 0 4px 12px rgba(0,0,0,0.25), 0 0 0 10px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
 
         .local-proof, .video-section, .urgency-bar {
             opacity: 0;
@@ -455,43 +525,40 @@
         @media (max-width: 768px) { 
             .container { padding: 0 15px; }
             .site-header { padding: 10px 0; }
-            .header-content { 
-                flex-wrap: wrap; 
-                justify-content: space-between; 
-            } 
-            .header-brand-animated {
-                order: 1; 
-                flex-basis: calc(100% - 160px); /* Adjusted for slightly larger button */
-                justify-content: flex-start;
+            
+            .main-nav .nav-link-about { 
+                display: none;
             }
-            .header-actions { 
-                order: 2;
-                margin-top: 0; 
-                width: auto; 
-                justify-content: flex-end;
-                flex-grow: 0;
-                flex-basis: 150px; /* Adjusted for slightly larger button */
+            .menu-toggle { 
+                display: block; 
             }
-            .logo-anim-container { width: 90px; height: 30px; }
-            .name-anim-container { min-width: 150px; height: 30px; margin-left: 5px;}
-            .name-anim-container .bardya-full-name-animated { font-size: 1.1em; }
-            .name-anim-container .bardya-slogan-animated { font-size: 0.9em; }
+            .btn-call-bardya {
+                font-size: 0.9em;
+                padding: 7px 14px;
+            }
+            .btn-call-bardya .call-text {
+                 display: none; 
+            }
+            .sticky-cta-bar {
+                padding: 15px; /* Adjust thickness for tablet */
+            }
+            .sticky-cta-bar .btn {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
 
-            .header-nav { justify-content: flex-end; flex-grow: 1; gap: 8px; } 
-            .header-nav a { margin-left: 0; margin-right: 5px; font-size: 0.8em; }
-            /* Adjusted font size and padding for 768px breakpoint */
-            .btn-header-cta { font-size: 1em; padding: 9px 16px;} 
+
             .hero { padding: 60px 15px 50px; }
             .hero h1 { font-size: 2.2em; }
             .hero .subtitle { font-size: 1.1em; }
             .hero .btn { font-size: 1em; }
             .video-container { font-size: 1em; }
             .content-section { padding: 35px 0; }
-            .pain-benefit-grid { gap: 20px; }
-            .benefit-card { padding: 20px; }
-            .benefit-card:hover { transform: translateY(-5px); }
-            .benefit-card h3 { font-size: 1.15em; }
-            .benefit-card p { font-size: 0.9em; }
+            .feature-item { padding: 15px; gap: 15px; }
+            .feature-icon { font-size: 1.8em; width: 40px; }
+            .feature-text-content h3 { font-size: 1.2em; }
+            .feature-text-content p { font-size: 0.9em; }
+
             .section-title { font-size: 1.8em; margin-bottom: 30px; }
             .glass-card.about-section, .cta-solid-bg { padding: 25px; margin-bottom: 35px; }
             .glass-card.about-section:hover { transform: translateY(-5px); } 
@@ -514,76 +581,85 @@
             #chiliPiperCalendarElement iframe {
                 min-height: calc(95vh - 50px);
             }
-            .sticky-cta-button .btn { font-size: 0.9em; padding: 10px 20px; }
             .site-footer p { font-size: 0.9em; }
         }
 
         @media (max-width: 520px) {
-             .header-content { 
-                 flex-direction: column; 
-                 align-items: center; 
-                 gap: 12px; /* Increased gap for better separation */
-             }
-             .header-brand-animated {
-                display: flex;
-                justify-content: center;
+            .site-header {
+                padding: 12px 0; 
+            }
+            .header-content { 
+                flex-wrap: nowrap; 
+                justify-content: space-between;
                 align-items: center;
-                width: 100%;
-                margin-bottom: 0; /* Removed margin, using gap in parent */
-                order: 1;
-             }
-             .logo-anim-container {
-                width: 80px; 
-                height: 28px;
-             }
-             .name-anim-container {
-                min-width: auto;
-                width: fit-content; 
-                height: 30px;
-                margin-left: 8px; /* Slightly increased margin */
-                justify-content: center;
-                text-align: center; /* Ensure text within is centered if it wraps */
-             }
-             .name-anim-container .name-text {
-                 text-align: center; /* Center the text itself */
-             }
-             .header-actions { 
-                order: 2;
-                width: 100%; 
-                max-width: 300px; /* Max width for the actions block */
-                flex-direction: column;
-                align-items: stretch; 
-                justify-content: center; 
-                margin-top: 0; /* Removed margin, using gap in parent */
-                gap: 10px; /* Increased gap */
-             }
-             .header-nav { 
-                 justify-content: center; 
-                 width: 100%; 
-                 gap: 10px; /* Spacing for nav items */
-            } 
-             .header-nav a {
-                 font-size: 0.9em; /* Slightly larger nav links */
-             }
-             .btn-header-cta { 
-                width: 100%; 
-                text-align: center; 
-                padding: 12px 15px; /* Adjusted padding */
-                font-size: 1.15em; /* Increased font size as requested */
-             } 
+            }
+            .header-logo {
+                flex-shrink: 0; 
+            }
+            .toast-header-logo-img {
+                height: 30px; 
+            }
+            
+            .header-actions {
+                gap: 10px; 
+            }
+
+            .main-nav { 
+                display: none;
+            }
+            .menu-toggle { 
+                display: block;
+                font-size: 1.6em; 
+            }
+            .btn-call-bardya {
+                font-size: 0.85em;
+                padding: 6px 12px;
+            }
+            .btn-call-bardya .call-text {
+                 display: inline; 
+            }
+            .btn-call-bardya .phone-number {
+                font-size: 0.95em; 
+            }
+            .sticky-cta-bar {
+                padding: 12px 15px;
+            }
+            .sticky-cta-bar .btn {
+                font-size: 1em;
+                width: auto; 
+                max-width: 90%; 
+            }
+        }
+
+        @media (max-width: 400px) { 
+            .toast-header-logo-img {
+                height: 28px; 
+            }
+            .btn-call-bardya {
+                font-size: 0.8em;
+                padding: 5px 10px;
+                gap: 5px;
+            }
+            .btn-call-bardya .call-text {
+                 display: none; 
+            }
+            .menu-toggle {
+                font-size: 1.5em;
+            }
+             .sticky-cta-bar .btn {
+                font-size: 0.9em; /* Smaller font for very small screens */
+            }
         }
 
         @media (max-width: 480px) { 
-            body { font-size: 15px; }
-            .name-anim-container .bardya-full-name-animated { font-size: 1.05em; } 
-            .name-anim-container .bardya-slogan-animated { font-size: 0.85em; }
-
+            body { font-size: 15px; padding-bottom: 75px; /* Adjust for potentially smaller sticky bar */ }
             .hero h1 { font-size: 1.8em; }
             .hero .subtitle { font-size: 1em; }
             .btn, a.btn { padding: 12px 20px; font-size: 0.95em; } 
             .section-title { font-size: 1.6em; }
-            .benefit-card h3 {font-size: 1.05em;}
-            .benefit-card p {font-size: 0.85em;}
+            .feature-item { flex-direction: column; align-items: center; text-align: center; }
+            .feature-icon { margin-bottom: 10px; }
+
             .testimonial-carousel-item p {font-size: 0.9em;}
             .testimonial-carousel-item span {font-size: 0.8em;}
             .popup-content { 
@@ -612,23 +688,28 @@
     <header class="site-header">
         <div class="container">
             <div class="header-content">
-                <div class="header-brand-animated">
-                    <div class="logo-anim-container">
-                        <img src="toast-logo.png" alt="Toast POS Logo" class="header-logo-animated toast-logo-animated" onerror="this.alt='Toast Logo Placeholder';this.src='https://placehold.co/138x42/FA5A0A/FFFFFF?text=Toast+Logo';">
-                        <img src="bardya-logo.png" alt="Bardya Banihashemi Custom Logo" class="header-logo-animated bardya-logo-animated" onerror="this.alt='BB Logo Placeholder';this.src='https://placehold.co/138x42/0A2540/FFFFFF?text=BB+Logo';">
-                    </div>
-                    <div class="name-anim-container">
-                        <span class="name-text bardya-full-name-animated">Bardya Banihashemi</span>
-                        <span class="name-text bardya-slogan-animated">Better Call B</span>
-                    </div>
+                <div class="header-logo"> 
+                    <img src="toast-logo.png" alt="Toast POS Logo" class="toast-header-logo-img" onerror="this.alt='Toast Logo Placeholder';this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast';">
                 </div>
 
                 <div class="header-actions">
-                    <nav class="header-nav">
+                    <nav class="main-nav">
                         <a href="#page1" class="nav-link active-nav">Home</a>
-                        <a href="#page2" class="nav-link">About Bardya</a>
+                        <a href="#page2" class="nav-link nav-link-about">About Bardya</a>
                     </nav>
-                    <button class="btn-header-cta" id="headerBookCallBtn">Book a Call</button>
+                    <a href="tel:+13602153596" class="btn-call-bardya"> 
+                        <i class="fas fa-phone-alt"></i>
+                        <div>
+                            <span class="call-text">Call Bardya</span>
+                            <span class="phone-number">(360) 215-3596</span>
+                        </div>
+                    </a>
+                    <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <div class="mobile-nav-menu" id="mobileNavMenu">
+                        <a href="#page2" class="nav-link">About Bardya</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -636,6 +717,18 @@
 
     <div id="page1" class="page-section active">
         <main id="page1-main-content" tabindex="-1">
+            <section class="video-section animated-section">
+                <div class="container"> <h2 class="section-title" style="margin-bottom: 15px;">A Quick Message for Olympia Restaurateurs</h2>
+                    <div class="video-container">
+                        <div style="padding:20px; text-align:center;">
+                            <p style="font-size: 1.1em; margin-bottom:10px;"><strong>Introductory Video Coming Soon!</strong></p>
+                            <p>A short, authentic message from Bardya for Olympia restaurateurs will be featured here.</p>
+                            <i class="fas fa-play-circle" style="font-size: 3em; margin-top: 15px; color: var(--accent-color);"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <section class="hero">
                 <div class="container">
                     <h1>Run your Olympia restaurant—don’t let tech run you.</h1>
@@ -645,31 +738,35 @@
             </section>
 
             <div class="container content-section">
-                <section class="video-section animated-section">
-                    <h2 class="section-title" style="margin-bottom: 15px;">A Quick Message for Olympia Restaurateurs</h2>
-                    <div class="video-container">
-                        <div style="padding:20px; text-align:center;">
-                            <p style="font-size: 1.1em; margin-bottom:10px;"><strong>Introductory Video Coming Soon!</strong></p>
-                            <p>A short, authentic message from Bardya for Olympia restaurateurs will be featured here.</p>
-                            <i class="fas fa-play-circle" style="font-size: 3em; margin-top: 15px; color: var(--accent-color);"></i>
+                <section class="features-section animated-section">
+                    <h2 class="section-title">Built for restaurants. Built for retailers. Built for you.</h2>
+                    <div class="features-grid">
+                        <div class="feature-item init-hidden">
+                            <div class="feature-icon"><i class="fas fa-arrow-trend-up"></i></div>
+                            <div class="feature-text-content">
+                                <h3>Grow your business</h3>
+                                <p>Revenue at Toast restaurants is, on average, more than 30% greater than the average US restaurant.**</p>
+                            </div>
                         </div>
-                    </div>
-                </section>
-
-                <section class="pain-benefit-snapshot animated-section">
-                    <h2 class="section-title">I Get It. Running an Olympia Restaurant is Tough. Toast Helps.</h2>
-                    <div class="pain-benefit-grid">
-                        <div class="benefit-card init-hidden">
-                            <h3>Pain: Rising Costs Squeezing Margins?</h3>
-                            <p>Benefit: See real-time food & labor percentages right on your phone. Make smarter decisions instantly to protect your profit and keep more dollars in Thurston County.</p>
+                        <div class="feature-item init-hidden">
+                            <div class="feature-icon"><i class="fas fa-gear"></i></div> 
+                            <div class="feature-text-content">
+                                <h3>Increase efficiency</h3>
+                                <p>Restaurants that expanded their use of Toast's platform outperformed those that didn't by more than 50%.***</p>
+                            </div>
                         </div>
-                        <div class="benefit-card init-hidden">
-                            <h3>Pain: Staffing Woes & Labor Shortages?</h3>
-                            <p>Benefit: Self-ordering kiosks & handhelds free up your team, potentially saving the equivalent of two full shifts per week. Improve labor efficiency and guest experience.</p>
+                        <div class="feature-item init-hidden">
+                            <div class="feature-icon"><i class="fas fa-heart"></i></div> 
+                            <div class="feature-text-content">
+                                <h3>Become your neighborhood favorite</h3>
+                                <p>Delight guests and turn them into raving fans.</p>
+                            </div>
                         </div>
-                        <div class="benefit-card init-hidden">
-                            <h3>Pain: Losing Guest Data & Fees to Delivery Apps?</h3>
-                            <p>Benefit: Keep 100% of your guest data with Toast Online Ordering. Stop paying hefty commissions and build direct relationships with your Olympia community.</p>
+                        <div class="feature-item init-hidden"> <div class="feature-icon"><i class="fas fa-chart-column"></i></div> 
+                            <div class="feature-text-content">
+                                <h3>Improve sales and revenue</h3>
+                                <p>Toast restaurants make more money.</p>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -759,8 +856,7 @@
                 <div class="backup-links" style="text-align: center; margin-top: 30px;">
                     <h4 style="margin-bottom: 10px;">More Resources:</h4>
                     <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
-                    <a href="sms:+15551234567?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a>
-                    <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                    <a href="sms:+13602153596?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a> <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
                 </div>
             </section>
         </div>
@@ -774,8 +870,8 @@
         </div>
     </footer>
 
-    <div class="sticky-cta-button">
-        <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt"></i> Book a Call with Bardya</button>
+    <div class="sticky-cta-bar" id="stickyCta">
+        <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt"></i> Book a call with Bardya</button>
     </div>
 
     <div class="popup-overlay" id="schedule-call-popup" role="dialog" aria-modal="true" aria-labelledby="popupTitleElement">
@@ -798,8 +894,7 @@
             document.getElementById('heroProfitCheckBtn'),   
             document.getElementById('walkThroughBtn'),      
             document.getElementById('aboutPageContactBtn'),  
-            document.getElementById('stickyBookCallBtn'),
-            document.getElementById('headerBookCallBtn') 
+            document.getElementById('stickyBookCallBtn'), 
         ];
         
         const closeSchedulePopupBtn = document.getElementById('closeSchedulePopupBtn');
@@ -823,6 +918,8 @@
             if(mainPage2) mainPage2.setAttribute('aria-hidden', 'true');
             if(document.querySelector('.site-header')) document.querySelector('.site-header').setAttribute('aria-hidden', 'true');
             if(document.querySelector('.site-footer')) document.querySelector('.site-footer').setAttribute('aria-hidden', 'true');
+            if(document.getElementById('stickyCta')) document.getElementById('stickyCta').setAttribute('aria-hidden', 'true');
+
 
             if(closeSchedulePopupBtn) closeSchedulePopupBtn.focus();
         }
@@ -836,6 +933,7 @@
             if(mainPage2) mainPage2.removeAttribute('aria-hidden');
             if(document.querySelector('.site-header')) document.querySelector('.site-header').removeAttribute('aria-hidden');
             if(document.querySelector('.site-footer')) document.querySelector('.site-footer').removeAttribute('aria-hidden');
+            if(document.getElementById('stickyCta')) document.getElementById('stickyCta').removeAttribute('aria-hidden');
         }
 
         openPopupButtons.forEach(button => {
@@ -877,12 +975,10 @@
             }
         });
 
-        document.querySelectorAll('.benefit-card, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar').forEach(el => {
-            if (el.closest('.animated-section')) { 
-                if (!el.classList.contains('animated-section')) { 
-                    el.classList.add('init-hidden');
-                }
-            } else if (el.classList.contains('animated-section')) {
+        document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar').forEach(el => {
+            if (!el.closest('.animated-section')) {
+                 el.classList.add('init-hidden');
+            } else if (el.classList.contains('animated-section')) { 
                  el.classList.add('init-hidden');
             }
         });
@@ -891,12 +987,10 @@
         const observer = new IntersectionObserver((entries, obs) => { 
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible'); 
                     if (entry.target.classList.contains('animated-section')) {
-                         entry.target.classList.add('is-visible'); 
-                        const childAnimatedElements = entry.target.querySelectorAll('.init-hidden');
+                        const childAnimatedElements = entry.target.querySelectorAll('.init-hidden:not(.is-visible)'); 
                         childAnimatedElements.forEach(el => el.classList.add('is-visible'));
-                    } else if (entry.target.classList.contains('init-hidden')) {
-                        entry.target.classList.add('is-visible');
                     }
                     obs.unobserve(entry.target); 
                 }
@@ -904,24 +998,42 @@
         }, observerOptions);
         document.querySelectorAll('.animated-section, .init-hidden').forEach(section => observer.observe(section));
         
-        const stickyCTA = document.querySelector('.sticky-cta-button');
-        const heroSectionForSticky = document.querySelector('.hero'); 
+        const stickyCtaBar = document.getElementById('stickyCta');
+        const firstContentSection = document.querySelector('#page1 > main > section:first-of-type'); 
+        
         function checkStickyVisibility() {
-            let heroHeight = heroSectionForSticky ? heroSectionForSticky.offsetHeight : 300; 
-            if (stickyCTA && heroSectionForSticky) stickyCTA.classList.toggle('visible', window.scrollY > heroHeight * 0.6);
+            if (stickyCtaBar && firstContentSection) {
+                stickyCtaBar.classList.toggle('visible', window.scrollY > 100);
+            } else if (stickyCtaBar) {
+                 stickyCtaBar.classList.toggle('visible', window.scrollY > 150);
+            }
         }
         window.addEventListener('scroll', checkStickyVisibility);
         checkStickyVisibility(); 
         
         const navLinks = document.querySelectorAll('.nav-link');
         const pageSections = document.querySelectorAll('.page-section');
+        const mobileNavMenu = document.getElementById('mobileNavMenu'); 
+        const menuToggleBtn = document.getElementById('menuToggleBtn'); 
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
                 pageSections.forEach(section => section.classList.toggle('active', section.id === targetId));
-                navLinks.forEach(nav => nav.classList.remove('active-nav'));
-                link.classList.add('active-nav');
+                
+                document.querySelectorAll('.main-nav .nav-link').forEach(nav => nav.classList.remove('active-nav'));
+                if(link.closest('.main-nav')) { 
+                    link.classList.add('active-nav');
+                }
+
+                if (mobileNavMenu && mobileNavMenu.classList.contains('active')) {
+                    mobileNavMenu.classList.remove('active');
+                    menuToggleBtn.setAttribute('aria-expanded', 'false');
+                    menuToggleBtn.querySelector('i').classList.remove('fa-times');
+                    menuToggleBtn.querySelector('i').classList.add('fa-bars');
+                }
+
                 const targetPageMainContent = document.getElementById(targetId + '-main-content');
                 if (targetPageMainContent) {
                     targetPageMainContent.focus({ preventScroll: true }); 
@@ -930,6 +1042,21 @@
             });
         });
         if(pageSections.length > 0 && document.getElementById('page1')) document.getElementById('page1').classList.add('active');
+
+        if (menuToggleBtn && mobileNavMenu) {
+            menuToggleBtn.addEventListener('click', () => {
+                const isExpanded = mobileNavMenu.classList.toggle('active');
+                menuToggleBtn.setAttribute('aria-expanded', isExpanded);
+                const icon = menuToggleBtn.querySelector('i');
+                if (isExpanded) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times'); 
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars'); 
+                }
+            });
+        }
 
         const carousel = document.querySelector('.testimonial-carousel-container');
         const carouselItems = document.querySelectorAll('.testimonial-carousel-item');
@@ -1018,33 +1145,6 @@
         if (prevArrow && nextArrow && carouselItems.length > 0) {
             prevArrow.addEventListener('click', () => cycleCarousel(true, 'prev'));
             nextArrow.addEventListener('click', () => cycleCarousel(true, 'next'));
-        }
-
-        const logoAnimContainer = document.querySelector('.logo-anim-container');
-        const nameAnimContainer = document.querySelector('.name-anim-container');
-        const logoSloganIntervalTime = 3000; 
-
-        if (logoAnimContainer && nameAnimContainer) {
-            const fullNameElInit = nameAnimContainer.querySelector('.bardya-full-name-animated');
-            if (fullNameElInit) fullNameElInit.classList.add('active-name'); 
-
-            function toggleHeaderAnimation() {
-                if (logoAnimContainer) logoAnimContainer.classList.toggle('show-personal-logo'); 
-                
-                const fullNameEl = nameAnimContainer.querySelector('.bardya-full-name-animated');
-                const sloganEl = nameAnimContainer.querySelector('.bardya-slogan-animated');
-
-                if (fullNameEl && sloganEl) {
-                    if (fullNameEl.classList.contains('active-name')) {
-                        fullNameEl.classList.remove('active-name');
-                        sloganEl.classList.add('active-name');
-                    } else {
-                        sloganEl.classList.remove('active-name');
-                        fullNameEl.classList.add('active-name');
-                    }
-                }
-            }
-            setInterval(toggleHeaderAnimation, logoSloganIntervalTime);
         }
     </script>
     </body>
