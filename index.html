@@ -253,15 +253,39 @@
             color: var(--accent-color);
         }
         
+        .btn-back-to-home {
+            display: inline-flex; 
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 8px 15px;
+            background-color: var(--toast-neutral-light);
+            color: var(--text-primary);
+            border: 1px solid var(--toast-border-light);
+            border-radius: var(--border-radius-button);
+            font-weight: 500;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            text-decoration: none;
+        }
+        .btn-back-to-home:hover {
+            background-color: #e9ecef;
+            border-color: #ced4da;
+        }
+        .btn-back-to-home i {
+            margin-right: 5px;
+        }
+
+
         /* Alternating section background */
         .section-alt-bg {
             background-color: var(--bg-section-alt);
-            padding-top: 40px; /* Add padding to sections with this background */
+            padding-top: 40px; 
             padding-bottom: 40px;
         }
-        /* Ensure sections directly inside .content-section also get padding if they have the alt bg */
         .content-section > .section-alt-bg {
-             margin-left: -20px; /* Counteract container padding for full-width feel */
+             margin-left: -20px; 
              margin-right: -20px;
              padding-left: 20px;
              padding-right: 20px;
@@ -269,20 +293,24 @@
 
 
         .features-section {
-            /* padding: 40px 0; Removed, handled by .section-alt-bg or default section padding */
+        }
+        .features-section .section-title { /* More specific selector for the title */
+            font-size: 1.8em; /* Adjust as needed */
+            font-weight: 600;
+            margin-bottom: 30px;
         }
         .features-grid {
             display: grid;
             grid-template-columns: 1fr; 
-            gap: 30px;
+            gap: 25px; /* Slightly reduced gap */
             margin-top: 20px;
         }
         .feature-item {
             display: flex;
             align-items: flex-start; 
-            gap: 20px;
-            padding: 20px;
-            background-color: var(--toast-neutral-lightest); /* Keep cards white on alt bg */
+            gap: 15px; /* Reduced gap */
+            padding: 15px; /* Reduced padding */
+            background-color: var(--toast-neutral-lightest); 
             border-radius: var(--border-radius-main);
             box-shadow: var(--card-shadow);
             transition: var(--transition-main);
@@ -294,34 +322,47 @@
             transform: translateY(-5px) scale(1.02);
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
         }
-        .feature-icon {
-            font-size: 2.2em; 
-            color: var(--accent-color);
+        .feature-icon img { /* Style for SVG images */
+            width: 40px; /* Adjust size as needed */
+            height: 40px;
+            object-fit: contain;
+        }
+        .feature-icon { /* Container for the icon img */
             flex-shrink: 0;
-            width: 50px; 
-            text-align: center;
-            margin-top: 5px; 
+            width: 40px; 
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 3px; 
         }
         .feature-text-content h3 {
-            font-size: 1.4em;
+            font-size: 1.25em; /* Adjusted font size */
             color: var(--text-primary);
             margin-top: 0;
-            margin-bottom: 8px;
+            margin-bottom: 5px; /* Reduced margin */
+            font-weight: 600;
         }
         .feature-text-content p {
-            font-size: 1em;
+            font-size: 0.95em; /* Adjusted font size */
             color: var(--text-secondary);
-            line-height: 1.6;
+            line-height: 1.5; /* Adjusted line height */
             margin-bottom: 0;
         }
         @media (min-width: 768px) {
             .features-grid {
                 grid-template-columns: repeat(2, 1fr); 
+                gap: 30px;
             }
+            .feature-item { padding: 20px; gap: 20px; }
+            .feature-icon img { width: 45px; height: 45px; }
+            .feature-icon { width: 45px; height: 45px; }
+            .feature-text-content h3 { font-size: 1.3em; }
+            .feature-text-content p { font-size: 1em; }
         }
         @media (min-width: 992px) { 
              .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+                grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); 
             }
         }
 
@@ -331,7 +372,7 @@
             background-color: var(--toast-neutral-darkest);
             background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), var(--hero-bg-image); 
             background-size: cover; background-position: center center;
-            color: var(--text-on-dark-bg); margin-bottom: 0; /* Adjusted margin */
+            color: var(--text-on-dark-bg); margin-bottom: 0; 
         }
         .hero h1 { font-size: 2.8em; color: var(--text-on-dark-bg); margin-bottom: 20px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.35); line-height: 1.25; }
         .hero .subtitle { font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
@@ -339,17 +380,16 @@
 
         .video-section { 
             text-align: center; 
-            padding-top: 30px; /* Reduced padding */
-            padding-bottom: 30px; /* Added padding bottom */
-            /* margin-bottom: 0; /* Removed bottom margin to bring hero closer if needed */
+            padding-top: 30px; 
+            padding-bottom: 30px; 
         } 
         .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
         .content-section { padding: 40px 0; }
-        .content-section.no-top-padding { padding-top: 0; } /* For sections following alt-bg */
+        .content-section.no-top-padding { padding-top: 0; } 
         
-        .local-proof { text-align: center; padding-bottom: 50px; /* Ensure padding is within alt bg */ }
+        .local-proof { text-align: center; padding-bottom: 50px;  }
         .testimonial-carousel-wrapper { 
             background: var(--glass-bg);
             backdrop-filter: blur(var(--glass-blur));
@@ -492,6 +532,15 @@
         .site-footer { text-align: center; padding: 50px 20px; margin-top: 30px; background-color: var(--toast-neutral-darkest); color: rgba(255,255,255,0.8); }
         .site-footer p { margin: 8px 0; font-size: 0.9em; }
         .site-footer p:first-child { font-weight: 600; color: var(--text-on-dark-bg); font-size: 0.95em;}
+        .site-footer a.footer-site-link {
+            color: var(--toast-neutral-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .site-footer a.footer-site-link:hover {
+            text-decoration: underline;
+            color: var(--toast-neutral-lightest);
+        }
 
         .sticky-cta-bar {
             position: fixed;
@@ -579,11 +628,13 @@
             .video-container { font-size: 1em; }
             .content-section { padding: 35px 0; }
             .feature-item { padding: 15px; gap: 15px; }
-            .feature-icon { font-size: 1.8em; width: 40px; }
+            .feature-icon img { width: 35px; height: 35px;}
+            .feature-icon { width: 35px; height: 35px; font-size: 1.8em; }
             .feature-text-content h3 { font-size: 1.2em; }
             .feature-text-content p { font-size: 0.9em; }
 
             .section-title { font-size: 1.8em; margin-bottom: 30px; }
+            .features-section .section-title { font-size: 1.5em; }
             .glass-card.about-section, .cta-solid-bg { padding: 25px; margin-bottom: 35px; }
             .glass-card.about-section:hover { transform: translateY(-5px); } 
             .testimonial-carousel-container { min-height: auto; padding-bottom: 15px;} 
@@ -596,8 +647,7 @@
                 max-width: 95vw;
                 max-height: 95vh; 
                 padding: 0; 
-                border-radius: var(--border-radius-main); /* Keep some radius */
-                /* Centering is handled by popup-overlay flex */
+                border-radius: var(--border-radius-main); 
             } 
             .popup-header { padding: 10px 15px 8px; }
             .popup-header h3 { font-size: 1.1em; }
@@ -656,7 +706,8 @@
                 max-width: 90%; 
             }
             .video-section { padding-top: 15px; padding-bottom: 15px; }
-            .video-container { max-width: 90%; aspect-ratio: 16 / 10; } /* Make video smaller */
+            .video-container { max-width: 90%; aspect-ratio: 16 / 10; } 
+            .features-section .section-title { font-size: 1.4em; }
         }
 
         @media (max-width: 400px) { 
@@ -681,37 +732,40 @@
 
         @media (max-width: 480px) { 
             body { font-size: 15px; padding-bottom: 75px; }
-            .hero { padding-top: 30px; padding-bottom: 30px; } /* Reduce hero padding */
+            .hero { padding-top: 30px; padding-bottom: 30px; } 
             .hero h1 { font-size: 1.8em; }
             .hero .subtitle { font-size: 1em; margin-bottom: 20px; }
             .hero .btn { font-size: 0.95em; padding: 10px 18px; }
 
             .btn, a.btn { padding: 12px 20px; font-size: 0.95em; } 
             .section-title { font-size: 1.6em; }
+            .features-section .section-title { font-size: 1.3em; }
             .feature-item { flex-direction: column; align-items: center; text-align: center; }
-            .feature-icon { margin-bottom: 10px; }
+            .feature-icon img { width: 30px; height: 30px; }
+            .feature-icon { width: 30px; height: 30px; margin-bottom: 10px; font-size: 1.6em; }
+
 
             .testimonial-carousel-item p {font-size: 0.9em;}
             .testimonial-carousel-item span {font-size: 0.8em;}
             .popup-content { 
-                width: 95vw; /* Use 95vw as requested */
+                width: 95vw; 
                 max-width: 95vw;
-                height: auto; /* Let content define height */
-                max-height: 90vh; /* Max height */
-                position: fixed; /* Ensure it's fixed for centering */
+                height: auto; 
+                max-height: 90vh; 
+                position: fixed; 
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, -50%) scale(0.98); /* Initial state for animation */
-                border-radius: var(--border-radius-main); /* Keep radius */
+                transform: translate(-50%, -50%) scale(0.98); 
+                border-radius: var(--border-radius-main); 
             }
             .popup-overlay.active .popup-content {
-                 transform: translate(-50%, -50%) scale(1); /* Active state */
+                 transform: translate(-50%, -50%) scale(1); 
             }
             .popup-header { padding: 8px 35px 8px 10px; }
             .popup-header h3 { font-size: 1em; }
             #chiliPiperCalendarElement iframe {
-                min-height: 300px; /* Ensure a minimum scrollable area */
-                height: calc(90vh - 60px); /* Adjust based on header/footer of popup */
+                min-height: 300px; 
+                height: calc(90vh - 60px); 
             }
             .popup-close { top:5px; right:5px; background: rgba(255,255,255,0.15); border-radius:50%; padding: 3px 7px;}
         }
@@ -773,34 +827,34 @@
             </section>
 
             <div class="content-section section-alt-bg"> <div class="container"> <section class="features-section animated-section">
-                        <h2 class="section-title">Built for restaurants. Built for retailers. Built for you.</h2>
+                        <h2 class="section-title">Built for Olympia Restaurants. Built for Growth. Built for You.</h2>
                         <div class="features-grid">
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><i class="fas fa-arrow-trend-up"></i></div>
+                                <div class="feature-icon"><img src="icon-revenue-growth.svg" alt="Growth chart icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-arrow-trend-up\'></i>';"></div>
                                 <div class="feature-text-content">
-                                    <h3>Grow your business</h3>
-                                    <p>Revenue at Toast restaurants is, on average, more than 30% greater than the average US restaurant.**</p>
+                                    <h3><span role="img" aria-label="Chart increasing">📈</span> Accelerate Your Growth</h3>
+                                    <p>Toast restaurants average over 30% higher revenue compared to the typical restaurant—imagine what that could mean for your Olympia business.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><i class="fas fa-gear"></i></div> 
+                                <div class="feature-icon"><img src="icon-efficient.svg" alt="Efficiency gear icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-gear\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                    <h3>Increase efficiency</h3>
-                                    <p>Restaurants that expanded their use of Toast's platform outperformed those that didn't by more than 50%.***</p>
+                                    <h3><span role="img" aria-label="Gear">⚙️</span> Boost Your Efficiency</h3>
+                                    <p>Olympia restaurants leveraging Toast’s platform outperform their peers by up to 50% in operational efficiency. Spend less time managing tech, more time delighting customers.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden">
-                                <div class="feature-icon"><i class="fas fa-heart"></i></div> 
+                                <div class="feature-icon"><img src="icon-customer-care.svg" alt="Customer care icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-heart\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                    <h3>Become your neighborhood favorite</h3>
-                                    <p>Delight guests and turn them into raving fans.</p>
+                                    <h3><span role="img" aria-label="Heart">❤️</span> Become Olympia’s Favorite</h3>
+                                    <p>Turn your guests into loyal regulars who rave about your restaurant. Toast helps you enhance every dining experience.</p>
                                 </div>
                             </div>
                             <div class="feature-item init-hidden"> 
-                                <div class="feature-icon"><i class="fas fa-chart-column"></i></div> 
+                                <div class="feature-icon"><img src="icon-intuitive.svg" alt="Intuitive insights icon" onerror="this.parentElement.innerHTML = '<i class=\'fas fa-chart-column\'></i>';"></div> 
                                 <div class="feature-text-content">
-                                    <h3>Improve sales and revenue</h3>
-                                    <p>Toast restaurants make more money.</p>
+                                     <h3><span role="img" aria-label="Bar chart">📊</span> Drive Sales and Profit</h3>
+                                    <p>Olympia restaurants on Toast simply make more money. Join them in maximizing your revenue potential.</p>
                                 </div>
                             </div>
                         </div>
@@ -875,6 +929,7 @@
 
     <div id="page2" class="page-section">
         <div class="content-section section-alt-bg"> <div class="container">
+                <button class="btn-back-to-home" id="backToHomeBtn"><i class="fas fa-arrow-left"></i> Back to Home</button>
                 <a href="#page2-main-content" class="skip-link">Skip to main content</a>
                 <section id="page2-main-content" tabindex="-1" class="about-section glass-card animated-section init-hidden">
                     <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
@@ -913,6 +968,7 @@
         <div class="container">
             <p>Bardya Banihashemi - Your Local Toast Account Executive in Olympia.</p>
             <p>Building relationships and strengthening Olympia's restaurant community, one partnership at a time.</p>
+            <p><a href="https://bettercallbardya.com" target="_blank" class="footer-site-link">bettercallbardya.com</a></p>
             <p style="font-size: 0.85em; margin-top: 15px; opacity: 0.7;">&copy; <span id="currentYear"></span> Toast, Inc. All rights reserved. Bardya Banihashemi is an authorized Toast representative.</p>
         </div>
     </footer>
@@ -949,6 +1005,7 @@
         const chiliPiperLink = "https://toast.chilipiper.com/personal/bardya-banihashemi"; 
         const mainPage1 = document.getElementById('page1');
         const mainPage2 = document.getElementById('page2');
+        const backToHomeBtn = document.getElementById('backToHomeBtn');
 
 
         function openSchedulePopup(contextSourceElementId) {
@@ -1063,31 +1120,44 @@
         const mobileNavMenu = document.getElementById('mobileNavMenu'); 
         const menuToggleBtn = document.getElementById('menuToggleBtn'); 
 
+        function setActivePage(targetId) {
+            pageSections.forEach(section => section.classList.toggle('active', section.id === targetId));
+            
+            document.querySelectorAll('.main-nav .nav-link').forEach(nav => {
+                nav.classList.toggle('active-nav', nav.getAttribute('href') === `#${targetId}`);
+            });
+
+            if (mobileNavMenu && mobileNavMenu.classList.contains('active')) {
+                mobileNavMenu.classList.remove('active');
+                menuToggleBtn.setAttribute('aria-expanded', 'false');
+                menuToggleBtn.querySelector('i').classList.remove('fa-times');
+                menuToggleBtn.querySelector('i').classList.add('fa-bars');
+            }
+
+            const targetPageMainContent = document.getElementById(targetId + '-main-content');
+            if (targetPageMainContent) {
+                targetPageMainContent.focus({ preventScroll: true }); 
+            }
+            window.scrollTo(0,0); 
+        }
+
+
         navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const targetId = link.getAttribute('href').substring(1);
-                pageSections.forEach(section => section.classList.toggle('active', section.id === targetId));
-                
-                document.querySelectorAll('.main-nav .nav-link').forEach(nav => nav.classList.remove('active-nav'));
-                if(link.closest('.main-nav')) { 
-                    link.classList.add('active-nav');
-                }
-
-                if (mobileNavMenu && mobileNavMenu.classList.contains('active')) {
-                    mobileNavMenu.classList.remove('active');
-                    menuToggleBtn.setAttribute('aria-expanded', 'false');
-                    menuToggleBtn.querySelector('i').classList.remove('fa-times');
-                    menuToggleBtn.querySelector('i').classList.add('fa-bars');
-                }
-
-                const targetPageMainContent = document.getElementById(targetId + '-main-content');
-                if (targetPageMainContent) {
-                    targetPageMainContent.focus({ preventScroll: true }); 
-                }
-                window.scrollTo(0,0); 
+                setActivePage(targetId);
             });
         });
+
+        if (backToHomeBtn) {
+            backToHomeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                setActivePage('page1');
+            });
+        }
+
+
         if(pageSections.length > 0 && document.getElementById('page1')) document.getElementById('page1').classList.add('active');
 
         if (menuToggleBtn && mobileNavMenu) {
