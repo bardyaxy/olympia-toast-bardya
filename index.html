@@ -196,11 +196,41 @@
           <div class="testimonial-carousel-wrapper">
             <div class="testimonial-carousel-container">
               <article class="testimonial-carousel-item active-slide">
-                <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from an Olympia Food Truck" loading="lazy" class="testimonial-img" onerror="this.parentElement.innerHTML='Client Photo';">
-                <blockquote>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</blockquote>
+                <div class="testimonial-image-placeholder">
+                  <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from an Olympia Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo'; this.onerror=null;">
+                </div>
+                <blockquote>
+                  <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
+                </blockquote>
                 <cite>– Owner, Local Food Truck, Olympia</cite>
               </article>
-              <!-- add other testimonial items here -->
+              <article class="testimonial-carousel-item">
+                <div class="testimonial-image-placeholder">
+                  <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from a Westside Cafe" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo'; this.onerror=null;">
+                </div>
+                <blockquote>
+                  <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother..."</p>
+                </blockquote>
+                <cite>– Manager, Westside Cafe, Olympia</cite>
+              </article>
+              <article class="testimonial-carousel-item">
+                <div class="testimonial-image-placeholder">
+                  <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from a Lakeside Restaurant" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo'; this.onerror=null;">
+                </div>
+                <blockquote>
+                  <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours..."</p>
+                </blockquote>
+                <cite>– Owner, Lakeside Restaurant, Olympia</cite>
+              </article>
+              <article class="testimonial-carousel-item">
+                <div class="testimonial-image-placeholder">
+                  <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo'; this.onerror=null;">
+                </div>
+                <blockquote>
+                  <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
+                </blockquote>
+                <cite>– Chef, Downtown Grill, Olympia</cite>
+              </article>
             </div>
             <div class="testimonial-carousel-dots" role="tablist" aria-label="Testimonial navigation"></div>
             <div class="carousel-nav">
@@ -208,20 +238,6 @@
               <button class="carousel-arrow next" aria-label="Next testimonial">❯</button>
             </div>
           </div>
-        </div>
-      </section>
-
-      <!-- FAQ Accordion -->
-      <section class="content-section faq-section">
-        <div class="container">
-          <details>
-            <summary>How long is the demo?</summary>
-            <p>About 15 minutes. No pitch, all value.</p>
-          </details>
-          <details>
-            <summary>What does it cost?</summary>
-            <p>Absolutely nothing—just coffee on me.</p>
-          </details>
         </div>
       </section>
 
@@ -235,10 +251,6 @@
               <button class="btn" id="walkThroughBtn" aria-label="Book a no-pitch demo with Bardya">Book My Walk-Through with Bardya</button>
               <a href="sms:+13602153596?body=MENU" id="menuChecklistBtn" class="btn">Text "MENU" for Free Checklist</a>
             </div>
-            <form id="leadForm" class="lead-form" action="/thank-you" method="POST">
-              <input type="email" name="email" placeholder="Your email for the free checklist" required>
-              <button type="submit" class="btn">Get Checklist</button>
-            </form>
           </div>
         </div>
       </section>
