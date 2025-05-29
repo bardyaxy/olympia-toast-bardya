@@ -54,15 +54,17 @@
             --toast-neutral-darkest: #0A2540; 
             --toast-neutral-dark: #333D4F;  
             --toast-neutral-medium: #6B778D; 
-            --toast-neutral-light: #F0F3F5;
+            --toast-neutral-light: #F0F3F5; /* Main page background */
             --toast-neutral-lightest: #FFFFFF;
+            --bg-section-alt: #f8f9fa; /* Light gray for alternating sections */
+
 
             /* Text & Background Colors */
             --text-primary: var(--toast-neutral-darkest);
             --text-secondary: var(--toast-neutral-dark);
             --text-on-dark-bg: var(--toast-neutral-lightest);
             --text-accent: var(--toast-primary-orange);
-            --bg-main: var(--toast-neutral-light);
+            --bg-main: var(--toast-neutral-light); 
             --bg-hero-overlay-start: rgba(10, 37, 64, 0.6); 
             --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);  
             --bg-cta-solid: var(--toast-neutral-darkest);
@@ -101,7 +103,7 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
             font-size: 16px;
-            padding-bottom: 95px; /* Increased padding for thicker sticky bar */
+            padding-bottom: 95px; 
         }
 
         .skip-link { 
@@ -250,9 +252,24 @@
             background-color: var(--toast-neutral-light);
             color: var(--accent-color);
         }
+        
+        /* Alternating section background */
+        .section-alt-bg {
+            background-color: var(--bg-section-alt);
+            padding-top: 40px; /* Add padding to sections with this background */
+            padding-bottom: 40px;
+        }
+        /* Ensure sections directly inside .content-section also get padding if they have the alt bg */
+        .content-section > .section-alt-bg {
+             margin-left: -20px; /* Counteract container padding for full-width feel */
+             margin-right: -20px;
+             padding-left: 20px;
+             padding-right: 20px;
+        }
+
 
         .features-section {
-            padding: 40px 0;
+            /* padding: 40px 0; Removed, handled by .section-alt-bg or default section padding */
         }
         .features-grid {
             display: grid;
@@ -265,7 +282,7 @@
             align-items: flex-start; 
             gap: 20px;
             padding: 20px;
-            background-color: var(--toast-neutral-lightest);
+            background-color: var(--toast-neutral-lightest); /* Keep cards white on alt bg */
             border-radius: var(--border-radius-main);
             box-shadow: var(--card-shadow);
             transition: var(--transition-main);
@@ -299,12 +316,12 @@
         }
         @media (min-width: 768px) {
             .features-grid {
-                grid-template-columns: repeat(2, 1fr); /* Two columns for larger screens */
+                grid-template-columns: repeat(2, 1fr); 
             }
         }
-        @media (min-width: 992px) { /* For even larger screens, can go to 4 if design allows */
+        @media (min-width: 992px) { 
              .features-grid {
-                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* More flexible for 4 items */
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             }
         }
 
@@ -314,19 +331,25 @@
             background-color: var(--toast-neutral-darkest);
             background-image: linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)), var(--hero-bg-image); 
             background-size: cover; background-position: center center;
-            color: var(--text-on-dark-bg); margin-bottom: 40px;
+            color: var(--text-on-dark-bg); margin-bottom: 0; /* Adjusted margin */
         }
         .hero h1 { font-size: 2.8em; color: var(--text-on-dark-bg); margin-bottom: 20px; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.35); line-height: 1.25; }
         .hero .subtitle { font-size: 1.3em; margin-bottom: 30px; color: rgba(255,255,255,0.9); max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 400; text-shadow: 0 1px 3px rgba(0,0,0,0.6); }
         .hero .btn { margin-top: 10px; font-size: 1.15em; }
 
-        .video-section { text-align: center; margin-bottom: 50px; padding-top: 40px; } 
+        .video-section { 
+            text-align: center; 
+            padding-top: 30px; /* Reduced padding */
+            padding-bottom: 30px; /* Added padding bottom */
+            /* margin-bottom: 0; /* Removed bottom margin to bring hero closer if needed */
+        } 
         .video-container { background-color: #000; width: 100%; max-width: 680px; aspect-ratio: 16 / 9; margin: 20px auto 0; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: var(--border-radius-main); box-shadow: 0 10px 25px rgba(0,0,0,0.25); font-size: 1.2em; color: var(--text-on-dark-bg); overflow: hidden; }
         .video-container iframe { width: 100%; height: 100%; border: none; }
 
         .content-section { padding: 40px 0; }
+        .content-section.no-top-padding { padding-top: 0; } /* For sections following alt-bg */
         
-        .local-proof { text-align: center; margin-bottom: 50px; }
+        .local-proof { text-align: center; padding-bottom: 50px; /* Ensure padding is within alt bg */ }
         .testimonial-carousel-wrapper { 
             background: var(--glass-bg);
             backdrop-filter: blur(var(--glass-blur));
@@ -477,7 +500,7 @@
             width: 100%;
             background-color: var(--accent-color); 
             color: var(--text-on-dark-bg);
-            padding: 20px; /* Made thicker */
+            padding: 20px; 
             text-align: center;
             z-index: 998; 
             box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
@@ -492,20 +515,20 @@
         .sticky-cta-bar .btn { 
             background-color: var(--toast-neutral-lightest);
             color: var(--accent-color);
-            padding: 12px 30px; /* Adjusted padding for a good size */
-            font-size: 1.15em; /* Slightly larger font */
+            padding: 12px 30px; 
+            font-size: 1.15em; 
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            animation: pulseStickyBtn 2s infinite ease-in-out; /* Added animation */
+            animation: pulseStickyBtn 2s infinite ease-in-out; 
         }
         .sticky-cta-bar .btn:hover {
             background-color: #f8f9fa; 
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            animation-play-state: paused; /* Pause animation on hover */
+            animation-play-state: paused; 
         }
 
-        @keyframes pulseStickyBtn { /* Animation for sticky button */
+        @keyframes pulseStickyBtn { 
             0% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0.3); }
             70% { box-shadow: 0 4px 12px rgba(0,0,0,0.25), 0 0 0 10px rgba(255, 255, 255, 0); }
             100% { box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 0 0 0 rgba(255, 255, 255, 0); }
@@ -540,12 +563,13 @@
                  display: none; 
             }
             .sticky-cta-bar {
-                padding: 15px; /* Adjust thickness for tablet */
+                padding: 15px; 
             }
             .sticky-cta-bar .btn {
                 font-size: 1em;
                 padding: 10px 20px;
             }
+            .video-section { padding-top: 20px; padding-bottom: 20px; }
 
 
             .hero { padding: 60px 15px 50px; }
@@ -572,6 +596,8 @@
                 max-width: 95vw;
                 max-height: 95vh; 
                 padding: 0; 
+                border-radius: var(--border-radius-main); /* Keep some radius */
+                /* Centering is handled by popup-overlay flex */
             } 
             .popup-header { padding: 10px 15px 8px; }
             .popup-header h3 { font-size: 1.1em; }
@@ -629,6 +655,8 @@
                 width: auto; 
                 max-width: 90%; 
             }
+            .video-section { padding-top: 15px; padding-bottom: 15px; }
+            .video-container { max-width: 90%; aspect-ratio: 16 / 10; } /* Make video smaller */
         }
 
         @media (max-width: 400px) { 
@@ -647,14 +675,17 @@
                 font-size: 1.5em;
             }
              .sticky-cta-bar .btn {
-                font-size: 0.9em; /* Smaller font for very small screens */
+                font-size: 0.9em; 
             }
         }
 
         @media (max-width: 480px) { 
-            body { font-size: 15px; padding-bottom: 75px; /* Adjust for potentially smaller sticky bar */ }
+            body { font-size: 15px; padding-bottom: 75px; }
+            .hero { padding-top: 30px; padding-bottom: 30px; } /* Reduce hero padding */
             .hero h1 { font-size: 1.8em; }
-            .hero .subtitle { font-size: 1em; }
+            .hero .subtitle { font-size: 1em; margin-bottom: 20px; }
+            .hero .btn { font-size: 0.95em; padding: 10px 18px; }
+
             .btn, a.btn { padding: 12px 20px; font-size: 0.95em; } 
             .section-title { font-size: 1.6em; }
             .feature-item { flex-direction: column; align-items: center; text-align: center; }
@@ -663,20 +694,24 @@
             .testimonial-carousel-item p {font-size: 0.9em;}
             .testimonial-carousel-item span {font-size: 0.8em;}
             .popup-content { 
-                width: 100vw; 
-                height: 100vh; 
-                max-width: 100vw;
-                max-height: 100vh; 
-                border-radius:0;
-                padding: 0;
+                width: 95vw; /* Use 95vw as requested */
+                max-width: 95vw;
+                height: auto; /* Let content define height */
+                max-height: 90vh; /* Max height */
+                position: fixed; /* Ensure it's fixed for centering */
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) scale(0.98); /* Initial state for animation */
+                border-radius: var(--border-radius-main); /* Keep radius */
+            }
+            .popup-overlay.active .popup-content {
+                 transform: translate(-50%, -50%) scale(1); /* Active state */
             }
             .popup-header { padding: 8px 35px 8px 10px; }
             .popup-header h3 { font-size: 1em; }
-            #chiliPiperCalendarElement { 
-                min-height: 0; 
-            } 
             #chiliPiperCalendarElement iframe {
-                min-height: calc(100vh - 40px);
+                min-height: 300px; /* Ensure a minimum scrollable area */
+                height: calc(90vh - 60px); /* Adjust based on header/footer of popup */
             }
             .popup-close { top:5px; right:5px; background: rgba(255,255,255,0.15); border-radius:50%; padding: 3px 7px;}
         }
@@ -737,128 +772,140 @@
                 </div>
             </section>
 
-            <div class="container content-section">
-                <section class="features-section animated-section">
-                    <h2 class="section-title">Built for restaurants. Built for retailers. Built for you.</h2>
-                    <div class="features-grid">
-                        <div class="feature-item init-hidden">
-                            <div class="feature-icon"><i class="fas fa-arrow-trend-up"></i></div>
-                            <div class="feature-text-content">
-                                <h3>Grow your business</h3>
-                                <p>Revenue at Toast restaurants is, on average, more than 30% greater than the average US restaurant.**</p>
+            <div class="content-section section-alt-bg"> <div class="container"> <section class="features-section animated-section">
+                        <h2 class="section-title">Built for restaurants. Built for retailers. Built for you.</h2>
+                        <div class="features-grid">
+                            <div class="feature-item init-hidden">
+                                <div class="feature-icon"><i class="fas fa-arrow-trend-up"></i></div>
+                                <div class="feature-text-content">
+                                    <h3>Grow your business</h3>
+                                    <p>Revenue at Toast restaurants is, on average, more than 30% greater than the average US restaurant.**</p>
+                                </div>
+                            </div>
+                            <div class="feature-item init-hidden">
+                                <div class="feature-icon"><i class="fas fa-gear"></i></div> 
+                                <div class="feature-text-content">
+                                    <h3>Increase efficiency</h3>
+                                    <p>Restaurants that expanded their use of Toast's platform outperformed those that didn't by more than 50%.***</p>
+                                </div>
+                            </div>
+                            <div class="feature-item init-hidden">
+                                <div class="feature-icon"><i class="fas fa-heart"></i></div> 
+                                <div class="feature-text-content">
+                                    <h3>Become your neighborhood favorite</h3>
+                                    <p>Delight guests and turn them into raving fans.</p>
+                                </div>
+                            </div>
+                            <div class="feature-item init-hidden"> 
+                                <div class="feature-icon"><i class="fas fa-chart-column"></i></div> 
+                                <div class="feature-text-content">
+                                    <h3>Improve sales and revenue</h3>
+                                    <p>Toast restaurants make more money.</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="feature-item init-hidden">
-                            <div class="feature-icon"><i class="fas fa-gear"></i></div> 
-                            <div class="feature-text-content">
-                                <h3>Increase efficiency</h3>
-                                <p>Restaurants that expanded their use of Toast's platform outperformed those that didn't by more than 50%.***</p>
-                            </div>
-                        </div>
-                        <div class="feature-item init-hidden">
-                            <div class="feature-icon"><i class="fas fa-heart"></i></div> 
-                            <div class="feature-text-content">
-                                <h3>Become your neighborhood favorite</h3>
-                                <p>Delight guests and turn them into raving fans.</p>
-                            </div>
-                        </div>
-                        <div class="feature-item init-hidden"> <div class="feature-icon"><i class="fas fa-chart-column"></i></div> 
-                            <div class="feature-text-content">
-                                <h3>Improve sales and revenue</h3>
-                                <p>Toast restaurants make more money.</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <div class="urgency-bar animated-section init-hidden">
-                    <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
+                    </section>
                 </div>
+            </div>
 
-                <section class="local-proof animated-section">
-                    <h2 class="section-title">Trusted by Independents Like Yours in Washington</h2>
-                    <p style="text-align:center; max-width: 700px; margin: -20px auto 30px auto;">Join 120+ Washington independents already using Toast to shave an average of 5 hrs/week off admin tasks!</p>
-                    
-                    <div class="testimonial-carousel-wrapper">
-                        <div class="testimonial-carousel-container">
-                            <div class="testimonial-carousel-item active-slide">
-                                <div class="testimonial-image-placeholder">
-                                    <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from Nineveh Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
-                                </div>
-                                <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
-                                <span>– Owner, Nineveh Food Truck, Olympia</span>
-                            </div>
-                            <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">
-                                    <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from The Westside Perk" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
-                                </div>
-                                <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother..."</p>
-                                <span>– Manager, The Westside Perk, Olympia</span>
-                            </div>
-                            <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">
-                                     <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from Lakeside Bites" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
-                                </div>
-                                <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours..."</p>
-                                <span>– The Miller Family, Lakeside Bites, Olympia</span>
-                            </div>
-                             <div class="testimonial-carousel-item">
-                                <div class="testimonial-image-placeholder">
-                                     <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
-                                </div>
-                                <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
-                                <span>– Chef, The Capital Grill, Olympia</span>
-                            </div>
-                        </div>
-                        <div class="testimonial-carousel-dots"></div>
-                        <div class="carousel-nav">
-                            <button class="carousel-arrow prev" aria-label="Previous testimonial">❮</button>
-                            <button class="carousel-arrow next" aria-label="Next testimonial">❯</button>
-                        </div>
+            <div class="content-section no-top-padding"> <div class="container">
+                    <div class="urgency-bar animated-section init-hidden">
+                        <i class="fas fa-bolt"></i> Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
                     </div>
-                </section>
-                
-                <section class="cta-solid-bg animated-section init-hidden" id="ctaBar">
-                    <h2 class="section-title">Ready for a No-Pitch Walk-Through?</h2>
-                    <p>I'll bring the coffee (from a local Olympia spot, of course!) and a live Toast demo tailored to your restaurant. No pressure, just a friendly chat about your needs.</p>
-                    <button class="btn" id="walkThroughBtn" style="margin-top: 20px;">Book My Walk-Through with Bardya</button>
-                </section>
+                </div>
+            </div>
+
+            <div class="content-section section-alt-bg"> <div class="container">
+                    <section class="local-proof animated-section">
+                        <h2 class="section-title">Trusted by Independents Like Yours in Washington</h2>
+                        <p style="text-align:center; max-width: 700px; margin: -20px auto 30px auto;">Join 120+ Washington independents already using Toast to shave an average of 5 hrs/week off admin tasks!</p>
+                        
+                        <div class="testimonial-carousel-wrapper">
+                            <div class="testimonial-carousel-container">
+                                <div class="testimonial-carousel-item active-slide">
+                                    <div class="testimonial-image-placeholder">
+                                        <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+1" alt="Photo of satisfied client from Nineveh Food Truck" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                    </div>
+                                    <p>"Toast, with Bardya's local guidance, cut our ticket times by 22% at our Olympia food truck! Game changer for the lunch rush."</p>
+                                    <span>– Owner, Nineveh Food Truck, Olympia</span>
+                                </div>
+                                <div class="testimonial-carousel-item">
+                                    <div class="testimonial-image-placeholder">
+                                        <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+2" alt="Photo of satisfied client from The Westside Perk" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                    </div>
+                                    <p>"We were drowning in different apps. Bardya helped us consolidate with Toast, and now our Westside cafe runs so much smoother..."</p>
+                                    <span>– Manager, The Westside Perk, Olympia</span>
+                                </div>
+                                <div class="testimonial-carousel-item">
+                                    <div class="testimonial-image-placeholder">
+                                         <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+3" alt="Photo of satisfied client from Lakeside Bites" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                    </div>
+                                    <p>"As a family-run spot near Capitol Lake, efficiency is key. Bardya understood that and showed us how Toast could save us hours..."</p>
+                                    <span>– The Miller Family, Lakeside Bites, Olympia</span>
+                                </div>
+                                 <div class="testimonial-carousel-item">
+                                    <div class="testimonial-image-placeholder">
+                                         <img src="https://placehold.co/70x70/e9ecef/6B778D?text=Client+4" alt="Photo of satisfied client from The Capital Grill" onerror="this.style.display='none'; this.parentElement.innerHTML = 'Client Photo';">
+                                    </div>
+                                    <p>"Bardya is always there for us. The local support from Toast in Olympia is unmatched. Highly recommend!"</p>
+                                    <span>– Chef, The Capital Grill, Olympia</span>
+                                </div>
+                            </div>
+                            <div class="testimonial-carousel-dots"></div>
+                            <div class="carousel-nav">
+                                <button class="carousel-arrow prev" aria-label="Previous testimonial">❮</button>
+                                <button class="carousel-arrow next" aria-label="Next testimonial">❯</button>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <div class="content-section no-top-padding">
+                <div class="container">
+                    <section class="cta-solid-bg animated-section init-hidden" id="ctaBar">
+                        <h2 class="section-title">Ready for a No-Pitch Walk-Through?</h2>
+                        <p>I'll bring the coffee (from a local Olympia spot, of course!) and a live Toast demo tailored to your restaurant. No pressure, just a friendly chat about your needs.</p>
+                        <button class="btn" id="walkThroughBtn" style="margin-top: 20px;">Book My Walk-Through with Bardya</button>
+                    </section>
+                </div>
             </div>
         </main>
     </div>
 
     <div id="page2" class="page-section">
-        <div class="container content-section">
-            <a href="#page2-main-content" class="skip-link">Skip to main content</a>
-            <section id="page2-main-content" tabindex="-1" class="about-section glass-card animated-section init-hidden">
-                <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
-                <div class="about-bardya-content">
-                    <img src="bardya-photo.jpg" alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
-                         onerror="this.style.display='none'; document.querySelector('.bardya-photo-placeholder-text').style.display='flex'; this.onerror=null; this.src='https://placehold.co/150x150/0A2540/FFFFFF?text=Bardya+B.';" >
-                    <div class="bardya-photo-placeholder-text" style="display:none;"> Bardya's Photo </div>
-                </div>
-                <div class="bio" style="margin-top:20px;"> 
-                    <p>Hi again! I'm Bardya Banihashemi. While my roots might be in the broader Seattle area, my focus and passion are right here, supporting the incredible independent restaurant scene in Olympia and Thurston County. I believe in building genuine relationships and understanding the unique pulse of our local community.</p>
-                    <p>My goal isn't just to sell you software; it's to be a resource and a partner who helps you leverage technology like Toast to achieve your specific business goals, whether that's increasing efficiency, connecting more with your guests, or boosting your bottom line while championing local sourcing and sustainability. Let's work together to strengthen our vibrant Olympia food scene!</p>
-                </div>
-                <h3 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Why Olympia Restaurants Choose Toast (and Me!)</h3>
-                <ul class="why-toast-list">
-                    <li><strong>Purpose-Built for Independents:</strong> Toast is designed with restaurants like yours in mind, not giant chains.</li>
-                    <li><strong>Local, In-Person Support:</strong> I'm your Olympia-based partner. I show up, I listen, and I'm here for you.</li>
-                    <li><strong>Transparent Pricing:</strong> No hidden fees. We'll find a plan that makes sense for your budget.</li>
-                    <li><strong>24/7/365 Support:</strong> Peace of mind knowing help is always available.</li>
-                    <li><strong>Community Focused:</strong> We care about keeping dollars in Thurston County and supporting local suppliers.</li>
-                    <li><strong>Efficiency Gains:</strong> Save time on admin, payroll, and operations so you can focus on your craft.</li>
-                </ul>
-                <div style="text-align: center; margin-top: 30px;">
-                    <button class="btn" id="aboutPageContactBtn">Let's Chat About Your Restaurant</button>
-                </div>
-                <div class="backup-links" style="text-align: center; margin-top: 30px;">
-                    <h4 style="margin-bottom: 10px;">More Resources:</h4>
-                    <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
-                    <a href="sms:+13602153596?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a> <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
-                </div>
-            </section>
+        <div class="content-section section-alt-bg"> <div class="container">
+                <a href="#page2-main-content" class="skip-link">Skip to main content</a>
+                <section id="page2-main-content" tabindex="-1" class="about-section glass-card animated-section init-hidden">
+                    <h2 class="section-title">About Bardya Banihashemi – Your Olympia Partner</h2>
+                    <div class="about-bardya-content">
+                        <img src="bardya-photo.jpg" alt="Bardya Banihashemi, Toast Account Executive for Olympia" class="bardya-actual-photo" 
+                             onerror="this.style.display='none'; document.querySelector('.bardya-photo-placeholder-text').style.display='flex'; this.onerror=null; this.src='https://placehold.co/150x150/0A2540/FFFFFF?text=Bardya+B.';" >
+                        <div class="bardya-photo-placeholder-text" style="display:none;"> Bardya's Photo </div>
+                    </div>
+                    <div class="bio" style="margin-top:20px;"> 
+                        <p>Hi again! I'm Bardya Banihashemi. While my roots might be in the broader Seattle area, my focus and passion are right here, supporting the incredible independent restaurant scene in Olympia and Thurston County. I believe in building genuine relationships and understanding the unique pulse of our local community.</p>
+                        <p>My goal isn't just to sell you software; it's to be a resource and a partner who helps you leverage technology like Toast to achieve your specific business goals, whether that's increasing efficiency, connecting more with your guests, or boosting your bottom line while championing local sourcing and sustainability. Let's work together to strengthen our vibrant Olympia food scene!</p>
+                    </div>
+                    <h3 style="margin-top: 30px; margin-bottom: 15px; text-align: center;">Why Olympia Restaurants Choose Toast (and Me!)</h3>
+                    <ul class="why-toast-list">
+                        <li><strong>Purpose-Built for Independents:</strong> Toast is designed with restaurants like yours in mind, not giant chains.</li>
+                        <li><strong>Local, In-Person Support:</strong> I'm your Olympia-based partner. I show up, I listen, and I'm here for you.</li>
+                        <li><strong>Transparent Pricing:</strong> No hidden fees. We'll find a plan that makes sense for your budget.</li>
+                        <li><strong>24/7/365 Support:</strong> Peace of mind knowing help is always available.</li>
+                        <li><strong>Community Focused:</strong> We care about keeping dollars in Thurston County and supporting local suppliers.</li>
+                        <li><strong>Efficiency Gains:</strong> Save time on admin, payroll, and operations so you can focus on your craft.</li>
+                    </ul>
+                    <div style="text-align: center; margin-top: 30px;">
+                        <button class="btn" id="aboutPageContactBtn">Let's Chat About Your Restaurant</button>
+                    </div>
+                    <div class="backup-links" style="text-align: center; margin-top: 30px;">
+                        <h4 style="margin-bottom: 10px;">More Resources:</h4>
+                        <a href="#brochure-link" target="_blank"><i class="fas fa-file-pdf"></i> Download Toast Brochure</a>
+                        <a href="sms:+13602153596?body=Hi%20Bardya,..."><i class="fas fa-mobile-alt"></i> Text Me</a> <a href="https://www.linkedin.com/in/bardyab-placeholder" target="_blank"><i class="fab fa-linkedin"></i> Connect on LinkedIn</a>
+                    </div>
+                </section>
+            </div>
         </div>
     </div>
 
