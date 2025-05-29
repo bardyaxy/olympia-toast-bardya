@@ -33,15 +33,21 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('heroProfitCheckBtn'),
     document.getElementById('walkThroughBtn'),
     document.getElementById('aboutPageContactBtn'),
+    document.getElementById('resourcesContactBtn'),
     document.getElementById('stickyBookCallBtn'),
   ].filter(Boolean); // Filter out nulls if some buttons don't exist
+  const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
+  const walkThroughBtnEl = document.getElementById('walkThroughBtn');
+  const resourcesContactBtn = document.getElementById('resourcesContactBtn');
   const closeSchedulePopupBtn = document.getElementById('closeSchedulePopupBtn');
   const chiliPiperCalendarElement = document.getElementById('chiliPiperCalendarElement');
 
   // Page Navigation Elements
   const mainPage1 = document.getElementById('page1');
   const mainPage2 = document.getElementById('page2');
+  const mainPage3 = document.getElementById('page3');
   const backToHomeBtn = document.getElementById('backToHomeBtn');
+  const resourcesBackBtn = document.getElementById('resourcesBackBtn');
   const navLinks = document.querySelectorAll('.nav-link');
   const pageSections = document.querySelectorAll('.page-section');
 
@@ -89,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToToggle = [
       mainPage1,
       mainPage2,
+      mainPage3,
       siteHeader,
       siteFooter,
       stickyCtaBar // Assuming stickyCtaBar is the ID 'stickyCta'
@@ -338,6 +345,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (resourcesBackBtn) {
+    resourcesBackBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      setActivePage('page1');
+    });
+  }
+
   // Activate the first page by default if it exists
   if (pageSections.length > 0 && document.getElementById('page1')) {
     setActivePage('page1'); // Set initial active page
@@ -491,6 +505,41 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   if (currentYearElement) {
     currentYearElement.textContent = new Date().getFullYear();
+  }
+
+  const promoTextEl = document.getElementById('promoText');
+  if (promoTextEl) {
+    const monthNames = [
+      'January', 'February', 'March', 'April', 'May', 'June',
+      'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    const now = new Date();
+    const monthName = monthNames[now.getMonth()];
+    promoTextEl.textContent = `${monthName} Promotion: Olympia restaurants receive complimentary menu optimization consultations this month.`;
+  }
+
+  if (heroProfitCheckBtn) {
+    heroProfitCheckBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'hero_cta_click');
+      }
+    });
+  }
+
+  if (walkThroughBtnEl) {
+    walkThroughBtnEl.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'walkthrough_cta_click');
+      }
+    });
+  }
+
+  if (resourcesContactBtn) {
+    resourcesContactBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'resources_contact_click');
+      }
+    });
   }
 
   initializeScrollAnimations();

@@ -81,6 +81,7 @@
           <div class="main-nav">
             <a href="#page1" class="nav-link active-nav" aria-current="page">Home</a>
             <a href="#page2" class="nav-link">About Bardya</a>
+            <a href="#page3" class="nav-link">Resources</a>
           </div>
           <a href="tel:+13602153596" class="btn-call-bardya">
             <i class="fas fa-phone-alt" aria-hidden="true"></i>
@@ -95,6 +96,7 @@
           <div class="mobile-nav-menu" id="mobileNavMenu" aria-hidden="true">
             <a href="#page1" class="nav-link">Home</a>
             <a href="#page2" class="nav-link">About Bardya</a>
+            <a href="#page3" class="nav-link">Resources</a>
           </div>
         </nav>
       </div>
@@ -120,7 +122,7 @@
         <div class="container">
           <h1 id="hero-title">Run your Olympia restaurant—don’t let tech run you.</h1>
           <p class="subtitle">I’m Bardya Banihashemi, your local Toast rep for Olympia. One platform, fewer headaches, bigger margins. My goal is to build a real partnership to help your Olympia establishment flourish.</p>
-          <button class="btn" id="heroProfitCheckBtn" aria-label="15-Minute Profit Check">15-Minute Profit Check →</button>
+          <button class="btn" id="heroProfitCheckBtn" aria-label="Book Your 30-Min Consultation">Book Your 30-Min Consultation →</button>
         </div>
       </section>
 
@@ -170,9 +172,9 @@
 
       <section class="content-section no-top-padding" aria-label="Special Offer">
         <div class="container">
-          <div class="urgency-bar animated-section init-hidden">
+          <div class="urgency-bar animated-section init-hidden" id="promoBanner">
             <i class="fas fa-bolt" aria-hidden="true"></i>
-            Next five Olympia restaurants to sign up get a free menu engineering consult (a $500 value)!
+            <span id="promoText">Monthly Promotion: Olympia restaurants receive complimentary menu optimization consultations this month.</span>
           </div>
         </div>
       </section>
@@ -232,7 +234,7 @@
       <section class="content-section no-top-padding cta-section" aria-labelledby="cta-walkthrough-title">
         <div class="container">
           <div class="cta-solid-bg animated-section init-hidden" id="ctaBar">
-            <h2 class="section-title" id="cta-walkthrough-title">Ready for a No-Pitch Walk-Through?</h2>
+            <h2 class="section-title" id="cta-walkthrough-title">Ready for a Personalized Walk-Through?</h2>
             <p>I’ll bring the coffee (from a local Olympia spot, of course!) and a live Toast demo tailored to your restaurant. No pressure, just a friendly chat about your needs.</p>
             <div class="cta-buttons">
               <button class="btn" id="walkThroughBtn" aria-label="Book a no-pitch demo with Bardya">Book My Walk-Through with Bardya</button>
@@ -282,10 +284,32 @@
     </div>
   </div>
 
+  <div id="page3" class="page-section">
+    <div class="content-section section-alt-bg">
+      <div class="container">
+        <nav aria-label="Back to home navigation">
+          <button class="btn-back-to-home" id="resourcesBackBtn">← Back to Home</button>
+        </nav>
+        <a href="#page3-main-content" class="skip-link">Skip to main content on Resources page</a>
+        <main id="page3-main-content" tabindex="-1" class="resources-section glass-card animated-section init-hidden" aria-labelledby="resources-title">
+          <h2 class="section-title" id="resources-title">Helpful Resources—No Strings Attached</h2>
+          <p>I’m not a fan of gatekeeping useful information, and I bet you aren’t either. Below, I've shared some handy brochures and documents completely free—no emails, no sign-ups, just valuable resources to help your restaurant thrive. Feel free to explore!</p>
+          <div class="backup-links">
+            <a href="#brochure-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download Toast Brochure</a>
+          </div>
+          <div class="about-cta">
+            <button class="btn" id="resourcesContactBtn">Want to get in touch?</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <p>Bardya Banihashemi – Your Local Toast Account Executive in Olympia.</p>
       <p>Building relationships and strengthening Olympia’s restaurant community, one partnership at a time.</p>
+      <p>Check out the official Toast website for more information: <a href="https://pos.toasttab.com" target="_blank" rel="noopener noreferrer">pos.toasttab.com</a></p>
       <p><a href="https://bettercallbardya.com" target="_blank" rel="noopener noreferrer">bettercallbardya.com</a></p>
       <p class="copyright">&copy; <span id="currentYear"></span> Toast, Inc. All rights reserved.</p>
     </div>
@@ -306,11 +330,6 @@
       </div>
     </div>
   </div>
-
-  <script>
-    // set current year dynamically
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-  </script>
   <script src="app.js" defer></script>
 </body>
 </html>
