@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * ==========================================================================
    */
   const CHILIPIPER_LINK = "https://toast.chilipiper.com/personal/bardya-banihashemi";
-  const CAROUSEL_INTERVAL_TIME = 6300; // ms (10% faster)
+  const CAROUSEL_INTERVAL_TIME = 5000; // ms (20% faster)
   const SWIPE_THRESHOLD = 50; // px
   const SCROLL_THRESHOLD_STICKY_CTA = 100; // px
   const SCROLL_THRESHOLD_BACK_TO_TOP = 300; // px
