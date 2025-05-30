@@ -1,0 +1,8 @@
+{
+  "name": "olympia-toast-bardya",
+  "version": "1.0.0",
+  "description": "Simple build step for HTML includes",
+  "scripts": {
+    "build": "node build.js"
+  }
+}
