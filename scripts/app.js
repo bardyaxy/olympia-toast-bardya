@@ -4,6 +4,7 @@
  * @version 1.1.0
  */
 
+import "../styles/style.css";
 // Wait for the DOM to be fully loaded before executing scripts
 document.addEventListener('DOMContentLoaded', () => {
   /**
