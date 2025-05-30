@@ -482,7 +482,9 @@ body {
   padding: var(--space-md) 0;
   list-style: none;
   margin: 0;
-  animation: marqueeScroll 10s linear infinite;
+  animation: marqueeScroll 12s linear infinite;
+  width: max-content;
+  flex: 0 0 auto;
 }
 .marquee li {
   white-space: nowrap;
