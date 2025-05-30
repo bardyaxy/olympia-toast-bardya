@@ -47,8 +47,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainPage1 = document.getElementById('page1');
   const mainPage2 = document.getElementById('page2');
   const mainPage3 = document.getElementById('page3');
+  const mainPage4 = document.getElementById('page4');
   const backToHomeBtn = document.getElementById('backToHomeBtn');
   const resourcesBackBtn = document.getElementById('resourcesBackBtn');
+  const aboutMeBackBtn = document.getElementById('aboutMeBackBtn');
   const navLinks = document.querySelectorAll('.nav-link');
   const pageSections = document.querySelectorAll('.page-section');
 
@@ -92,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mainPage1,
       mainPage2,
       mainPage3,
+      mainPage4,
       siteHeader,
       siteFooter,
       stickyCtaBar
@@ -303,6 +306,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (resourcesBackBtn) {
     resourcesBackBtn.addEventListener('click', event => {
+      event.preventDefault();
+      setActivePage('page1');
+    });
+  }
+
+  if (aboutMeBackBtn) {
+    aboutMeBackBtn.addEventListener('click', event => {
       event.preventDefault();
       setActivePage('page1');
     });
