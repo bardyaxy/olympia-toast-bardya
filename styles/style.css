@@ -1010,6 +1010,16 @@ body {
   transform: translateY(100%);
   transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
 }
+.sticky-cta-bar::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('../hp-demo-illustration.d9507d3d.svg') center/cover no-repeat;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 8px 8px 0 0;
+}
 .sticky-cta-bar.visible {
   opacity: 1;
   transform: translateY(0);
@@ -1024,6 +1034,8 @@ body {
   animation: pulseStickyBtn 2s infinite ease-in-out;
   text-align: center;
   border-radius: var(--border-radius-button);
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
