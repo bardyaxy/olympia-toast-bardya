@@ -1,1 +1,13 @@
+# Node dependencies
+node_modules/
+
+# Log files
+*.log
+
+# macOS system files
+.DS_Store
+
+# Build outputs
+build/
 dist/
+out/
