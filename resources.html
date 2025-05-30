@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why Toast and Free Resources</title>
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="header-content">
+        <div class="header-logo">
+          <a href="/index.html" aria-label="Toast POS Home">
+            <img src="toast-logo.png" alt="Toast POS Logo" loading="lazy" class="toast-header-logo-img" onerror="this.alt='Toast Logo'; this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast'; this.onerror=null;">
+          </a>
+        </div>
+        <nav class="header-actions" aria-label="Main navigation">
+          <div class="main-nav">
+            <a href="/about.html" class="nav-link">About Me</a>
+            <a href="/resources.html" class="nav-link">Why Toast & Free Resources</a>
+          </div>
+          <a href="tel:+13602153596" class="btn-call-bardya">
+            <i class="fas fa-phone-alt" aria-hidden="true"></i>
+            <div>
+              <span class="call-text">Call Bardya</span>
+              <span class="phone-number">(360) 215-3596</span>
+            </div>
+          </a>
+          <button class="menu-toggle" id="menuToggleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavMenu">
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+          <div class="mobile-nav-menu" id="mobileNavMenu" aria-hidden="true">
+            <a href="/about.html" class="nav-link">About Me</a>
+            <a href="/resources.html" class="nav-link">Why Toast & Free Resources</a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <div class="content-section section-alt-bg">
+    <div class="container">
+      <nav aria-label="Back to home navigation">
+        <a href="/index.html" class="btn-back-to-home">← Back to Home</a>
+      </nav>
+      <main id="main-content" tabindex="-1" class="resources-section glass-card" aria-labelledby="resources-title">
+        <h2 class="section-title" id="resources-title">Why Toast and Free Resources</h2>
+        <ul class="why-toast-list">
+          <li><strong>Purpose Built for Independents:</strong> Designed with restaurants like yours in mind.</li>
+          <li><strong>Local in person support:</strong> I show up, I listen, and I’m here for you.</li>
+          <li><strong>Transparent pricing:</strong> No hidden fees—plans that fit your budget.</li>
+          <li><strong>Twenty four seven three sixty five support:</strong> Peace of mind knowing help is always available.</li>
+          <li><strong>Community focused:</strong> Keeping dollars in Thurston County.</li>
+          <li><strong>Efficiency gains:</strong> Save time on admin so you can focus on your craft.</li>
+        </ul>
+        <p>I’m not a fan of gatekeeping useful information, and I bet you aren’t either. Below, I've shared some handy brochures and documents completely free—no emails, no sign-ups, just valuable resources to help your restaurant thrive. Feel free to explore!</p>
+        <div class="backup-links">
+          <a href="#brochure-link" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf" aria-hidden="true"></i> Download Toast Brochure</a>
+        </div>
+        <div class="about-cta">
+          <button class="btn" id="resourcesContactBtn">Want to get in touch?</button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <p>Bardya Banihashemi – Your Local Toast Account Executive in Olympia.</p>
+      <p>Building relationships and strengthening Olympia’s restaurant community, one partnership at a time.</p>
+      <p>Check out the official Toast website for more information: <a href="https://pos.toasttab.com" target="_blank" rel="noopener noreferrer">pos.toasttab.com</a></p>
+      <p><a href="https://bettercallbardya.com" target="_blank" rel="noopener noreferrer">bettercallbardya.com</a></p>
+      <p class="copyright">&copy; <span id="currentYear"></span> Toast, Inc. All rights reserved.</p>
+    </div>
+  </footer>
+  <aside class="sticky-cta-bar" id="stickyCta" aria-label="Sticky Call to Action">
+    <button class="btn" id="stickyBookCallBtn"><i class="fas fa-calendar-alt" aria-hidden="true"></i> Book a call with Bardya</button>
+  </aside>
+  <div class="popup-overlay" id="schedule-call-popup" role="dialog" aria-modal="true" aria-labelledby="popupTitleElement" aria-hidden="true">
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3 id="popupTitleElement">Schedule a Time with Bardya</h3>
+        <button class="popup-close" id="closeSchedulePopupBtn" aria-label="Close scheduling popup">×</button>
+      </div>
+      <div id="chiliPiperCalendarElement" role="application" aria-label="Scheduling Calendar">
+        <p>Loading Scheduler…</p>
+      </div>
+    </div>
+  </div>
+  <script src="app.js" defer></script>
+</body>
+</html>
