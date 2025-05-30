@@ -1,3 +1,6 @@
+Here’s the complete CSS with the merge conflicts resolved. You can copy-paste this in place of your old file:
+
+```css
 /* ==========================================================================
    1. CSS Custom Properties (Variables)
    ========================================================================== */
@@ -1193,7 +1196,7 @@ body {
 /* Very Small Mobile Devices */
 @media (max-width: 480px) {
   .header-content {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: var(--space-sm);
   }
   .header-actions {
@@ -1297,3 +1300,4 @@ body {
     font-size: 0.9em;
   }
 }
+```
