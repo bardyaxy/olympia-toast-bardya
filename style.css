@@ -1,3 +1,6 @@
+Here’s the complete CSS with the merge conflicts resolved. You can copy-paste this in place of your old file:
+
+```css
 /* ==========================================================================
    1. CSS Custom Properties (Variables)
    ========================================================================== */
@@ -1087,9 +1090,12 @@ body {
   .menu-toggle {
     display: block;
   }
+  .header-actions {
+    gap: var(--space-sm);
+  }
   .btn-call-bardya {
-    font-size: 0.9em;
-    padding: 7px 14px;
+    font-size: 0.85em;
+    padding: 6px 12px;
   }
   .hero {
     padding: 60px var(--space-md) 50px;
@@ -1193,6 +1199,12 @@ body {
     flex-wrap: nowrap;
     gap: var(--space-sm);
   }
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
+    gap: var(--space-xs);
+  }
   .main-nav {
     display: none;
   }
@@ -1277,8 +1289,8 @@ body {
     height: 28px;
   }
   .btn-call-bardya {
-    font-size: 0.8em;
-    padding: 5px var(--space-sm);
+    font-size: 0.75em;
+    padding: 5px 10px;
     gap: var(--space-xs);
   }
   .menu-toggle {
@@ -1288,3 +1300,4 @@ body {
     font-size: 0.9em;
   }
 }
+```
