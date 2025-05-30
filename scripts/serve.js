@@ -1,31 +1,26 @@
-const http = require('http');
-const fs = require('fs');
+const express = require('express');
 const path = require('path');
-const mime = {
-  '.html': 'text/html',
-  '.css': 'text/css',
-  '.js': 'application/javascript',
-  '.svg': 'image/svg+xml',
-  '.png': 'image/png',
-  '.jpg': 'image/jpeg',
-  '.ico': 'image/x-icon'
-};
+
+const app = express();
 const distDir = path.join(__dirname, '..', 'dist');
-const server = http.createServer((req, res) => {
-  let filePath = path.join(distDir, req.url === '/' ? 'index.html' : req.url);
-  fs.readFile(filePath, (err, data) => {
-    if (err) {
-      res.writeHead(404);
-      res.end('Not Found');
-      return;
-    }
-    const ext = path.extname(filePath);
-    res.writeHead(200, { 'Content-Type': mime[ext] || 'text/plain' });
-    res.end(data);
-  });
-});
-const port = process.env.PORT || 8080;
-server.listen(port, () => {
-  console.log(`Serving on http://localhost:${port}`);
+
+// Cache headers: HTML revalidated, assets long lived
+app.use((req, res, next) => {
+  if (req.path.endsWith('.html') || req.path === '/') {
+    res.set('Cache-Control', 'no-cache, must-revalidate');
+  }
+  next();
 });
 
+app.use(express.static(distDir, {
+  setHeaders: (res, filePath) => {
+    if (!filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+    }
+  }
+}));
+
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Serving on http://localhost:${port}`);
+});
