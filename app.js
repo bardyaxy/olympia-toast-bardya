@@ -1,4 +1,3 @@
-```js
 /**
  * @fileoverview Main JavaScript for website interactions, including popups,
  * animations, navigation, and carousel.
@@ -509,4 +508,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   initializeCarousel();
 }); // End DOMContentLoaded
-```
