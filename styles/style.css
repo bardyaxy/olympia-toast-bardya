@@ -75,7 +75,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overscroll-behavior-x: contain;
-  overscroll-behavior-y: none;
+  overscroll-behavior-y: auto;
 }
 
 *,
