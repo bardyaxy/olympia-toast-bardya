@@ -6,7 +6,7 @@
   --toast-primary-orange: #FA5A0A;
   --toast-secondary-orange-dark: #E04F0A;
 
-  --toast-neutral-darkest: #16389E; /* Primary Text, Solid CTA BG */
+  --toast-neutral-darkest: #0A2540; /* Primary Text, Solid CTA BG */
 
   --toast-neutral-dark: #333D4F;    /* Secondary Text */
   --toast-neutral-medium: #6B778D;  /* Tertiary Text, Icons, Borders */
@@ -26,8 +26,8 @@
   --bg-card: var(--toast-neutral-lightest);
   --bg-cta-solid: var(--toast-neutral-darkest);
 
-  --bg-hero-overlay-start: rgba(22, 56, 158, 0.6);
-  --bg-hero-overlay-end: rgba(22, 56, 158, 0.85);
+  --bg-hero-overlay-start: rgba(10, 37, 64, 0.6);
+  --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
 
   /* Accent Colors */
   --accent-color: var(--toast-primary-orange);
@@ -823,7 +823,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(22, 56, 158, 0.92); /* Dark overlay */
+  background-color: rgba(10, 37, 64, 0.92); /* Dark overlay */
   display: flex;
   align-items: center;
   justify-content: center;
