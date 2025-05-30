@@ -82,12 +82,23 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background-color: transparent;
+  color: inherit;
 }
 
 body {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
-  padding: 0 0 95px; /* Space for sticky CTA bar */
+  padding: 0; /* Remove space under sticky CTA */
   background-color: var(--bg-main);
   color: var(--text-primary);
   font-size: 16px;
@@ -656,8 +667,7 @@ body {
   transform: scale(1.1);
 }
 .carousel-arrow:focus {
-  outline: 2px solid var(--accent-color);
-  outline-offset: 2px;
+  outline: none;
 }
 
 /* ==========================================================================
@@ -984,6 +994,7 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
+  margin: 0;
   background-color: var(--accent-color);
   color: var(--text-on-dark-bg);
   padding: var(--space-md) var(--space-sm);
@@ -1039,10 +1050,11 @@ body {
    ========================================================================== */
 .site-footer {
   text-align: center;
-  padding: 50px var(--space-lg);
+  padding: 50px var(--space-lg) 0;
   margin-top: var(--space-xl);
   background-color: var(--toast-neutral-darkest);
   color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0;
 }
 .site-footer p {
   margin: 8px 0;
