@@ -1081,18 +1081,18 @@ body {
   .site-header {
     padding: var(--space-sm) 0;
   }
-  .main-nav .nav-link-about {
+  .main-nav {
     display: none;
   }
   .menu-toggle {
     display: block;
   }
-  .btn-call-bardya {
-    font-size: 0.9em;
-    padding: 7px 14px;
+  .header-actions {
+    gap: var(--space-sm);
   }
-  .btn-call-bardya .call-text {
-    display: none;
+  .btn-call-bardya {
+    font-size: 0.85em;
+    padding: 6px 12px;
   }
   .hero {
     padding: 60px var(--space-md) 50px;
@@ -1200,12 +1200,10 @@ body {
     width: 100%;
     justify-content: space-between;
     margin-top: var(--space-sm);
+    gap: var(--space-xs);
   }
   .main-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: var(--space-sm);
+    display: none;
   }
   body {
     font-size: 15px;
@@ -1288,12 +1286,9 @@ body {
     height: 28px;
   }
   .btn-call-bardya {
-    font-size: 0.8em;
-    padding: 5px var(--space-sm);
+    font-size: 0.75em;
+    padding: 5px 10px;
     gap: var(--space-xs);
-  }
-  .btn-call-bardya .call-text {
-    display: none;
   }
   .menu-toggle {
     font-size: 1.5em;
