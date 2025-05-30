@@ -7,9 +7,9 @@
   --toast-secondary-orange-dark: #E04F0A;
   --toast-neutral-darkest: #2B4FB9; /* Primary Text, Solid CTA BG */
   --toast-neutral-dark: #333D4F;    /* Secondary Text */
-  --toast-neutral-medium: #6B778D; /* Tertiary Text, Icons, Borders */
-  --toast-neutral-light: #F0F3F5;  /* Main Page Background */
-  --toast-neutral-lighter: #F8F9FA;/* Alternate Section Background */
+  --toast-neutral-medium: #6B778D;  /* Tertiary Text, Icons, Borders */
+  --toast-neutral-light: #F0F3F5;   /* Main Page Background */
+  --toast-neutral-lighter: #F8F9FA; /* Alternate Section Background */
   --toast-neutral-lightest: #FFFFFF;/* Text on Dark BG, Card Backgrounds */
 
   /* Semantic Text & Background Colors */
@@ -31,9 +31,9 @@
   --accent-color-darker: var(--toast-secondary-orange-dark);
 
   /* Borders */
-  --border-light: #e2e8f0; /* General light border */
-  --border-light-hover: #ced4da; /* Slightly darker for hover states */
-  --btn-subtle-hover-bg: #e9ecef; /* For light buttons on hover */
+  --border-light: #e2e8f0;        /* General light border */
+  --border-light-hover: #ced4da;  /* Slightly darker for hover states */
+  --btn-subtle-hover-bg: #e9ecef; /* Light buttons on hover */
 
   /* Hero Background Image */
   --hero-bg-image: url('olympia-hero.jpg'); /* Ensure this path is correct */
@@ -43,19 +43,19 @@
   --glass-blur: 10px;
   --glass-border-color: rgba(255, 255, 255, 0.7);
   --card-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
-  --card-hover-shadow: 0 18px 45px rgba(0,0,0,0.12); /* Enhanced shadow for hover */
+  --card-hover-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
 
   /* UI Sizing & Transitions */
   --hover-scale: 1.03;
   --border-radius-main: 18px;
   --border-radius-button: 30px;
-  --border-radius-small: 8px; /* Added for smaller elements like urgency bar */
+  --border-radius-small: 8px;
 
   --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
   --transition-fast: all 0.2s ease-out;
   --transition-springy: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 
-  /* Spacing (example, can be expanded) */
+  /* Spacing */
   --space-xs: 5px;
   --space-sm: 10px;
   --space-md: 15px;
@@ -69,7 +69,7 @@
    ========================================================================== */
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth; /* Optional: for smooth scrolling on anchor links */
+  scroll-behavior: smooth;
 }
 
 *,
@@ -81,32 +81,31 @@ html {
 body {
   font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  padding: 0 0 95px; /* Space for sticky CTA bar */
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-size: 16px; /* Base font size */
+  font-size: 16px;
   line-height: 1.75;
-  overflow-x: hidden; /* Be cautious, ensure no content is actually overflowing */
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-bottom: 95px; /* Space for sticky CTA bar, adjust if bar height changes */
 }
 
 /* Accessibility: Skip Link */
 .skip-link {
   position: absolute;
-  top: -999px; /* Visually hide off-screen */
+  top: -999px;
   left: 0;
   background: var(--toast-neutral-darkest);
   color: var(--toast-neutral-lightest);
   padding: var(--space-sm) var(--space-md);
-  z-index: 10002; /* High z-index to be on top */
+  z-index: 10002;
   text-decoration: none;
   border-radius: 0 0 var(--space-xs) 0;
-  transition: top 0.1s ease-in-out; /* Smooth appearance */
+  transition: top 0.1s ease-in-out;
 }
 .skip-link:focus {
-  top: 0; /* Bring into view on focus */
+  top: 0;
 }
 
 /* ==========================================================================
@@ -114,14 +113,11 @@ body {
    ========================================================================== */
 .container {
   width: 100%;
-  max-width: 1000px; /* Consider increasing for wider screens if design allows */
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--space-lg);
-  padding-right: var(--space-lg);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
-/* Page section visibility (for single-page app-like behavior) */
 .page-section {
   display: none;
 }
@@ -129,34 +125,26 @@ body {
   display: block;
 }
 
-/* Alternating section background helper */
 .section-alt-bg {
   background-color: var(--bg-section-alt);
-  padding-top: var(--space-xxl);
-  padding-bottom: var(--space-xxl);
+  padding: var(--space-xxl) 0;
 }
-/* Adjust padding for nested alt backgrounds within .content-section */
 .content-section > .section-alt-bg {
-  margin-left: calc(-1 * var(--space-lg)); /* Counteract container padding */
-  margin-right: calc(-1 * var(--space-lg));
-  padding-left: var(--space-lg);
-  padding-right: var(--space-lg);
+  margin: 0 calc(-1 * var(--space-lg));
+  padding: 0 var(--space-lg);
 }
 
-/* Generic content section padding */
 .content-section {
-  padding-top: var(--space-xxl);
-  padding-bottom: var(--space-xxl);
+  padding: var(--space-xxl) 0;
 }
 .content-section.no-top-padding {
   padding-top: 0;
 }
 
-/* Generic section title */
 .section-title {
   font-size: 2.1em;
   color: var(--text-primary);
-  margin-bottom: 35px; /* Consistent bottom margin */
+  margin-bottom: 35px;
   text-align: center;
   font-weight: 700;
 }
@@ -165,14 +153,14 @@ body {
    4. Header & Navigation
    ========================================================================== */
 .site-header {
-  padding: var(--space-sm) 0;
-  background-color: rgba(255, 255, 255, 0.85); /* Consider a variable if reused */
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
-  border-bottom: 1px solid var(--border-light);
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: var(--space-sm) 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-bottom: 1px solid var(--border-light);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
 }
 
@@ -205,12 +193,12 @@ body {
   gap: var(--space-md);
 }
 .main-nav a {
-  text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
-  transition: var(--transition-fast);
-  white-space: nowrap;
+  text-decoration: none;
   padding: var(--space-xs) 0;
+  white-space: nowrap;
+  transition: var(--transition-fast);
 }
 .main-nav a:hover,
 .main-nav a.active-nav {
@@ -219,21 +207,21 @@ body {
 
 /* Mobile Menu Toggle */
 .menu-toggle {
-  display: none; /* Hidden by default, shown in media queries */
+  display: none;
   background: none;
   border: none;
   font-size: 1.8em;
   color: var(--text-primary);
   cursor: pointer;
   padding: var(--space-xs);
-  z-index: 1005; /* Above header content, below popup */
+  z-index: 1005;
 }
 
 /* Mobile Navigation Menu */
 .mobile-nav-menu {
-  display: none; /* Hidden by default */
+  display: none;
   position: absolute;
-  top: 100%; /* Position below the header */
+  top: 100%;
   right: 0;
   background-color: var(--bg-card);
   border: 1px solid var(--border-light);
@@ -241,7 +229,7 @@ body {
   border-radius: 0 0 var(--border-radius-main) var(--border-radius-main);
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
   padding: var(--space-sm) 0;
-  z-index: 1000; /* Same as header, but should be fine */
+  z-index: 1000;
   min-width: 180px;
 }
 .mobile-nav-menu.active {
@@ -250,9 +238,9 @@ body {
 .mobile-nav-menu a {
   display: block;
   padding: var(--space-sm) var(--space-lg);
-  text-decoration: none;
   color: var(--text-secondary);
   font-weight: 500;
+  text-decoration: none;
   white-space: nowrap;
   transition: var(--transition-fast);
 }
@@ -265,14 +253,13 @@ body {
    5. Buttons
    ========================================================================== */
 .btn {
-  display: inline-flex; /* Flex for consistent alignment */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 15px 32px;
   font-size: 1.15em;
   font-weight: 600;
   text-decoration: none;
-  text-align: center;
   color: var(--text-on-dark-bg);
   background-color: var(--accent-color);
   border: none;
@@ -284,14 +271,14 @@ body {
 }
 .btn:hover {
   background-color: var(--accent-color-darker);
-  transform: translateY(-3px) scale(var(--hover-scale)); /* Consistent hover scale */
+  transform: translateY(-3px) scale(var(--hover-scale));
   box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3);
   animation-play-state: paused;
 }
 
 /* Call Button in Header */
 .btn-call-bardya {
-  display: inline-flex; /* Specific to this button with icon */
+  display: inline-flex;
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
@@ -316,14 +303,14 @@ body {
 .btn-call-bardya:hover {
   background-color: var(--btn-subtle-hover-bg);
   border-color: var(--border-light-hover);
-  transform: translateY(-1px); /* Subtle lift */
+  transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   animation-play-state: paused;
 }
-.btn-call-bardya i.fa-phone-alt { /* Ensure Font Awesome is loaded */
+.btn-call-bardya i.fa-phone-alt {
   font-size: 0.9em;
   color: var(--accent-color);
-  transform: scaleX(-1); /* Flips the phone icon if needed */
+  transform: scaleX(-1);
 }
 
 /* Back to Home Button */
@@ -339,15 +326,15 @@ body {
   border-radius: var(--border-radius-button);
   font-weight: 500;
   font-size: 0.9em;
+  text-decoration: none;
   cursor: pointer;
   transition: var(--transition-fast);
-  text-decoration: none;
 }
 .btn-back-to-home:hover {
   background-color: var(--btn-subtle-hover-bg);
   border-color: var(--border-light-hover);
 }
-.btn-back-to-home i { /* Assumes Font Awesome */
+.btn-back-to-home i {
   margin-right: var(--space-xs);
 }
 
@@ -362,46 +349,41 @@ body {
   background-size: cover;
   background-position: center center;
   color: var(--text-on-dark-bg);
-  margin-bottom: 0; /* Reset margin if it's part of a flow */
+  margin-bottom: 0;
 }
 .hero h1 {
   font-size: 2.8em;
-  color: var(--text-on-dark-bg); /* Explicitly set for clarity */
-  margin-top: 0; /* Good practice for first element in a section */
-  margin-bottom: var(--space-lg);
+  color: var(--text-on-dark-bg);
+  margin: 0 0 var(--space-lg);
   font-weight: 700;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
   line-height: 1.25;
 }
 .hero .subtitle {
   font-size: 1.3em;
-  margin-bottom: var(--space-xl);
+  margin: 0 auto var(--space-xl);
   color: rgba(255, 255, 255, 0.9);
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
   font-weight: 400;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
 }
 .hero .btn {
-  margin-top: var(--space-sm); /* Spacing from subtitle */
-  font-size: 1.15em; /* Consistent with general .btn */
+  margin-top: var(--space-sm);
+  font-size: 1.15em;
 }
 
 /* ==========================================================================
    7. Features Section
    ========================================================================== */
-.features-section {
-  /* Can add specific padding if different from .content-section */
-}
-.features-section .section-title { /* Specific styling for features title if needed */
+.features-section {}
+.features-section .section-title {
   font-size: 1.8em;
   font-weight: 600;
   margin-bottom: var(--space-xl);
 }
 .features-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile first: single column */
+  grid-template-columns: 1fr;
   gap: 25px;
   margin-top: var(--space-lg);
 }
@@ -413,16 +395,16 @@ body {
   background-color: var(--bg-card);
   border-radius: var(--border-radius-main);
   box-shadow: var(--card-shadow);
-  transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main); /* Combined transitions */
   opacity: 0;
-  transform: translateY(30px); /* Initial state for animation */
+  transform: translateY(30px);
+  transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main);
 }
-.feature-item.is-visible { /* State for scroll-triggered animation */
+.feature-item.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
 .feature-item:hover {
-  transform: translateY(-5px) scale(1.02); /* Slightly different hover from generic card */
+  transform: translateY(-5px) scale(1.02);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .feature-icon {
@@ -432,25 +414,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 3px; /* Small alignment tweak */
+  margin-top: 3px;
 }
 .feature-icon img {
-  width: 100%; /* Fill the container */
+  width: 100%;
   height: 100%;
   object-fit: contain;
 }
 .feature-text-content h3 {
   font-size: 1.25em;
   color: var(--text-primary);
-  margin-top: 0;
-  margin-bottom: var(--space-xs);
+  margin: 0 0 var(--space-xs);
   font-weight: 600;
 }
 .feature-text-content p {
   font-size: 0.95em;
   color: var(--text-secondary);
   line-height: 1.5;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 /* ==========================================================================
@@ -458,9 +439,8 @@ body {
    ========================================================================== */
 .video-section {
   text-align: center;
-  padding-top: var(--space-xl);
-  padding-bottom: var(--space-xl);
-  opacity: 0; /* For scroll animation */
+  padding: var(--space-xl) 0;
+  opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main);
 }
@@ -469,20 +449,19 @@ body {
   transform: translateY(0);
 }
 .video-container {
-  background-color: #000; /* Placeholder/wrapper background */
+  background-color: #000;
   width: 100%;
   max-width: 680px;
   aspect-ratio: 16 / 9;
   margin: var(--space-lg) auto 0;
-  display: flex; /* For potential placeholder text */
-  flex-direction: column;
+  display: flex;
   align-items: center;
   justify-content: center;
   border-radius: var(--border-radius-main);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-  font-size: 1.2em; /* For placeholder text if video fails */
+  font-size: 1.2em;
   color: var(--text-on-dark-bg);
-  overflow: hidden; /* Ensures iframe fits rounded corners */
+  overflow: hidden;
 }
 .video-container iframe {
   width: 100%;
@@ -496,7 +475,7 @@ body {
 .local-proof {
   text-align: center;
   padding-bottom: 50px;
-  opacity: 0; /* For scroll animation */
+  opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main);
 }
@@ -512,13 +491,13 @@ body {
   padding: var(--space-xl) var(--space-lg) var(--space-lg);
   box-shadow: var(--card-shadow);
   position: relative;
-  overflow: hidden; /* Important for carousel items */
+  overflow: hidden;
   border: 1px solid var(--glass-border-color);
 }
 .testimonial-carousel-container {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  min-height: 220px; /* Adjust as needed for content */
+  min-height: 220px;
   cursor: grab;
   user-select: none;
   -webkit-user-select: none;
@@ -527,15 +506,15 @@ body {
   cursor: grabbing;
 }
 .testimonial-carousel-item {
-  min-width: 100%; /* Each item takes full width of container */
+  min-width: 100%;
   box-sizing: border-box;
   padding: 0 var(--space-md);
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
-  opacity: 0.5; /* Non-active slides are dimmed */
-  transform: scale(0.95); /* Non-active slides are smaller */
+  opacity: 0.5;
+  transform: scale(0.95);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
 }
 .testimonial-carousel-item.active-slide {
@@ -546,14 +525,14 @@ body {
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-color: var(--btn-subtle-hover-bg); /* Using a variable */
+  background-color: var(--btn-subtle-hover-bg);
   margin-bottom: var(--space-md);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8em;
   color: var(--text-tertiary);
-  border: 2px solid var(--bg-main); /* Using a variable */
+  border: 2px solid var(--bg-main);
   overflow: hidden;
 }
 .testimonial-image-placeholder img {
@@ -567,20 +546,19 @@ body {
   color: var(--text-secondary);
   margin-bottom: var(--space-md);
   line-height: 1.7;
-  max-width: 600px; /* Constrain text width for readability */
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 600px;
+  margin: 0 auto var(--space-md);
 }
-.testimonial-carousel-item p::before { /* Quotation mark style */
+.testimonial-carousel-item p::before {
   content: "“";
   font-size: 2.5em;
   color: var(--accent-color);
   font-weight: 700;
-  display: inline-block; /* Or block if preferred */
+  display: inline-block;
   margin-right: var(--space-xs);
-  line-height: 0.8; /* Adjust vertical alignment */
+  line-height: 0.8;
 }
-.testimonial-carousel-item span { /* Author/Source */
+.testimonial-carousel-item span {
   display: block;
   font-weight: 600;
   color: var(--text-primary);
@@ -605,19 +583,19 @@ body {
   background-color: var(--accent-color);
   transform: scale(1.2);
 }
-.carousel-nav { /* Optional: If using arrow navigation */
+.carousel-nav {
   text-align: center;
   margin-top: var(--space-md);
 }
 .carousel-arrow {
   background-color: var(--text-tertiary);
-  color: var(--text-on-dark-bg); /* Text on medium gray */
+  color: var(--text-on-dark-bg);
   border: none;
   border-radius: 50%;
   width: 35px;
   height: 35px;
   font-size: 1.2em;
-  line-height: 35px; /* Vertically center icon */
+  line-height: 35px;
   text-align: center;
   cursor: pointer;
   margin: 0 var(--space-sm);
@@ -627,7 +605,7 @@ body {
   background-color: var(--accent-color);
   transform: scale(1.1);
 }
-.carousel-arrow:focus { /* Accessibility */
+.carousel-arrow:focus {
   outline: 2px solid var(--accent-color);
   outline-offset: 2px;
 }
@@ -645,7 +623,7 @@ body {
   margin: var(--space-xl) auto;
   border-radius: var(--border-radius-small);
   max-width: 700px;
-  opacity: 0; /* For scroll animation */
+  opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main);
 }
@@ -657,7 +635,7 @@ body {
 /* ==========================================================================
    11. Glass Card & About Section
    ========================================================================== */
-.glass-card { /* Generic glass card style */
+.glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
@@ -666,7 +644,7 @@ body {
   padding: var(--space-xl);
   margin-bottom: var(--space-xxl);
   box-shadow: var(--card-shadow);
-  opacity: 0; /* For scroll animation */
+  opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main);
 }
@@ -675,19 +653,15 @@ body {
   transform: translateY(0);
 }
 .glass-card:hover {
-  transform: translateY(-8px) scale(var(--hover-scale)); /* Use variable */
-  box-shadow: var(--card-hover-shadow); /* Use variable */
+  transform: translateY(-8px) scale(var(--hover-scale));
+  box-shadow: var(--card-hover-shadow);
 }
 
-.about-section { /* Specific to about if it's a glass card */
-  /* Inherits .glass-card styles if class is applied, or define padding here */
-  /* padding: var(--space-xl); */
-}
+.about-section {}
 .about-section h2 {
   margin-top: 0;
 }
 .resources-section {
-  /* Mirror glass card spacing */
   padding: var(--space-xl);
   margin-bottom: var(--space-xxl);
 }
@@ -696,23 +670,23 @@ body {
 }
 .about-bardya-content {
   display: flex;
-  flex-direction: column; /* Default, can be row on larger screens */
+  flex-direction: column;
   align-items: center;
   gap: var(--space-lg);
   margin-bottom: 25px;
 }
-.bardya-actual-photo { /* Assumes an <img> tag */
+.bardya-actual-photo {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
-.bardya-photo-placeholder-text { /* For when image is missing */
+.bardya-photo-placeholder-text {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  background-color: var(--btn-subtle-hover-bg); /* Light gray */
+  background-color: var(--btn-subtle-hover-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -723,30 +697,30 @@ body {
 .about-section .bio p {
   margin-bottom: var(--space-md);
   font-size: 1.05em;
-  text-align: left; /* Default, can be centered if needed */
+  text-align: left;
 }
 .why-toast-list {
   list-style: none;
   padding-left: 0;
 }
 .why-toast-list li {
-  padding-left: 25px; /* Space for icon */
   position: relative;
+  padding-left: 25px;
   margin-bottom: var(--space-sm);
   font-size: 1.05em;
 }
-.why-toast-list li::before { /* Font Awesome check icon */
-  content: "\f00c"; /* Unicode for fa-check */
-  font-family: "Font Awesome 6 Free"; /* Ensure correct Font Awesome version */
-  font-weight: 900; /* Solid icon */
+.why-toast-list li::before {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
   position: absolute;
   left: 0;
-  top: 2px; /* Adjust vertical alignment */
+  top: 2px;
   color: var(--accent-color);
 }
 .backup-links a {
   display: inline-block;
-  margin: var(--space-xs) var(--space-sm) var(--space-xs) 0;
+  margin: var(--space-xs) var(--space-sm) 0 0;
   color: var(--accent-color);
   text-decoration: none;
   font-weight: 500;
@@ -756,7 +730,7 @@ body {
   text-decoration: underline;
   color: var(--accent-color-darker);
 }
-.backup-links a i { /* Assumes Font Awesome */
+.backup-links a i {
   margin-right: var(--space-xs);
 }
 
@@ -764,9 +738,9 @@ body {
    11b. Resources Section
    ========================================================================== */
 .resources-section {
-  padding: var(--space-xl);
   background: var(--glass-bg);
   backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
   border-radius: var(--border-radius-main);
   box-shadow: var(--card-shadow);
   max-width: 700px;
@@ -779,19 +753,12 @@ body {
   margin-top: 0;
 }
 .resources-section .backup-links {
-  margin-top: var(--space-md);
-  margin-bottom: var(--space-md);
+  margin: var(--space-md) 0;
 }
 
 @media (max-width: 768px) {
   .resources-section {
     padding: 25px;
-  }
-}
-
-@media (max-width: 480px) {
-  .resources-section {
-    padding: var(--space-lg);
   }
 }
 
@@ -805,7 +772,7 @@ body {
   border-radius: var(--border-radius-main);
   text-align: center;
   margin-bottom: var(--space-xxl);
-  opacity: 0; /* For scroll animation */
+  opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main);
 }
@@ -813,29 +780,26 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
-.cta-solid-bg .section-title { /* Title inside this CTA */
+.cta-solid-bg .section-title {
   color: var(--text-on-dark-bg);
 }
 .cta-solid-bg p {
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.15em;
   max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: var(--space-xl); /* Space before button */
+  margin: 0 auto var(--space-xl);
 }
-.cta-solid-bg .btn { /* Button style specific to this CTA */
+.cta-solid-bg .btn {
   background-color: var(--toast-neutral-lightest);
-  color: var(--text-primary); /* Text primary on light button */
+  color: var(--text-primary);
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
 }
 .cta-solid-bg .btn:hover {
-  background-color: var(--bg-main); /* Slightly off-white hover */
+  background-color: var(--bg-main);
   color: var(--text-primary);
   box-shadow: 0 7px 18px rgba(255, 255, 255, 0.25);
 }
 
-/* CTA Buttons Wrapper for equal sizing */
 .cta-buttons {
   display: flex;
   flex-wrap: wrap;
@@ -844,7 +808,7 @@ body {
   margin-top: var(--space-lg);
 }
 .cta-buttons .btn {
-  flex: 1 1 200px; /* Grow equally with a sensible minimum */
+  flex: 1 1 200px;
 }
 
 /* ==========================================================================
@@ -860,10 +824,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 1001; /* High z-index */
+  z-index: 1001;
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.25s ease, visibility 0s linear 0.25s; /* Delay visibility change */
+  transition: opacity 0.25s ease, visibility 0s linear 0.25s;
 }
 .popup-overlay.active {
   opacity: 1;
@@ -877,11 +841,11 @@ body {
   width: 90vw;
   max-width: 700px;
   height: 90vh;
-  max-height: 720px; /* Max height for content */
+  max-height: 720px;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* Contains iframe */
-  padding: 0; /* Padding handled by inner elements */
+  overflow: hidden;
+  padding: 0;
   transform: translateY(15px) scale(0.98);
   opacity: 0;
   transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1.1), opacity 0.25s ease;
@@ -893,9 +857,9 @@ body {
 .popup-header {
   padding: 12px var(--space-md) 10px;
   text-align: center;
-  position: relative; /* For close button positioning */
+  position: relative;
   border-bottom: 1px solid var(--border-light);
-  flex-shrink: 0; /* Prevent header from shrinking */
+  flex-shrink: 0;
 }
 .popup-header h3 {
   margin: 0;
@@ -910,26 +874,26 @@ body {
   right: 8px;
   font-size: 1.5em;
   color: var(--text-tertiary);
-  cursor: pointer;
   background: none;
   border: none;
-  padding: var(--space-xs); /* Make it easier to click */
+  cursor: pointer;
+  padding: var(--space-xs);
   line-height: 1;
   transition: var(--transition-fast);
-  z-index: 10; /* Above header content */
+  z-index: 10;
 }
 .popup-close:hover {
   color: var(--text-primary);
   transform: rotate(90deg) scale(1.1);
 }
-#chiliPiperCalendarElement { /* Container for the iframe */
+#chiliPiperCalendarElement {
   width: 100%;
-  flex-grow: 1; /* Takes remaining space in popup-content */
+  flex-grow: 1;
   display: flex;
   align-items: stretch;
   justify-content: center;
-  overflow: hidden; /* Should not be needed if iframe is 100% */
-  border: none; /* Should be on iframe */
+  overflow: hidden;
+  border: none;
 }
 #chiliPiperCalendarElement iframe {
   width: 100%;
@@ -947,11 +911,11 @@ body {
   width: 100%;
   background-color: var(--accent-color);
   color: var(--text-on-dark-bg);
-  padding: var(--space-md) var(--space-sm); /* Adjusted padding */
+  padding: var(--space-md) var(--space-sm);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 998; /* Below header/popup but above content */
+  z-index: 998;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(100%);
@@ -962,51 +926,34 @@ body {
   transform: translateY(0);
 }
 .sticky-cta-bar .btn {
-  background-color: var(--toast-neutral-lightest);
-  color: var(--accent-color); /* Text color matches bar's original bg */
   padding: 12px 30px;
   font-size: 1.15em;
   font-weight: 600;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation: pulseStickyBtn 2s infinite ease-in-out;
-  /* width: auto; Let button size naturally */
-  /* max-width: 90%; Not needed if bar is centered */
-  /* margin: 0 auto; Not needed if bar uses flex justify-center */
   text-align: center;
-  border-radius: var(--border-radius-button); /* Already in .btn but confirm */
-  display: inline-flex; /* For icon and text alignment if any */
+  border-radius: var(--border-radius-button);
+  display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 .sticky-cta-bar .btn:hover {
-  background-color: var(--bg-main); /* Slightly off-white */
-  transform: translateY(-2px); /* Override general .btn hover transform if needed */
+  background-color: var(--bg-main);
+  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  animation-play-state: paused; /* Pause animation on hover */
+  animation-play-state: paused;
 }
 
 @keyframes pulseCtaBtn {
-  0% {
-    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
-  }
-  50% {
-    box-shadow: 0 8px 20px rgba(250, 90, 10, 0.45);
-  }
-  100% {
-    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
-  }
+  0%   { box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); }
+  50%  { box-shadow: 0 8px 20px rgba(250, 90, 10, 0.45); }
+  100% { box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); }
 }
 
 @keyframes pulseStickyBtn {
-  0% {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0.3);
-  }
-  70% {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(255, 255, 255, 0);
-  }
-  100% {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0);
-  }
+  0%   { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0.3); }
+  70%  { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25), 0 0 0 10px rgba(255, 255, 255, 0); }
+  100% { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 /* ==========================================================================
@@ -1017,31 +964,30 @@ body {
   padding: 50px var(--space-lg);
   margin-top: var(--space-xl);
   background-color: var(--toast-neutral-darkest);
-  color: rgba(255, 255, 255, 0.8); /* Lighter text on dark bg */
+  color: rgba(255, 255, 255, 0.8);
 }
 .site-footer p {
   margin: 8px 0;
   font-size: 0.9em;
 }
-.site-footer p:first-child { /* Potentially for copyright or main message */
+.site-footer p:first-child {
   font-weight: 600;
   color: var(--text-on-dark-bg);
   font-size: 0.95em;
 }
 .site-footer a.footer-site-link {
-  color: var(--toast-neutral-light); /* Link color on dark bg */
+  color: var(--toast-neutral-light);
   text-decoration: none;
   font-weight: 500;
   transition: var(--transition-fast);
 }
 .site-footer a.footer-site-link:hover {
   text-decoration: underline;
-  color: var(--toast-neutral-lightest); /* Brighter hover for link */
+  color: var(--toast-neutral-lightest);
 }
 
 /* ==========================================================================
-   16. Media Queries - Desktop First (min-width) then Mobile Overrides (max-width)
-   Organized by breakpoint, then by component for clarity.
+   16. Media Queries
    ========================================================================== */
 
 /* Larger tablets and small desktops */
@@ -1058,7 +1004,6 @@ body {
     width: 45px;
     height: 45px;
   }
-  /* .feature-icon img size is already 100% of parent */
   .feature-text-content h3 {
     font-size: 1.3em;
   }
@@ -1067,7 +1012,7 @@ body {
   }
 
   .about-bardya-content {
-    flex-direction: row; /* Side-by-side photo and bio */
+    flex-direction: row;
     align-items: flex-start;
   }
   .about-section .bio {
@@ -1078,37 +1023,31 @@ body {
 /* Desktops */
 @media (min-width: 992px) {
   .features-grid {
-    /* Using auto-fit for more flexible columns on wider screens */
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
 }
 
-/* Smaller Tablets and Large Mobile (Portrait and Landscape) */
+/* Smaller Tablets and Large Mobile */
 @media (max-width: 768px) {
   .container {
-    padding-left: var(--space-md);
-    padding-right: var(--space-md);
+    padding: 0 var(--space-md);
   }
   .site-header {
-    padding: var(--space-sm) 0; /* Consistent with base */
+    padding: var(--space-sm) 0;
   }
-
-  /* Header & Navigation */
-  .main-nav .nav-link-about { /* Example: Hide specific nav link */
+  .main-nav .nav-link-about {
     display: none;
   }
   .menu-toggle {
-    display: block; /* Show mobile menu toggle */
+    display: block;
   }
   .btn-call-bardya {
     font-size: 0.9em;
     padding: 7px 14px;
   }
-  .btn-call-bardya .call-text { /* Hide "Call Us Today" on smaller screens */
+  .btn-call-bardya .call-text {
     display: none;
   }
-
-  /* Hero Section */
   .hero {
     padding: 60px var(--space-md) 50px;
   }
@@ -1119,22 +1058,16 @@ body {
     font-size: 1.1em;
   }
   .hero .btn {
-    font-size: 1em; /* Slightly smaller button text */
+    font-size: 1em;
   }
-
-  /* Video Section */
   .video-section {
-    padding-top: var(--space-lg);
-    padding-bottom: var(--space-lg);
+    padding: var(--space-lg) 0;
   }
   .video-container {
-    font-size: 1em; /* For placeholder text */
+    font-size: 1em;
   }
-
-  /* Content & Features */
   .content-section {
-    padding-top: 35px;
-    padding-bottom: 35px;
+    padding: 35px 0;
   }
   .feature-item {
     padding: var(--space-md);
@@ -1143,7 +1076,6 @@ body {
   .feature-icon {
     width: 35px;
     height: 35px;
-    /* font-size for icon font if used, img handles its own size */
   }
   .feature-text-content h3 {
     font-size: 1.2em;
@@ -1158,20 +1090,16 @@ body {
   .features-section .section-title {
     font-size: 1.5em;
   }
-
-  /* Cards & CTA */
-  .glass-card, /* Apply to .glass-card.about-section if it uses this class */
+  .glass-card,
   .cta-solid-bg {
     padding: 25px;
     margin-bottom: 35px;
   }
-  .glass-card:hover { /* Simpler hover for smaller screens */
+  .glass-card:hover {
     transform: translateY(-5px);
   }
-
-  /* Testimonials */
   .testimonial-carousel-container {
-    min-height: auto; /* Allow content to define height */
+    min-height: auto;
     padding-bottom: var(--space-md);
   }
   .testimonial-carousel-item p {
@@ -1182,21 +1110,15 @@ body {
     height: 50px;
     margin-bottom: var(--space-sm);
   }
-
-  /* Urgency Bar */
   .urgency-bar {
     font-size: 0.9em;
     padding: var(--space-sm) var(--space-md);
   }
-
-  /* Popup / Modal */
   .popup-content {
     width: 95vw;
-    max-width: 95vw; /* Ensure it doesn't exceed viewport */
+    max-width: 95vw;
     height: 95vh;
     max-height: 95vh;
-    /* padding: 0; Already set */
-    /* border-radius: var(--border-radius-main); Already set */
   }
   .popup-header {
     padding: var(--space-sm) var(--space-md) 8px;
@@ -1205,13 +1127,11 @@ body {
     font-size: 1.1em;
   }
   #chiliPiperCalendarElement {
-    min-height: 0; /* Allow flex to manage height */
+    min-height: 0;
   }
   #chiliPiperCalendarElement iframe {
-    min-height: calc(95vh - 50px); /* Approximate: popup height - header height */
+    min-height: calc(95vh - 50px);
   }
-
-  /* Sticky CTA Bar */
   .sticky-cta-bar {
     padding: var(--space-md);
   }
@@ -1219,85 +1139,19 @@ body {
     font-size: 1em;
     padding: var(--space-sm) var(--space-lg);
   }
-
-  /* Footer */
   .site-footer p {
-    font-size: 0.9em; /* Base footer text size */
+    font-size: 0.9em;
   }
 }
 
-/* Smaller Mobile Devices */
-@media (max-width: 520px) {
-  .site-header {
-    padding: 12px 0;
-  }
-  .header-content {
-    flex-wrap: nowrap; /* Prevent wrapping if space is tight */
-    /* justify-content: space-between; Already set */
-    /* align-items: center; Already set */
-  }
-  .header-logo {
-    flex-shrink: 0; /* Prevent logo from shrinking too much */
-  }
-  .toast-header-logo-img {
-    height: 30px;
-  }
-  .header-actions {
-    gap: var(--space-sm); /* Reduce gap */
-  }
-
-  .main-nav { /* Main nav is typically hidden for mobile menu at this size */
-    display: none;
-  }
-  /* .menu-toggle display:block is already set at max-width: 768px */
-  .menu-toggle {
-    font-size: 1.6em;
-  }
-
-  .btn-call-bardya {
-    font-size: 0.85em;
-    padding: 6px 12px;
-  }
-  .btn-call-bardya .call-text { /* Show call text again if desired, or keep hidden */
-    display: inline; /* Example: show it */
-  }
-  .btn-call-bardya .phone-number {
-    font-size: 0.95em;
-  }
-
-  .sticky-cta-bar {
-    padding: 12px var(--space-md);
-  }
-  .sticky-cta-bar .btn {
-    font-size: 1em; /* Keep it readable */
-    width: auto; /* Let it size by content */
-    max-width: 90%; /* Prevent it from being too wide */
-  }
-
-  .video-section {
-    padding-top: var(--space-md);
-    padding-bottom: var(--space-md);
-  }
-  .video-container {
-    max-width: 90%; /* More relative width */
-    aspect-ratio: 16 / 10; /* Adjust aspect ratio if needed for small screens */
-  }
-  .features-section .section-title {
-    font-size: 1.4em;
-  }
-}
-
-/* Very Small Mobile Devices (e.g., iPhone SE 1st gen width 320px) */
-/* This @media (max-width: 480px) was last in original, so it overrides previous max-widths */
+/* Very Small Mobile Devices */
 @media (max-width: 480px) {
   body {
-    font-size: 15px; /* Slightly smaller base font */
-    padding-bottom: 75px; /* Adjust for potentially smaller sticky bar */
+    font-size: 15px;
+    padding-bottom: 75px;
   }
-
   .hero {
-    padding-top: var(--space-xl);
-    padding-bottom: var(--space-xl);
+    padding: var(--space-xl) 0;
   }
   .hero h1 {
     font-size: 1.8em;
@@ -1310,19 +1164,17 @@ body {
     font-size: 0.95em;
     padding: var(--space-sm) 18px;
   }
-
-  .btn, a.btn { /* General button sizing */
+  .btn, a.btn {
     padding: 12px var(--space-lg);
     font-size: 0.95em;
   }
-
   .section-title {
     font-size: 1.6em;
   }
   .features-section .section-title {
     font-size: 1.3em;
   }
-  .feature-item { /* Stack feature items vertically */
+  .feature-item {
     flex-direction: column;
     align-items: center;
     text-align: center;
@@ -1330,52 +1182,46 @@ body {
   .feature-icon {
     width: 30px;
     height: 30px;
-    margin-bottom: var(--space-sm); /* Space between icon and text */
-    /* font-size: 1.6em; For icon fonts */
+    margin-bottom: var(--space-sm);
   }
-  /* .feature-icon img size is 100% */
-
   .testimonial-carousel-item p {
     font-size: 0.9em;
   }
-  .testimonial-carousel-item span { /* Author */
+  .testimonial-carousel-item span {
     font-size: 0.8em;
   }
-
-  /* Popup adjustments for very small screens */
   .popup-content {
     width: 95vw;
     max-width: 95vw;
-    height: auto; /* Let content define height */
-    max-height: 90vh; /* But not too tall */
-    position: fixed; /* Center it on screen */
+    height: auto;
+    max-height: 90vh;
+    position: fixed;
     top: 50%;
     left: 50%;
-    /* transform: translate(-50%, -50%) scale(0.98); Initial state */
   }
-    .popup-overlay.active .popup-content { /* Active state for centered popup */
+  .popup-overlay.active .popup-content {
     transform: translate(-50%, -50%) scale(1);
   }
   .popup-header {
-    padding: 8px 35px 8px var(--space-sm); /* Ensure close button doesn't overlap title */
+    padding: 8px 35px 8px var(--space-sm);
   }
   .popup-header h3 {
     font-size: 1em;
   }
   #chiliPiperCalendarElement iframe {
-    min-height: 300px; /* Minimum reasonable height for calendar */
-    height: calc(90vh - 60px); /* Adjust based on actual header/footer of popup */
+    min-height: 300px;
+    height: calc(90vh - 60px);
   }
   .popup-close {
     top: 5px;
     right: 5px;
-    background: rgba(255, 255, 255, 0.15); /* Slight background for visibility */
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 50%;
-    padding: 3px 7px; /* Adjust padding */
+    padding: 3px 7px;
   }
 }
 
-/* Even Smaller Mobile Devices - specific overrides from original */
+/* Even Smaller Mobile Devices */
 @media (max-width: 400px) {
   .toast-header-logo-img {
     height: 28px;
@@ -1385,13 +1231,13 @@ body {
     padding: 5px var(--space-sm);
     gap: var(--space-xs);
   }
-  .btn-call-bardya .call-text { /* Hide call text on very small screens */
+  .btn-call-bardya .call-text {
     display: none;
   }
   .menu-toggle {
     font-size: 1.5em;
   }
   .sticky-cta-bar .btn {
-    font-size: 0.9em; /* Ensure button text is readable */
+    font-size: 0.9em;
   }
 }
