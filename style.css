@@ -1081,7 +1081,7 @@ body {
   .site-header {
     padding: var(--space-sm) 0;
   }
-  .main-nav .nav-link-about {
+  .main-nav {
     display: none;
   }
   .menu-toggle {
@@ -1202,10 +1202,7 @@ body {
     margin-top: var(--space-sm);
   }
   .main-nav {
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    gap: var(--space-sm);
+    display: none;
   }
   body {
     font-size: 15px;
