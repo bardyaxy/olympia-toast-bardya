@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Simple build step for HTML includes",
   "scripts": {
-    "build": "node build.js"
+    "build": "node scripts/build.js",
+    "serve": "node scripts/serve.js"
   }
 }
