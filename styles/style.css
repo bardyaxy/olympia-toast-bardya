@@ -1181,7 +1181,7 @@ body {
     font-size: 1em;
   }
   .marquee {
-    animation: marqueeScroll 10.2s linear infinite;
+    animation: marqueeScroll 12.2s linear infinite;
   }
   .content-section {
     padding: 35px 0;
