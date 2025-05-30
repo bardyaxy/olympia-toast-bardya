@@ -289,10 +289,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   navLinks.forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const targetId = link.getAttribute('href')?.substring(1);
-      if (targetId) setActivePage(targetId);
+    link.addEventListener("click", event => {
+      const href = link.getAttribute("href");
+      if (href && href.startsWith("#")) {
+        event.preventDefault();
+        const targetId = href.substring(1);
+        if (targetId) setActivePage(targetId);
+      }
     });
   });
 
