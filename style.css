@@ -75,6 +75,7 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
   overscroll-behavior-x: contain;
+  overscroll-behavior-y: none;
 }
 
 *,
@@ -401,6 +402,7 @@ body {
   background-color: var(--bg-card);
   border-radius: var(--border-radius-main);
   box-shadow: var(--card-shadow);
+  will-change: transform, opacity;
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main);
@@ -488,6 +490,7 @@ body {
   padding: var(--space-xl) 0;
   opacity: 0;
   transform: translateY(30px);
+  will-change: transform, opacity;
   transition: var(--transition-main);
 }
 .video-section.is-visible {
@@ -559,6 +562,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  will-change: transform, opacity;
   opacity: 0.5;
   transform: scale(0.95);
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
@@ -671,6 +675,7 @@ body {
   max-width: 700px;
   opacity: 0;
   transform: translateY(30px);
+  will-change: transform, opacity;
   transition: var(--transition-main);
 }
 .urgency-bar.is-visible {
@@ -690,6 +695,7 @@ body {
   padding: var(--space-xl);
   margin-bottom: var(--space-xxl);
   box-shadow: var(--card-shadow);
+  will-change: transform, opacity;
   opacity: 0;
   transform: translateY(30px);
   transition: var(--transition-main), opacity var(--transition-main), transform var(--transition-main);
@@ -820,6 +826,7 @@ body {
   margin-bottom: var(--space-xxl);
   opacity: 0;
   transform: translateY(30px);
+  will-change: transform, opacity;
   transition: var(--transition-main);
 }
 .cta-solid-bg.is-visible {
@@ -962,6 +969,7 @@ body {
   justify-content: center;
   align-items: center;
   z-index: 998;
+  will-change: transform, opacity;
   box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   opacity: 0;
   transform: translateY(100%);
