@@ -171,6 +171,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: nowrap;
 }
 
 .header-logo {
@@ -1191,6 +1192,21 @@ body {
 
 /* Very Small Mobile Devices */
 @media (max-width: 480px) {
+  .header-content {
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: var(--space-sm);
+  }
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: var(--space-sm);
+  }
   body {
     font-size: 15px;
     padding-bottom: 75px;
