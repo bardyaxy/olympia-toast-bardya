@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const CAROUSEL_INTERVAL_TIME = 7000; // ms
   const SWIPE_THRESHOLD = 50; // px
   const SCROLL_THRESHOLD_STICKY_CTA = 100; // px
+  const SCROLL_THRESHOLD_BACK_TO_TOP = 300; // px
 
   /**
    * ==========================================================================
@@ -61,6 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const elementsToAnimate = document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar');
   const animatedSectionContainers = document.querySelectorAll('.animated-section');
   const stickyCtaBar = document.getElementById('stickyCta');
+  const backToTopBtn = document.getElementById('backToTopBtn');
   const firstContentSection = mainPage1 ? mainPage1.querySelector('main > section:first-of-type') : null;
 
   // Carousel Elements
@@ -251,6 +253,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('scroll', checkStickyCtaVisibility);
   checkStickyCtaVisibility();
+
+  function checkBackToTopVisibility() {
+    if (backToTopBtn) {
+      const shouldBeVisible = window.scrollY > SCROLL_THRESHOLD_BACK_TO_TOP;
+      backToTopBtn.classList.toggle('visible', shouldBeVisible);
+    }
+  }
+  window.addEventListener('scroll', checkBackToTopVisibility);
+  checkBackToTopVisibility();
 
   /**
    * ==========================================================================
@@ -500,6 +511,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initializeScrollAnimations();
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
   const menuChecklistBtn = document.getElementById("menuChecklistBtn");
   if (menuChecklistBtn) {
     menuChecklistBtn.addEventListener("click", () => {
