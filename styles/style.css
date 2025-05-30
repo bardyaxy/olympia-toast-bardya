@@ -808,10 +808,32 @@ body {
   margin: var(--space-md) 0;
 }
 
-@media (max-width: 768px) {
-  .resources-section {
-    padding: 25px;
-  }
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-to-top i {
+  font-size: 1.25em;
 }
 
 /* ==========================================================================
@@ -1000,34 +1022,6 @@ body {
   animation-play-state: paused;
 }
 
-/* Back to Top Button */
-.back-to-top {
-  position: fixed;
-  bottom: 80px;
-  right: 20px;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--accent-color);
-  color: var(--text-on-dark-bg);
-  border: none;
-  border-radius: 50%;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-  z-index: 999;
-}
-.back-to-top.visible {
-  opacity: 1;
-  pointer-events: auto;
-}
-.back-to-top i {
-  font-size: 1.25em;
-}
-
 @keyframes pulseCtaBtn {
   0%   { box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2); }
   50%  { box-shadow: 0 8px 20px rgba(250, 90, 10, 0.45); }
@@ -1213,7 +1207,7 @@ body {
   #chiliPiperCalendarElement {
     min-height: 0;
   }
-  #chiliPiperCalendarElement iframe {
+  #chiliPiperCalendarElement iframe {  
     min-height: calc(95vh - 50px);
   }
   .sticky-cta-bar {

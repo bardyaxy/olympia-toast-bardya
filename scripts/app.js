@@ -254,6 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', checkStickyCtaVisibility);
   checkStickyCtaVisibility();
 
+  /**
+   * ==========================================================================
+   * Back to Top Button Visibility
+   * ==========================================================================
+   */
   function checkBackToTopVisibility() {
     if (backToTopBtn) {
       const shouldBeVisible = window.scrollY > SCROLL_THRESHOLD_BACK_TO_TOP;
@@ -511,11 +516,13 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   initializeScrollAnimations();
+
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
+
   const menuChecklistBtn = document.getElementById("menuChecklistBtn");
   if (menuChecklistBtn) {
     menuChecklistBtn.addEventListener("click", () => {
