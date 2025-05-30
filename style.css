@@ -76,6 +76,8 @@ Here’s the complete CSS with the merge conflicts resolved. You can copy-paste 
 html {
   box-sizing: border-box;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  overscroll-behavior-x: contain;
 }
 
 *,
@@ -136,7 +138,7 @@ body {
   padding: var(--space-xxl) 0;
 }
 .content-section > .section-alt-bg {
-  margin: 0 calc(-1 * var(--space-lg));
+  margin: 0;
   padding: 0 var(--space-lg);
 }
 
