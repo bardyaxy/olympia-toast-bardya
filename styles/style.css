@@ -482,12 +482,22 @@ body {
   padding: var(--space-md) 0;
   list-style: none;
   margin: 0;
+  width: max-content;
+  flex: 0 0 auto;
   animation: marqueeScroll 12s linear infinite;
 }
 .marquee li {
   white-space: nowrap;
   font-size: 1.15rem;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.marquee li .check-icon {
+  width: 18px;
+  height: 16px;
+  flex-shrink: 0;
 }
 @keyframes marqueeScroll {
   0% { transform: translateX(0); }
@@ -1169,6 +1179,9 @@ body {
   }
   .video-container {
     font-size: 1em;
+  }
+  .marquee {
+    animation: marqueeScroll 10.2s linear infinite;
   }
   .content-section {
     padding: 35px 0;
