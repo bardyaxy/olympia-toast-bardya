@@ -39,7 +39,7 @@
   --btn-subtle-hover-bg: #e9ecef; /* Light buttons on hover */
 
   /* Hero Background Image */
-  --hero-bg-image: url('../olympia-hero.jpg'); /* Ensure this path is correct */
+  --hero-bg-image: url('../img/olympia-hero.jpg'); /* Ensure this path is correct */
 
   /* Glass Morphism Style */
   --glass-bg: rgba(255, 255, 255, 0.65);
@@ -1136,7 +1136,8 @@ body.no-scroll {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('../hp-demo-illustration.d9507d3d.svg') center/cover no-repeat;
+  background: url('../img/hp-demo-illustration.d9507d3d.svg') center/cover
+    no-repeat;
   opacity: 0.3;
   pointer-events: none;
   z-index: 0;
