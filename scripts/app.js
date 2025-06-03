@@ -3,6 +3,7 @@
  * animations, navigation, and carousel.
  * @version 1.1.0
  */
+/* global gtag */
 
 // Wait for the DOM to be fully loaded before executing scripts
 document.addEventListener('DOMContentLoaded', () => {
@@ -72,9 +73,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.animated-section');
   const stickyCtaBar = document.getElementById('stickyCta');
   const backToTopBtn = document.getElementById('backToTopBtn');
-  const firstContentSection = mainPage1
-    ? mainPage1.querySelector('main > section:first-of-type')
-    : null;
 
   // Carousel Elements
   const carousel = document.querySelector('.testimonial-carousel-container');
