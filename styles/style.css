@@ -191,13 +191,27 @@ body {
 /* Badge styling for promo keyword like "SUMMER" */
 .announcement-badge {
   display: inline-block;
-  padding: 0 0.35em;
-  border: 1px solid currentColor;
-  border-radius: 4px;
+  padding: 0;
   font-weight: 600;
   font-size: 0.75em;
   margin-right: var(--space-xs);
   letter-spacing: 0.02em;
+}
+
+/* Lightning icon inside announcement badge */
+.announcement-badge .lightning-icon {
+  color: #000;
+  animation: pulseLightning 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseLightning {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
 }
 
 /* ==========================================================================
@@ -1395,14 +1409,22 @@ body.no-scroll {
 /* Very Small Mobile Devices */
 @media (max-width: 480px) {
   .header-content {
-    flex-wrap: nowrap;
-    gap: var(--space-sm);
+    flex-wrap: wrap;
+    gap: var(--space-xs);
   }
   .header-actions {
     width: 100%;
     justify-content: space-between;
-    margin-top: var(--space-sm);
+    margin-top: var(--space-xs);
     gap: var(--space-xs);
+  }
+  .announcement-banner {
+    font-size: 0.85em;
+    padding: var(--space-xs) var(--space-md);
+  }
+  .announcement-banner a {
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .main-nav {
     display: none;
@@ -1495,6 +1517,9 @@ body.no-scroll {
   }
   .menu-toggle {
     font-size: 1.5em;
+  }
+  .announcement-banner {
+    font-size: 0.8em;
   }
   .sticky-cta-bar .btn {
     font-size: 0.9em;
