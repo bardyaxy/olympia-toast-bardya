@@ -1110,7 +1110,7 @@ body.no-scroll {
    ========================================================================== */
 
 /* Larger tablets and small desktops */
-@media (min-width: 768px) {
+@media (min-width: 767px) {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 30px;
@@ -1140,14 +1140,14 @@ body.no-scroll {
 }
 
 /* Desktops */
-@media (min-width: 992px) {
+@media (min-width: 1139px) {
   .features-grid {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
 }
 
 /* Smaller Tablets and Large Mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .container {
     padding: 0 var(--space-md);
   }
