@@ -188,6 +188,23 @@ body {
 .announcement-banner a:hover {
   text-decoration: underline;
 }
+/* Badge styling for promo keyword like "SUMMER" */
+.announcement-badge {
+  display: inline-block;
+  background-color: var(--text-on-dark-bg);
+  color: var(--toast-neutral-darkest);
+  padding: 3px 7px;
+  font-size: 0.8em;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 50px;
+  margin-right: var(--space-xs);
+}
+.announcement-arrow svg {
+  width: 32px;
+  height: 16px;
+  transform: translateY(3px);
+}
 
 /* ==========================================================================
    4. Header & Navigation
@@ -408,11 +425,6 @@ body.no-scroll {
 }
 .btn-back-to-home i {
   margin-right: var(--space-xs);
-}
-
-/* ==========================================================================
-   6. Hero Section
-   ========================================================================== */
 .hero {
   text-align: center;
   padding: 70px var(--space-lg) 60px;
@@ -681,9 +693,6 @@ body.no-scroll {
   font-weight: 700;
   display: inline-block;
   margin-right: var(--space-xs);
-  line-height: 0.8;
-}
-.testimonial-carousel-item span {
   display: block;
   font-weight: 600;
   color: var(--text-primary);
@@ -869,6 +878,7 @@ body.no-scroll {
 }
 .backup-links a i {
   margin-right: var(--space-xs);
+}
 }
 
 /* ==========================================================================
