@@ -188,6 +188,17 @@ body {
 .announcement-banner a:hover {
   text-decoration: underline;
 }
+/* Badge styling for promo keyword like "SUMMER" */
+.announcement-badge {
+  display: inline-block;
+  padding: 0 0.35em;
+  border: 1px solid currentColor;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.75em;
+  margin-right: var(--space-xs);
+  letter-spacing: 0.02em;
+}
 
 /* ==========================================================================
    4. Header & Navigation
