@@ -39,7 +39,7 @@
   --btn-subtle-hover-bg: #e9ecef; /* Light buttons on hover */
 
   /* Hero Background Image */
-  --hero-bg-image: url('olympia-hero.jpg'); /* Ensure this path is correct */
+  --hero-bg-image: url('../olympia-hero.jpg'); /* Ensure this path is correct */
 
   /* Glass Morphism Style */
   --glass-bg: rgba(255, 255, 255, 0.65);
