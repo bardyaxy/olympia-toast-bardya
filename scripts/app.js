@@ -57,6 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Mobile Navigation Elements
   const mobileNavMenu = document.getElementById('mobileNavMenu');
   const menuToggleBtn = document.getElementById('menuToggleBtn');
+  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
 
   // Animation & Sticky Elements
   const elementsToAnimate = document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar');
@@ -286,7 +287,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileNavMenu && mobileNavMenu.classList.contains('active') && menuToggleBtn) {
       mobileNavMenu.classList.remove('active');
+      mobileNavMenu.setAttribute('aria-hidden', 'true');
       menuToggleBtn.setAttribute('aria-expanded', 'false');
+      menuToggleBtn.classList.remove('active');
+      document.body.classList.remove('no-scroll');
+      if (mobileNavOverlay) {
+        mobileNavOverlay.classList.remove('active');
+        mobileNavOverlay.setAttribute('aria-hidden', 'true');
+      }
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.remove('fa-times');
@@ -345,16 +353,25 @@ document.addEventListener('DOMContentLoaded', () => {
    * Mobile Menu Toggle
    * ==========================================================================
    */
-  if (menuToggleBtn && mobileNavMenu) {
-    menuToggleBtn.addEventListener('click', () => {
-      const isExpanded = mobileNavMenu.classList.toggle('active');
+  if (menuToggleBtn && mobileNavMenu && mobileNavOverlay) {
+    const toggleMobileMenu = () => {
+      const isExpanded = !menuToggleBtn.classList.contains('active');
+      menuToggleBtn.classList.toggle('active', isExpanded);
+      mobileNavMenu.classList.toggle('active', isExpanded);
+      mobileNavOverlay.classList.toggle('active', isExpanded);
       menuToggleBtn.setAttribute('aria-expanded', String(isExpanded));
+      mobileNavMenu.setAttribute('aria-hidden', String(!isExpanded));
+      mobileNavOverlay.setAttribute('aria-hidden', String(!isExpanded));
+      document.body.classList.toggle('no-scroll', isExpanded);
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.toggle('fa-bars', !isExpanded);
         icon.classList.toggle('fa-times', isExpanded);
       }
-    });
+    };
+
+    menuToggleBtn.addEventListener('click', toggleMobileMenu);
+    mobileNavOverlay.addEventListener('click', toggleMobileMenu);
   }
 
   /**
