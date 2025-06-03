@@ -304,8 +304,21 @@ body {
   z-index: 1005;
 }
 
+/* Dark overlay displayed when mobile menu is open */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+.mobile-nav-overlay.active {
+  display: block;
+}
+
 /* Mobile Navigation Menu */
 .mobile-nav-menu {
+
   display: none;
   position: fixed;
   top: 0;
@@ -318,6 +331,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: var(--space-sm);
+
 }
 .mobile-nav-menu.active {
   display: flex;
