@@ -214,6 +214,28 @@ body {
 }
 
 /* ==========================================================================
+   Announcement Banner
+   ========================================================================== */
+.announcement-banner {
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  text-align: center;
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.95em;
+  font-weight: 500;
+}
+.announcement-banner a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+.announcement-banner a:hover {
+  text-decoration: underline;
+}
+
+/* ==========================================================================
    4. Header & Navigation
    ========================================================================== */
 .site-header {
