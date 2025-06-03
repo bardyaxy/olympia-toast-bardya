@@ -498,13 +498,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const promoTextEl = document.getElementById('promoText');
   if (promoTextEl) {
-    const monthNames = [
-      'January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    const now = new Date();
-    const monthName = monthNames[now.getMonth()];
-    promoTextEl.textContent = `${monthName} Promotion: Olympia restaurants receive complimentary menu optimization consultations this month.`;
+    promoTextEl.innerHTML = 'Boost Olympia! Refer Your Neighbor, Earn $1,000 <span class="promo-arrow" aria-hidden="true">&rarr;</span>';
   }
 
   // analytics tracking for CTA clicks

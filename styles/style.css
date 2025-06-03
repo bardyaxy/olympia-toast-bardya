@@ -757,6 +757,17 @@ body.no-scroll {
   transform: translateY(0);
 }
 
+.promo-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  animation: pulseArrow 1.5s infinite;
+}
+
+@keyframes pulseArrow {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
 /* ==========================================================================
    11. Glass Card & About Section
    ========================================================================== */
