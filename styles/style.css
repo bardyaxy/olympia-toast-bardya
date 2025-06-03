@@ -200,6 +200,22 @@ body {
   letter-spacing: 0.02em;
 }
 
+/* Lightning icon inside announcement badge */
+.announcement-badge .lightning-icon {
+  color: #000;
+  animation: pulseLightning 1.5s infinite ease-in-out;
+}
+
+@keyframes pulseLightning {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
 /* ==========================================================================
    4. Header & Navigation
    ========================================================================== */
