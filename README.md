@@ -2,6 +2,10 @@
 
 This project is a lightweight promotional site for Toast POS services in Olympia, WA. It showcases Bardya Banihashemi's local expertise, links to useful resources, and provides contact information for businesses interested in learning more.
 
+## Prerequisites
+
+The build scripts assume **Node.js 18 or newer**. Install a current LTS release from [nodejs.org](https://nodejs.org/) if you don't already have it available.
+
 ## Building the Site
 
 The HTML pages are assembled by a small Node.js script located in `scripts/build.js`.
@@ -13,6 +17,16 @@ npm run build
 ```
 
 The compiled files are written to the `dist/` directory.
+
+During development you can use a basic watch mode to rebuild whenever files
+change:
+
+```bash
+npm run watch
+```
+
+This script monitors source HTML, CSS and JavaScript files and re-runs the build
+each time one of them updates.
 
 ## Repository Layout
 
@@ -29,7 +43,8 @@ After running the build, you can serve the site locally. A small Node script is 
 npm run serve
 ```
 
-This starts a simple HTTP server on `http://localhost:8080`. You can also use any other static file server if you prefer.
+The command serves the contents of the `dist/` directory on `http://localhost:8080`.
+Open that URL in a browser to view the generated site. You can also use any other static file server if you prefer.
 
 ## Caching and Fingerprinting
 
