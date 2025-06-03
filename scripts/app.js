@@ -5,13 +5,14 @@
  */
 
 // Wait for the DOM to be fully loaded before executing scripts
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   /**
    * ==========================================================================
    * Configuration & Constants
    * ==========================================================================
    */
-  const CHILIPIPER_LINK = "https://toast.chilipiper.com/personal/bardya-banihashemi";
+  const CHILIPIPER_LINK =
+    "https://toast.chilipiper.com/personal/bardya-banihashemi";
   const CAROUSEL_INTERVAL_TIME = 5000; // ms (20% faster)
   const SWIPE_THRESHOLD = 50; // px
   const SCROLL_THRESHOLD_STICKY_CTA = 100; // px
@@ -24,54 +25,63 @@ document.addEventListener('DOMContentLoaded', () => {
    */
 
   // General Elements
-  const currentYearElement = document.getElementById('currentYear');
-  const siteHeader = document.querySelector('.site-header');
-  const siteFooter = document.querySelector('.site-footer');
+  const currentYearElement = document.getElementById("currentYear");
+  const siteHeader = document.querySelector(".site-header");
+  const siteFooter = document.querySelector(".site-footer");
 
   // Popup Elements
-  const schedulePopupOverlay = document.getElementById('schedule-call-popup');
+  const schedulePopupOverlay = document.getElementById("schedule-call-popup");
   const openPopupButtons = [
-    document.getElementById('heroProfitCheckBtn'),
-    document.getElementById('walkThroughBtn'),
-    document.getElementById('aboutPageContactBtn'),
-    document.getElementById('resourcesContactBtn'),
-    document.getElementById('stickyBookCallBtn'),
+    document.getElementById("heroProfitCheckBtn"),
+    document.getElementById("walkThroughBtn"),
+    document.getElementById("aboutPageContactBtn"),
+    document.getElementById("resourcesContactBtn"),
+    document.getElementById("stickyBookCallBtn"),
   ].filter(Boolean);
-  const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
-  const walkThroughBtnEl = document.getElementById('walkThroughBtn');
-  const resourcesContactBtn = document.getElementById('resourcesContactBtn');
-  const closeSchedulePopupBtn = document.getElementById('closeSchedulePopupBtn');
-  const chiliPiperCalendarElement = document.getElementById('chiliPiperCalendarElement');
+  const heroProfitCheckBtn = document.getElementById("heroProfitCheckBtn");
+  const walkThroughBtnEl = document.getElementById("walkThroughBtn");
+  const resourcesContactBtn = document.getElementById("resourcesContactBtn");
+  const closeSchedulePopupBtn = document.getElementById(
+    "closeSchedulePopupBtn",
+  );
+  const chiliPiperCalendarElement = document.getElementById(
+    "chiliPiperCalendarElement",
+  );
 
   // Page Navigation Elements
-  const mainPage1 = document.getElementById('page1');
-  const mainPage2 = document.getElementById('page2');
-  const mainPage3 = document.getElementById('page3');
-  const mainPage4 = document.getElementById('page4');
-  const backToHomeBtn = document.getElementById('backToHomeBtn');
-  const resourcesBackBtn = document.getElementById('resourcesBackBtn');
-  const aboutMeBackBtn = document.getElementById('aboutMeBackBtn');
-  const navLinks = document.querySelectorAll('.nav-link');
-  const pageSections = document.querySelectorAll('.page-section');
+  const mainPage1 = document.getElementById("page1");
+  const mainPage2 = document.getElementById("page2");
+  const mainPage3 = document.getElementById("page3");
+  const mainPage4 = document.getElementById("page4");
+  const backToHomeBtn = document.getElementById("backToHomeBtn");
+  const resourcesBackBtn = document.getElementById("resourcesBackBtn");
+  const aboutMeBackBtn = document.getElementById("aboutMeBackBtn");
+  const navLinks = document.querySelectorAll(".nav-link");
+  const pageSections = document.querySelectorAll(".page-section");
 
   // Mobile Navigation Elements
-  const mobileNavMenu = document.getElementById('mobileNavMenu');
-  const menuToggleBtn = document.getElementById('menuToggleBtn');
-  const mobileNavOverlay = document.getElementById('mobileNavOverlay');
+  const mobileNavMenu = document.getElementById("mobileNavMenu");
+  const menuToggleBtn = document.getElementById("menuToggleBtn");
+  const mobileNavOverlay = document.getElementById("mobileNavOverlay");
 
   // Animation & Sticky Elements
-  const elementsToAnimate = document.querySelectorAll('.feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar');
-  const animatedSectionContainers = document.querySelectorAll('.animated-section');
-  const stickyCtaBar = document.getElementById('stickyCta');
-  const backToTopBtn = document.getElementById('backToTopBtn');
-  const firstContentSection = mainPage1 ? mainPage1.querySelector('main > section:first-of-type') : null;
+  const elementsToAnimate = document.querySelectorAll(
+    ".feature-item, .glass-card, .cta-solid-bg, .local-proof, .video-section, .urgency-bar",
+  );
+  const animatedSectionContainers =
+    document.querySelectorAll(".animated-section");
+  const stickyCtaBar = document.getElementById("stickyCta");
+  const backToTopBtn = document.getElementById("backToTopBtn");
+  const firstContentSection = mainPage1
+    ? mainPage1.querySelector("main > section:first-of-type")
+    : null;
 
   // Carousel Elements
-  const carousel = document.querySelector('.testimonial-carousel-container');
-  const carouselItems = document.querySelectorAll('.testimonial-carousel-item');
-  const dotsContainer = document.querySelector('.testimonial-carousel-dots');
-  const prevArrow = document.querySelector('.carousel-arrow.prev');
-  const nextArrow = document.querySelector('.carousel-arrow.next');
+  const carousel = document.querySelector(".testimonial-carousel-container");
+  const carouselItems = document.querySelectorAll(".testimonial-carousel-item");
+  const dotsContainer = document.querySelector(".testimonial-carousel-dots");
+  const prevArrow = document.querySelector(".carousel-arrow.prev");
+  const nextArrow = document.querySelector(".carousel-arrow.next");
 
   /**
    * ==========================================================================
@@ -99,14 +109,14 @@ document.addEventListener('DOMContentLoaded', () => {
       mainPage4,
       siteHeader,
       siteFooter,
-      stickyCtaBar
+      stickyCtaBar,
     ];
-    elementsToToggle.forEach(el => {
+    elementsToToggle.forEach((el) => {
       if (el) {
         if (isHidden) {
-          el.setAttribute('aria-hidden', 'true');
+          el.setAttribute("aria-hidden", "true");
         } else {
-          el.removeAttribute('aria-hidden');
+          el.removeAttribute("aria-hidden");
         }
       }
     });
@@ -120,17 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
   function openSchedulePopup(triggeredByElement) {
     if (!schedulePopupOverlay) return;
 
-    lastFocusedElementBeforePopup = triggeredByElement || document.activeElement;
+    lastFocusedElementBeforePopup =
+      triggeredByElement || document.activeElement;
 
     if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML = '';
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', CHILIPIPER_LINK);
-      iframe.setAttribute('title', 'Book a meeting with Bardya Banihashemi');
+      chiliPiperCalendarElement.innerHTML = "";
+      const iframe = document.createElement("iframe");
+      iframe.setAttribute("src", CHILIPIPER_LINK);
+      iframe.setAttribute("title", "Book a meeting with Bardya Banihashemi");
       chiliPiperCalendarElement.appendChild(iframe);
     }
 
-    schedulePopupOverlay.classList.add('active');
+    schedulePopupOverlay.classList.add("active");
     toggleBackgroundElementsAriaHidden(true);
 
     if (closeSchedulePopupBtn) {
@@ -141,45 +152,52 @@ document.addEventListener('DOMContentLoaded', () => {
   function closeSchedulePopup() {
     if (!schedulePopupOverlay) return;
 
-    schedulePopupOverlay.classList.remove('active');
+    schedulePopupOverlay.classList.remove("active");
     if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML = '<p style="color: #777; padding: 20px; text-align:center;">Scheduler closed.</p>';
+      chiliPiperCalendarElement.innerHTML =
+        '<p style="color: #777; padding: 20px; text-align:center;">Scheduler closed.</p>';
     }
     toggleBackgroundElementsAriaHidden(false);
 
-    if (lastFocusedElementBeforePopup && typeof lastFocusedElementBeforePopup.focus === 'function') {
+    if (
+      lastFocusedElementBeforePopup &&
+      typeof lastFocusedElementBeforePopup.focus === "function"
+    ) {
       lastFocusedElementBeforePopup.focus();
     }
   }
 
-  openPopupButtons.forEach(button => {
-    button.addEventListener('click', (event) => {
+  openPopupButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
       event.preventDefault();
       openSchedulePopup(button);
     });
   });
 
   if (closeSchedulePopupBtn) {
-    closeSchedulePopupBtn.addEventListener('click', closeSchedulePopup);
+    closeSchedulePopupBtn.addEventListener("click", closeSchedulePopup);
   }
 
   if (schedulePopupOverlay) {
-    schedulePopupOverlay.addEventListener('click', (event) => {
+    schedulePopupOverlay.addEventListener("click", (event) => {
       if (event.target === schedulePopupOverlay) {
         closeSchedulePopup();
       }
     });
 
-    schedulePopupOverlay.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
+    schedulePopupOverlay.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
         closeSchedulePopup();
       }
-      if (event.key === 'Tab' && schedulePopupOverlay.classList.contains('active')) {
+      if (
+        event.key === "Tab" &&
+        schedulePopupOverlay.classList.contains("active")
+      ) {
         const focusableElements = Array.from(
           schedulePopupOverlay.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe'
-          )
-        ).filter(el => el.offsetParent !== null);
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe',
+          ),
+        ).filter((el) => el.offsetParent !== null);
 
         if (!focusableElements.length) return;
 
@@ -207,37 +225,46 @@ document.addEventListener('DOMContentLoaded', () => {
    * ==========================================================================
    */
   function initializeScrollAnimations() {
-    elementsToAnimate.forEach(el => {
-      if (!el.closest('.animated-section')) {
-        el.classList.add('init-hidden');
+    elementsToAnimate.forEach((el) => {
+      if (!el.closest(".animated-section")) {
+        el.classList.add("init-hidden");
       }
     });
-    animatedSectionContainers.forEach(container => {
-      container.classList.add('init-hidden');
+    animatedSectionContainers.forEach((container) => {
+      container.classList.add("init-hidden");
     });
 
-    if ('IntersectionObserver' in window) {
+    if ("IntersectionObserver" in window) {
       const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.1
+        rootMargin: "0px",
+        threshold: 0.1,
       };
 
-      const animationObserver = new IntersectionObserver((entries, observerInstance) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            if (entry.target.classList.contains('animated-section')) {
-              entry.target.querySelectorAll('.init-hidden').forEach(childEl => childEl.classList.add('is-visible'));
+      const animationObserver = new IntersectionObserver(
+        (entries, observerInstance) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              if (entry.target.classList.contains("animated-section")) {
+                entry.target
+                  .querySelectorAll(".init-hidden")
+                  .forEach((childEl) => childEl.classList.add("is-visible"));
+              }
+              observerInstance.unobserve(entry.target);
             }
-            observerInstance.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
+          });
+        },
+        observerOptions,
+      );
 
-      document.querySelectorAll('.init-hidden').forEach(section => animationObserver.observe(section));
+      document
+        .querySelectorAll(".init-hidden")
+        .forEach((section) => animationObserver.observe(section));
     } else {
-      document.querySelectorAll('.init-hidden').forEach(el => el.classList.add('is-visible'));
+      document
+        .querySelectorAll(".init-hidden")
+        .forEach((el) => el.classList.add("is-visible"));
     }
   }
 
@@ -249,10 +276,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkStickyCtaVisibility() {
     if (stickyCtaBar) {
       const shouldBeVisible = window.scrollY > SCROLL_THRESHOLD_STICKY_CTA;
-      stickyCtaBar.classList.toggle('visible', shouldBeVisible);
+      stickyCtaBar.classList.toggle("visible", shouldBeVisible);
     }
   }
-  window.addEventListener('scroll', checkStickyCtaVisibility);
+  window.addEventListener("scroll", checkStickyCtaVisibility);
   checkStickyCtaVisibility();
 
   /**
@@ -263,10 +290,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function checkBackToTopVisibility() {
     if (backToTopBtn) {
       const shouldBeVisible = window.scrollY > SCROLL_THRESHOLD_BACK_TO_TOP;
-      backToTopBtn.classList.toggle('visible', shouldBeVisible);
+      backToTopBtn.classList.toggle("visible", shouldBeVisible);
     }
   }
-  window.addEventListener('scroll', checkBackToTopVisibility);
+  window.addEventListener("scroll", checkBackToTopVisibility);
   checkBackToTopVisibility();
 
   /**
@@ -277,43 +304,54 @@ document.addEventListener('DOMContentLoaded', () => {
   function setActivePage(targetId) {
     if (!targetId) return;
 
-    pageSections.forEach(section => {
-      section.classList.toggle('active', section.id === targetId);
+    pageSections.forEach((section) => {
+      section.classList.toggle("active", section.id === targetId);
     });
 
-    document.querySelectorAll('.main-nav .nav-link, .mobile-nav-menu .nav-link').forEach(nav => {
-      nav.classList.toggle('active-nav', nav.getAttribute('href') === `#${targetId}`);
-    });
+    document
+      .querySelectorAll(".main-nav .nav-link, .mobile-nav-menu .nav-link")
+      .forEach((nav) => {
+        nav.classList.toggle(
+          "active-nav",
+          nav.getAttribute("href") === `#${targetId}`,
+        );
+      });
 
-    if (mobileNavMenu && mobileNavMenu.classList.contains('active') && menuToggleBtn) {
-      mobileNavMenu.classList.remove('active');
-      mobileNavMenu.setAttribute('aria-hidden', 'true');
-      menuToggleBtn.setAttribute('aria-expanded', 'false');
-      menuToggleBtn.classList.remove('active');
-      document.body.classList.remove('no-scroll');
+    if (
+      mobileNavMenu &&
+      mobileNavMenu.classList.contains("active") &&
+      menuToggleBtn
+    ) {
+      mobileNavMenu.classList.remove("active");
+      mobileNavMenu.setAttribute("aria-hidden", "true");
+      menuToggleBtn.setAttribute("aria-expanded", "false");
+      menuToggleBtn.classList.remove("active");
+      document.body.classList.remove("no-scroll");
       if (mobileNavOverlay) {
-        mobileNavOverlay.classList.remove('active');
-        mobileNavOverlay.setAttribute('aria-hidden', 'true');
+        mobileNavOverlay.classList.remove("active");
+        mobileNavOverlay.setAttribute("aria-hidden", "true");
       }
-      const icon = menuToggleBtn.querySelector('i');
+      const icon = menuToggleBtn.querySelector("i");
       if (icon) {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
       }
     }
 
-    const targetPageMainContent = document.getElementById(`${targetId}-main-content`) || document.getElementById(targetId);
+    const targetPageMainContent =
+      document.getElementById(`${targetId}-main-content`) ||
+      document.getElementById(targetId);
     if (targetPageMainContent) {
-      if (!targetPageMainContent.hasAttribute('tabindex')) {
-        targetPageMainContent.setAttribute('tabindex', '-1');
+      if (!targetPageMainContent.hasAttribute("tabindex")) {
+        targetPageMainContent.setAttribute("tabindex", "-1");
       }
       targetPageMainContent.focus({ preventScroll: true });
     }
     window.scrollTo(0, 0);
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", event => {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
       const href = link.getAttribute("href");
       if (href && href.startsWith("#")) {
         event.preventDefault();
@@ -324,28 +362,28 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (backToHomeBtn) {
-    backToHomeBtn.addEventListener('click', event => {
+    backToHomeBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      setActivePage('page1');
+      setActivePage("page1");
     });
   }
 
   if (resourcesBackBtn) {
-    resourcesBackBtn.addEventListener('click', event => {
+    resourcesBackBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      setActivePage('page1');
+      setActivePage("page1");
     });
   }
 
   if (aboutMeBackBtn) {
-    aboutMeBackBtn.addEventListener('click', event => {
+    aboutMeBackBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      setActivePage('page1');
+      setActivePage("page1");
     });
   }
 
-  if (pageSections.length > 0 && document.getElementById('page1')) {
-    setActivePage('page1');
+  if (pageSections.length > 0 && document.getElementById("page1")) {
+    setActivePage("page1");
   }
 
   /**
@@ -355,23 +393,23 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   if (menuToggleBtn && mobileNavMenu && mobileNavOverlay) {
     const toggleMobileMenu = () => {
-      const isExpanded = !menuToggleBtn.classList.contains('active');
-      menuToggleBtn.classList.toggle('active', isExpanded);
-      mobileNavMenu.classList.toggle('active', isExpanded);
-      mobileNavOverlay.classList.toggle('active', isExpanded);
-      menuToggleBtn.setAttribute('aria-expanded', String(isExpanded));
-      mobileNavMenu.setAttribute('aria-hidden', String(!isExpanded));
-      mobileNavOverlay.setAttribute('aria-hidden', String(!isExpanded));
-      document.body.classList.toggle('no-scroll', isExpanded);
-      const icon = menuToggleBtn.querySelector('i');
+      const isExpanded = !menuToggleBtn.classList.contains("active");
+      menuToggleBtn.classList.toggle("active", isExpanded);
+      mobileNavMenu.classList.toggle("active", isExpanded);
+      mobileNavOverlay.classList.toggle("active", isExpanded);
+      menuToggleBtn.setAttribute("aria-expanded", String(isExpanded));
+      mobileNavMenu.setAttribute("aria-hidden", String(!isExpanded));
+      mobileNavOverlay.setAttribute("aria-hidden", String(!isExpanded));
+      document.body.classList.toggle("no-scroll", isExpanded);
+      const icon = menuToggleBtn.querySelector("i");
       if (icon) {
-        icon.classList.toggle('fa-bars', !isExpanded);
-        icon.classList.toggle('fa-times', isExpanded);
+        icon.classList.toggle("fa-bars", !isExpanded);
+        icon.classList.toggle("fa-times", isExpanded);
       }
     };
 
-    menuToggleBtn.addEventListener('click', toggleMobileMenu);
-    mobileNavOverlay.addEventListener('click', toggleMobileMenu);
+    menuToggleBtn.addEventListener("click", toggleMobileMenu);
+    mobileNavOverlay.addEventListener("click", toggleMobileMenu);
   }
 
   /**
@@ -381,9 +419,9 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function updateCarouselDots(activeIndex) {
     if (!dotsContainer) return;
-    dotsContainer.querySelectorAll('.carousel-dot').forEach((dot, index) => {
-      dot.classList.toggle('active', index === activeIndex);
-      dot.setAttribute('aria-selected', String(index === activeIndex));
+    dotsContainer.querySelectorAll(".carousel-dot").forEach((dot, index) => {
+      dot.classList.toggle("active", index === activeIndex);
+      dot.setAttribute("aria-selected", String(index === activeIndex));
     });
   }
 
@@ -392,44 +430,52 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carousel.style.transform = `translateX(-${index * 100}%)`;
     carouselItems.forEach((item, i) => {
-      item.classList.toggle('active-slide', i === index);
-      item.setAttribute('aria-hidden', String(i !== index));
+      item.classList.toggle("active-slide", i === index);
+      item.setAttribute("aria-hidden", String(i !== index));
     });
     updateCarouselDots(index);
     currentCarouselItem = index;
   }
 
-  function cycleCarousel(manualInteraction = false, direction = 'next') {
+  function cycleCarousel(manualInteraction = false, direction = "next") {
     if (!carouselItems.length) return;
 
-    let newIndex = direction === 'next'
-      ? (currentCarouselItem + 1) % carouselItems.length
-      : (currentCarouselItem - 1 + carouselItems.length) % carouselItems.length;
+    let newIndex =
+      direction === "next"
+        ? (currentCarouselItem + 1) % carouselItems.length
+        : (currentCarouselItem - 1 + carouselItems.length) %
+          carouselItems.length;
 
     showCarouselItem(newIndex);
 
     if (manualInteraction && carouselInterval) {
       clearInterval(carouselInterval);
-      carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+      carouselInterval = setInterval(
+        () => cycleCarousel(false),
+        CAROUSEL_INTERVAL_TIME,
+      );
     }
   }
 
   function createCarouselDots() {
     if (!dotsContainer || !carouselItems.length) return;
-    dotsContainer.innerHTML = '';
+    dotsContainer.innerHTML = "";
 
     carouselItems.forEach((_, index) => {
-      const dot = document.createElement('button');
-      dot.classList.add('carousel-dot');
-      dot.setAttribute('type', 'button');
-      dot.setAttribute('role', 'tab');
-      dot.setAttribute('aria-selected', 'false');
-      dot.setAttribute('aria-controls', `carousel-item-${index + 1}`);
-      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-      dot.addEventListener('click', () => {
+      const dot = document.createElement("button");
+      dot.classList.add("carousel-dot");
+      dot.setAttribute("type", "button");
+      dot.setAttribute("role", "tab");
+      dot.setAttribute("aria-selected", "false");
+      dot.setAttribute("aria-controls", `carousel-item-${index + 1}`);
+      dot.setAttribute("aria-label", `Go to slide ${index + 1}`);
+      dot.addEventListener("click", () => {
         showCarouselItem(index);
         if (carouselInterval) clearInterval(carouselInterval);
-        carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+        carouselInterval = setInterval(
+          () => cycleCarousel(false),
+          CAROUSEL_INTERVAL_TIME,
+        );
       });
       dotsContainer.appendChild(dot);
     });
@@ -438,52 +484,65 @@ document.addEventListener('DOMContentLoaded', () => {
   function initializeCarousel() {
     if (!carousel || !carouselItems.length) return;
 
-    carousel.setAttribute('role', 'tablist');
-    carousel.setAttribute('aria-label', 'Testimonials');
+    carousel.setAttribute("role", "tablist");
+    carousel.setAttribute("aria-label", "Testimonials");
     carouselItems.forEach((item, index) => {
-      item.setAttribute('role', 'tabpanel');
-      item.setAttribute('id', `carousel-item-${index + 1}`);
-      item.setAttribute('aria-roledescription', 'slide');
-      item.setAttribute('aria-label', `${index + 1} of ${carouselItems.length}`);
+      item.setAttribute("role", "tabpanel");
+      item.setAttribute("id", `carousel-item-${index + 1}`);
+      item.setAttribute("aria-roledescription", "slide");
+      item.setAttribute(
+        "aria-label",
+        `${index + 1} of ${carouselItems.length}`,
+      );
     });
 
     createCarouselDots();
     showCarouselItem(currentCarouselItem);
     if (carouselItems.length > 1) {
-      carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+      carouselInterval = setInterval(
+        () => cycleCarousel(false),
+        CAROUSEL_INTERVAL_TIME,
+      );
     }
 
-    carousel.addEventListener('touchstart', e => {
-      if (carouselItems.length <= 1) return;
-      touchStartX = e.changedTouches[0].screenX;
-      isCarouselDragging = true;
-      if (carouselInterval) clearInterval(carouselInterval);
-    }, { passive: true });
+    carousel.addEventListener(
+      "touchstart",
+      (e) => {
+        if (carouselItems.length <= 1) return;
+        touchStartX = e.changedTouches[0].screenX;
+        isCarouselDragging = true;
+        if (carouselInterval) clearInterval(carouselInterval);
+      },
+      { passive: true },
+    );
 
-    carousel.addEventListener('touchend', e => {
+    carousel.addEventListener("touchend", (e) => {
       if (carouselItems.length <= 1 || !isCarouselDragging) return;
       touchEndX = e.changedTouches[0].screenX;
       const deltaX = touchEndX - touchStartX;
 
       if (Math.abs(deltaX) > SWIPE_THRESHOLD) {
         if (deltaX < 0) {
-          cycleCarousel(true, 'next');
+          cycleCarousel(true, "next");
         } else {
-          cycleCarousel(true, 'prev');
+          cycleCarousel(true, "prev");
         }
       }
       isCarouselDragging = false;
       if (carouselItems.length > 1) {
-        carouselInterval = setInterval(() => cycleCarousel(false), CAROUSEL_INTERVAL_TIME);
+        carouselInterval = setInterval(
+          () => cycleCarousel(false),
+          CAROUSEL_INTERVAL_TIME,
+        );
       }
     });
 
     if (prevArrow && nextArrow && carouselItems.length > 1) {
-      prevArrow.addEventListener('click', () => cycleCarousel(true, 'prev'));
-      nextArrow.addEventListener('click', () => cycleCarousel(true, 'next'));
+      prevArrow.addEventListener("click", () => cycleCarousel(true, "prev"));
+      nextArrow.addEventListener("click", () => cycleCarousel(true, "next"));
     } else if (prevArrow && nextArrow) {
-      prevArrow.style.display = 'none';
-      nextArrow.style.display = 'none';
+      prevArrow.style.display = "none";
+      nextArrow.style.display = "none";
     }
   }
 
@@ -496,32 +555,33 @@ document.addEventListener('DOMContentLoaded', () => {
     currentYearElement.textContent = new Date().getFullYear();
   }
 
-  const promoTextEl = document.getElementById('promoText');
+  const promoTextEl = document.getElementById("promoText");
   if (promoTextEl) {
-    promoTextEl.innerHTML = 'Boost Olympia! Refer Your Neighbor, Earn $1,000 <span class="promo-arrow" aria-hidden="true">&rarr;</span>';
+    promoTextEl.innerHTML =
+      'Boost Olympia! Refer Your Neighbor, Earn $1,000 <span class="promo-arrow" aria-hidden="true">&rarr;</span>';
   }
 
   // analytics tracking for CTA clicks
   if (heroProfitCheckBtn) {
-    heroProfitCheckBtn.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'hero_cta_click');
+    heroProfitCheckBtn.addEventListener("click", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "hero_cta_click");
       }
     });
   }
 
   if (walkThroughBtnEl) {
-    walkThroughBtnEl.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'walkthrough_cta_click');
+    walkThroughBtnEl.addEventListener("click", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "walkthrough_cta_click");
       }
     });
   }
 
   if (resourcesContactBtn) {
-    resourcesContactBtn.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'resources_contact_click');
+    resourcesContactBtn.addEventListener("click", () => {
+      if (typeof gtag === "function") {
+        gtag("event", "resources_contact_click");
       }
     });
   }
@@ -529,8 +589,8 @@ document.addEventListener('DOMContentLoaded', () => {
   initializeScrollAnimations();
 
   if (backToTopBtn) {
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
