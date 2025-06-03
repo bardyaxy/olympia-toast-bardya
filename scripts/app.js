@@ -286,7 +286,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileNavMenu && mobileNavMenu.classList.contains('active') && menuToggleBtn) {
       mobileNavMenu.classList.remove('active');
+      mobileNavMenu.setAttribute('aria-hidden', 'true');
       menuToggleBtn.setAttribute('aria-expanded', 'false');
+      menuToggleBtn.classList.remove('active');
+      document.body.classList.remove('no-scroll');
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.remove('fa-times');
@@ -349,6 +352,9 @@ document.addEventListener('DOMContentLoaded', () => {
     menuToggleBtn.addEventListener('click', () => {
       const isExpanded = mobileNavMenu.classList.toggle('active');
       menuToggleBtn.setAttribute('aria-expanded', String(isExpanded));
+      mobileNavMenu.setAttribute('aria-hidden', String(!isExpanded));
+      menuToggleBtn.classList.toggle('active', isExpanded);
+      document.body.classList.toggle('no-scroll', isExpanded);
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.toggle('fa-bars', !isExpanded);
