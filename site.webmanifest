@@ -7,7 +7,7 @@
   "theme_color": "#FA5A0A",
   "icons": [
     {
-      "src": "toast-logo.png",
+      "src": "img/toast-logo.png",
       "sizes": "192x192",
       "type": "image/png"
     }

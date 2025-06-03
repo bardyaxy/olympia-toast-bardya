@@ -23,9 +23,10 @@ const jsFile = assetFiles.find((f) => f.endsWith('.js'));
 // fingerprint static images/icons
 const assetMap = {};
 const imageRegex = /\.(png|jpe?g|svg|ico)$/i;
-fs.readdirSync(rootDir).forEach((file) => {
+const imagesDir = path.join(rootDir, 'img');
+fs.readdirSync(imagesDir).forEach((file) => {
   if (imageRegex.test(file)) {
-    const content = fs.readFileSync(path.join(rootDir, file));
+    const content = fs.readFileSync(path.join(imagesDir, file));
     const hash = crypto
       .createHash('md5')
       .update(content)
@@ -35,7 +36,7 @@ fs.readdirSync(rootDir).forEach((file) => {
     const base = path.basename(file, ext);
     const hashedName = `${base}.${hash}${ext}`;
     fs.writeFileSync(path.join(assetsDir, hashedName), content);
-    assetMap[file] = `assets/${hashedName}`;
+    assetMap[`img/${file}`] = `assets/${hashedName}`;
   }
 });
 

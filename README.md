@@ -33,7 +33,8 @@ each time one of them updates.
 - `scripts/` – JavaScript files including the build script and site logic
 - `styles/` – CSS stylesheet
 - `includes/` – HTML snippets for the header and footer
-- HTML pages and assets remain at the project root
+- HTML pages remain at the project root
+- `img/` – image assets like logos and icons
 
 ## Serving the Built Files
 

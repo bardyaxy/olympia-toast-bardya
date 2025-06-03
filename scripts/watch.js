@@ -5,6 +5,7 @@ const watchPaths = [
   'scripts/**/*.js',
   'styles/**/*.css',
   'includes/**/*.html',
+  'img/**/*',
   '*.html',
   'webpack.config.js',
 ];
