@@ -24,7 +24,7 @@ Certain values like external URLs and analytics IDs are pulled from environment 
 
 ```bash
 # .env
-CHILIPIPER_LINK=https://BCB.chilipiper.com/personal/bardya-banihashemi
+CHILIPIPER_LINK=https://toast.chilipiper.com/personal/bardya-banihashemi
 GA_MEASUREMENT_ID=GA-XXXXXXXXX
 ```
 
