@@ -433,12 +433,12 @@ body.no-scroll {
   align-items: center;
   gap: 8px;
   padding: 8px 16px;
-  font-size: 0.95em;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  border: 1px solid var(--border-light);
+  font-size: 1em;
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  border: none;
   border-radius: var(--border-radius-button);
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   transition: var(--transition-main);
   text-decoration: none;
@@ -446,22 +446,55 @@ body.no-scroll {
   animation: pulseCtaBtn 3s infinite ease-in-out;
 }
 .btn-call-bardya .call-text {
-  font-weight: 600;
+  font-weight: 700;
 }
 .btn-call-bardya .phone-number {
-  color: var(--text-secondary);
+  color: var(--text-on-dark-bg);
 }
 .btn-call-bardya:hover {
-  background-color: var(--btn-subtle-hover-bg);
-  border-color: var(--border-light-hover);
+  background-color: var(--accent-color-darker);
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation-play-state: paused;
 }
 .btn-call-bardya i.fa-phone-alt {
+  position: relative;
   font-size: 0.9em;
-  color: var(--accent-color);
+  color: var(--text-on-dark-bg);
   transform: scaleX(-1);
+}
+.btn-call-bardya i.fa-phone-alt::before,
+.btn-call-bardya i.fa-phone-alt::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  border-radius: 50%;
+  border: 2px solid currentColor;
+  opacity: 0;
+  animation: phoneVibrate 1.5s infinite;
+}
+.btn-call-bardya i.fa-phone-alt::before {
+  width: 6px;
+  height: 6px;
+  margin-left: 2px;
+}
+.btn-call-bardya i.fa-phone-alt::after {
+  width: 10px;
+  height: 10px;
+  margin-left: 4px;
+  animation-delay: 0.75s;
+}
+
+@keyframes phoneVibrate {
+  0% {
+    transform: translate(0, -50%) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -50%) scale(1.4);
+    opacity: 0;
+  }
 }
 
 /* Back to Home Button */
