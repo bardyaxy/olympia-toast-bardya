@@ -67,14 +67,19 @@
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400..700;1,400..700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="preload" href="styles/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-  <link rel="preload" href="scripts/app.js" as="script" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="preload"
+      href="styles/style.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <link rel="preload" href="scripts/app.js" as="script" />
 
     <script
       async
@@ -155,55 +160,65 @@
   <body>
     <a href="#page1-main-content" class="skip-link">Skip to main content</a>
 
-<header class="site-header" role="banner">
-  <div class="container">
-    <div class="header-content">
-      <div class="header-logo">
-        <a href="/index.html" aria-label="Toast POS Home">
-          <img
-            src="img/toast-logo.png"
-            alt="Toast POS Logo"
-            loading="lazy"
-            class="toast-header-logo-img"
-            onerror="this.alt='Toast Logo'; this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast'; this.onerror=null;"
-          />
-        </a>
-      </div>
-      <nav class="header-actions" aria-label="Main navigation">
-        <div class="main-nav">
-          <a href="/about.html" class="nav-link">About Me</a>
-          <a href="/resources.html" class="nav-link"
-            >Why Toast & Free Resources</a
-          >
-        </div>
-        <a href="tel:+13602153596" class="btn-call-bardya" aria-label="Call Bardya now" title="Call Bardya now">
-          <i class="fas fa-phone-alt" aria-hidden="true"></i>
-          <div>
-            <span class="call-text">Call Bardya now</span>
-            <span class="phone-number">Bardya (360) 215-3596</span>
+    <header class="site-header" role="banner">
+      <div class="container">
+        <div class="header-content">
+          <div class="header-logo">
+            <a href="/index.html" aria-label="Toast POS Home">
+              <img
+                src="img/toast-logo.png"
+                alt="Toast POS Logo"
+                loading="lazy"
+                class="toast-header-logo-img"
+                onerror="this.alt='Toast Logo'; this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast'; this.onerror=null;"
+              />
+            </a>
           </div>
-        </a>
-        <button
-          class="menu-toggle"
-          id="menuToggleBtn"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNavMenu"
-        >
-          <i class="fas fa-grip-lines" aria-hidden="true"></i>
-        </button>
-        <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true"></div>
-        <div class="mobile-nav-menu" id="mobileNavMenu" aria-hidden="true">
-          <a href="/about.html" class="nav-link">About Me</a>
-          <a href="/resources.html" class="nav-link"
-            >Why Toast & Free Resources</a
-          >
+          <nav class="header-actions" aria-label="Main navigation">
+            <div class="main-nav">
+              <a href="/about.html" class="nav-link">About Me</a>
+              <a href="/resources.html" class="nav-link"
+                >Why Toast & Free Resources</a
+              >
+            </div>
+            <a
+              href="tel:+13602153596"
+              class="btn-call-bardya"
+              aria-label="Call Bardya now"
+              title="Call Bardya now"
+            >
+              <i class="fas fa-phone-alt" aria-hidden="true"></i>
+              <div>
+                <span class="call-text"
+                  ><span class="call-word">Call</span> Bardya now</span
+                >
+                <span class="phone-number">(360) 215-3596</span>
+              </div>
+            </a>
+            <button
+              class="menu-toggle"
+              id="menuToggleBtn"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobileNavMenu"
+            >
+              <i class="fas fa-grip-lines" aria-hidden="true"></i>
+            </button>
+            <div
+              class="mobile-nav-overlay"
+              id="mobileNavOverlay"
+              aria-hidden="true"
+            ></div>
+            <div class="mobile-nav-menu" id="mobileNavMenu" aria-hidden="true">
+              <a href="/about.html" class="nav-link">About Me</a>
+              <a href="/resources.html" class="nav-link"
+                >Why Toast & Free Resources</a
+              >
+            </div>
+          </nav>
         </div>
-      </nav>
-    </div>
-  </div>
-
-</header>
+      </div>
+    </header>
 
     <div id="page1" class="page-section active">
       <main id="page1-main-content" tabindex="-1" aria-labelledby="page1-title">
