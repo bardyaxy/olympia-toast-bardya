@@ -6,7 +6,7 @@ const watchPaths = [
   'styles/**/*.css',
   'includes/**/*.html',
   'img/**/*',
-  '*.html',
+  'src/**/*.ejs',
   'webpack.config.js',
 ];
 
