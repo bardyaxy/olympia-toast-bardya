@@ -324,7 +324,7 @@ body {
 .mobile-nav-menu {
   position: fixed;
   top: 0;
-  left: 0;
+  right: 0;
   width: 80vw;
   height: 100vh;
   background-color: var(--bg-card);
@@ -335,12 +335,13 @@ body {
   align-items: center;
   gap: var(--space-sm);
   pointer-events: none;
-  transform: translateX(-100%);
+  transform: translateX(100%);
   transition: transform 0.3s ease-in-out;
 }
 .mobile-nav-menu.active {
   transform: translateX(0);
   pointer-events: auto;
+  animation: menuBounce 0.45s;
 }
 .mobile-nav-menu a {
   display: block;
@@ -359,6 +360,22 @@ body {
 
 body.no-scroll {
   overflow: hidden;
+  height: 100vh;
+}
+
+@keyframes menuBounce {
+  0% {
+    transform: translateX(100%);
+  }
+  60% {
+    transform: translateX(-15px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ==========================================================================
