@@ -20,6 +20,17 @@ npm run build
 
 The compiled files are written to the `dist/` directory.
 
+### Building with Eleventy
+
+If you prefer to use [Eleventy](https://www.11ty.dev/) for templating and routing,
+you can run:
+
+```bash
+npm run build:eleventy
+```
+
+This command processes the same EJS templates and writes the output to `dist/` using Eleventy.
+
 During development you can use a basic watch mode to rebuild whenever files
 change:
 
