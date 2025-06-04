@@ -15,13 +15,13 @@
   border-radius: var(--border-radius-button);
   cursor: pointer;
   transition: var(--transition-main);
-  box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+  box-shadow: 0 5px 15px rgba(111, 0, 255, 0.2);
   animation: pulseCtaBtn 3s infinite ease-in-out;
 }
 .btn:hover {
   background-color: var(--accent-color-darker);
   transform: translateY(-3px) scale(var(--hover-scale));
-  box-shadow: 0 7px 18px rgba(250, 90, 10, 0.3);
+  box-shadow: 0 7px 18px rgba(111, 0, 255, 0.3);
   animation-play-state: paused;
 }
 
@@ -32,7 +32,7 @@
   gap: 8px;
   padding: 8px 16px;
   font-size: 0.95em;
-  background-color: var(--BCB-primary-orange);
+  background-color: var(--BCB-primary-purple);
   color: #fff;
   border: none;
   border-radius: var(--border-radius-button);
@@ -53,7 +53,7 @@
   color: #fff;
 }
 .btn-call-bardya:hover {
-  background-color: var(--BCB-secondary-orange-dark);
+  background-color: var(--BCB-secondary-purple-dark);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation-play-state: paused;

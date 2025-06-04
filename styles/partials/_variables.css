@@ -3,8 +3,8 @@
    ========================================================================== */
 :root {
   /* Color Scheme */
-  --BCB-primary-orange: #6F00FF;
-  --BCB-secondary-orange-dark: #5a00cc;
+  --BCB-primary-purple: #6F00FF;
+  --BCB-secondary-purple-dark: #5a00cc;
   --BCB-brand-blue: #2b4fb9;
 
   --BCB-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */
@@ -20,7 +20,7 @@
   --text-secondary: var(--BCB-neutral-dark);
   --text-tertiary: var(--BCB-neutral-medium);
   --text-on-dark-bg: var(--BCB-neutral-lightest);
-  --text-accent: var(--BCB-primary-orange);
+  --text-accent: var(--BCB-primary-purple);
 
   --bg-main: var(--BCB-neutral-light);
   --bg-section-alt: var(--BCB-neutral-lighter);
@@ -34,8 +34,8 @@
   --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
 
   /* Accent Colors */
-  --accent-color: var(--BCB-primary-orange);
-  --accent-color-darker: var(--BCB-secondary-orange-dark);
+  --accent-color: var(--BCB-primary-purple);
+  --accent-color-darker: var(--BCB-secondary-purple-dark);
 
   /* Borders */
   --border-light: #e2e8f0; /* General light border */
