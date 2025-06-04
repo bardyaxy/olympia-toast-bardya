@@ -210,6 +210,13 @@ body {
   transform: translateY(3px);
 }
 
+/* Text inside the announcement banner */
+.announcement-banner .main-text {
+  font-weight: 300;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
 @keyframes pulseLightning {
   0%,
   100% {
