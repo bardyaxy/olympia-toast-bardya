@@ -18,6 +18,18 @@ npm install     # if you haven't already
 npm run build
 ```
 
+### Configuration
+
+Certain values like external URLs and analytics IDs are pulled from environment variables at build time. Create a `.env` file (see `.env.example`) with any overrides:
+
+```bash
+# .env
+CHILIPIPER_LINK=https://toast.chilipiper.com/personal/bardya-banihashemi
+GA_MEASUREMENT_ID=GA-XXXXXXXXX
+```
+
+These variables will be embedded into the bundled JavaScript and HTML so they can be changed without modifying the source code.
+
 The compiled files are written to the `dist/` directory.
 
 ### Building with Eleventy
