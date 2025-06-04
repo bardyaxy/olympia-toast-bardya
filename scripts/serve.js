@@ -1,8 +1,12 @@
 const express = require('express');
+const compression = require('compression');
 const path = require('path');
 
 const app = express();
 const distDir = path.join(__dirname, '..', 'dist');
+
+// Enable gzip compression for all responses
+app.use(compression());
 
 // Cache headers: HTML revalidated, assets long lived
 app.use((req, res, next) => {
