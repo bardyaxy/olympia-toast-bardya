@@ -324,33 +324,39 @@ body {
 .mobile-nav-menu {
   position: fixed;
   top: 0;
-  left: 0;
-  width: 80vw;
+  right: 0;
+  width: 340px;
+  max-width: 80vw;
   height: 100vh;
   background-color: var(--bg-card);
+  border-radius: 32px 0 0 32px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   z-index: 1001;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-sm);
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: var(--space-md);
   pointer-events: none;
-  transform: translateX(-100%);
-  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 .mobile-nav-menu.active {
   transform: translateX(0);
   pointer-events: auto;
+  animation: menuBounce 0.45s both;
 }
 .mobile-nav-menu a {
   display: block;
-  padding: var(--space-sm) var(--space-lg);
-  color: var(--text-secondary);
-  font-weight: 500;
+  width: 100%;
+  padding: 12px 24px;
+  color: var(--text-primary);
+  font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  transition: var(--transition-fast);
-  font-size: 20px;
+  transition: background-color 0.3s ease;
+  font-size: 1.1rem;
 }
 .mobile-nav-menu a:hover {
   background-color: var(--bg-main);
@@ -359,6 +365,22 @@ body {
 
 body.no-scroll {
   overflow: hidden;
+  height: 100vh;
+}
+
+@keyframes menuBounce {
+  0% {
+    transform: translateX(100%);
+  }
+  60% {
+    transform: translateX(-15px);
+  }
+  80% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }
 
 /* ==========================================================================
