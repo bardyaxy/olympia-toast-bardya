@@ -467,17 +467,16 @@ body.no-scroll {
 .btn-call-bardya i.fa-phone-alt {
   font-size: 0.9em;
   color: #fff;
-  transform: scaleX(-1);
   animation: phoneWiggle 1.5s infinite;
 }
 
 @keyframes phoneWiggle {
   0%,
   100% {
-    transform: scaleX(-1) rotate(0deg);
+    transform: rotate(-15deg);
   }
   50% {
-    transform: scaleX(-1) rotate(180deg);
+    transform: rotate(15deg);
   }
 }
 
