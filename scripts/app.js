@@ -127,27 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
    * Popup Functionality (Schedule Call)
    * ==========================================================================
    */
-  function openSchedulePopup(triggeredByElement) {
-    if (!schedulePopupOverlay) return;
-
-    lastFocusedElementBeforePopup =
-      triggeredByElement || document.activeElement;
-
-    if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML = '';
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', CHILIPIPER_LINK);
-      iframe.setAttribute('title', 'Book a meeting with Bardya Banihashemi');
-      chiliPiperCalendarElement.appendChild(iframe);
-    }
-
-    schedulePopupOverlay.classList.add('active');
-    toggleBackgroundElementsAriaHidden(true);
-
-    if (closeSchedulePopupBtn) {
-      closeSchedulePopupBtn.focus();
-    }
-  }
 
   function closeSchedulePopup() {
     if (!schedulePopupOverlay) return;

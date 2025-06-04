@@ -205,11 +205,6 @@ body {
   letter-spacing: 0.02em;
 }
 
-/* Lightning icon inside announcement badge */
-.announcement-badge .lightning-icon {
-  color: inherit;
-  animation: pulseLightning 1.5s infinite ease-in-out;
-}
 .announcement-banner .fa-arrow-right-long {
   transform: translateY(3px);
   font-size: 1.2em;
@@ -222,15 +217,6 @@ body {
   font-size: 14px;
 }
 
-@keyframes pulseLightning {
-  0%,
-  100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.15);
-  }
-}
 
 /* ==========================================================================
    4. Header & Navigation
@@ -260,7 +246,7 @@ body {
 }
 
 .toast-header-logo-img {
-  height: 36px;
+  height: 32.4px;
   width: auto;
   object-fit: contain;
 }
@@ -1584,7 +1570,7 @@ body.no-scroll {
 /* Even Smaller Mobile Devices */
 @media (max-width: 400px) {
   .toast-header-logo-img {
-    height: 28px;
+    height: 25.2px;
   }
   .btn-call-bardya {
     font-size: 0.75em;
