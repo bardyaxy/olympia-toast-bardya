@@ -1470,14 +1470,21 @@ body.no-scroll {
 /* Very Small Mobile Devices */
 @media (max-width: 480px) {
   .header-content {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: var(--space-xs);
   }
   .header-actions {
-    width: 100%;
-    justify-content: space-between;
-    margin-top: var(--space-xs);
+    width: auto;
+    justify-content: flex-end;
+    margin-top: 0;
     gap: var(--space-xs);
+  }
+  .btn-call-bardya {
+    font-size: 0.8em;
+    padding: 6px 10px;
+  }
+  .btn-call-bardya .call-text {
+    display: none;
   }
   .announcement-banner {
     font-size: 0.85em;
