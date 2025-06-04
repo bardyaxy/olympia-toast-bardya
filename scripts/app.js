@@ -315,6 +315,7 @@ document.addEventListener('DOMContentLoaded', () => {
       menuToggleBtn.setAttribute('aria-expanded', 'false');
       menuToggleBtn.classList.remove('active');
       document.body.classList.remove('no-scroll');
+      document.documentElement.classList.remove('no-scroll');
       if (mobileNavOverlay) {
         mobileNavOverlay.classList.remove('active');
         mobileNavOverlay.setAttribute('aria-hidden', 'true');
@@ -389,6 +390,7 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNavMenu.setAttribute('aria-hidden', String(!isExpanded));
       mobileNavOverlay.setAttribute('aria-hidden', String(!isExpanded));
       document.body.classList.toggle('no-scroll', isExpanded);
+      document.documentElement.classList.toggle('no-scroll', isExpanded);
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.toggle('fa-grip-lines', !isExpanded);
