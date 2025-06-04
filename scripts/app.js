@@ -6,7 +6,7 @@
 /* global gtag */
 
 // Import main stylesheet so webpack bundles it
-import '../styles/style.css';
+import '../styles/main.css';
 
 // Wait for the DOM to be fully loaded before executing scripts
 document.addEventListener('DOMContentLoaded', () => {

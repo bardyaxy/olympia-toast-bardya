@@ -73,7 +73,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/main.css" />
     <link rel="preload" href="scripts/app.js" as="script" />
 
     <script
@@ -150,7 +150,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <noscript><link rel="stylesheet" href="styles/style.css" /></noscript>
+    <noscript><link rel="stylesheet" href="styles/main.css" /></noscript>
   </head>
   <body>
     <a href="#page1-main-content" class="skip-link">Skip to main content</a>
@@ -330,9 +330,8 @@
       </main>
     </div>
 
-    <%- include('includes/footer.html') %>
-
-    <%- include('includes/schedule-call-popup.html') %>
+    <%- include('includes/footer.html') %> <%-
+    include('includes/schedule-call-popup.html') %>
     <script src="scripts/app.js" defer></script>
   </body>
 </html>

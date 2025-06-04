@@ -1,0 +1,58 @@
+/* ==========================================================================
+   2. Global Styles & Resets
+   ========================================================================== */
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+
+*:focus {
+  outline: none;
+}
+
+::selection {
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+}
+
+body {
+  font-family: var(--font-family-base);
+  margin: 0;
+  padding: 0; /* Remove space under sticky CTA */
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -999px;
+  left: 0;
+  background: var(--toast-neutral-darkest);
+  color: var(--toast-neutral-lightest);
+  padding: var(--space-sm) var(--space-md);
+  z-index: 10002;
+  text-decoration: none;
+  border-radius: 0 0 var(--space-xs) 0;
+  transition: top 0.1s ease-in-out;
+}
+.skip-link:focus {
+  top: 0;
+}
