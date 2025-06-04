@@ -1,0 +1,124 @@
+/* ==========================================================================
+   7. Features Section
+   ========================================================================== */
+.features-section {
+}
+.features-section .section-title {
+  font-size: 1.8em;
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+}
+.features-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  margin-top: var(--space-lg);
+}
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--bg-card);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--card-shadow);
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    var(--transition-main),
+    opacity var(--transition-main),
+    transform var(--transition-main);
+}
+.feature-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.feature-item:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.feature-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3px;
+}
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.feature-text-content h3 {
+  font-size: 1.25em;
+  color: var(--text-primary);
+  margin: 0 0 var(--space-xs);
+  font-weight: 600;
+}
+.feature-text-content p {
+  font-size: 0.95em;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ==========================================================================
+   7a. Scrolling Highlights Marquee
+   ========================================================================== */
+.marquee-section {
+  background-color: var(--bg-section-alt);
+  padding: var(--space-lg) 0;
+}
+.marquee-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+.marquee {
+  display: flex;
+  gap: 4rem;
+  padding: var(--space-md) 0;
+  list-style: none;
+  margin: 0;
+  animation: marqueeScroll 12s linear infinite;
+  width: max-content;
+  flex: 0 0 auto;
+}
+.marquee li {
+  white-space: nowrap;
+  font-size: 1.15rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.marquee li .check-icon {
+  width: 18px;
+  height: 16px;
+  flex-shrink: 0;
+}
+@keyframes marqueeScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

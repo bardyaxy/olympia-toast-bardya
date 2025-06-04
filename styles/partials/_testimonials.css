@@ -1,0 +1,146 @@
+/* ==========================================================================
+   9. Testimonial / Local Proof Section
+   ========================================================================== */
+.local-proof {
+  text-align: center;
+  padding-bottom: 50px;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: var(--transition-main);
+}
+.local-proof.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.testimonial-carousel-wrapper {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  padding: var(--space-xl) var(--space-lg) var(--space-lg);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border-color);
+}
+.testimonial-carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  min-height: 220px;
+  cursor: grab;
+  user-select: text;
+  -webkit-user-select: text;
+}
+.testimonial-carousel-container:active {
+  cursor: grabbing;
+}
+.testimonial-carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 0 var(--space-md);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: transform, opacity;
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition:
+    opacity 0.5s ease-in-out,
+    transform 0.5s ease-in-out;
+}
+.testimonial-carousel-item.active-slide {
+  opacity: 1;
+  transform: scale(1);
+}
+.testimonial-image-placeholder {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: var(--btn-subtle-hover-bg);
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8em;
+  color: var(--text-tertiary);
+  border: 2px solid var(--bg-main);
+  overflow: hidden;
+}
+.testimonial-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.testimonial-carousel-item p {
+  font-style: italic;
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  margin-bottom: var(--space-md);
+  line-height: 1.7;
+  max-width: 600px;
+  margin: 0 auto var(--space-md);
+}
+.testimonial-carousel-item p::before {
+  content: '“';
+  font-size: 2.5em;
+  color: var(--accent-color);
+  font-weight: 700;
+  display: inline-block;
+  margin-right: var(--space-xs);
+  line-height: 0.8;
+}
+.testimonial-carousel-item span {
+  display: block;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.95em;
+  margin-top: var(--space-sm);
+}
+.testimonial-carousel-dots {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+.carousel-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: var(--text-tertiary);
+  border-radius: 50%;
+  margin: 0 var(--space-xs);
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease;
+}
+.carousel-dot.active {
+  background-color: var(--accent-color);
+  transform: scale(1.2);
+}
+.carousel-nav {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+.carousel-arrow {
+  background-color: var(--text-tertiary);
+  color: var(--text-on-dark-bg);
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  font-size: 1.2em;
+  line-height: 35px;
+  text-align: center;
+  cursor: pointer;
+  margin: 0 var(--space-sm);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+.carousel-arrow:hover {
+  background-color: var(--accent-color);
+  transform: scale(1.1);
+}
+.carousel-arrow:focus {
+  outline: none;
+}

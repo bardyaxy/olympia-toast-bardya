@@ -39,6 +39,6 @@ test('creates asset manifest', () => {
   const manifestPath = path.join(rootDir, 'dist', 'asset-manifest.json');
   assert.ok(fs.existsSync(manifestPath), 'manifest exists');
   const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
-  assert.ok(manifest['styles/style.css'], 'css entry present');
+  assert.ok(manifest['styles/main.css'], 'css entry present');
   assert.ok(manifest['scripts/app.js'], 'js entry present');
 });

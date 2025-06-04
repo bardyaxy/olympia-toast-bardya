@@ -1,0 +1,51 @@
+/* ==========================================================================
+   6. Hero Section
+   ========================================================================== */
+.hero {
+  text-align: center;
+  padding: 70px var(--space-lg) 60px;
+  background-color: var(--toast-neutral-darkest);
+  background-image:
+    linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)),
+    var(--hero-bg-image);
+  background-size: cover;
+  background-position: center center;
+  color: var(--text-on-dark-bg);
+  margin-bottom: 0;
+}
+.hero h1 {
+  font-size: 2.8em;
+  color: var(--text-on-dark-bg);
+  margin: 0 0 var(--space-lg);
+  font-weight: 700;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+  line-height: 1.25;
+}
+.hero .subtitle {
+  font-size: 1.3em;
+  margin: 0 auto var(--space-xl);
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 700px;
+  font-weight: 400;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.hero .btn {
+  margin-top: var(--space-sm);
+  font-size: 1.15em;
+}
+
+/* ==========================================================================
+   6a. Section Divider
+   ========================================================================== */
+.section-divider {
+  display: block;
+  width: 100%;
+  height: 80px;
+  line-height: 0;
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    height: 120px;
+  }
+}

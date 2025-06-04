@@ -70,7 +70,7 @@ export function build(rootDir = path.join(__dirname, '..')) {
 
   // map generated css/js into manifest
   if (cssFile) {
-    assetMap['styles/style.css'] = `assets/${cssFile}`;
+    assetMap['styles/main.css'] = `assets/${cssFile}`;
   }
   if (jsFile) {
     assetMap['scripts/app.js'] = `assets/${jsFile}`;
