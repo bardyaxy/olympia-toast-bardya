@@ -70,17 +70,17 @@
   font-size: 1.05em;
   text-align: left;
 }
-.why-toast-list {
+.why-BCB-list {
   list-style: none;
   padding-left: 0;
 }
-.why-toast-list li {
+.why-BCB-list li {
   position: relative;
   padding-left: 25px;
   margin-bottom: var(--space-sm);
   font-size: 1.05em;
 }
-.why-toast-list li::before {
+.why-BCB-list li::before {
   content: '\f00c';
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;

@@ -283,7 +283,7 @@
 
 /* Even Smaller Mobile Devices */
 @media (max-width: 400px) {
-  .toast-header-logo-img {
+  .BCB-header-logo-img {
     height: 37.8px;
   }
   .btn-call-bardya {

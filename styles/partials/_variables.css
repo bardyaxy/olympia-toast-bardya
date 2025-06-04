@@ -3,29 +3,29 @@
    ========================================================================== */
 :root {
   /* Color Scheme */
-  --toast-primary-orange: #6F00FF;
-  --toast-secondary-orange-dark: #5a00cc;
-  --toast-brand-blue: #2b4fb9;
+  --BCB-primary-orange: #6F00FF;
+  --BCB-secondary-orange-dark: #5a00cc;
+  --BCB-brand-blue: #2b4fb9;
 
-  --toast-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */
+  --BCB-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */
 
-  --toast-neutral-dark: #333d4f; /* Secondary Text */
-  --toast-neutral-medium: #6b778d; /* Tertiary Text, Icons, Borders */
-  --toast-neutral-light: #f0f3f5; /* Main Page Background */
-  --toast-neutral-lighter: #f8f9fa; /* Alternate Section Background */
-  --toast-neutral-lightest: #ffffff; /* Text on Dark BG, Card Backgrounds */
+  --BCB-neutral-dark: #333d4f; /* Secondary Text */
+  --BCB-neutral-medium: #6b778d; /* Tertiary Text, Icons, Borders */
+  --BCB-neutral-light: #f0f3f5; /* Main Page Background */
+  --BCB-neutral-lighter: #f8f9fa; /* Alternate Section Background */
+  --BCB-neutral-lightest: #ffffff; /* Text on Dark BG, Card Backgrounds */
 
   /* Semantic Text & Background Colors */
-  --text-primary: var(--toast-neutral-darkest);
-  --text-secondary: var(--toast-neutral-dark);
-  --text-tertiary: var(--toast-neutral-medium);
-  --text-on-dark-bg: var(--toast-neutral-lightest);
-  --text-accent: var(--toast-primary-orange);
+  --text-primary: var(--BCB-neutral-darkest);
+  --text-secondary: var(--BCB-neutral-dark);
+  --text-tertiary: var(--BCB-neutral-medium);
+  --text-on-dark-bg: var(--BCB-neutral-lightest);
+  --text-accent: var(--BCB-primary-orange);
 
-  --bg-main: var(--toast-neutral-light);
-  --bg-section-alt: var(--toast-neutral-lighter);
-  --bg-card: var(--toast-neutral-lightest);
-  --bg-cta-solid: var(--toast-neutral-darkest);
+  --bg-main: var(--BCB-neutral-light);
+  --bg-section-alt: var(--BCB-neutral-lighter);
+  --bg-card: var(--BCB-neutral-lightest);
+  --bg-cta-solid: var(--BCB-neutral-darkest);
 
   /* Typography */
   --font-family-base: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -34,8 +34,8 @@
   --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
 
   /* Accent Colors */
-  --accent-color: var(--toast-primary-orange);
-  --accent-color-darker: var(--toast-secondary-orange-dark);
+  --accent-color: var(--BCB-primary-orange);
+  --accent-color-darker: var(--BCB-secondary-orange-dark);
 
   /* Borders */
   --border-light: #e2e8f0; /* General light border */
