@@ -28,12 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // General Elements
   const currentYearElement = document.getElementById('currentYear');
-  const siteHeader = document.querySelector('.site-header');
-  const siteFooter = document.querySelector('.site-footer');
   const headerActions = document.querySelector('.header-actions');
 
-  // Popup Elements
-  const schedulePopupOverlay = document.getElementById('schedule-call-popup');
+  // CTA Elements
   const openPopupButtons = [
     document.getElementById('heroProfitCheckBtn'),
     document.getElementById('walkThroughBtn'),
@@ -44,18 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
   const walkThroughBtnEl = document.getElementById('walkThroughBtn');
   const resourcesContactBtn = document.getElementById('resourcesContactBtn');
-  const closeSchedulePopupBtn = document.getElementById(
-    'closeSchedulePopupBtn',
-  );
-  const chiliPiperCalendarElement = document.getElementById(
-    'chiliPiperCalendarElement',
-  );
 
   // Page Navigation Elements
-  const mainPage1 = document.getElementById('page1');
-  const mainPage2 = document.getElementById('page2');
-  const mainPage3 = document.getElementById('page3');
-  const mainPage4 = document.getElementById('page4');
   const backToHomeBtn = document.getElementById('backToHomeBtn');
   const resourcesBackBtn = document.getElementById('resourcesBackBtn');
   const aboutMeBackBtn = document.getElementById('aboutMeBackBtn');
@@ -88,7 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
    * State Variables
    * ==========================================================================
    */
-  let lastFocusedElementBeforePopup;
   let currentCarouselItem = 0;
   let carouselInterval;
   let touchStartX = 0;
@@ -101,123 +87,12 @@ document.addEventListener('DOMContentLoaded', () => {
    * ==========================================================================
    */
 
-  function toggleBackgroundElementsAriaHidden(isHidden) {
-    const elementsToToggle = [
-      mainPage1,
-      mainPage2,
-      mainPage3,
-      mainPage4,
-      siteHeader,
-      siteFooter,
-      stickyCtaBar,
-    ];
-    elementsToToggle.forEach((el) => {
-      if (el) {
-        if (isHidden) {
-          el.setAttribute('aria-hidden', 'true');
-        } else {
-          el.removeAttribute('aria-hidden');
-        }
-      }
-    });
-  }
-
-  /**
-   * ==========================================================================
-   * Popup Functionality (Schedule Call)
-   * ==========================================================================
-   */
-  function openSchedulePopup(triggeredByElement) {
-    if (!schedulePopupOverlay) return;
-
-    lastFocusedElementBeforePopup =
-      triggeredByElement || document.activeElement;
-
-    if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML = '';
-      const iframe = document.createElement('iframe');
-      iframe.setAttribute('src', CHILIPIPER_LINK);
-      iframe.setAttribute('title', 'Book a meeting with Bardya Banihashemi');
-      chiliPiperCalendarElement.appendChild(iframe);
-    }
-
-    schedulePopupOverlay.classList.add('active');
-    toggleBackgroundElementsAriaHidden(true);
-
-    if (closeSchedulePopupBtn) {
-      closeSchedulePopupBtn.focus();
-    }
-  }
-
-  function closeSchedulePopup() {
-    if (!schedulePopupOverlay) return;
-
-    schedulePopupOverlay.classList.remove('active');
-    if (chiliPiperCalendarElement) {
-      chiliPiperCalendarElement.innerHTML =
-        '<p style="color: #777; padding: 20px; text-align:center;">Scheduler closed.</p>';
-    }
-    toggleBackgroundElementsAriaHidden(false);
-
-    if (
-      lastFocusedElementBeforePopup &&
-      typeof lastFocusedElementBeforePopup.focus === 'function'
-    ) {
-      lastFocusedElementBeforePopup.focus();
-    }
-  }
-
   openPopupButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      openSchedulePopup(button);
+      window.location.href = CHILIPIPER_LINK;
     });
   });
-
-  if (closeSchedulePopupBtn) {
-    closeSchedulePopupBtn.addEventListener('click', closeSchedulePopup);
-  }
-
-  if (schedulePopupOverlay) {
-    schedulePopupOverlay.addEventListener('click', (event) => {
-      if (event.target === schedulePopupOverlay) {
-        closeSchedulePopup();
-      }
-    });
-
-    schedulePopupOverlay.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        closeSchedulePopup();
-      }
-      if (
-        event.key === 'Tab' &&
-        schedulePopupOverlay.classList.contains('active')
-      ) {
-        const focusableElements = Array.from(
-          schedulePopupOverlay.querySelectorAll(
-            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"]), iframe',
-          ),
-        ).filter((el) => el.offsetParent !== null);
-
-        if (!focusableElements.length) return;
-
-        const firstFocusable = focusableElements[0];
-        const lastFocusable = focusableElements[focusableElements.length - 1];
-
-        if (event.shiftKey) {
-          if (document.activeElement === firstFocusable) {
-            lastFocusable.focus();
-            event.preventDefault();
-          }
-        } else {
-          if (document.activeElement === lastFocusable) {
-            firstFocusable.focus();
-            event.preventDefault();
-          }
-        }
-      }
-    });
-  }
 
   /**
    * ==========================================================================
