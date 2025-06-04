@@ -27,7 +27,7 @@
   margin: 0 auto var(--space-xl);
 }
 .cta-solid-bg .btn {
-  background-color: var(--toast-neutral-lightest);
+  background-color: var(--BCB-neutral-lightest);
   color: var(--text-primary);
   box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
 }

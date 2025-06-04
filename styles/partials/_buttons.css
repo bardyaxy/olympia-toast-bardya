@@ -32,7 +32,7 @@
   gap: 8px;
   padding: 8px 16px;
   font-size: 0.95em;
-  background-color: var(--toast-primary-orange);
+  background-color: var(--BCB-primary-orange);
   color: #fff;
   border: none;
   border-radius: var(--border-radius-button);
@@ -47,13 +47,13 @@
   font-weight: 600;
 }
 .btn-call-bardya .word-call {
-  color: var(--toast-brand-blue);
+  color: var(--BCB-brand-blue);
 }
 .btn-call-bardya .phone-number {
   color: #fff;
 }
 .btn-call-bardya:hover {
-  background-color: var(--toast-secondary-orange-dark);
+  background-color: var(--BCB-secondary-orange-dark);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation-play-state: paused;

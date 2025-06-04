@@ -4,7 +4,7 @@
 .hero {
   text-align: center;
   padding: 70px var(--space-lg) 60px;
-  background-color: var(--toast-neutral-darkest);
+  background-color: var(--BCB-neutral-darkest);
   background-image:
     linear-gradient(var(--bg-hero-overlay-start), var(--bg-hero-overlay-end)),
     var(--hero-bg-image);

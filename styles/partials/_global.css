@@ -45,8 +45,8 @@ body {
   position: absolute;
   top: -999px;
   left: 0;
-  background: var(--toast-neutral-darkest);
-  color: var(--toast-neutral-lightest);
+  background: var(--BCB-neutral-darkest);
+  color: var(--BCB-neutral-lightest);
   padding: var(--space-sm) var(--space-md);
   z-index: 10002;
   text-decoration: none;
