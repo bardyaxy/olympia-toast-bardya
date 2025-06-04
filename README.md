@@ -63,3 +63,8 @@ Run `npm run serve` to start an Express server that applies these headers:
 The repository includes `robots.txt` and `sitemap.xml` at the project root.
 They are copied to the `dist/` directory during the build so search engines can
 discover all pages of the site.
+
+## Deploying to Netlify
+
+A simple `netlify.toml` file is included so Netlify will build the project with `npm run build` and publish the generated `dist/` directory. Make sure your site settings use this repository and the default build command to ensure the EJS templates are compiled correctly. Without this step your deployed pages will still contain the raw `<%- include %>` tags and appear blank.
+
