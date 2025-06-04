@@ -8,12 +8,14 @@
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400..700;1,400..700&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400..700;1,400..700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preload" href="styles/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <link rel="preload" href="scripts/app.js" as="script" />
     <meta
       name="description"
       content="Discover why Toast is a great fit for your restaurant and download free resources from Bardya Banihashemi."
@@ -59,7 +61,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="styles/style.css" />
+    <noscript><link rel="stylesheet" href="styles/style.css" /></noscript>
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
