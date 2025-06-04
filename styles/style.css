@@ -26,6 +26,9 @@
   --bg-card: var(--toast-neutral-lightest);
   --bg-cta-solid: var(--toast-neutral-darkest);
 
+  /* Typography */
+  --font-family-base: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
   --bg-hero-overlay-start: rgba(10, 37, 64, 0.6);
   --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
 
@@ -96,7 +99,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-base);
   margin: 0;
   padding: 0; /* Remove space under sticky CTA */
   background-color: var(--bg-main);
