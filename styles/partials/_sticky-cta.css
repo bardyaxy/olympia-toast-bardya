@@ -33,8 +33,8 @@
   transform: translateY(0);
 }
 .sticky-cta-bar .btn {
-  background-color: var(--toast-neutral-lightest);
-  color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
   padding: 14px 36px; /* 15% larger dimensions */
   font-size: 1.3em; /* slightly bigger text */
   font-weight: 600;
