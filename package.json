@@ -5,6 +5,7 @@
   "scripts": {
     "build:assets": "webpack --config webpack.config.js",
     "build": "npm run build:assets && ts-node scripts/build.ts",
+    "build:eleventy": "eleventy",
     "serve": "ts-node scripts/serve.ts",
     "format": "prettier --write \"**/*.{js,ts,css,html}\"",
     "lint": "eslint \"**/*.{js,ts}\" --max-warnings 0",
@@ -17,6 +18,8 @@
     "express": "^4.18.2"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.1",
+    "@11ty/eleventy-plugin-ejs": "^1.0.0",
     "@eslint/js": "^8.53.0",
     "@types/ejs": "^3.1.5",
     "@types/node": "^20.11.0",
