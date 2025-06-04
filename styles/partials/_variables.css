@@ -3,8 +3,8 @@
    ========================================================================== */
 :root {
   /* Color Scheme */
-  --toast-primary-orange: #fa5a0a;
-  --toast-secondary-orange-dark: #e04f0a;
+  --toast-primary-orange: #6F00FF;
+  --toast-secondary-orange-dark: #5a00cc;
   --toast-brand-blue: #2b4fb9;
 
   --toast-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */

@@ -1,6 +1,6 @@
-# Olympia Toast Bardya
+# Olympia BCB Bardya
 
-This project is a lightweight promotional site for Toast POS services in Olympia, WA. It showcases Bardya Banihashemi's local expertise, links to useful resources, and provides contact information for businesses interested in learning more.
+This project is a lightweight promotional site showcasing Bardya Banihashemi's local expertise, links to useful resources, and provides contact information for businesses interested in learning more.
 
 ## Prerequisites
 
