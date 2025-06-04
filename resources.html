@@ -129,48 +129,7 @@
     </div>
     <%- include('includes/footer.html') %>
 
-    <aside
-      class="sticky-cta-bar"
-      id="stickyCta"
-      aria-label="Sticky Call to Action"
-    >
-      <button class="btn" id="stickyBookCallBtn">
-        <i class="fas fa-calendar-alt" aria-hidden="true"></i> Book a call with
-        Bardya
-      </button>
-    </aside>
-
-    <button id="backToTopBtn" class="back-to-top" aria-label="Back to top">
-      <i class="fas fa-chevron-up" aria-hidden="true"></i>
-    </button>
-    <div
-      class="popup-overlay"
-      id="schedule-call-popup"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="popupTitleElement"
-      aria-hidden="true"
-    >
-      <div class="popup-content">
-        <div class="popup-header">
-          <h3 id="popupTitleElement">Schedule a Time with Bardya</h3>
-          <button
-            class="popup-close"
-            id="closeSchedulePopupBtn"
-            aria-label="Close scheduling popup"
-          >
-            ×
-          </button>
-        </div>
-        <div
-          id="chiliPiperCalendarElement"
-          role="application"
-          aria-label="Scheduling Calendar"
-        >
-          <p>Loading Scheduler…</p>
-        </div>
-      </div>
-    </div>
+    <%- include('includes/schedule-call-popup.html') %>
     <script src="scripts/app.js" defer></script>
   </body>
 </html>
