@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
-const { execSync } = require('child_process');
-const ejs = require('ejs');
+import fs from 'fs';
+import path from 'path';
+import crypto from 'crypto';
+import { execSync } from 'child_process';
+import ejs from 'ejs';
 
 const rootDir = path.join(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
@@ -21,7 +21,7 @@ const cssFile = assetFiles.find((f) => f.endsWith('.css'));
 const jsFile = assetFiles.find((f) => f.endsWith('.js'));
 
 // fingerprint static images/icons
-const assetMap = {};
+const assetMap: Record<string, string> = {};
 const imageRegex = /\.(png|jpe?g|svg|ico)$/i;
 const imagesDir = path.join(rootDir, 'img');
 fs.readdirSync(imagesDir).forEach((file) => {

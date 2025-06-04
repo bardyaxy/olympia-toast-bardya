@@ -1,6 +1,6 @@
-const express = require('express');
-const compression = require('compression');
-const path = require('path');
+import express from 'express';
+import compression from 'compression';
+import path from 'path';
 
 const app = express();
 const distDir = path.join(__dirname, '..', 'dist');
@@ -26,7 +26,7 @@ app.use(
   }),
 );
 
-const port = process.env.PORT || 8080;
+const port = Number(process.env.PORT) || 8080;
 app.listen(port, () => {
   console.log(`Serving on http://localhost:${port}`);
 });

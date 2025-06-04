@@ -8,7 +8,7 @@ The build scripts assume **Node.js 18 or newer**. Install a current LTS release 
 
 ## Building the Site
 
-The HTML pages are assembled by a small Node.js script located in `scripts/build.js`.
+The HTML pages are assembled by a small TypeScript script located in `scripts/build.ts`.
 Templates use [EJS](https://ejs.co/) so common elements like the header and footer
 are included from the `includes/` directory.
 Install dependencies once and then run the build command:
@@ -27,12 +27,12 @@ change:
 npm run watch
 ```
 
-This script monitors source HTML, CSS and JavaScript files and re-runs the build
+This script monitors source HTML, CSS and TypeScript files and re-runs the build
 each time one of them updates.
 
 ## Repository Layout
 
-- `scripts/` – JavaScript files including the build script and site logic
+ - `scripts/` – TypeScript files including the build script and site logic
 - `styles/` – CSS stylesheet
 - `includes/` – HTML snippets for the header and footer
 - HTML pages remain at the project root
