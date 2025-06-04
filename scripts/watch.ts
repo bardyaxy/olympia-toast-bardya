@@ -1,8 +1,8 @@
-const chokidar = require('chokidar');
-const { spawn } = require('child_process');
+import chokidar from 'chokidar';
+import { spawn } from 'child_process';
 
 const watchPaths = [
-  'scripts/**/*.js',
+  'scripts/**/*.{js,ts}',
   'styles/**/*.css',
   'includes/**/*.html',
   'img/**/*',
@@ -11,7 +11,13 @@ const watchPaths = [
 ];
 
 function runBuild() {
-  const proc = spawn('node', ['scripts/build.js'], { stdio: 'inherit' });
+  const proc = spawn(
+    process.execPath,
+    ['-r', 'ts-node/register', 'scripts/build.ts'],
+    {
+      stdio: 'inherit',
+    },
+  );
   proc.on('close', (code) => {
     if (code !== 0) {
       console.error(`Build exited with code ${code}`);
