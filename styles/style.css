@@ -207,7 +207,6 @@ body {
   transform: translateY(3px);
 }
 
-
 @keyframes pulseLightning {
   0%,
   100% {
@@ -473,6 +472,22 @@ body.no-scroll {
 .hero .btn {
   margin-top: var(--space-sm);
   font-size: 1.15em;
+}
+
+/* ==========================================================================
+   6a. Section Divider
+   ========================================================================== */
+.section-divider {
+  display: block;
+  width: 100%;
+  height: 80px;
+  line-height: 0;
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    height: 120px;
+  }
 }
 
 /* ==========================================================================
@@ -1289,7 +1304,7 @@ body.no-scroll {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
 }
- /* Medium mobile screens */
+/* Medium mobile screens */
 @media (max-width: 850px) {
   .announcement-banner {
     padding: 15px 0;
@@ -1306,7 +1321,6 @@ body.no-scroll {
     font-size: 0.9em;
   }
 }
-
 
 /* Smaller Tablets and Large Mobile */
 @media (max-width: 768px) {
