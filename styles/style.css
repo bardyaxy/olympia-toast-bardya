@@ -298,13 +298,13 @@ body {
 /* Mobile Menu Toggle */
 .menu-toggle {
   display: none;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   border: none;
   border-radius: 4px;
   background-color: var(--accent-color);
   color: #fff;
-  font-size: 1.4em;
+  font-size: 1.2em;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1587,7 +1587,7 @@ body.no-scroll {
     gap: var(--space-xs);
   }
   .menu-toggle {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
   .announcement-banner {
     font-size: 0.8em;

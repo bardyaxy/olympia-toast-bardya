@@ -343,7 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
         icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
+        icon.classList.add('fa-grip-lines');
       }
     }
 
@@ -412,7 +412,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.classList.toggle('no-scroll', isExpanded);
       const icon = menuToggleBtn.querySelector('i');
       if (icon) {
-        icon.classList.toggle('fa-bars', !isExpanded);
+        icon.classList.toggle('fa-grip-lines', !isExpanded);
         icon.classList.toggle('fa-times', isExpanded);
       }
     };
