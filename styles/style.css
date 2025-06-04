@@ -193,21 +193,26 @@ body {
 }
 /* Badge styling for promo keyword like "SUMMER" */
 .announcement-badge {
-  display: inline-block;
-  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 6px;
+  background-color: var(--text-on-dark-bg);
+  color: var(--accent-color);
   font-weight: 600;
   font-size: 0.75em;
   margin-right: var(--space-xs);
+  border-radius: var(--border-radius-small);
   letter-spacing: 0.02em;
 }
 
 /* Lightning icon inside announcement badge */
 .announcement-badge .lightning-icon {
-  color: #000;
+  color: inherit;
   animation: pulseLightning 1.5s infinite ease-in-out;
 }
-.announcement-banner .fa-arrow-right {
+.announcement-banner .fa-arrow-right-long {
   transform: translateY(3px);
+  font-size: 1.2em;
 }
 
 /* Text inside the announcement banner */
@@ -1342,8 +1347,8 @@ body.no-scroll {
   .announcement-badge {
     font-size: 0.7em;
   }
-  .announcement-banner .fa-arrow-right {
-    font-size: 0.9em;
+  .announcement-banner .fa-arrow-right-long {
+    font-size: 1em;
   }
 }
 
