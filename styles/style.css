@@ -452,6 +452,9 @@ body.no-scroll {
 .btn-call-bardya .call-text {
   font-weight: 600;
 }
+.btn-call-bardya .word-call {
+  color: var(--toast-brand-blue);
+}
 .btn-call-bardya .phone-number {
   color: #fff;
 }
