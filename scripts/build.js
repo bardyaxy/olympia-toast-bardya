@@ -56,6 +56,14 @@ if (fs.existsSync(cnameSrc)) {
   fs.copyFileSync(cnameSrc, path.join(distDir, 'CNAME'));
 }
 
+// copy SEO files if present
+['robots.txt', 'sitemap.xml'].forEach((file) => {
+  const src = path.join(rootDir, file);
+  if (fs.existsSync(src)) {
+    fs.copyFileSync(src, path.join(distDir, file));
+  }
+});
+
 const header = fs.readFileSync(path.join(includesDir, 'header.html'), 'utf8');
 const footer = fs.readFileSync(path.join(includesDir, 'footer.html'), 'utf8');
 

@@ -55,3 +55,9 @@ Run `npm run serve` to start an Express server that applies these headers:
 
 - `Cache-Control: no-cache, must-revalidate` for HTML
 - `Cache-Control: public, max-age=31536000, immutable` for static assets
+
+## SEO and Indexing
+
+The repository includes `robots.txt` and `sitemap.xml` at the project root.
+They are copied to the `dist/` directory during the build so search engines can
+discover all pages of the site.
