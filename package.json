@@ -8,7 +8,8 @@
     "serve": "ts-node scripts/serve.ts",
     "format": "prettier --write \"**/*.{js,ts,css,html}\"",
     "lint": "eslint \"**/*.{js,ts}\" --max-warnings 0",
-    "watch": "ts-node scripts/watch.ts"
+    "watch": "ts-node scripts/watch.ts",
+    "test": "node --require ts-node/register --test test/build.test.ts test/integration.test.ts"
   },
   "dependencies": {
     "compression": "^1.7.4",
