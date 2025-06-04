@@ -2,11 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 const { execSync } = require('child_process');
+const ejs = require('ejs');
 
 const rootDir = path.join(__dirname, '..');
 const distDir = path.join(rootDir, 'dist');
 const assetsDir = path.join(distDir, 'assets');
-const includesDir = path.join(rootDir, 'includes');
 
 // clean output
 fs.rmSync(distDir, { recursive: true, force: true });
@@ -64,16 +64,12 @@ if (fs.existsSync(cnameSrc)) {
   }
 });
 
-const header = fs.readFileSync(path.join(includesDir, 'header.html'), 'utf8');
-const footer = fs.readFileSync(path.join(includesDir, 'footer.html'), 'utf8');
-
 const pages = ['index.html', 'about.html', 'resources.html'];
 
 pages.forEach((page) => {
   const filePath = path.join(rootDir, page);
-  let html = fs.readFileSync(filePath, 'utf8');
-  html = html.replace('<!--#include file="includes/header.html" -->', header);
-  html = html.replace('<!--#include file="includes/footer.html" -->', footer);
+  const template = fs.readFileSync(filePath, 'utf8');
+  let html = ejs.render(template, {}, { filename: filePath });
   html = html.replace(/styles\/style\.css/g, `assets/${cssFile}`);
   html = html.replace(/scripts\/app\.js/g, `assets/${jsFile}`);
   Object.entries(assetMap).forEach(([orig, hashed]) => {
