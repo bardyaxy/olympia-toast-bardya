@@ -109,7 +109,10 @@ export function build(rootDir = path.join(__dirname, '..')) {
   pages.forEach((page) => {
     const filePath = path.join(rootDir, page);
     const template = fs.readFileSync(filePath, 'utf8');
-    let html = ejs.render(template, {}, { filename: filePath });
+    const templateData = {
+      GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID || '',
+    };
+    let html = ejs.render(template, templateData, { filename: filePath });
     Object.entries(assetMap).forEach(([orig, hashed]) => {
       html = html.replace(new RegExp(orig, 'g'), hashed);
     });
