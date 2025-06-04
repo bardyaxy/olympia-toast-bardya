@@ -224,7 +224,6 @@ body {
   font-size: 14px;
 }
 
-
 /* ==========================================================================
    4. Header & Navigation
    ========================================================================== */
@@ -318,7 +317,9 @@ body {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.35s ease, backdrop-filter 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    backdrop-filter 0.35s ease;
   backdrop-filter: blur(0);
   z-index: var(--z-mobile-overlay);
 }
@@ -364,7 +365,9 @@ body {
   font-weight: 600;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color 0.3s ease, border-left-color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-left-color 0.3s ease;
   font-size: 1.1rem;
   border-left: 4px solid transparent;
   border-bottom: 1px solid var(--border-light);
@@ -435,7 +438,7 @@ body.no-scroll {
   gap: 8px;
   padding: 8px 16px;
   font-size: 0.95em;
-  background-color: var(--toast-brand-blue);
+  background-color: var(--toast-primary-orange);
   color: #fff;
   border: none;
   border-radius: var(--border-radius-button);
@@ -450,10 +453,10 @@ body.no-scroll {
   font-weight: 600;
 }
 .btn-call-bardya .phone-number {
-  color: var(--text-secondary);
+  color: #fff;
 }
 .btn-call-bardya:hover {
-  background-color: #24409a;
+  background-color: var(--toast-secondary-orange-dark);
   transform: translateY(-1px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation-play-state: paused;
@@ -470,11 +473,8 @@ body.no-scroll {
   100% {
     transform: scaleX(-1) rotate(0deg);
   }
-  25% {
-    transform: scaleX(-1) rotate(15deg);
-  }
-  75% {
-    transform: scaleX(-1) rotate(-15deg);
+  50% {
+    transform: scaleX(-1) rotate(180deg);
   }
 }
 
@@ -1526,9 +1526,6 @@ body.no-scroll {
   .btn-call-bardya {
     font-size: 0.8em;
     padding: 6px 10px;
-  }
-  .btn-call-bardya .call-text {
-    display: none;
   }
   .announcement-banner {
     font-size: 0.85em;
