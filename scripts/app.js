@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
   openPopupButtons.forEach((button) => {
     button.addEventListener('click', (event) => {
       event.preventDefault();
-      openSchedulePopup(button);
+      window.location.href = CHILIPIPER_LINK;
     });
   });
 
