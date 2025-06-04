@@ -67,64 +67,7 @@
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <header class="site-header" role="banner">
-  <div class="container">
-    <div class="header-content">
-      <div class="header-logo">
-        <a href="/index.html" aria-label="Toast POS Home">
-          <img
-            src="img/toast-logo.png"
-            alt="Toast POS Logo"
-            loading="lazy"
-            class="toast-header-logo-img"
-            onerror="this.alt='Toast Logo'; this.src='https://placehold.co/120x36/FA5A0A/FFFFFF?text=Toast'; this.onerror=null;"
-          />
-        </a>
-      </div>
-      <nav class="header-actions" aria-label="Main navigation">
-        <div class="main-nav">
-          <a href="/about.html" class="nav-link">About Me</a>
-          <a href="/resources.html" class="nav-link"
-            >Why Toast & Free Resources</a
-          >
-        </div>
-        <a
-          href="tel:+13602153596"
-          class="btn-call-bardya"
-          aria-label="Call Bardya now"
-          title="Call Bardya now"
-        >
-          <i class="fas fa-phone-alt" aria-hidden="true"></i>
-          <div>
-            <span class="call-text">Call Bardya now</span>
-            <span class="phone-number">(360) 215-3596</span>
-          </div>
-        </a>
-        <button
-          class="menu-toggle"
-          id="menuToggleBtn"
-          aria-label="Open navigation menu"
-          aria-expanded="false"
-          aria-controls="mobileNavMenu"
-        >
-          <i class="fas fa-grip-lines" aria-hidden="true"></i>
-        </button>
-        <div
-          class="mobile-nav-overlay"
-          id="mobileNavOverlay"
-          aria-hidden="true"
-        ></div>
-        <div class="mobile-nav-menu" id="mobileNavMenu" aria-hidden="true">
-          <a href="/about.html" class="nav-link">About Me</a>
-          <a href="/resources.html" class="nav-link"
-            >Why Toast & Free Resources</a
-          >
-        </div>
-      </nav>
-    </div>
-  </div>
-</header>
-
+    <%- include("../includes/header.html") %>
 
     <div class="content-section section-alt-bg">
       <div class="container">
@@ -188,36 +131,7 @@
         </main>
       </div>
     </div>
-    <footer class="site-footer" role="contentinfo">
-  <div class="container">
-    <p>Bardya Banihashemi – Your Local Toast Account Executive in Olympia.</p>
-    <p>
-      Building relationships and strengthening Olympia’s restaurant community,
-      one partnership at a time.
-    </p>
-    <p>
-      Check out the official Toast website for more information:
-      <a
-        href="https://pos.toasttab.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        >pos.toasttab.com</a
-      >
-    </p>
-    <p>
-      <a
-        href="https://bettercallbardya.com"
-        target="_blank"
-        rel="noopener noreferrer"
-        >bettercallbardya.com</a
-      >
-    </p>
-    <p class="copyright">
-      &copy; <span id="currentYear"></span> Toast, Inc. All rights reserved.
-    </p>
-  </div>
-</footer>
-
+    <%- include("../includes/footer.html") %>
 
     <aside
       class="sticky-cta-bar"
