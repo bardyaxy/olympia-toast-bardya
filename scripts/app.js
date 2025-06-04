@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const SWIPE_THRESHOLD = 50; // px
   const SCROLL_THRESHOLD_STICKY_CTA = 100; // px
   const SCROLL_THRESHOLD_BACK_TO_TOP = 300; // px
+  const SCROLL_THRESHOLD_SHOW_MENU = 50; // px
 
   /**
    * ==========================================================================
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentYearElement = document.getElementById('currentYear');
   const siteHeader = document.querySelector('.site-header');
   const siteFooter = document.querySelector('.site-footer');
+  const headerActions = document.querySelector('.header-actions');
 
   // Popup Elements
   const schedulePopupOverlay = document.getElementById('schedule-call-popup');
@@ -279,6 +281,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.addEventListener('scroll', checkStickyCtaVisibility);
   checkStickyCtaVisibility();
+
+  function checkHeaderNavVisibility() {
+    if (headerActions) {
+      const shouldShow = window.scrollY > SCROLL_THRESHOLD_SHOW_MENU;
+      headerActions.classList.toggle('show-on-scroll', shouldShow);
+    }
+  }
+  window.addEventListener('scroll', checkHeaderNavVisibility);
+  checkHeaderNavVisibility();
 
   /**
    * ==========================================================================

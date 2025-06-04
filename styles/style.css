@@ -257,6 +257,17 @@ body {
   display: flex;
   align-items: center;
   gap: var(--space-md);
+  transition: opacity 0.3s ease;
+}
+
+.header-actions.hide-until-scroll {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.header-actions.show-on-scroll {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* Main Navigation */
@@ -316,7 +327,7 @@ body {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 80vw;
   height: 100vh;
   background-color: var(--bg-card);
   z-index: 1001;
@@ -341,7 +352,7 @@ body {
   text-decoration: none;
   white-space: nowrap;
   transition: var(--transition-fast);
-  font-size: 1.2em;
+  font-size: 20px;
 }
 .mobile-nav-menu a:hover {
   background-color: var(--bg-main);
