@@ -333,13 +333,12 @@ body {
 /* Mobile Navigation Menu */
 .mobile-nav-menu {
   position: fixed;
-  top: 0;
-  right: 0;
-  width: 340px;
-  max-width: 80vw;
+  inset: 0;
+  width: 100%;
+  max-width: none;
   height: 100vh;
   background-color: var(--bg-card);
-  border-radius: 32px 0 0 32px;
+  border-radius: 0;
   padding-top: 80px;
   padding-bottom: 80px;
   z-index: var(--z-mobile-menu);
