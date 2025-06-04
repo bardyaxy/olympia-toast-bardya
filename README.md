@@ -9,6 +9,8 @@ The build scripts assume **Node.js 18 or newer**. Install a current LTS release 
 ## Building the Site
 
 The HTML pages are assembled by a small Node.js script located in `scripts/build.js`.
+Templates use [EJS](https://ejs.co/) so common elements like the header and footer
+are included from the `includes/` directory.
 Install dependencies once and then run the build command:
 
 ```bash
