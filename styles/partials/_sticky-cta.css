@@ -58,13 +58,13 @@
 
 @keyframes pulseCtaBtn {
   0% {
-    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+    box-shadow: 0 5px 15px rgba(111, 0, 255, 0.2);
   }
   50% {
-    box-shadow: 0 8px 20px rgba(250, 90, 10, 0.45);
+    box-shadow: 0 8px 20px rgba(111, 0, 255, 0.45);
   }
   100% {
-    box-shadow: 0 5px 15px rgba(250, 90, 10, 0.2);
+    box-shadow: 0 5px 15px rgba(111, 0, 255, 0.2);
   }
 }
 
