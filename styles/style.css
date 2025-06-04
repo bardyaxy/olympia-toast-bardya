@@ -5,6 +5,7 @@
   /* Color Scheme */
   --toast-primary-orange: #fa5a0a;
   --toast-secondary-orange-dark: #e04f0a;
+  --toast-brand-blue: #2b4fb9;
 
   --toast-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */
 
@@ -434,9 +435,9 @@ body.no-scroll {
   gap: 8px;
   padding: 8px 16px;
   font-size: 0.95em;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  border: 1px solid var(--border-light);
+  background-color: var(--toast-brand-blue);
+  color: #fff;
+  border: none;
   border-radius: var(--border-radius-button);
   font-weight: 500;
   cursor: pointer;
@@ -452,16 +453,29 @@ body.no-scroll {
   color: var(--text-secondary);
 }
 .btn-call-bardya:hover {
-  background-color: var(--btn-subtle-hover-bg);
-  border-color: var(--border-light-hover);
+  background-color: #24409a;
   transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   animation-play-state: paused;
 }
 .btn-call-bardya i.fa-phone-alt {
   font-size: 0.9em;
-  color: var(--accent-color);
+  color: #fff;
   transform: scaleX(-1);
+  animation: phoneWiggle 1.5s infinite;
+}
+
+@keyframes phoneWiggle {
+  0%,
+  100% {
+    transform: scaleX(-1) rotate(0deg);
+  }
+  25% {
+    transform: scaleX(-1) rotate(15deg);
+  }
+  75% {
+    transform: scaleX(-1) rotate(-15deg);
+  }
 }
 
 /* Back to Home Button */
