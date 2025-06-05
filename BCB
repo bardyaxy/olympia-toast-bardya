@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bardya Banihashemi | Olympia Restaurant Growth Partner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E6F4F1; /* Primary Background */
+            color: #374151; /* Default text - Tailwind gray-700 */
+            scroll-padding-top: 80px; /* Offset for sticky header during scroll-to-anchor */
+            -webkit-font-smoothing: antialiased; /* Improve text rendering on WebKit */
+            -moz-osx-font-smoothing: grayscale; /* Improve text rendering on Firefox */
+        }
+        .accent-text { color: #4FB0AE; }
+        .header-bg { background-color: #008080; }
+        .nav-link { color: #E0F2F1; }
+        .nav-link:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.1); }
+
+        /* Golden Yellow Primary CTA */
+        .cta-button-primary {
+            background-color: #FFC915; /* Golden Yellow */
+            color: #024D4E; /* Deep Teal Text - WCAG AAA on #FFC915 (8.05:1) */
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .cta-button-primary:hover {
+            background-color: #E0B700; /* Darker Yellow */
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .cta-button-primary:active {
+            transform: scale(0.98);
+        }
+
+
+        /* Teal Outline Secondary CTA (Styled for Dark Backgrounds) */
+        .cta-button-secondary {
+            background-color: transparent;
+            border-width: 2px; /* Explicitly set for better visibility */
+            border-color: #A7D7D0; /* Lighter teal outline for dark bg */
+            color: #A7D7D0; /* Lighter teal text for dark bg - WCAG AA on #005050 (4.63:1) */
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .cta-button-secondary:hover {
+            background-color: #A7D7D0;
+            color: #005050; /* Dark teal text on light teal hover */
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+         .cta-button-secondary:active {
+            transform: scale(0.98);
+        }
+
+
+        .dark-section-bg { background-color: #005050; }
+        .footer-bg { background-color: #006060; }
+        .text-on-dark { color: #E0F2F1; } /* Light Teal - WCAG AAA on #005050 (10.13:1) */
+        .text-on-dark-muted { color: #A7D7D0; } /* Muted Light Teal - WCAG AA on #005050 (4.63:1) */
+
+        .feature-card {
+            background-color: #fff;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 77, 77, 0.08); 
+        }
+        .feature-card-icon { color: #4FB0AE; }
+        
+        .testimonial-nav-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .testimonial-nav-button:hover {
+            background-color: #FFFFFF;
+            transform: scale(1.08);
+        }
+        .testimonial-slide { background-color: #FFFFFF; }
+
+        .video-placeholder { background-color: #DCE9E6; border: 2px dashed #B8CDC7; }
+
+        @keyframes pulse-cta {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0.4); }
+            70% { transform: scale(1.015); box-shadow: 0 0 0 7px rgba(255, 201, 21, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0); }
+        }
+        .pulsate-cta { animation: pulse-cta 2.8s infinite ease-out; }
+
+        #footer-sticky-cta.is-sticky {
+            position: fixed;
+            bottom: 1rem; 
+            right: 1rem;  
+            z-index: 30; 
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+         #footer-sticky-cta.hide-sticky {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .footer-cta-container {
+           min-height: 56px; 
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(15px); /* Reduced initial Y translation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="page-header" class="header-bg shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <a href="#" class="text-3xl font-bold text-white">BCB</a>
+                <nav class="hidden md:flex items-center space-x-2">
+                    <a href="#about" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">About Bardya</a>
+                    <a href="#solutions" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
+                    <a href="tel:3002153596" class="cta-button-primary ml-3 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg pulsate-cta">
+                        Call Bardya: (300) 215-3596
+                    </a>
+                </nav>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" aria-label="Open mobile menu" aria-expanded="false" class="text-white focus:outline-none p-2 -mr-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden header-bg pb-3">
+            <a href="#about" class="block nav-link px-5 py-3 text-base font-medium">About Bardya</a>
+            <a href="#solutions" class="block nav-link px-5 py-3 text-base font-medium">Solutions</a>
+            <a href="tel:3002153596" class="block cta-button-primary text-center mx-4 mt-3 mb-2 px-5 py-3 rounded-lg font-semibold pulsate-cta">
+                Call Bardya: (300) 215-3596
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
+                Your <span class="accent-text">Olympia Restaurant</span> Growth Partner.
+            </h1>
+            <div class="video-placeholder w-full max-w-2xl h-56 sm:h-72 md:h-80 mx-auto my-10 rounded-xl shadow-lg flex items-center justify-center p-4 sm:p-6">
+                <p class="text-gray-600 text-lg sm:text-xl">See How Bardya Helps Olympia Restaurants Thrive (Video Soon!)</p>
+            </div>
+            <p class="text-xl md:text-2xl text-gray-700 font-medium mb-6 max-w-3xl mx-auto">
+                Focus on your food & guests. I'll help streamline the rest.
+            </p>
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed" id="about">
+                I'm Bardya, your dedicated <span class="font-semibold text-gray-700">Olympia Restaurant Growth Partner</span>. Whether you're battling outdated systems, manual processes, or just know there's a better way, I'm here. My mission: help you save time, reduce stress, boost margins, and thrive. Let's build a real partnership for your success.
+            </p>
+            <a href="#cta" class="cta-button-primary font-semibold px-10 py-3.5 sm:px-12 sm:py-4 rounded-lg text-lg shadow-lg hover:shadow-xl pulsate-cta">
+                Discover Your Restaurant's Potential &rarr;
+            </a>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="py-16 md:py-24 bg-white" id="solutions">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+                    Solutions to Elevate Your Olympia Restaurant
+                </h2>
+                <p class="text-lg sm:text-xl accent-text font-semibold">
+                    Work Smarter, Not Harder. For Growth, Efficiency, and Happy Guests.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
+                    <i class="fas fa-rocket feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Boost Your Revenue</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Unlock new income streams and optimize pricing with smart, effective strategies.
+                    </p>
+                </div>
+                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
+                    <i class="fas fa-cogs feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Simplify Your Day</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Replace tedious tasks and clunky systems with streamlined, easy-to-use solutions.
+                    </p>
+                </div>
+                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
+                    <i class="fas fa-star feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Delight Your Guests</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                       Enhance every touchpoint, from ordering to payment, creating memorable experiences.
+                    </p>
+                </div>
+                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
+                    <i class="fas fa-chart-line feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Increase Profitability</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
+                        Gain clear insights into your numbers, reduce waste, and make smarter financial decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted by Independents Section -->
+    <section class="py-16 md:py-24">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+                    Trusted by Local Independents Like You
+                </h2>
+                <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
+                    Join 120+ WA independents already saving ~5hrs/week on admin & seeing real results. Let's add your success story!
+                </p>
+            </div>
+            <div class="relative max-w-xl lg:max-w-2xl mx-auto">
+                <div id="testimonial-slider" class="overflow-hidden rounded-xl shadow-2xl">
+                    <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
+                        <div class="testimonial-slide min-w-full p-8 sm:p-10 md:p-12">
+                            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 italic mb-5 sm:mb-6 leading-relaxed">
+                                "At near Capitol Lake, efficiency is key. Bardya showed us how his solutions could save us hours and simplify our day-to-day operations. Truly invaluable."
+                            </p>
+                            <p class="text-md sm:text-lg text-gray-600 font-semibold text-right">- R. Lakeside Restaurant, Olympia</p>
+                        </div>
+                        <div class="testimonial-slide min-w-full p-8 sm:p-10 md:p-12">
+                            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 italic mb-5 sm:mb-6 leading-relaxed">
+                                "Bardya is always there for us. The support is unmatched and has been a game changer for our Olympia eatery. We feel understood and supported."
+                            </p>
+                            <p class="text-md sm:text-lg text-gray-600 font-semibold text-right">- Chet. D, Olympia Eatery</p>
+                        </div>
+                    </div>
+                </div>
+                <button id="prev-testimonial" aria-label="Previous testimonial" class="testimonial-nav-button absolute top-1/2 -left-4 sm:-left-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
+                    <i class="fas fa-chevron-left accent-text text-lg sm:text-xl"></i>
+                </button>
+                <button id="next-testimonial" aria-label="Next testimonial" class="testimonial-nav-button absolute top-1/2 -right-4 sm:-right-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
+                    <i class="fas fa-chevron-right accent-text text-lg sm:text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="dark-section-bg text-on-dark py-20 md:py-28" id="cta">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">Ready to Elevate Your Restaurant?</h2>
+            <p class="text-lg sm:text-xl text-on-dark-muted mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
+                Let's have a friendly chat about your specific challenges and goals. No pressure, just practical solutions. Coffee's on me (from a local Olympia spot!).
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-5">
+                <a href="#cta" class="cta-button-primary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg shadow-lg hover:shadow-xl w-full sm:w-auto pulsate-cta">
+                    Book Your Free Strategy Session
+                </a>
+                <a href="sms:3002153596?&body=MENU%20CHECKLIST%20PLEASE" class="cta-button-secondary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg border-2 shadow-sm hover:shadow-md w-full sm:w-auto flex items-center justify-center">
+                    <i class="fas fa-file-alt mr-2"></i> Get My Free Profit Checklist
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-bg text-on-dark py-12 md:py-16">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-lg sm:text-xl font-medium mb-3 sm:mb-4">
+                Bardya Banihashemi - Your <span class="font-semibold">Olympia Restaurant Growth Partner</span>.
+            </p>
+            <p class="text-on-dark-muted mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base">
+                Passionate about strengthening Olympia's vibrant restaurant community, one success story at a time.
+            </p>
+            <div class="footer-cta-container mb-6 sm:mb-8">
+                 <a href="#cta" id="footer-sticky-cta" class="cta-button-primary font-semibold px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg shadow-md hover:shadow-lg pulsate-cta inline-flex items-center opacity-0 transform translate-y-full"> 
+                    {/* Content will be changed by JS */}
+                 </a>
+            </div>
+            <p class="text-sm text-on-dark-muted opacity-75">&copy; <span id="currentYear"></span> Bardya Banihashemi. All rights reserved.</p>
+            <p class="text-xs text-on-dark-muted opacity-50 mt-1">(Promotional page for local consulting services)</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    const isExpanded = mobileMenu.classList.toggle('hidden');
+                    mobileMenuButton.setAttribute('aria-expanded', String(!isExpanded));
+                });
+            }
+
+            // Testimonial Slider
+            const track = document.getElementById('testimonial-track');
+            const slides = Array.from(track ? track.children : []);
+            const nextButton = document.getElementById('next-testimonial');
+            const prevButton = document.getElementById('prev-testimonial');
+            let slideWidth = 0;
+            let currentIndex = 0;
+
+            function updateSlideWidthAndPosition() {
+                if (slides.length > 0 && slides[0] && track) { 
+                    slideWidth = slides[0].getBoundingClientRect().width;
+                    track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                } else {
+                    slideWidth = 0; 
+                }
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= slides.length - 1;
+            }
+
+            function moveToSlide(newIndex) {
+                if (!track || (slideWidth === 0 && slides.length > 0)) { 
+                     updateSlideWidthAndPosition(); 
+                }
+                if (slideWidth === 0 && slides.length > 0 && !track.offsetWidth) { // Check if track itself has width
+                    // Fallback if track width isn't available (e.g., display: none initially)
+                    // This might not be perfect but tries to avoid complete failure.
+                    console.warn("Testimonial track width is not available, slider might not position correctly.");
+                    return;
+                }
+                
+                currentIndex = Math.max(0, Math.min(newIndex, slides.length - 1));
+                if (track) { 
+                    track.style.transform = 'translateX(-' + slideWidth * currentIndex + 'px)';
+                }
+                if (prevButton) prevButton.disabled = currentIndex === 0;
+                if (nextButton) nextButton.disabled = currentIndex >= slides.length - 1;
+            }
+            
+            if (track && slides.length > 0) {
+                // Defer initial calculation slightly to ensure layout is complete
+                setTimeout(() => {
+                    updateSlideWidthAndPosition(); 
+                    if(nextButton) nextButton.addEventListener('click', () => moveToSlide(currentIndex + 1));
+                    if(prevButton) prevButton.addEventListener('click', () => moveToSlide(currentIndex - 1));
+                }, 100);
+                
+                let resizeTimeout;
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(updateSlideWidthAndPosition, 150); 
+                });
+
+            } else if (slides.length <= 1) {
+                if(prevButton) prevButton.style.display = 'none';
+                if(nextButton) nextButton.style.display = 'none';
+            }
+
+            // Smooth Scrolling for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const targetId = this.getAttribute('href');
+                    if (!targetId || !targetId.startsWith('#') || targetId === '#') return; 
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault(); 
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                            if (mobileMenuButton) mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        }
+                        
+                        const header = document.getElementById('page-header');
+                        const headerOffset = header ? header.offsetHeight : 0; 
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Set Current Year in Footer
+            const currentYearElement = document.getElementById('currentYear');
+            if (currentYearElement) {
+                currentYearElement.textContent = new Date().getFullYear();
+            }
+
+            // Footer Sticky CTA Button Logic
+            const footerCtaButton = document.getElementById('footer-sticky-cta');
+            const scrollShowThreshold = 200; 
+            let isStickyActive = false; 
+            
+            if (footerCtaButton) {
+                const originalButtonText = "Discuss Your Growth";
+                const stickyButtonText = '<i class="fas fa-calendar-alt mr-2"></i> Plan Growth';
+                
+                footerCtaButton.innerHTML = originalButtonText; 
+                footerCtaButton.classList.remove('opacity-0', 'transform', 'translate-y-full');
+                footerCtaButton.classList.add('hide-sticky');
+
+
+                const checkSticky = () => {
+                    const shouldBeSticky = window.scrollY > scrollShowThreshold;
+                    if (shouldBeSticky && !isStickyActive) {
+                        isStickyActive = true;
+                        footerCtaButton.innerHTML = stickyButtonText;
+                        footerCtaButton.classList.remove('hide-sticky');
+                        footerCtaButton.classList.add('is-sticky');
+                    } else if (!shouldBeSticky && isStickyActive) {
+                        isStickyActive = false;
+                        footerCtaButton.innerHTML = originalButtonText;
+                        footerCtaButton.classList.remove('is-sticky');
+                        footerCtaButton.classList.add('hide-sticky');
+                    }
+                };
+                window.addEventListener('scroll', checkSticky, { passive: true }); 
+                checkSticky(); // Initial check
+            }
+
+            // Intersection Observer for Scroll Animations
+            const animatedElements = document.querySelectorAll('.animate-on-scroll');
+            if ("IntersectionObserver" in window) {
+                const observer = new IntersectionObserver((entries, obs) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            // obs.unobserve(entry.target); // Keep observing if you want animations to replay
+                        } else {
+                            // To make animations replay when scrolling back up (optional):
+                            // entry.target.classList.remove('is-visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1, // 10% of element is visible
+                });
+
+                animatedElements.forEach(el => {
+                    observer.observe(el);
+                });
+            } else {
+                // Fallback for older browsers: just make them visible
+                animatedElements.forEach(el => {
+                    el.classList.add('is-visible');
+                });
+            }
+
+        });
+    </script>
+
+</body>
+</html>
