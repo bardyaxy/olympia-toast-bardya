@@ -146,8 +146,8 @@
                 <nav class="hidden md:flex items-center space-x-2">
                     <a href="#about" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">About Bardya</a>
                     <a href="#solutions" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
-                    <a href="tel:3002153596" class="cta-button-primary ml-3 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg pulsate-cta">
-                        Call Bardya: (300) 215-3596
+                    <a href="tel:+13602153596" class="cta-button-primary ml-3 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg pulsate-cta">
+                        Call Bardya: (360) 215-3596
                     </a>
                 </nav>
                 <div class="md:hidden">
@@ -161,8 +161,8 @@
         <div id="mobile-menu" class="hidden md:hidden header-bg pb-3">
             <a href="#about" class="block nav-link px-5 py-3 text-base font-medium">About Bardya</a>
             <a href="#solutions" class="block nav-link px-5 py-3 text-base font-medium">Solutions</a>
-            <a href="tel:3002153596" class="block cta-button-primary text-center mx-4 mt-3 mb-2 px-5 py-3 rounded-lg font-semibold pulsate-cta">
-                Call Bardya: (300) 215-3596
+            <a href="tel:+13602153596" class="block cta-button-primary text-center mx-4 mt-3 mb-2 px-5 py-3 rounded-lg font-semibold pulsate-cta">
+                Call Bardya: (360) 215-3596
             </a>
         </div>
     </header>
@@ -281,7 +281,7 @@
                 <a href="https://toast.chilipiper.com/personal/bardya-banihashemi" class="cta-button-primary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg shadow-lg hover:shadow-xl w-full sm:w-auto pulsate-cta">
                     Book Your Free Strategy Session
                 </a>
-                <a href="sms:3002153596?&body=MENU%20CHECKLIST%20PLEASE" class="cta-button-secondary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg border-2 shadow-sm hover:shadow-md w-full sm:w-auto flex items-center justify-center">
+                <a href="sms:+13602153596?&body=MENU%20CHECKLIST%20PLEASE" class="cta-button-secondary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg border-2 shadow-sm hover:shadow-md w-full sm:w-auto flex items-center justify-center">
                     <i class="fas fa-file-alt mr-2"></i> Get My Free Profit Checklist
                 </a>
             </div>
