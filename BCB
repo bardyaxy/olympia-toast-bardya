@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bardya Banihashemi | Olympia Restaurant Growth Partner</title>
+    <meta name="description" content="Bardya Banihashemi, your local restaurant technology consultant for Olympia, WA. Helping Olympia restaurants streamline operations, reduce headaches, and boost margins. Let's connect for a 30-minute profit check." />
+    <meta name="keywords" content="Olympia restaurants, restaurant POS, Bardya Banihashemi, point of sale Olympia, restaurant technology, Thurston County restaurants" />
+    <link rel="canonical" href="https://bettercallbardya.com/" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -125,6 +128,13 @@
         }
 
     </style>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GA_MEASUREMENT_ID %>"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '<%= GA_MEASUREMENT_ID %>');
+    </script>
 </head>
 <body class="antialiased">
 
