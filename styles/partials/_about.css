@@ -158,5 +158,5 @@
 /* CTA container for About and Resources pages */
 .about-cta {
   margin: var(--space-lg) 0;
-  text-align: center;
+  text-align: right;
 }
