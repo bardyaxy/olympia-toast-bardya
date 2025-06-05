@@ -5,7 +5,7 @@
   (Bottom of screen)
   ==========================================================================
   */
-  .sticky-cta-bar {
+.sticky-cta-bar {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -15,8 +15,10 @@
   color: var(--text-on-dark-bg);
   padding: var(--space-md) var(--space-sm);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   overflow: hidden;
   z-index: 998;
   will-change: transform, opacity;
@@ -54,6 +56,11 @@
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   animation-play-state: paused;
+}
+
+.sticky-cta-bar .cta-banner {
+  font-size: 0.9em;
+  margin-bottom: var(--space-sm);
 }
 
 @keyframes pulseCtaBtn {
