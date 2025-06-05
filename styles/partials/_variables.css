@@ -22,7 +22,7 @@
   --text-on-dark-bg: var(--BCB-neutral-lightest);
   --text-accent: var(--BCB-primary-purple);
 
-  --bg-main: red;
+  --bg-main: var(--BCB-neutral-light);
   --bg-section-alt: var(--BCB-neutral-lighter);
   --bg-card: var(--BCB-neutral-lightest);
   --bg-cta-solid: var(--BCB-neutral-darkest);
