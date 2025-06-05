@@ -1,0 +1,162 @@
+/* ==========================================================================
+   11. Glass Card & About Section
+   ========================================================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  border: 1px solid var(--glass-border-color);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+  box-shadow: var(--card-shadow);
+  will-change: transform, opacity;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    var(--transition-main),
+    opacity var(--transition-main),
+    transform var(--transition-main);
+}
+.glass-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.glass-card:hover {
+  transform: translateY(-8px) scale(var(--hover-scale));
+  box-shadow: var(--card-hover-shadow);
+}
+
+.about-section {
+}
+.about-section h2 {
+  margin-top: 0;
+}
+.resources-section {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-xxl);
+}
+.resources-section h2 {
+  margin-top: 0;
+}
+.about-bardya-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: 25px;
+}
+.bardya-actual-photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+.bardya-photo-placeholder-text {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--btn-subtle-hover-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9em;
+  color: var(--text-tertiary);
+  text-align: center;
+}
+.about-section .bio p {
+  margin-bottom: var(--space-md);
+  font-size: 1.05em;
+  text-align: left;
+}
+.why-BCB-list {
+  list-style: none;
+  padding-left: 0;
+}
+.why-BCB-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: var(--space-sm);
+  font-size: 1.05em;
+}
+.why-BCB-list li::before {
+  content: '\f00c';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent-color);
+}
+.backup-links a {
+  display: inline-block;
+  margin: var(--space-xs) var(--space-sm) 0 0;
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+.backup-links a:hover {
+  text-decoration: underline;
+  color: var(--accent-color-darker);
+}
+.backup-links a i {
+  margin-right: var(--space-xs);
+}
+
+/* ==========================================================================
+   11b. Resources Section
+   ========================================================================== */
+.resources-section {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--card-shadow);
+  max-width: 700px;
+  margin: 0 auto var(--space-xxl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.resources-section h2 {
+  margin-top: 0;
+}
+.resources-section .backup-links {
+  margin: var(--space-md) 0;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+.back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.back-to-top i {
+  font-size: 1.25em;
+}
+
+/* CTA container for About and Resources pages */
+.about-cta {
+  margin: var(--space-lg) 0;
+  text-align: right;
+}

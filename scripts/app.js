@@ -6,7 +6,7 @@
 /* global gtag */
 
 // Import main stylesheet so webpack bundles it
-import '../styles/style.css';
+import '../styles/main.css';
 
 // Wait for the DOM to be fully loaded before executing scripts
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
    * ==========================================================================
    */
   const CHILIPIPER_LINK =
+    process.env.CHILIPIPER_LINK ||
     'https://toast.chilipiper.com/personal/bardya-banihashemi';
   const CAROUSEL_INTERVAL_TIME = 5000; // ms (20% faster)
   const SWIPE_THRESHOLD = 50; // px
@@ -46,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ].filter(Boolean);
   const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
   const walkThroughBtnEl = document.getElementById('walkThroughBtn');
+  const aboutPageContactBtn = document.getElementById('aboutPageContactBtn');
   const resourcesContactBtn = document.getElementById('resourcesContactBtn');
   const closeSchedulePopupBtn = document.getElementById(
     'closeSchedulePopupBtn',
@@ -579,20 +581,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (aboutPageContactBtn) {
+    aboutPageContactBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'about_contact_click');
+      }
+    });
+  }
+
   initializeScrollAnimations();
 
   if (backToTopBtn) {
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
-
-  const menuChecklistBtn = document.getElementById('menuChecklistBtn');
-  if (menuChecklistBtn) {
-    menuChecklistBtn.addEventListener('click', () => {
-      if (typeof gtag === 'function') {
-        gtag('event', 'sms_cta_click', { value: 'menu_checklist' });
-      }
     });
   }
 

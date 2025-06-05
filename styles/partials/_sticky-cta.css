@@ -1,0 +1,97 @@
+14.
+  Sticky
+  CTA
+  Bar
+  (Bottom of screen)
+  ==========================================================================
+  */
+.sticky-cta-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  margin: 0;
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  padding: var(--space-md) var(--space-sm);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  z-index: 998;
+  will-change: transform, opacity;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px 8px 0 0;
+  opacity: 0;
+  transform: translate(-50%, 100%);
+  transition:
+    opacity 0.4s ease-in-out,
+    transform 0.4s ease-in-out;
+}
+.sticky-cta-bar.visible {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+.sticky-cta-bar .btn {
+  background-color: var(--accent-color);
+  color: var(--text-on-dark-bg);
+  padding: 14px 36px; /* 15% larger dimensions */
+  font-size: 1.3em; /* slightly bigger text */
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation: pulseStickyBtn 2s infinite ease-in-out;
+  text-align: center;
+  border-radius: var(--border-radius-button);
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform, box-shadow;
+}
+.sticky-cta-bar .btn:hover {
+  background-color: var(--bg-main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  animation-play-state: paused;
+}
+
+.sticky-cta-bar .cta-banner {
+  font-size: 0.9em;
+  margin-bottom: var(--space-sm);
+}
+
+@keyframes pulseCtaBtn {
+  0% {
+    box-shadow: 0 5px 15px rgba(111, 0, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 8px 20px rgba(111, 0, 255, 0.45);
+  }
+  100% {
+    box-shadow: 0 5px 15px rgba(111, 0, 255, 0.2);
+  }
+}
+
+@keyframes pulseStickyBtn {
+  0% {
+    transform: translateY(0);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      0 0 0 0 rgba(255, 255, 255, 0.4);
+  }
+  70% {
+    transform: translateY(-4px);
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.3),
+      0 0 0 12px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow:
+      0 4px 12px rgba(0, 0, 0, 0.2),
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}

@@ -1,0 +1,78 @@
+/* ==========================================================================
+   1. CSS Custom Properties (Variables)
+   ========================================================================== */
+:root {
+  /* Color Scheme */
+  --BCB-primary-purple: #6F00FF;
+  --BCB-secondary-purple-dark: #5a00cc;
+  --BCB-brand-blue: #2b4fb9;
+
+  --BCB-neutral-darkest: #0a2540; /* Primary Text, Solid CTA BG */
+
+  --BCB-neutral-dark: #333d4f; /* Secondary Text */
+  --BCB-neutral-medium: #6b778d; /* Tertiary Text, Icons, Borders */
+  --BCB-neutral-light: #f0f3f5; /* Main Page Background */
+  --BCB-neutral-lighter: #f8f9fa; /* Alternate Section Background */
+  --BCB-neutral-lightest: #ffffff; /* Text on Dark BG, Card Backgrounds */
+
+  /* Semantic Text & Background Colors */
+  --text-primary: var(--BCB-neutral-darkest);
+  --text-secondary: var(--BCB-neutral-dark);
+  --text-tertiary: var(--BCB-neutral-medium);
+  --text-on-dark-bg: var(--BCB-neutral-lightest);
+  --text-accent: var(--BCB-primary-purple);
+
+  --bg-main: var(--BCB-neutral-light);
+  --bg-section-alt: var(--BCB-neutral-lighter);
+  --bg-card: var(--BCB-neutral-lightest);
+  --bg-cta-solid: var(--BCB-neutral-darkest);
+
+  /* Typography */
+  --font-family-base: 'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  --bg-hero-overlay-start: rgba(10, 37, 64, 0.6);
+  --bg-hero-overlay-end: rgba(10, 37, 64, 0.85);
+
+  /* Accent Colors */
+  --accent-color: var(--BCB-primary-purple);
+  --accent-color-darker: var(--BCB-secondary-purple-dark);
+
+  /* Borders */
+  --border-light: #e2e8f0; /* General light border */
+  --border-light-hover: #ced4da; /* Slightly darker for hover states */
+  --btn-subtle-hover-bg: #e9ecef; /* Light buttons on hover */
+
+  /* Hero Background Image */
+  --hero-bg-image: url('../../img/ChatGPT Image Jun 4, 2025 at 03_31_52 PM.png'); /* Ensure this path is correct */
+
+  /* Glass Morphism Style */
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-blur: 10px;
+  --glass-border-color: rgba(255, 255, 255, 0.7);
+  --card-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
+
+  /* UI Sizing & Transitions */
+  --hover-scale: 1.03;
+  --border-radius-main: 18px;
+  --border-radius-button: 30px;
+  --border-radius-small: 8px;
+
+  --transition-main: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --transition-fast: all 0.2s ease-out;
+  --transition-springy: all 0.45s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  /* Spacing */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 20px;
+  --space-xl: 30px;
+  --space-xxl: 40px;
+
+  /* Layering */
+  --z-header: 1000;
+  --z-mobile-overlay: 1001;
+  --z-mobile-menu: 1002;
+  --z-menu-toggle: 1005;
+}

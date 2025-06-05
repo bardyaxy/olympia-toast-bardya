@@ -1,0 +1,39 @@
+/* ==========================================================================
+   12. CTA Section (Solid Background)
+   ========================================================================== */
+.cta-solid-bg {
+  background-color: var(--bg-cta-solid);
+  color: var(--text-on-dark-bg);
+  padding: 45px var(--space-xl);
+  border-radius: var(--border-radius-main);
+  text-align: center;
+  margin-bottom: var(--space-xxl);
+  opacity: 0;
+  transform: translateY(30px);
+  will-change: transform, opacity;
+  transition: var(--transition-main);
+}
+.cta-solid-bg.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.cta-solid-bg .section-title {
+  color: var(--text-on-dark-bg);
+}
+.cta-solid-bg p {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.15em;
+  max-width: 600px;
+  margin: 0 auto var(--space-xl);
+}
+.cta-solid-bg .btn {
+  background-color: var(--BCB-neutral-lightest);
+  color: var(--text-primary);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.15);
+}
+.cta-solid-bg .btn:hover {
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  box-shadow: 0 7px 18px rgba(255, 255, 255, 0.25);
+}
+

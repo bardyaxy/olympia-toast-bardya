@@ -25,6 +25,30 @@ export function fingerprintImages(imagesDir: string, assetsDir: string) {
   return assetMap;
 }
 
+export function fingerprintFonts(fontsDir: string, assetsDir: string) {
+  const assetMap: Record<string, string> = {};
+  const fontRegex = /\.(woff2?|ttf|otf)$/i;
+  if (!fs.existsSync(fontsDir)) {
+    return assetMap;
+  }
+  fs.readdirSync(fontsDir).forEach((file) => {
+    if (fontRegex.test(file)) {
+      const content = fs.readFileSync(path.join(fontsDir, file));
+      const hash = crypto
+        .createHash('md5')
+        .update(content)
+        .digest('hex')
+        .slice(0, 8);
+      const ext = path.extname(file);
+      const base = path.basename(file, ext);
+      const hashedName = `${base}.${hash}${ext}`;
+      fs.writeFileSync(path.join(assetsDir, hashedName), content);
+      assetMap[`fonts/${file}`] = `assets/${hashedName}`;
+    }
+  });
+  return assetMap;
+}
+
 export function build(rootDir = path.join(__dirname, '..')) {
   const distDir = path.join(rootDir, 'dist');
   const assetsDir = path.join(distDir, 'assets');
@@ -37,12 +61,24 @@ export function build(rootDir = path.join(__dirname, '..')) {
 
   // map generated js/css files
   const assetFiles = fs.readdirSync(assetsDir);
-  const cssFile = assetFiles.find((f) => f.endsWith('.css'));
-  const jsFile = assetFiles.find((f) => f.endsWith('.js'));
+  const cssFile = assetFiles.find((f) => f.endsWith('.css')) as string;
+  const jsFile = assetFiles.find((f) => f.endsWith('.js')) as string;
 
   // fingerprint static images/icons
   const imagesDir = path.join(rootDir, 'img');
   const assetMap = fingerprintImages(imagesDir, assetsDir);
+
+  // map generated css/js into manifest
+  if (cssFile) {
+    assetMap['styles/main.css'] = `assets/${cssFile}`;
+  }
+  if (jsFile) {
+    assetMap['scripts/app.js'] = `assets/${jsFile}`;
+  }
+
+  // fingerprint fonts if present
+  const fontsDir = path.join(rootDir, 'fonts');
+  Object.assign(assetMap, fingerprintFonts(fontsDir, assetsDir));
 
   // copy and update webmanifest
   const manifestSrc = path.join(rootDir, 'site.webmanifest');
@@ -73,9 +109,10 @@ export function build(rootDir = path.join(__dirname, '..')) {
   pages.forEach((page) => {
     const filePath = path.join(rootDir, page);
     const template = fs.readFileSync(filePath, 'utf8');
-    let html = ejs.render(template, {}, { filename: filePath });
-    html = html.replace(/styles\/style\.css/g, `assets/${cssFile}`);
-    html = html.replace(/scripts\/app\.js/g, `assets/${jsFile}`);
+    const templateData = {
+      GA_MEASUREMENT_ID: process.env.GA_MEASUREMENT_ID || '',
+    };
+    let html = ejs.render(template, templateData, { filename: filePath });
     Object.entries(assetMap).forEach(([orig, hashed]) => {
       html = html.replace(new RegExp(orig, 'g'), hashed);
     });
@@ -83,6 +120,12 @@ export function build(rootDir = path.join(__dirname, '..')) {
     fs.writeFileSync(destPath, html);
     console.log(`Built ${destPath}`);
   });
+
+  // write manifest for external use
+  fs.writeFileSync(
+    path.join(distDir, 'asset-manifest.json'),
+    JSON.stringify(assetMap, null, 2),
+  );
 
   return { distDir, assetsDir };
 }

@@ -1,6 +1,6 @@
-# Olympia Toast Bardya
+# Olympia BCB Bardya
 
-This project is a lightweight promotional site for Toast POS services in Olympia, WA. It showcases Bardya Banihashemi's local expertise, links to useful resources, and provides contact information for businesses interested in learning more.
+This project is a lightweight promotional site showcasing Bardya Banihashemi's local expertise, links to useful resources, and provides contact information for businesses interested in learning more.
 
 ## Prerequisites
 
@@ -17,6 +17,18 @@ Install dependencies once and then run the build command:
 npm install     # if you haven't already
 npm run build
 ```
+
+### Configuration
+
+Certain values like external URLs and analytics IDs are pulled from environment variables at build time. Create a `.env` file (see `.env.example`) with any overrides:
+
+```bash
+# .env
+CHILIPIPER_LINK=https://toast.chilipiper.com/personal/bardya-banihashemi
+GA_MEASUREMENT_ID=GA-XXXXXXXXX
+```
+
+These variables will be embedded into the bundled JavaScript and HTML so they can be changed without modifying the source code.
 
 The compiled files are written to the `dist/` directory.
 
@@ -43,7 +55,7 @@ each time one of them updates.
 
 ## Repository Layout
 
- - `scripts/` – TypeScript files including the build script and site logic
+- `scripts/` – TypeScript files including the build script and site logic
 - `styles/` – CSS stylesheet
 - `includes/` – HTML snippets for the header and footer
 - HTML pages remain at the project root
@@ -79,3 +91,6 @@ discover all pages of the site.
 
 A simple `netlify.toml` file is included so Netlify will build the project with `npm run build` and publish the generated `dist/` directory. Make sure your site settings use this repository and the default build command to ensure the EJS templates are compiled correctly. Without this step your deployed pages will still contain the raw `<%- include %>` tags and appear blank.
 
+## Troubleshooting
+
+If the sticky "Book a call" bar or the navigation menu disappears in your deployed site, the CSS and JavaScript bundles may not have been generated. Run `npm run build` to recreate the assets and update the `dist/` directory before deploying.

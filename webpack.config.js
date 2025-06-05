@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './scripts/app.js',
@@ -16,7 +17,7 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
-        test: /\.(png|jpe?g|svg|ico)$/i,
+        test: /\.(png|jpe?g|svg|ico|woff2?|ttf|otf)$/i,
         type: 'asset/resource',
       },
     ],
@@ -24,6 +25,10 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'main.[contenthash].css',
+    }),
+    new webpack.DefinePlugin({
+      'process.env.CHILIPIPER_LINK': JSON.stringify(process.env.CHILIPIPER_LINK),
+      'process.env.GA_MEASUREMENT_ID': JSON.stringify(process.env.GA_MEASUREMENT_ID),
     }),
   ],
   mode: 'production',
