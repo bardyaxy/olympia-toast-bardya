@@ -154,3 +154,9 @@
 .back-to-top i {
   font-size: 1.25em;
 }
+
+/* CTA container for About and Resources pages */
+.about-cta {
+  margin: var(--space-lg) 0;
+  text-align: right;
+}

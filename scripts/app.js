@@ -47,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
   ].filter(Boolean);
   const heroProfitCheckBtn = document.getElementById('heroProfitCheckBtn');
   const walkThroughBtnEl = document.getElementById('walkThroughBtn');
+  const aboutPageContactBtn = document.getElementById('aboutPageContactBtn');
   const resourcesContactBtn = document.getElementById('resourcesContactBtn');
   const closeSchedulePopupBtn = document.getElementById(
     'closeSchedulePopupBtn',
@@ -576,6 +577,14 @@ document.addEventListener('DOMContentLoaded', () => {
     resourcesContactBtn.addEventListener('click', () => {
       if (typeof gtag === 'function') {
         gtag('event', 'resources_contact_click');
+      }
+    });
+  }
+
+  if (aboutPageContactBtn) {
+    aboutPageContactBtn.addEventListener('click', () => {
+      if (typeof gtag === 'function') {
+        gtag('event', 'about_contact_click');
       }
     });
   }
