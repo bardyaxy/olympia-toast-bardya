@@ -55,7 +55,7 @@ each time one of them updates.
 
 ## Repository Layout
 
- - `scripts/` – TypeScript files including the build script and site logic
+- `scripts/` – TypeScript files including the build script and site logic
 - `styles/` – CSS stylesheet
 - `includes/` – HTML snippets for the header and footer
 - HTML pages remain at the project root
@@ -91,3 +91,6 @@ discover all pages of the site.
 
 A simple `netlify.toml` file is included so Netlify will build the project with `npm run build` and publish the generated `dist/` directory. Make sure your site settings use this repository and the default build command to ensure the EJS templates are compiled correctly. Without this step your deployed pages will still contain the raw `<%- include %>` tags and appear blank.
 
+## Troubleshooting
+
+If the sticky "Book a call" bar or the navigation menu disappears in your deployed site, the CSS and JavaScript bundles may not have been generated. Run `npm run build` to recreate the assets and update the `dist/` directory before deploying.
