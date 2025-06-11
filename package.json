@@ -1,0 +1,17 @@
+{
+  "name": "olympia-toast-bardya",
+  "version": "1.0.0",
+  "description": "This repository contains the static website for Bardya Banihashemi's consulting services in Olympia, WA. The single-page site promotes tools and advice for local restaurants seeking to streamline operations and increase profits.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "heroicons": "^2.2.0",
+    "tailwindcss": "^4.1.10"
+  }
+}

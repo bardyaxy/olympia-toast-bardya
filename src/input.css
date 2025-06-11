@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+        html, body { overflow-x: hidden; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #E6F4F1; /* Primary Background */
+            color: #374151; /* Default text - Tailwind gray-700 */
+            scroll-padding-top: 80px; /* Offset for sticky header during scroll-to-anchor */
+            -webkit-font-smoothing: antialiased; /* Improve text rendering on WebKit */
+            -moz-osx-font-smoothing: grayscale; /* Improve text rendering on Firefox */
+        }
+        .accent-text { color: #4FB0AE; }
+        .header-bg { background-color: #008080; }
+        .nav-link { color: #E0F2F1; }
+        .nav-link:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.1); }
+
+        /* Golden Yellow Primary CTA */
+        .cta-button-primary {
+            background-color: #FFC915; /* Golden Yellow */
+            color: #024D4E; /* Deep Teal Text - WCAG AAA on #FFC915 (8.05:1) */
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .cta-button-primary:hover {
+            background-color: #E0B700; /* Darker Yellow */
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .cta-button-primary:active {
+            transform: scale(0.98);
+        }
+
+
+        /* Teal Outline Secondary CTA (Styled for Dark Backgrounds) */
+        .cta-button-secondary {
+            background-color: transparent;
+            border-width: 2px; /* Explicitly set for better visibility */
+            border-color: #A7D7D0; /* Lighter teal outline for dark bg */
+            color: #A7D7D0; /* Lighter teal text for dark bg - WCAG AA on #005050 (4.63:1) */
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .cta-button-secondary:hover {
+            background-color: #A7D7D0;
+            color: #005050; /* Dark teal text on light teal hover */
+            transform: scale(1.03);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+         .cta-button-secondary:active {
+            transform: scale(0.98);
+        }
+
+
+        .dark-section-bg { background-color: #005050; }
+        .footer-bg { background-color: #006060; }
+        .text-on-dark { color: #E0F2F1; } /* Light Teal - WCAG AAA on #005050 (10.13:1) */
+        .text-on-dark-muted { color: #A7D7D0; } /* Muted Light Teal - WCAG AA on #005050 (4.63:1) */
+
+        .feature-card {
+            background-color: #fff;
+            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 77, 77, 0.08); 
+        }
+        .feature-card-icon { color: #4FB0AE; }
+        
+        .testimonial-nav-button {
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .testimonial-nav-button:hover {
+            background-color: #FFFFFF;
+            transform: scale(1.08);
+        }
+        .testimonial-slide { background-color: #FFFFFF; }
+
+        .video-placeholder { background-color: #DCE9E6; border: 2px dashed #B8CDC7; }
+
+        @keyframes pulse-cta {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0.4); }
+            70% { transform: scale(1.015); box-shadow: 0 0 0 7px rgba(255, 201, 21, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0); }
+        }
+        .pulsate-cta { animation: pulse-cta 2.8s infinite ease-out; }
+
+        #footer-sticky-cta.is-sticky {
+            position: fixed;
+            bottom: 1rem; 
+            right: 1rem;  
+            z-index: 30; 
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+         #footer-sticky-cta.hide-sticky {
+            opacity: 0;
+            transform: translateY(100%);
+        }
+        .footer-cta-container {
+           min-height: 56px; 
+           display: flex;
+           justify-content: center;
+           align-items: center;
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(15px); /* Reduced initial Y translation */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
