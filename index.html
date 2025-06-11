@@ -7,128 +7,10 @@
     <meta name="description" content="Bardya Banihashemi, your local restaurant technology consultant for Olympia, WA. Helping Olympia restaurants streamline operations, reduce headaches, and boost margins. Let's connect for a 30-minute profit check." />
     <meta name="keywords" content="Olympia restaurants, restaurant POS, Bardya Banihashemi, point of sale Olympia, restaurant technology, Thurston County restaurants" />
     <link rel="canonical" href="https://bettercallbardya.com/" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        html, body { overflow-x: hidden; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #E6F4F1; /* Primary Background */
-            color: #374151; /* Default text - Tailwind gray-700 */
-            scroll-padding-top: 80px; /* Offset for sticky header during scroll-to-anchor */
-            -webkit-font-smoothing: antialiased; /* Improve text rendering on WebKit */
-            -moz-osx-font-smoothing: grayscale; /* Improve text rendering on Firefox */
-        }
-        .accent-text { color: #4FB0AE; }
-        .header-bg { background-color: #008080; }
-        .nav-link { color: #E0F2F1; }
-        .nav-link:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.1); }
-
-        /* Golden Yellow Primary CTA */
-        .cta-button-primary {
-            background-color: #FFC915; /* Golden Yellow */
-            color: #024D4E; /* Deep Teal Text - WCAG AAA on #FFC915 (8.05:1) */
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .cta-button-primary:hover {
-            background-color: #E0B700; /* Darker Yellow */
-            transform: scale(1.03);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-        .cta-button-primary:active {
-            transform: scale(0.98);
-        }
-
-
-        /* Teal Outline Secondary CTA (Styled for Dark Backgrounds) */
-        .cta-button-secondary {
-            background-color: transparent;
-            border-width: 2px; /* Explicitly set for better visibility */
-            border-color: #A7D7D0; /* Lighter teal outline for dark bg */
-            color: #A7D7D0; /* Lighter teal text for dark bg - WCAG AA on #005050 (4.63:1) */
-            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .cta-button-secondary:hover {
-            background-color: #A7D7D0;
-            color: #005050; /* Dark teal text on light teal hover */
-            transform: scale(1.03);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-         .cta-button-secondary:active {
-            transform: scale(0.98);
-        }
-
-
-        .dark-section-bg { background-color: #005050; }
-        .footer-bg { background-color: #006060; }
-        .text-on-dark { color: #E0F2F1; } /* Light Teal - WCAG AAA on #005050 (10.13:1) */
-        .text-on-dark-muted { color: #A7D7D0; } /* Muted Light Teal - WCAG AA on #005050 (4.63:1) */
-
-        .feature-card {
-            background-color: #fff;
-            transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
-        }
-        .feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 77, 77, 0.08); 
-        }
-        .feature-card-icon { color: #4FB0AE; }
-        
-        .testimonial-nav-button {
-            background-color: rgba(255, 255, 255, 0.9);
-            transition: transform 0.2s ease-out, background-color 0.2s ease-out;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .testimonial-nav-button:hover {
-            background-color: #FFFFFF;
-            transform: scale(1.08);
-        }
-        .testimonial-slide { background-color: #FFFFFF; }
-
-        .video-placeholder { background-color: #DCE9E6; border: 2px dashed #B8CDC7; }
-
-        @keyframes pulse-cta {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0.4); }
-            70% { transform: scale(1.015); box-shadow: 0 0 0 7px rgba(255, 201, 21, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 201, 21, 0); }
-        }
-        .pulsate-cta { animation: pulse-cta 2.8s infinite ease-out; }
-
-        #footer-sticky-cta.is-sticky {
-            position: fixed;
-            bottom: 1rem; 
-            right: 1rem;  
-            z-index: 30; 
-            opacity: 1;
-            transform: translateY(0);
-            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-        }
-         #footer-sticky-cta.hide-sticky {
-            opacity: 0;
-            transform: translateY(100%);
-        }
-        .footer-cta-container {
-           min-height: 56px; 
-           display: flex;
-           justify-content: center;
-           align-items: center;
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(15px); /* Reduced initial Y translation */
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            will-change: opacity, transform;
-        }
-        .animate-on-scroll.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    </style>
+    <link rel="stylesheet" href="assets/main.css">
     <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GA_MEASUREMENT_ID %>"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -153,7 +35,8 @@
                 </nav>
                 <div class="md:hidden">
                     <button id="mobile-menu-button" aria-label="Open mobile menu" aria-expanded="false" class="text-white focus:outline-none p-2 -mr-2">
-                        <i class="fas fa-bars text-2xl"></i>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
+                        
                     </button>
                 </div>
             </div>
@@ -202,28 +85,28 @@
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                 <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <i class="fas fa-rocket feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    {ROCKET}
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Boost Your Revenue</h3>
                     <p class="text-gray-600 leading-relaxed text-sm md:text-base">
                         Unlock new income streams and optimize pricing with smart, effective strategies.
                     </p>
                 </div>
                 <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <i class="fas fa-cogs feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd"/></svg>
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Simplify Your Day</h3>
                     <p class="text-gray-600 leading-relaxed text-sm md:text-base">
                         Replace tedious tasks and clunky systems with streamlined, easy-to-use solutions.
                     </p>
                 </div>
                 <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <i class="fas fa-star feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg>
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Delight Your Guests</h3>
                     <p class="text-gray-600 leading-relaxed text-sm md:text-base">
                        Enhance every touchpoint, from ordering to payment, creating memorable experiences.
                     </p>
                 </div>
                 <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <i class="fas fa-chart-line feature-card-icon text-3xl md:text-4xl mb-4"></i>
+                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 0 0 0 1.5H3v10.5a3 3 0 0 0 3 3h1.21l-1.172 3.513a.75.75 0 0 0 1.424.474l.329-.987h8.418l.33.987a.75.75 0 0 0 1.422-.474l-1.17-3.513H18a3 3 0 0 0 3-3V3.75h.75a.75.75 0 0 0 0-1.5H2.25Zm6.54 15h6.42l.5 1.5H8.29l.5-1.5Zm8.085-8.995a.75.75 0 1 0-.75-1.299 12.81 12.81 0 0 0-3.558 3.05L11.03 8.47a.75.75 0 0 0-1.06 0l-3.3 3.3a.75.75 0 1 0 1.06 1.06l2.47-2.47 1.617 1.618a.75.75 0 0 0 1.146-.102 11.312 11.312 0 0 1 3.612-3.321Z" clip-rule="evenodd"/></svg>
                     <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Increase Profitability</h3>
                     <p class="text-gray-600 leading-relaxed text-sm md:text-base">
                         Gain clear insights into your numbers, reduce waste, and make smarter financial decisions.
@@ -262,10 +145,10 @@
                     </div>
                 </div>
                 <button id="prev-testimonial" aria-label="Previous testimonial" class="testimonial-nav-button absolute top-1/2 left-2 sm:-left-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
-                    <i class="fas fa-chevron-left accent-text text-lg sm:text-xl"></i>
+                    <svg class="h-5 w-5 accent-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd"/></svg>
                 </button>
                 <button id="next-testimonial" aria-label="Next testimonial" class="testimonial-nav-button absolute top-1/2 right-2 sm:-right-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
-                    <i class="fas fa-chevron-right accent-text text-lg sm:text-xl"></i>
+                    <svg class="h-5 w-5 accent-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd"/></svg>
                 </button>
             </div>
         </div>
@@ -283,7 +166,7 @@
                     Book Your Free Strategy Session
                 </a>
                 <a href="sms:+13602153596?&body=MENU%20CHECKLIST%20PLEASE" class="cta-button-secondary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg border-2 shadow-sm hover:shadow-md w-full sm:w-auto flex items-center justify-center">
-                    <i class="fas fa-file-alt mr-2"></i> Get My Free Profit Checklist
+                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z" clip-rule="evenodd"/><path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z"/></svg> Get My Free Profit Checklist
                 </a>
             </div>
         </div>
@@ -429,7 +312,7 @@
             
             if (footerCtaButton) {
                 const originalButtonText = "Discuss Your Growth";
-                const stickyButtonText = '<i class="fas fa-calendar-alt mr-2"></i> Plan Growth';
+                const stickyButtonText = '<svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12.75 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM7.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM8.25 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM9.75 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM10.5 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM12.75 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM14.25 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 17.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 15.75a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM15 12.75a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM16.5 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"/><path fill-rule="evenodd" d="M6.75 2.25A.75.75 0 0 1 7.5 3v1.5h9V3A.75.75 0 0 1 18 3v1.5h.75a3 3 0 0 1 3 3v11.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V7.5a3 3 0 0 1 3-3H6V3a.75.75 0 0 1 .75-.75Zm13.5 9a1.5 1.5 0 0 0-1.5-1.5H5.25a1.5 1.5 0 0 0-1.5 1.5v7.5a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5v-7.5Z" clip-rule="evenodd"/></svg> Plan Growth';
                 
                 footerCtaButton.innerHTML = originalButtonText; 
                 footerCtaButton.classList.remove('opacity-0', 'transform', 'translate-y-full');
