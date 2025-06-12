@@ -8,7 +8,7 @@ This repository contains the static website for Bardya Banihashemi's consulting 
 - Alternatively, host the contents (e.g. via GitHub Pages) to make the site available online.
 
 ## Site Structure
-- `index.html` – main landing page with all content and styles using Tailwind via CDN.
+- `index.html` – main landing page. Run `npm run build` to generate `assets/main.css` using `tailwindcss` and `tailwind.config.js`.
 - `robots.txt` – search engine directives.
 - `sitemap.xml` – sitemap referencing current and future pages.
 
