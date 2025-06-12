@@ -4,6 +4,7 @@
   "description": "This repository contains the static website for Bardya Banihashemi's consulting services in Olympia, WA. The single-page site promotes tools and advice for local restaurants seeking to streamline operations and increase profits.",
   "main": "index.js",
   "scripts": {
+    "build": "tailwindcss -i ./src/input.css -o ./assets/main.css --minify",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
