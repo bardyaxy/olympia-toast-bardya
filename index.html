@@ -210,20 +210,29 @@
                     }
                     if (chiliReady) {
                         let fallback;
+
+                        const cleanup = () => btn.classList.remove('cta-loading');
+                        btn.classList.add('cta-loading');
                         try {
                             fallback = setTimeout(() => {
+                                cleanup();
                                 if (targetUrl) window.location.href = targetUrl;
-                            }, 750);
-
+                            }, 500);
                             const result = ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
                             if (result && typeof result.then === 'function') {
-                                result.then(() => clearTimeout(fallback)).catch(() => {
+                                result.then(() => {
                                     clearTimeout(fallback);
-                                    if (targetUrl) window.location.href = targetUrl;
+                                    cleanup();
+                                }).catch(() => {
+                                    clearTimeout(fallback);
+                                    cleanup();
+        if (targetUrl) window.location.href = targetUrl;
                                 });
                             }
                         } catch (err) {
                             if (fallback) clearTimeout(fallback);
+                            cleanup();
+
                             if (targetUrl) window.location.href = targetUrl;
                         }
                     }
