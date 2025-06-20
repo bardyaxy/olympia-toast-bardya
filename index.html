@@ -204,15 +204,31 @@
             document.querySelectorAll('[data-chili-trigger]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const chiliReady = window.ChiliPiper && typeof ChiliPiper.submit === 'function';
-                    if (chiliReady) {
-                        e.preventDefault();
-                    }
+                    const targetUrl = btn.getAttribute('href');
+
                     if (typeof gtag === 'function') {
                         const eventName = btn.id ? btn.id + '_click' : 'cta_click';
                         gtag('event', eventName);
                     }
+
                     if (chiliReady) {
-                        ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                        e.preventDefault();
+
+                        // If ChiliPiper fails silently, navigate to the link after a short delay
+                        const fallback = setTimeout(() => {
+                            if (targetUrl) window.location.href = targetUrl;
+                        }, 1200);
+
+                        try {
+                            ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                        } catch (err) {
+                            clearTimeout(fallback);
+                            if (targetUrl) window.location.href = targetUrl;
+                        }
+                    } else if (targetUrl) {
+                        // ChiliPiper script unavailable, fall back to normal navigation
+                        window.location.href = targetUrl;
+                        e.preventDefault();
                     }
                 });
             });
