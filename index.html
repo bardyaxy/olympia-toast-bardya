@@ -214,6 +214,7 @@
                             fallback = setTimeout(() => {
                                 if (targetUrl) window.location.href = targetUrl;
                             }, 750);
+
                             const result = ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
                             if (result && typeof result.then === 'function') {
                                 result.then(() => clearTimeout(fallback)).catch(() => {
