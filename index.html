@@ -9,6 +9,8 @@
     <link rel="canonical" href="https://bettercallbardya.com/" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://js.chilipiper.com" crossorigin>
+    <link rel="preload" as="script" href="https://js.chilipiper.com/marketing.js">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/main.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -213,9 +215,20 @@
                         gtag('event', eventName);
                     }
                     if (chiliReady) {
+                        let fallback;
                         try {
-                            ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                            fallback = setTimeout(() => {
+                                if (targetUrl) window.location.href = targetUrl;
+                            }, 1500);
+                            const result = ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                            if (result && typeof result.then === 'function') {
+                                result.then(() => clearTimeout(fallback)).catch(() => {
+                                    clearTimeout(fallback);
+                                    if (targetUrl) window.location.href = targetUrl;
+                                });
+                            }
                         } catch (err) {
+                            if (fallback) clearTimeout(fallback);
                             if (targetUrl) window.location.href = targetUrl;
                         }
                     }
