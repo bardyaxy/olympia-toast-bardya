@@ -204,6 +204,7 @@
             document.querySelectorAll('[data-chili-trigger]').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const chiliReady = window.ChiliPiper && typeof ChiliPiper.submit === 'function';
+                    const targetUrl = btn.getAttribute('href');
                     if (chiliReady) {
                         e.preventDefault();
                     }
@@ -212,7 +213,11 @@
                         gtag('event', eventName);
                     }
                     if (chiliReady) {
-                        ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                        try {
+                            ChiliPiper.submit('toast', 'me', { skipLandingPage: true });
+                        } catch (err) {
+                            if (targetUrl) window.location.href = targetUrl;
+                        }
                     }
                 });
             });
