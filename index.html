@@ -202,8 +202,7 @@
         <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('[data-chili-trigger]').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    e.preventDefault();
+                btn.addEventListener('click', () => {
                     if (typeof gtag === 'function') {
                         const eventName = btn.id ? btn.id + '_click' : 'cta_click';
                         gtag('event', eventName);
