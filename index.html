@@ -21,9 +21,13 @@
     </script>
     <script src="https://js.chilipiper.com/marketing.js" defer></script>
     <script>
-      ChiliPiper.init({
-        account: 'toast',
-        router: 'personal'
+      document.addEventListener('DOMContentLoaded', function() {
+        if (window.ChiliPiper && typeof ChiliPiper.init === 'function') {
+          ChiliPiper.init({
+            account: 'toast',
+            router: 'personal'
+          });
+        }
       });
     </script>
 </head>
@@ -202,10 +206,14 @@
         <script>
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('[data-chili-trigger]').forEach(btn => {
-                btn.addEventListener('click', () => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
                     if (typeof gtag === 'function') {
                         const eventName = btn.id ? btn.id + '_click' : 'cta_click';
                         gtag('event', eventName);
+                    }
+                    if (window.ChiliPiper && typeof ChiliPiper.submit === 'function') {
+                        ChiliPiper.submit('toast', 'personal');
                     }
                 });
             });
