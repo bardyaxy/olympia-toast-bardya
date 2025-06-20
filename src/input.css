@@ -117,3 +117,9 @@
             transform: translateY(0);
         }
 
+        /* Visual feedback when CTA buttons are pressed */
+        .cta-loading {
+            opacity: 0.6;
+            cursor: progress;
+        }
+
