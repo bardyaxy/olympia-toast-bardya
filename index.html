@@ -210,6 +210,7 @@
                     }
                     if (chiliReady) {
                         let fallback;
+
                         const cleanup = () => btn.classList.remove('cta-loading');
                         btn.classList.add('cta-loading');
                         try {
@@ -225,12 +226,13 @@
                                 }).catch(() => {
                                     clearTimeout(fallback);
                                     cleanup();
-                                    if (targetUrl) window.location.href = targetUrl;
+        if (targetUrl) window.location.href = targetUrl;
                                 });
                             }
                         } catch (err) {
                             if (fallback) clearTimeout(fallback);
                             cleanup();
+
                             if (targetUrl) window.location.href = targetUrl;
                         }
                     }
