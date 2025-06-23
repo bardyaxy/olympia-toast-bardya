@@ -5,6 +5,7 @@ This repository contains the static website for Bardya Banihashemi's consulting 
 ## Usage
 - Clone or download this repository.
 - Open `index.html` in any modern browser to view the page locally.
+- Place your QuickTime video at `assets/0623(2).mov` (rename if needed). The page embeds this file automatically.
 - Alternatively, host the contents (e.g. via GitHub Pages) to make the site available online.
 
 ## Site Structure
