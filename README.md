@@ -5,7 +5,8 @@ This repository contains the static website for Bardya Banihashemi's consulting 
 ## Usage
 - Clone or download this repository.
 - Open `index.html` in any modern browser to view the page locally.
-- Place your video file at `assets/bardya.mp4` (rename as needed) and the page will embed it automatically.
+- Place your video file at `assets/0623(2).mov` (rename as needed) and the page will embed it automatically.
+
 - Alternatively, host the contents (e.g. via GitHub Pages) to make the site available online.
 
 ## Site Structure
