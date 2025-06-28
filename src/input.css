@@ -13,6 +13,8 @@
         }
         .accent-text { color: #4FB0AE; }
         .header-bg { background-color: #008080; }
+        .header-gradient { background-image: linear-gradient(to bottom, #008080, #004C4C); }
+        .hero-bg { background-image: linear-gradient(to bottom, #E6F4F1, #CDE8E6); }
         .nav-link { color: #E0F2F1; }
         .nav-link:hover { color: #FFFFFF; background-color: rgba(255, 255, 255, 0.1); }
 
