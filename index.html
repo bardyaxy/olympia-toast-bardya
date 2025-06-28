@@ -31,8 +31,8 @@
             <div class="flex justify-between items-center py-4">
                 <a href="#" class="text-3xl font-bold text-white">BCB</a>
                 <nav class="hidden md:flex items-center space-x-2">
-                    <a href="#about" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">About Bardya</a>
-                    <a href="#solutions" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
+                    <a href="#about" data-section="about" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">About Bardya</a>
+                    <a href="#solutions" data-section="solutions" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
                     <a href="tel:+13609189755" class="cta-button-primary ml-3 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg pulsate-cta">
                         Call Bardya: (360) 918-9755
                     </a>
@@ -47,8 +47,8 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden header-bg pb-3">
-            <a href="#about" class="block nav-link px-5 py-3 text-base font-medium">About Bardya</a>
-            <a href="#solutions" class="block nav-link px-5 py-3 text-base font-medium">Solutions</a>
+            <a href="#about" data-section="about" class="block nav-link px-5 py-3 text-base font-medium">About Bardya</a>
+            <a href="#solutions" data-section="solutions" class="block nav-link px-5 py-3 text-base font-medium">Solutions</a>
             <a href="tel:+13609189755" class="block cta-button-primary text-center mx-4 mt-3 mb-2 px-5 py-3 rounded-lg font-semibold pulsate-cta">
                 Call Bardya: (360) 918-9755
             </a>
@@ -398,6 +398,32 @@
                 animatedElements.forEach(el => {
                     el.classList.add('is-visible');
                 });
+            }
+
+            // Intersection Observer for Active Nav Links
+            const navLinks = document.querySelectorAll('a[data-section]');
+            const navSections = Array.from(navLinks)
+                .map(link => document.getElementById(link.getAttribute('data-section')))
+                .filter(Boolean);
+
+            if (navSections.length && "IntersectionObserver" in window) {
+                const navObserver = new IntersectionObserver(entries => {
+                    entries.forEach(entry => {
+                        navLinks.forEach(link => {
+                            if (link.getAttribute('data-section') === entry.target.id) {
+                                if (entry.isIntersecting) {
+                                    link.classList.add('active-nav');
+                                } else {
+                                    link.classList.remove('active-nav');
+                                }
+                            }
+                        });
+                    });
+                }, {
+                    rootMargin: '-50% 0px -50% 0px'
+                });
+
+                navSections.forEach(section => navObserver.observe(section));
             }
 
         });
