@@ -1,204 +1,448 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bardya Banihashemi | Olympia Restaurant Growth Partner</title>
-    <meta name="description" content="Bardya Banihashemi, your local restaurant technology consultant for Olympia, WA. Helping Olympia restaurants streamline operations, reduce headaches, and boost margins. Let's connect for a 30-minute profit check." />
-    <meta name="keywords" content="Olympia restaurants, restaurant POS, Bardya Banihashemi, point of sale Olympia, restaurant technology, Thurston County restaurants" />
+    <meta
+      name="description"
+      content="Bardya Banihashemi helps Olympia restaurants streamline operations, simplify technology, and protect their margins with practical local support."
+    />
+    <meta
+      name="keywords"
+      content="Olympia restaurants, restaurant POS, Bardya Banihashemi, point of sale Olympia, restaurant technology, Thurston County restaurants"
+    />
     <link rel="canonical" href="https://bettercallbardya.com/" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://js.chilipiper.com" crossorigin>
-    <link rel="preload" as="script" href="https://js.chilipiper.com/marketing.js">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/main.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<%= GA_MEASUREMENT_ID %>"></script>
+    <meta name="theme-color" content="#123f3c" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 64 64%22><rect width=%2264%22 height=%2264%22 rx=%2216%22 fill=%22%23f7c84b%22/><text x=%2232%22 y=%2239%22 text-anchor=%22middle%22 font-family=%22Georgia%22 font-size=%2220%22 font-weight=%22700%22 fill=%22%230c302e%22>BCB</text></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/main.css" />
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=<%= GA_MEASUREMENT_ID %>"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
       gtag('js', new Date());
       gtag('config', '<%= GA_MEASUREMENT_ID %>');
     </script>
-    <script src="https://js.chilipiper.com/marketing.js" async onload="ChiliPiper.init({account: 'toast', router: 'me'});"></script>
-</head>
-<body class="antialiased">
+    <script
+      src="https://js.chilipiper.com/marketing.js"
+      async
+      onload="if (window.ChiliPiper && typeof window.ChiliPiper.init === 'function') ChiliPiper.init({account: 'toast', router: 'me'});"
+    ></script>
+  </head>
 
-    <!-- Header -->
-    <header id="page-header" class="header-gradient shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <a href="#" class="text-3xl font-bold text-white">BCB</a>
-                <nav class="hidden md:flex items-center space-x-2">
-                    <a href="#about" data-section="about" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">About Bardya</a>
-                    <a href="#solutions" data-section="solutions" class="nav-link px-4 py-2 rounded-md text-sm font-medium transition-colors">Solutions</a>
-                    <a href="tel:+13609189755" class="cta-button-primary ml-3 px-5 py-2.5 rounded-lg text-sm font-semibold shadow-md hover:shadow-lg pulsate-cta">
-                        Call Bardya: (360) 918-9755
-                    </a>
-                </nav>
-                <div class="md:hidden">
-                    <button id="mobile-menu-button" aria-label="Open mobile menu" aria-expanded="false" class="text-white focus:outline-none p-2 -mr-2">
-                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clip-rule="evenodd"/></svg>
-                        
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden header-bg pb-3">
-            <a href="#about" data-section="about" class="block nav-link px-5 py-3 text-base font-medium">About Bardya</a>
-            <a href="#solutions" data-section="solutions" class="block nav-link px-5 py-3 text-base font-medium">Solutions</a>
-            <a href="tel:+13609189755" class="block cta-button-primary text-center mx-4 mt-3 mb-2 px-5 py-3 rounded-lg font-semibold pulsate-cta">
-                Call Bardya: (360) 918-9755
-            </a>
-        </div>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" id="page-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="Better Call Bardya home">
+          <span class="brand-mark" aria-hidden="true">BCB</span>
+          <span class="brand-copy">
+            <strong>Better Call Bardya</strong>
+            <small>Olympia restaurant growth</small>
+          </span>
+        </a>
+
+        <nav class="desktop-nav" aria-label="Main navigation">
+          <a href="#solutions" data-section="solutions">How I help</a>
+          <a href="#results" data-section="results">Results</a>
+          <a href="#about" data-section="about">About Bardya</a>
+        </nav>
+
+        <a class="header-call" href="tel:+13609189755">
+          <svg aria-hidden="true" viewBox="0 0 24 24">
+            <path d="M7.4 2.5 10 8.3 7.7 10c1.3 2.8 3.5 5 6.3 6.3l1.7-2.3 5.8 2.6-.7 4.1c-.2 1-1.1 1.8-2.2 1.8C9.1 22.5 1.5 14.9 1.5 5.4c0-1.1.8-2 1.8-2.2l4.1-.7Z" />
+          </svg>
+          <span>
+            <small>Call Bardya</small>
+            <strong>(360) 918-9755</strong>
+          </span>
+        </a>
+
+        <button
+          class="menu-button"
+          id="mobile-menu-button"
+          aria-label="Open navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
+        <a href="#solutions" data-section="solutions">How I help</a>
+        <a href="#results" data-section="results">Results</a>
+        <a href="#about" data-section="about">About Bardya</a>
+        <a href="tel:+13609189755">Call (360) 918-9755</a>
+      </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-bg py-16 md:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
-            <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-800 mb-6 leading-tight">
-                Your <span class="accent-text">Olympia Restaurant</span> Growth Partner.
+    <main id="main-content">
+      <section class="hero" id="top">
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+
+        <div class="shell hero-grid">
+          <div class="hero-copy reveal is-visible" id="about">
+            <p class="eyebrow">
+              <span></span> Olympia, Washington · Restaurant technology
+            </p>
+            <h1>
+              Your Olympia restaurant’s
+              <em>growth partner.</em>
             </h1>
-            <div class="w-full max-w-2xl mx-auto my-10">
-                <video playsinline webkit-playsinline controls class="w-full h-auto rounded-xl shadow-lg" poster="data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMjgwJyBoZWlnaHQ9JzcyMCc+CiAgPHJlY3Qgd2lkdGg9JzEyODAnIGhlaWdodD0nNzIwJyBmaWxsPScjMDAwJy8+CiAgPHRleHQgeD0nNTAlJyB5PSc1MCUnIGZpbGw9JyNmZmYnIGZvbnQtc2l6ZT0nNjQnIHRleHQtYW5jaG9yPSdtaWRkbGUnIGRvbWluYW50LWJhc2VsaW5lPSdtaWRkbGUnPlZpZGVvIFByZXZpZXc8L3RleHQ+Cjwvc3ZnPgo=">
-                    <source src="intro.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
+            <p class="hero-lead">
+              Focus on your food and guests. I’ll help streamline the rest.
+            </p>
+            <p class="hero-body">
+              I’m Bardya—your local partner for simplifying systems, saving
+              time, reducing stress, and building healthier margins.
+            </p>
+
+            <div class="hero-actions">
+              <a
+                class="button button-primary"
+                href="https://toast.chilipiper.com/book/me/bardya-banihashemi"
+                data-chili-trigger
+                id="hero-cta"
+              >
+                Book a free strategy session
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+              <a class="text-link" href="tel:+13609189755">
+                Or call me directly
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <div class="trust-row" aria-label="What to expect">
+              <span>Local guidance</span>
+              <span>No-pressure conversation</span>
+              <span>Practical next steps</span>
+            </div>
+          </div>
+
+          <div class="hero-media reveal is-visible">
+            <div class="video-card">
+              <div class="video-topline">
+                <span class="status-dot"></span>
+                <span>A quick hello from Bardya</span>
+                <span>00:54</span>
+              </div>
+              <div class="video-frame">
+                <video
+                  id="intro-video"
+                  playsinline
+                  controls
+                  controlslist="nodownload noremoteplayback"
+                  disablepictureinpicture
+                  preload="metadata"
+                  aria-label="A 54-second introduction from Bardya"
+                >
+                  <source src="intro.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
                 </video>
+                <button class="video-poster" id="video-poster" type="button">
+                  <span class="poster-kicker">Meet your local partner</span>
+                  <span class="poster-title">Better systems.<br />Calmer shifts.</span>
+                  <span class="play-button" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="m9 7 8 5-8 5V7Z" /></svg>
+                  </span>
+                  <span class="poster-action">Play Bardya’s 54-second intro</span>
+                </button>
+              </div>
             </div>
-            <p class="text-xl md:text-2xl text-gray-700 font-medium mb-6 max-w-3xl mx-auto">
-                Focus on your food & guests. I'll help streamline the rest.
+
+            <div class="local-note">
+              <span class="local-note-icon" aria-hidden="true">✦</span>
+              <div>
+                <strong>Local, responsive, and in your corner.</strong>
+                <p>Serving independent restaurants across Olympia and Thurston County.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="proof-band" aria-label="Local restaurant results">
+        <div class="shell proof-grid">
+          <div class="proof-intro">
+            <span class="proof-icon" aria-hidden="true">↗</span>
+            <p>Built around the realities of independent restaurants.</p>
+          </div>
+          <div class="proof-stat">
+            <strong>120<span>+</span></strong>
+            <p>Washington independents</p>
+          </div>
+          <div class="proof-stat">
+            <strong>~5<span> hrs</span></strong>
+            <p>Average weekly admin savings</p>
+          </div>
+          <div class="proof-stat">
+            <strong>1<span>:1</span></strong>
+            <p>Local, hands-on support</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="solutions section" id="solutions">
+        <div class="shell">
+          <div class="section-heading reveal">
+            <div>
+              <p class="eyebrow"><span></span> How I help</p>
+              <h2>Less friction.<br /><em>More room to grow.</em></h2>
+            </div>
+            <p>
+              The right restaurant technology should feel invisible: fewer
+              workarounds, clearer numbers, and more time for hospitality.
             </p>
-            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed" id="about">
-                I'm Bardya, your dedicated <span class="font-semibold text-gray-700">Olympia Restaurant Growth Partner</span>. Whether you're battling outdated systems, manual processes, or just know there's a better way, I'm here. My mission: help you save time, reduce stress, boost margins, and thrive. Let's build a real partnership for your success.
+          </div>
+
+          <div class="outcome-grid">
+            <article class="outcome-card outcome-card-featured reveal">
+              <span class="card-number">01</span>
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 19V9m5 10V5m5 14v-7m5 7V3M3 19h18" />
+                </svg>
+              </div>
+              <h3>Grow revenue with clarity</h3>
+              <p>
+                Find smarter ways to capture demand, improve ordering, and make
+                confident decisions using the numbers you already have.
+              </p>
+              <span class="card-tag">Sales & insights</span>
+            </article>
+
+            <article class="outcome-card reveal">
+              <span class="card-number">02</span>
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1" />
+                  <circle cx="12" cy="12" r="4" />
+                </svg>
+              </div>
+              <h3>Simplify every shift</h3>
+              <p>
+                Replace disconnected tools and repetitive tasks with a setup
+                your team can actually learn, trust, and use.
+              </p>
+              <span class="card-tag">Operations</span>
+            </article>
+
+            <article class="outcome-card reveal">
+              <span class="card-number">03</span>
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M20 12c0 4.4-3.6 8-8 8a8.7 8.7 0 0 1-4-.9L3 20l.9-4A8 8 0 1 1 20 12Z" />
+                  <path d="M8 11h8M8 14h5" />
+                </svg>
+              </div>
+              <h3>Make guests feel known</h3>
+              <p>
+                Remove friction from ordering and payment so your team can
+                focus on the experience that brings people back.
+              </p>
+              <span class="card-tag">Guest experience</span>
+            </article>
+
+            <article class="outcome-card outcome-card-dark reveal">
+              <span class="card-number">04</span>
+              <div class="card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 5h16v14H4zM8 9h8M8 13h3m3 0h2M8 16h8" />
+                </svg>
+              </div>
+              <h3>Protect your margins</h3>
+              <p>
+                Turn clear reporting into practical action—less waste, better
+                labor decisions, and fewer costly surprises.
+              </p>
+              <span class="card-tag">Profitability</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="process section" aria-labelledby="process-title">
+        <div class="shell process-grid">
+          <div class="process-copy reveal">
+            <p class="eyebrow eyebrow-light"><span></span> A simple process</p>
+            <h2 id="process-title">Start with a conversation, not a sales pitch.</h2>
+            <p>
+              We’ll look at what is slowing your restaurant down and decide
+              whether there is a practical path forward—together.
             </p>
-            <a href="https://toast.chilipiper.com/book/me/bardya-banihashemi" data-chili-trigger id="hero-cta" class="cta-button-primary font-semibold px-10 py-3.5 sm:px-12 sm:py-4 rounded-lg text-lg shadow-lg hover:shadow-xl pulsate-cta">
-                Discover Your Restaurant's Potential &rarr;
+            <a
+              class="button button-primary"
+              href="https://toast.chilipiper.com/book/me/bardya-banihashemi"
+              data-chili-trigger
+              id="process-cta"
+            >
+              Let’s talk over coffee
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
             </a>
-        </div>
-    </section>
+          </div>
 
-    <!-- Solutions Section -->
-    <section class="hero-bg py-16 md:py-24 bg-white" id="solutions">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
-                    Solutions to Elevate Your Olympia Restaurant
-                </h2>
-                <p class="text-lg sm:text-xl accent-text font-semibold">
-                    Work Smarter, Not Harder. For Growth, Efficiency, and Happy Guests.
-                </p>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M9.315 7.584C12.195 3.883 16.695 1.5 21.75 1.5a.75.75 0 0 1 .75.75c0 5.056-2.383 9.555-6.084 12.436A6.75 6.75 0 0 1 9.75 22.5a.75.75 0 0 1-.75-.75v-4.131A15.838 15.838 0 0 1 6.382 15H2.25a.75.75 0 0 1-.75-.75 6.75 6.75 0 0 1 7.815-6.666ZM15 6.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" clip-rule="evenodd"/><path d="M5.26 17.242a.75.75 0 1 0-.897-1.203 5.243 5.243 0 0 0-2.05 5.022.75.75 0 0 0 .625.627 5.243 5.243 0 0 0 5.022-2.051.75.75 0 1 0-1.202-.897 3.744 3.744 0 0 1-3.008 1.51c0-1.23.592-2.323 1.51-3.008Z"/></svg>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Boost Your Revenue</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                        Unlock new income streams and optimize pricing with smart, effective strategies.
-                    </p>
-                </div>
-                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M11.078 2.25c-.917 0-1.699.663-1.85 1.567L9.05 4.889c-.02.12-.115.26-.297.348a7.493 7.493 0 0 0-.986.57c-.166.115-.334.126-.45.083L6.3 5.508a1.875 1.875 0 0 0-2.282.819l-.922 1.597a1.875 1.875 0 0 0 .432 2.385l.84.692c.095.078.17.229.154.43a7.598 7.598 0 0 0 0 1.139c.015.2-.059.352-.153.43l-.841.692a1.875 1.875 0 0 0-.432 2.385l.922 1.597a1.875 1.875 0 0 0 2.282.818l1.019-.382c.115-.043.283-.031.45.082.312.214.641.405.985.57.182.088.277.228.297.35l.178 1.071c.151.904.933 1.567 1.85 1.567h1.844c.916 0 1.699-.663 1.85-1.567l.178-1.072c.02-.12.114-.26.297-.349.344-.165.673-.356.985-.57.167-.114.335-.125.45-.082l1.02.382a1.875 1.875 0 0 0 2.28-.819l.923-1.597a1.875 1.875 0 0 0-.432-2.385l-.84-.692c-.095-.078-.17-.229-.154-.43a7.614 7.614 0 0 0 0-1.139c-.016-.2.059-.352.153-.43l.84-.692c.708-.582.891-1.59.433-2.385l-.922-1.597a1.875 1.875 0 0 0-2.282-.818l-1.02.382c-.114.043-.282.031-.449-.083a7.49 7.49 0 0 0-.985-.57c-.183-.087-.277-.227-.297-.348l-.179-1.072a1.875 1.875 0 0 0-1.85-1.567h-1.843ZM12 15.75a3.75 3.75 0 1 0 0-7.5 3.75 3.75 0 0 0 0 7.5Z" clip-rule="evenodd"/></svg>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Simplify Your Day</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                        Replace tedious tasks and clunky systems with streamlined, easy-to-use solutions.
-                    </p>
-                </div>
-                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/></svg>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Delight Your Guests</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                       Enhance every touchpoint, from ordering to payment, creating memorable experiences.
-                    </p>
-                </div>
-                <div class="feature-card p-6 md:p-8 rounded-xl shadow-lg text-center animate-on-scroll">
-                    <svg class="h-8 w-8 feature-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M2.25 2.25a.75.75 0 0 0 0 1.5H3v10.5a3 3 0 0 0 3 3h1.21l-1.172 3.513a.75.75 0 0 0 1.424.474l.329-.987h8.418l.33.987a.75.75 0 0 0 1.422-.474l-1.17-3.513H18a3 3 0 0 0 3-3V3.75h.75a.75.75 0 0 0 0-1.5H2.25Zm6.54 15h6.42l.5 1.5H8.29l.5-1.5Zm8.085-8.995a.75.75 0 1 0-.75-1.299 12.81 12.81 0 0 0-3.558 3.05L11.03 8.47a.75.75 0 0 0-1.06 0l-3.3 3.3a.75.75 0 1 0 1.06 1.06l2.47-2.47 1.617 1.618a.75.75 0 0 0 1.146-.102 11.312 11.312 0 0 1 3.612-3.321Z" clip-rule="evenodd"/></svg>
-                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Increase Profitability</h3>
-                    <p class="text-gray-600 leading-relaxed text-sm md:text-base">
-                        Gain clear insights into your numbers, reduce waste, and make smarter financial decisions.
-                    </p>
-                </div>
-            </div>
+          <ol class="process-steps">
+            <li class="reveal">
+              <span>01</span>
+              <div>
+                <h3>Understand the friction</h3>
+                <p>What costs time, creates stress, or keeps you from seeing the full picture?</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span>02</span>
+              <div>
+                <h3>Map the opportunity</h3>
+                <p>We identify the few changes most likely to improve your day-to-day operation.</p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span>03</span>
+              <div>
+                <h3>Build it around your team</h3>
+                <p>Your solution should fit the restaurant—not force the restaurant to fit the technology.</p>
+              </div>
+            </li>
+          </ol>
         </div>
-    </section>
+      </section>
 
-    <!-- Trusted by Independents Section -->
-    <section class="hero-bg py-16 md:py-24">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 animate-on-scroll">
-            <div class="text-center mb-12 md:mb-16">
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
-                    Trusted by Local Independents Like You
-                </h2>
-                <p class="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto leading-relaxed">
-                    Join 120+ WA independents already saving ~5hrs/week on admin & seeing real results. Let's add your success story!
-                </p>
+      <section class="results section" id="results">
+        <div class="shell">
+          <div class="section-heading section-heading-centered reveal">
+            <div>
+              <p class="eyebrow"><span></span> Local proof</p>
+              <h2>Support that feels<br /><em>close to home.</em></h2>
             </div>
-            <div class="relative max-w-xl lg:max-w-2xl mx-auto overflow-visible">
-                <div id="testimonial-slider" class="overflow-hidden rounded-xl shadow-2xl">
-                    <div id="testimonial-track" class="flex transition-transform duration-500 ease-in-out">
-                        <div class="testimonial-slide min-w-full p-8 sm:p-10 md:p-12">
-                            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 italic mb-5 sm:mb-6 leading-relaxed">
-                                "At near Capitol Lake, efficiency is key. Bardya showed us how his solutions could save us hours and simplify our day-to-day operations. Truly invaluable."
-                            </p>
-                            <p class="text-md sm:text-lg text-gray-600 font-semibold text-right">- R. Lakeside Restaurant, Olympia</p>
-                        </div>
-                        <div class="testimonial-slide min-w-full p-8 sm:p-10 md:p-12">
-                            <p class="text-lg sm:text-xl md:text-2xl text-gray-700 italic mb-5 sm:mb-6 leading-relaxed">
-                                "Bardya is always there for us. The support is unmatched and has been a game changer for our Olympia eatery. We feel understood and supported."
-                            </p>
-                            <p class="text-md sm:text-lg text-gray-600 font-semibold text-right">- Chet. D, Olympia Eatery</p>
-                        </div>
-                    </div>
-                </div>
-                <button id="prev-testimonial" aria-label="Previous testimonial" class="testimonial-nav-button absolute top-1/2 left-2 sm:-left-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
-                    <svg class="h-5 w-5 accent-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M7.72 12.53a.75.75 0 0 1 0-1.06l7.5-7.5a.75.75 0 1 1 1.06 1.06L9.31 12l6.97 6.97a.75.75 0 1 1-1.06 1.06l-7.5-7.5Z" clip-rule="evenodd"/></svg>
-                </button>
-                <button id="next-testimonial" aria-label="Next testimonial" class="testimonial-nav-button absolute top-1/2 right-2 sm:-right-5 transform -translate-y-1/2 p-2.5 sm:p-3 rounded-full shadow-md focus:outline-none">
-                    <svg class="h-5 w-5 accent-text" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z" clip-rule="evenodd"/></svg>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="hero-bg dark-section-bg text-on-dark py-20 md:py-28" id="cta">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center animate-on-scroll">
-            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8">Ready to Elevate Your Restaurant?</h2>
-            <p class="text-lg sm:text-xl text-on-dark-muted mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-                Let's have a friendly chat about your specific challenges and goals. No pressure, just practical solutions. Coffee's on me (from a local Olympia spot!).
+            <p>
+              Independent operators deserve a partner who understands the
+              pace, pressure, and personality of their business.
             </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-5">
-                <a href="https://toast.chilipiper.com/book/me/bardya-banihashemi" data-chili-trigger id="cta-section-cta" class="cta-button-primary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg shadow-lg hover:shadow-xl w-full sm:w-auto pulsate-cta">
-                    Book Your Free Strategy Session
-                </a>
-                <a href="sms:+13609189755?&body=MENU%20CHECKLIST%20PLEASE" class="cta-button-secondary font-semibold px-8 py-3.5 sm:px-10 sm:py-4 rounded-lg text-lg border-2 shadow-sm hover:shadow-md w-full sm:w-auto flex items-center justify-center">
-                    <svg class="h-5 w-5 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill-rule="evenodd" d="M5.625 1.5c-1.036 0-1.875.84-1.875 1.875v17.25c0 1.035.84 1.875 1.875 1.875h12.75c1.035 0 1.875-.84 1.875-1.875V12.75A3.75 3.75 0 0 0 16.5 9h-1.875a1.875 1.875 0 0 1-1.875-1.875V5.25A3.75 3.75 0 0 0 9 1.5H5.625ZM7.5 15a.75.75 0 0 1 .75-.75h7.5a.75.75 0 0 1 0 1.5h-7.5A.75.75 0 0 1 7.5 15Zm.75 2.25a.75.75 0 0 0 0 1.5H12a.75.75 0 0 0 0-1.5H8.25Z" clip-rule="evenodd"/><path d="M12.971 1.816A5.23 5.23 0 0 1 14.25 5.25v1.875c0 .207.168.375.375.375H16.5a5.23 5.23 0 0 1 3.434 1.279 9.768 9.768 0 0 0-6.963-6.963Z"/></svg> Get My Free Profit Checklist
-                </a>
-            </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Footer -->
-    <footer class="footer-bg text-on-dark py-12 md:py-16">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-lg sm:text-xl font-medium mb-3 sm:mb-4">
-                Bardya Banihashemi - Your <span class="font-semibold">Olympia Restaurant Growth Partner</span>.
-            </p>
-            <p class="text-on-dark-muted mb-6 sm:mb-8 max-w-xl mx-auto text-sm sm:text-base">
-                Passionate about strengthening Olympia's vibrant restaurant community, one success story at a time.
-            </p>
-            <div class="footer-cta-container mb-6 sm:mb-8">
-                   <a href="https://toast.chilipiper.com/book/me/bardya-banihashemi" data-chili-trigger id="footer-sticky-cta" class="cta-button-primary font-semibold px-6 py-3 sm:px-8 sm:py-3.5 rounded-lg shadow-md hover:shadow-lg pulsate-cta inline-flex items-center opacity-0 transform translate-y-full">
-                       <!-- Content will be changed by JS -->
-                   </a>
-            </div>
-            <p class="text-sm text-on-dark-muted opacity-75">&copy; <span id="currentYear"></span> Bardya Banihashemi. All rights reserved.</p>
-            <p class="text-xs text-on-dark-muted opacity-50 mt-1">(Promotional page for local consulting services)</p>
+          <div class="testimonial-grid">
+            <blockquote class="testimonial-card reveal">
+              <div class="quote-mark" aria-hidden="true">“</div>
+              <p>
+                Near Capitol Lake, efficiency is key. Bardya showed us how his
+                solutions could save hours and simplify our day-to-day
+                operations. Truly invaluable.
+              </p>
+              <footer>
+                <span class="avatar" aria-hidden="true">RL</span>
+                <div>
+                  <cite>R. · Lakeside Restaurant</cite>
+                  <small>Olympia, Washington</small>
+                </div>
+              </footer>
+            </blockquote>
+
+            <blockquote class="testimonial-card testimonial-card-accent reveal">
+              <div class="quote-mark" aria-hidden="true">“</div>
+              <p>
+                Bardya is always there for us. The support is unmatched and has
+                been a game changer for our Olympia eatery. We feel understood
+                and supported.
+              </p>
+              <footer>
+                <span class="avatar" aria-hidden="true">CD</span>
+                <div>
+                  <cite>Chet D. · Olympia Eatery</cite>
+                  <small>Olympia, Washington</small>
+                </div>
+              </footer>
+            </blockquote>
+          </div>
         </div>
+      </section>
+
+      <section class="final-cta" id="cta">
+        <div class="shell final-cta-card reveal">
+          <div>
+            <p class="eyebrow eyebrow-light"><span></span> Your next step</p>
+            <h2>Ready for a calmer, more profitable restaurant?</h2>
+            <p>
+              Let’s talk through your specific challenges over coffee. No
+              pressure—just practical ideas from someone local.
+            </p>
+          </div>
+          <div class="final-actions">
+            <a
+              class="button button-primary button-large"
+              href="https://toast.chilipiper.com/book/me/bardya-banihashemi"
+              data-chili-trigger
+              id="cta-section-cta"
+            >
+              Book your free strategy session
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+            </a>
+            <a
+              class="button button-secondary"
+              href="sms:+13609189755?&body=MENU%20CHECKLIST%20PLEASE"
+            >
+              Text me for the free checklist
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">BCB</span>
+          <div>
+            <strong>Better Call Bardya</strong>
+            <p>Your Olympia restaurant growth partner.</p>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <p>Serving Olympia and Thurston County</p>
+          <a href="tel:+13609189755">(360) 918-9755</a>
+        </div>
+        <div class="footer-meta">
+          <p>© <span id="currentYear"></span> Bardya Banihashemi</p>
+          <small>Promotional page for local consulting services</small>
+        </div>
+      </div>
     </footer>
+
+    <div class="mobile-cta-bar" id="mobile-cta-bar" hidden>
+      <a
+        href="https://toast.chilipiper.com/book/me/bardya-banihashemi"
+        data-chili-trigger
+        id="mobile-sticky-cta"
+      >
+        <span>
+          <small>Free, no-pressure conversation</small>
+          <strong>Book a strategy session</strong>
+        </span>
+        <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+      </a>
+    </div>
+
     <script src="assets/main.js"></script>
-
-
-</body>
+  </body>
 </html>
